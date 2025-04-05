@@ -5,8 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mood-to-Task Matcher</title>
     <style>
-        body { text-align: center; padding: 50px; }
-        #result { margin-top: 20px; padding: 10px; background: white; }
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #333;
+            font-size: 2em;
+        }
+        select, button {
+            padding: 10px;
+            font-size: 1em;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+            text-align: center;
+            max-width: 80%;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        #ad {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
     </style>
 </head>
 <body>
@@ -14,19 +57,130 @@
     <select id="mood">
         <option value="">Select your mood...</option>
         <option value="tired">Tired</option>
+        <option value="stressed">Stressed</option>
+        <option value="bored">Bored</option>
+        <option value="excited">Excited</option>
+        <option value="sad">Sad</option>
+        <option value="angry">Angry</option>
+        <option value="happy">Happy</option>
+        <option value="confused">Confused</option>
     </select>
     <button onclick="matchTask()">Match Me</button>
     <div id="result"></div>
+    <div id="ad">Feeling off? Try <a href="https://example.com" target="_blank">this cool product</a>!</div>
 
     <script>
+        const tasks = {
+            tired: [
+                "Take a 5-minute power nap.",
+                "Sip a glass of cold water slowly.",
+                "Stretch your legs for 2 minutes.",
+                "Close your eyes and imagine a beach.",
+                "Eat a quick energy snack like a banana.",
+                "Listen to a calming song.",
+                "Step outside for a breath of fresh air.",
+                "Do a quick shoulder roll 10 times.",
+                "Set a timer for a 3-minute rest.",
+                "Look at something green for 30 seconds."
+            ],
+            stressed: [
+                "Do 5 deep breaths slowly.",
+                "Squeeze a stress ball 10 times.",
+                "Write down one worry and crumple it up.",
+                "Count backward from 20 slowly.",
+                "Tense and relax your hands 5 times.",
+                "Hum a tune for 30 seconds.",
+                "Look out a window for a minute.",
+                "Sip warm tea or water.",
+                "Shake out your arms like a wet dog.",
+                "Say 'I’ve got this' out loud."
+            ],
+            bored: [
+                "Doodle something silly for 2 minutes.",
+                "Make a paper airplane and fly it.",
+                "Find 5 random objects and stack them.",
+                "Invent a 3-word story.",
+                "Spin around 3 times and laugh.",
+                "Look up a weird fact online.",
+                "Rearrange something small nearby.",
+                "Pretend you’re a robot for 30 seconds.",
+                "Draw a quick stick figure battle.",
+                "Sing a jingle from a commercial."
+            ],
+            excited: [
+                "Write down one wild idea you have now.",
+                "Do a quick victory dance.",
+                "Tell someone about your excitement.",
+                "Jump up and down 5 times.",
+                "High-five yourself in a mirror.",
+                "Plan one tiny step for your idea.",
+                "Shout 'Yes!' as loud as you dare.",
+                "Draw a star and color it in.",
+                "Imagine your success in 10 seconds.",
+                "Snap your fingers 10 times fast."
+            ],
+            sad: [
+                "Listen to your favorite song for 3 minutes.",
+                "Hug a pillow or yourself tight.",
+                "Look at a photo that makes you smile.",
+                "Sip something warm and cozy.",
+                "Write one thing you’re grateful for.",
+                "Watch a cute animal video.",
+                "Take 5 slow, gentle breaths.",
+                "Wrap up in a blanket for a minute.",
+                "Say 'This will pass' softly.",
+                "Draw a tiny heart somewhere."
+            ],
+            angry: [
+                "Punch a pillow 5 times to let it out.",
+                "Scribble hard on paper then toss it.",
+                "Take 10 quick, sharp breaths.",
+                "Squeeze your fists then release.",
+                "Stomp your feet 5 times.",
+                "Growl like a bear for 5 seconds.",
+                "Rip up an old piece of paper.",
+                "Count to 10 in your head slowly.",
+                "Shake your whole body for 10 seconds.",
+                "Say 'I’m letting this go' out loud."
+            ],
+            happy: [
+                "Share a quick smile with someone nearby.",
+                "Do a little happy wiggle dance.",
+                "Write down why you’re happy now.",
+                "Hum a cheerful tune for 30 seconds.",
+                "Give yourself a pat on the back.",
+                "Look around and name 3 pretty things.",
+                "Snap your fingers to a beat.",
+                "Say 'Life’s good!' out loud.",
+                "Draw a quick smiley face.",
+                "Stretch your arms up high."
+            ],
+            confused: [
+                "Flip a coin to decide something small.",
+                "Write your question and underline it.",
+                "Count to 5 and pick the first idea.",
+                "Shake your head and say 'Clarity!'",
+                "Draw a question mark and laugh.",
+                "Ask someone nearby a random question.",
+                "Close your eyes and pick blindly.",
+                "Take 3 slow breaths to reset.",
+                "Look up and say 'I’ll figure it out.'",
+                "Tap your forehead 5 times."
+            ]
+        };
+
         function matchTask() {
             const mood = document.getElementById("mood").value;
             const result = document.getElementById("result");
-            if (mood === "tired") {
-                result.innerHTML = "Take a 5-minute nap.";
-            } else {
-                result.innerHTML = "Pick a mood!";
+
+            if (!mood) {
+                result.innerHTML = "Please select a mood first!";
+                return;
             }
+
+            const taskList = tasks[mood];
+            const randomTask = taskList[Math.floor(Math.random() * taskList.length)];
+            result.innerHTML = randomTask;
         }
     </script>
 </body>
