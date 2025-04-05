@@ -117,10 +117,10 @@
         #share:hover {
             background-color: #1a91da;
         }
-        #challenge {
+        #challenge, #points {
             margin-top: 10px;
             font-size: 0.9em;
-            color: #fff;
+            color: #333; /* Changed to dark gray for readability */
             text-align: center;
         }
         @keyframes fadeIn {
@@ -157,7 +157,8 @@
     <div id="result"></div>
     <div id="ad">Need a mood boost? Try <a href="https://your-affiliate-link.com" target="_blank">this product</a>!</div>
     <a href="" id="share" target="_blank">Share on Twitter</a>
-    <div id="challenge">Days of Mood Challenges: <span id="challengeCount">0</span></div>
+    <div id="challenge">Daily Mood Challenge: <span id="challengeTask"></span></div>
+    <div id="points">Mood Master Points: <span id="pointCount">0</span> (<span id="title">Mood Novice</span>)</div>
 
     <script>
         const tasks = {
@@ -182,6 +183,28 @@
             "Perfect move!"
         ];
 
+        // Initialize on page load
+        window.onload = function() {
+            // Daily Challenge
+            const lastVisit = localStorage.getItem("lastVisit");
+            const today = new Date().toDateString();
+            let challengeTask = localStorage.getItem("challengeTask");
+            if (!lastVisit || lastVisit !== today) {
+                const randomMood = Object.keys(tasks)[Math.floor(Math.random() * Object.keys(tasks).length)];
+                const randomTask = tasks[randomMood][Math.floor(Math.random() * tasks[randomMood].length)];
+                challengeTask = `Today’s Challenge (${randomMood}): ${randomTask}`;
+                localStorage.setItem("challengeTask", challengeTask);
+                localStorage.setItem("lastVisit", today);
+            }
+            document.getElementById("challengeTask").textContent = challengeTask;
+
+            // Gamification - Points and Title
+            let points = parseInt(localStorage.getItem("points") || 0);
+            const triedMoods = new Set(JSON.parse(localStorage.getItem("triedMoods") || "[]"));
+            document.getElementById("pointCount").textContent = points;
+            updateTitle(points);
+        };
+
         function matchTask() {
             const mood = document.getElementById("mood").value;
             const result = document.getElementById("result");
@@ -203,18 +226,24 @@
             // Update share link with dynamic task
             shareLink.href = `https://twitter.com/intent/tweet?text=I just got this mood fix from Mood-to-Task Matcher: ${encodeURIComponent(randomMessage + " " + randomTask)} - https://www.moodtask.org/`;
 
-            // Daily challenge counter
-            let challengeCount = localStorage.getItem("challengeCount") || 0;
-            challengeCount = parseInt(challengeCount) + 1;
-            localStorage.setItem("challengeCount", challengeCount);
-            document.getElementById("challengeCount").textContent = challengeCount;
+            // Gamification - Add points for new mood
+            const triedMoods = new Set(JSON.parse(localStorage.getItem("triedMoods") || "[]"));
+            if (!triedMoods.has(mood)) {
+                triedMoods.add(mood);
+                let points = parseInt(localStorage.getItem("points") || 0) + 10;
+                localStorage.setItem("points", points);
+                localStorage.setItem("triedMoods", JSON.stringify([...triedMoods]));
+                document.getElementById("pointCount").textContent = points;
+                updateTitle(points);
+            }
         }
 
-        // Initialize challenge count on load
-        window.onload = function() {
-            let challengeCount = localStorage.getItem("challengeCount") || 0;
-            document.getElementById("challengeCount").textContent = challengeCount;
-        };
+        function updateTitle(points) {
+            let title = "Mood Novice";
+            if (points >= 100) title = "Mood Master";
+            else if (points >= 50) title = "Mood Explorer";
+            document.getElementById("title").textContent = title;
+        }
     </script>
 </body>
 </html>
