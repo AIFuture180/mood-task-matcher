@@ -5,144 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Boost your mood with the Mood-to-Task Matcher! Get fun, quick tasks tailored to your feelings like tired, stressed, or happy.">
     <meta name="keywords" content="mood matcher, stress relief, productivity tool, mood tasks, mental health">
+    <meta name="robots" content="index, follow">
     <title>Mood-to-Task Matcher | Boost Your Day with Fun Tasks</title>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1511837633001567" crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1511837633001567" crossorigin="anonymous" data-ad-init-load="300"></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            background: linear-gradient(135deg, #a8caba, #f0f4ef); /* Softer gradient */
-            overflow: hidden;
-        }
-        h1 {
-            color: #fff;
-            font-size: 2.5em;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            margin-bottom: 10px;
-            animation: fadeIn 2s ease-in-out;
-        }
-        h2 {
-            color: #fff;
-            font-size: 1.2em;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-            margin-bottom: 20px;
-        }
-        select {
-            padding: 12px;
-            font-size: 1.1em;
-            margin: 10px;
-            border-radius: 8px;
-            border: 2px solid #fff;
-            background-color: #fff;
-            width: 200px;
-            transition: border-color 0.3s;
-        }
-        select:focus {
-            border-color: #4CAF50;
-            outline: none;
-        }
-        option {
-            background-color: #fff;
-            padding: 10px;
-        }
-        option[value="tired"] { background-color: #d3d3d3; }
-        option[value="stressed"] { background-color: #ff9999; }
-        option[value="bored"] { background-color: #b3e5fc; }
-        option[value="excited"] { background-color: #ffeb3b; }
-        option[value="sad"] { background-color: #bbdefb; }
-        option[value="angry"] { background-color: #ff5722; }
-        option[value="happy"] { background-color: #81c784; }
-        option[value="confused"] { background-color: #ce93d8; }
-        button {
-            padding: 12px 25px;
-            font-size: 1.2em;
-            margin: 10px;
-            border-radius: 8px;
-            border: none;
-            background-color: #4CAF50;
-            color: white;
-            cursor: pointer;
-            transition: transform 0.3s, background-color 0.3s;
-        }
-        button:hover {
-            background-color: #45a049;
-            transform: scale(1.1);
-            animation: bounce 0.5s;
-        }
-        #result {
-            margin-top: 20px;
-            font-size: 1.3em;
-            color: #333;
-            text-align: center;
-            max-width: 80%;
-            padding: 15px;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            animation: fadeIn 1s ease-in-out;
-            display: none;
-        }
-        #result.show {
-            display: block;
-        }
-        #ad {
-            margin-top: 20px;
-            font-size: 1em;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-            background-color: rgba(0, 0, 0, 0.2);
-            border-radius: 5px;
-        }
-        #ad a {
-            color: #ffeb3b;
-            text-decoration: underline;
-        }
-        #ad a:hover {
-            color: #fff;
-        }
-        #share {
-            margin-top: 10px;
-            padding: 10px 20px;
-            background-color: #1da1f2;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        #share:hover {
-            background-color: #1a91da;
-        }
-        #challenge, #points {
-            margin-top: 10px;
-            font-size: 0.9em;
-            color: #333; /* Changed to dark gray for readability */
-            text-align: center;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes bounce {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-        @media (max-width: 600px) {
-            h1 { font-size: 2em; }
-            h2 { font-size: 1em; }
-            select, button { width: 80%; }
-            #result { font-size: 1.1em; }
-        }
+        body{font-family:Arial,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;margin:0;background:linear-gradient(135deg,#a8caba,#f0f4ef);overflow:hidden;transition:background 0.5s ease-in-out}h1{color:#fff;font-size:2.5em;text-shadow:2px 2px 4px rgba(0,0,0,.3);margin-bottom:10px;animation:fadeIn 2s ease-in-out}h2{color:#fff;font-size:1.2em;text-shadow:1px 1px 3px rgba(0,0,0,.3);margin-bottom:20px}select{padding:12px;font-size:1.1em;margin:10px;border-radius:8px;border:2px solid #fff;background-color:#fff;width:200px;transition:border-color .3s}select:focus{border-color:#4CAF50;outline:none}option{background-color:#fff;padding:10px}option[value="tired"]{background-color:#d3d3d3}option[value="stressed"]{background-color:#ff9999}option[value="bored"]{background-color:#b3e5fc}option[value="excited"]{background-color:#ffeb3b}option[value="sad"]{background-color:#bbdefb}option[value="angry"]{background-color:#ff5722}option[value="happy"]{background-color:#81c784}option[value="confused"]{background-color:#ce93d8}button{padding:12px 25px;font-size:1.2em;margin:10px;border-radius:8px;border:none;background-color:#4CAF50;color:white;cursor:pointer;transition:transform .3s,background-color .3s}button:hover{background-color:#45a049;transform:scale(1.1);animation:bounce .5s}#result{margin-top:20px;font-size:1.3em;color:#333;text-align:center;max-width:80%;padding:15px;background-color:rgba(255,255,255,.9);border-radius:10px;box-shadow:0 4px 8px rgba(0,0,0,.2);animation:fadeIn 1s ease-in-out;display:none}#result.show{display:block}#ad,#affiliate,#premium,#donate{margin-top:10px;font-size:1em;color:#fff;text-align:center;padding:10px;background-color:rgba(0,0,0,.2);border-radius:5px}#ad a,#affiliate a,#premium a,#donate a{color:#ffeb3b;text-decoration:underline}#ad a:hover,#affiliate a:hover,#premium a:hover,#donate a:hover{color:#fff}#share{margin-top:10px;padding:10px 20px;background-color:#1da1f2;color:#fff;text-decoration:none;border-radius:5px}#share:hover{background-color:#1a91da}#challenge,#points,#progress{margin-top:10px;font-size:.9em;color:#333;text-align:center}@-webkit-keyframes fadeIn{from{opacity:0}to{opacity:1}}@-webkit-keyframes bounce{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}@media(max-width:600px){h1{font-size:2em}h2{font-size:1em}select,button{width:80%}#result{font-size:1.1em}}
     </style>
 </head>
 <body>
     <h1>Mood-to-Task Matcher</h1>
     <h2>Transform Your Mood in Seconds!</h2>
-    <select id="mood">
+    <select id="mood" aria-label="Select your current mood">
         <option value="">Select your mood...</option>
         <option value="tired">Tired 😴</option>
         <option value="stressed">Stressed 😣</option>
@@ -153,97 +26,21 @@
         <option value="happy">Happy 😊</option>
         <option value="confused">Confused 🤔</option>
     </select>
-    <button onclick="matchTask()">Get My Mood Fix!</button>
+    <button onclick="matchTask()" aria-label="Get a mood-based task">Get My Mood Fix!</button>
     <div id="result"></div>
     <div id="ad">Need a mood boost? Try <a href="https://your-affiliate-link.com" target="_blank">this product</a>!</div>
-    <a href="" id="share" target="_blank">Share on Twitter</a>
+    <div id="affiliate">Love mindfulness? Check out <a href="https://your-affiliate-link.com/mindfulness-app" target="_blank">this app</a> (affiliate link)!</div>
+    <div id="premium">Want more? <a href="https://your-premium-page.com" target="_blank">Unlock Premium Tasks!</a></div>
+    <div id="donate">
+        <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="moodtask" data-description="Love this tool? Support us by buying a coffee!" data-message="" data-color="#FFDD00" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+    </div>
+    <a href="" id="share" target="_blank" aria-label="Share on Twitter">Share on Twitter</a>
     <div id="challenge">Daily Mood Challenge: <span id="challengeTask"></span></div>
     <div id="points">Mood Master Points: <span id="pointCount">0</span> (<span id="title">Mood Novice</span>)</div>
+    <div id="progress">Progress: <span id="progressCount">0/8</span> moods tried</div>
 
     <script>
-        const tasks = {
-            tired: ["Take a 5-minute power nap.", "Sip a glass of cold water slowly.", "Stretch your legs for 2 minutes.", "Close your eyes and imagine a beach.", "Eat a quick energy snack like a banana.", "Listen to a calming song.", "Step outside for a breath of fresh air.", "Do a quick shoulder roll 10 times.", "Set a timer for a 3-minute rest.", "Look at something green for 30 seconds."],
-            stressed: ["Do 5 deep breaths slowly.", "Squeeze a stress ball 10 times.", "Write down one worry and crumple it up.", "Count backward from 20 slowly.", "Tense and relax your hands 5 times.", "Hum a tune for 30 seconds.", "Look out a window for a minute.", "Sip warm tea or water.", "Shake out your arms like a wet dog.", "Say 'I’ve got this' out loud."],
-            bored: ["Doodle something silly for 2 minutes.", "Make a paper airplane and fly it.", "Find 5 random objects and stack them.", "Invent a 3-word story.", "Spin around 3 times and laugh.", "Look up a weird fact online.", "Rearrange something small nearby.", "Pretend you’re a robot for 30 seconds.", "Draw a quick stick figure battle.", "Sing a jingle from a commercial."],
-            excited: ["Write down one wild idea you have now.", "Do a quick victory dance.", "Tell someone about your excitement.", "Jump up and down 5 times.", "High-five yourself in a mirror.", "Plan one tiny step for your idea.", "Shout 'Yes!' as loud as you dare.", "Draw a star and color it in.", "Imagine your success in 10 seconds.", "Snap your fingers 10 times fast."],
-            sad: ["Listen to your favorite song for 3 minutes.", "Hug a pillow or yourself tight.", "Look at a photo that makes you smile.", "Sip something warm and cozy.", "Write one thing you’re grateful for.", "Watch a cute animal video.", "Take 5 slow, gentle breaths.", "Wrap up in a blanket for a minute.", "Say 'This will pass' softly.", "Draw a tiny heart somewhere."],
-            angry: ["Punch a pillow 5 times to let it out.", "Scribble hard on paper then toss it.", "Take 10 quick, sharp breaths.", "Squeeze your fists then release.", "Stomp your feet 5 times.", "Growl like a bear for 5 seconds.", "Rip up an old piece of paper.", "Count to 10 in your head slowly.", "Shake your whole body for 10 seconds.", "Say 'I’m letting this go' out loud."],
-            happy: ["Share a quick smile with someone nearby.", "Do a little happy wiggle dance.", "Write down why you’re happy now.", "Hum a cheerful tune for 30 seconds.", "Give yourself a pat on the back.", "Look around and name 3 pretty things.", "Snap your fingers to a beat.", "Say 'Life’s good!' out loud.", "Draw a quick smiley face.", "Stretch your arms up high."],
-            confused: ["Flip a coin to decide something small.", "Write your question and underline it.", "Count to 5 and pick the first idea.", "Shake your head and say 'Clarity!'", "Draw a question mark and laugh.", "Ask someone nearby a random question.", "Close your eyes and pick blindly.", "Take 3 slow breaths to reset.", "Look up and say 'I’ll figure it out.'", "Tap your forehead 5 times."]
-        };
-
-        const messages = [
-            "Great choice!",
-            "You’re on fire!",
-            "Awesome pick!",
-            "Feeling the vibe!",
-            "You got this!",
-            "Super decision!",
-            "Rock on!",
-            "Perfect move!"
-        ];
-
-        // Initialize on page load
-        window.onload = function() {
-            // Daily Challenge
-            const lastVisit = localStorage.getItem("lastVisit");
-            const today = new Date().toDateString();
-            let challengeTask = localStorage.getItem("challengeTask");
-            if (!lastVisit || lastVisit !== today) {
-                const randomMood = Object.keys(tasks)[Math.floor(Math.random() * Object.keys(tasks).length)];
-                const randomTask = tasks[randomMood][Math.floor(Math.random() * tasks[randomMood].length)];
-                challengeTask = `Today’s Challenge (${randomMood}): ${randomTask}`;
-                localStorage.setItem("challengeTask", challengeTask);
-                localStorage.setItem("lastVisit", today);
-            }
-            document.getElementById("challengeTask").textContent = challengeTask;
-
-            // Gamification - Points and Title
-            let points = parseInt(localStorage.getItem("points") || 0);
-            const triedMoods = new Set(JSON.parse(localStorage.getItem("triedMoods") || "[]"));
-            document.getElementById("pointCount").textContent = points;
-            updateTitle(points);
-        };
-
-        function matchTask() {
-            const mood = document.getElementById("mood").value;
-            const result = document.getElementById("result");
-            const shareLink = document.getElementById("share");
-
-            if (!mood) {
-                result.innerHTML = "Please select a mood first!";
-                result.classList.remove("show");
-                shareLink.href = "";
-                return;
-            }
-
-            const taskList = tasks[mood];
-            const randomTask = taskList[Math.floor(Math.random() * taskList.length)];
-            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-            result.innerHTML = `${randomMessage} <br> ${randomTask}`;
-            result.classList.add("show");
-
-            // Update share link with dynamic task
-            shareLink.href = `https://twitter.com/intent/tweet?text=I just got this mood fix from Mood-to-Task Matcher: ${encodeURIComponent(randomMessage + " " + randomTask)} - https://www.moodtask.org/`;
-
-            // Gamification - Add points for new mood
-            const triedMoods = new Set(JSON.parse(localStorage.getItem("triedMoods") || "[]"));
-            if (!triedMoods.has(mood)) {
-                triedMoods.add(mood);
-                let points = parseInt(localStorage.getItem("points") || 0) + 10;
-                localStorage.setItem("points", points);
-                localStorage.setItem("triedMoods", JSON.stringify([...triedMoods]));
-                document.getElementById("pointCount").textContent = points;
-                updateTitle(points);
-            }
-        }
-
-        function updateTitle(points) {
-            let title = "Mood Novice";
-            if (points >= 100) title = "Mood Master";
-            else if (points >= 50) title = "Mood Explorer";
-            document.getElementById("title").textContent = title;
-        }
+        const tasks={tired:["Take a 5-minute power nap.","Sip a glass of cold water slowly.","Stretch your legs for 2 minutes.","Close your eyes and imagine a beach.","Eat a quick energy snack like a banana.","Listen to a calming song.","Step outside for a breath of fresh air.","Do a quick shoulder roll 10 times.","Set a timer for a 3-minute rest.","Look at something green for 30 seconds."],stressed:["Do 5 deep breaths slowly.","Squeeze a stress ball 10 times.","Write down one worry and crumple it up.","Count backward from 20 slowly.","Tense and relax your hands 5 times.","Hum a tune for 30 seconds.","Look out a window for a minute.","Sip warm tea or water.","Shake out your arms like a wet dog.","Say 'I’ve got this' out loud."],bored:["Doodle something silly for 2 minutes.","Make a paper airplane and fly it.","Find 5 random objects and stack them.","Invent a 3-word story.","Spin around 3 times and laugh.","Look up a weird fact online.","Rearrange something small nearby.","Pretend you’re a robot for 30 seconds.","Draw a quick stick figure battle.","Sing a jingle from a commercial."],excited:["Write down one wild idea you have now.","Do a quick victory dance.","Tell someone about your excitement.","Jump up and down 5 times.","High-five yourself in a mirror.","Plan one tiny step for your idea.","Shout 'Yes!' as loud as you dare.","Draw a star and color it in.","Imagine your success in 10 seconds.","Snap your fingers 10 times fast."],sad:["Listen to your favorite song for 3 minutes.","Hug a pillow or yourself tight.","Look at a photo that makes you smile.","Sip something warm and cozy.","Write one thing you’re grateful for.","Watch a cute animal video.","Take 5 slow, gentle breaths.","Wrap up in a blanket for a minute.","Say 'This will pass' softly.","Draw a tiny heart somewhere."],angry:["Punch a pillow 5 times to let it out.","Scribble hard on paper then toss it.","Take 10 quick, sharp breaths.","Squeeze your fists then release.","Stomp your feet 5 times.","Growl like a bear for 5 seconds.","Rip up an old piece of paper.","Count to 10 in your head slowly.","Shake your whole body for 10 seconds.","Say 'I’m letting this go' out loud."],happy:["Share a quick smile with someone nearby.","Do a little happy wiggle dance.","Write down why you’re happy now.","Hum a cheerful tune for 30 seconds.","Give yourself a pat on the back.","Look around and name 3 pretty things.","Snap your fingers to a beat.","Say 'Life’s good!' out loud.","Draw a quick smiley face.","Stretch your arms up high."],confused:["Flip a coin to decide something small.","Write your question and underline it.","Count to 5 and pick the first idea.","Shake your head and say 'Clarity!'","Draw a question mark and laugh.","Ask someone nearby a random question.","Close your eyes and pick blindly.","Take 3 slow breaths to reset.","Look up and say 'I’ll figure it out.'","Tap your forehead 5 times."]},messages=["Great choice!","You’re on fire!","Awesome pick!","Feeling the vibe!","You got this!","Super decision!","Rock on!","Perfect move!"],moodColors={tired:"#d3d3d3",stressed:"#ff9999",bored:"#b3e5fc",excited:"#ffeb3b",sad:"#bbdefb",angry:"#ff5722",happy:"#81c784",confused:"#ce93d8"};window.onload=function(){const e=localStorage.getItem("lastVisit"),t=new Date().toDateString(),n=localStorage.getItem("challengeTask");if(!e||e!==t){const e=Object.keys(tasks)[Math.floor(Math.random()*Object.keys(tasks).length)],s=tasks[e][Math.floor(Math.random()*tasks[e].length)];n=`Today’s Challenge (${e}): ${s}`,localStorage.setItem("challengeTask",n),localStorage.setItem("lastVisit",t)}document.getElementById("challengeTask").textContent=n;let a=parseInt(localStorage.getItem("points")||0),o=new Set(JSON.parse(localStorage.getItem("triedMoods")||"[]"));document.getElementById("pointCount").textContent=a,updateTitle(a),document.getElementById("progressCount").textContent=`${o.size}/8`};function matchTask(){const e=document.getElementById("mood").value,t=document.getElementById("result"),n=document.getElementById("share");if(!e)return t.innerHTML="Please select a mood first!",t.classList.remove("show"),void(n.href="");const a=tasks[e],o=a[Math.floor(Math.random()*a.length)],i=messages[Math.floor(Math.random()*messages.length)];t.innerHTML=`${i} <br> ${o}`,t.classList.add("show"),n.href=`https://twitter.com/intent/tweet?text=I just got this mood fix from Mood-to-Task Matcher: ${encodeURIComponent(i+" "+o)} - https://www.moodtask.org/`,document.body.style.background=moodColors[e];const s=new Set(JSON.parse(localStorage.getItem("triedMoods")||"[]"));if(!s.has(e)){s.add(e);let t=parseInt(localStorage.getItem("points")||0)+10;localStorage.setItem("points",t),localStorage.setItem("triedMoods",JSON.stringify([...s])),document.getElementById("pointCount").textContent=t,updateTitle(t),document.getElementById("progressCount").textContent=`${o.size}/8`}}function updateTitle(e){let t="Mood Novice";e>=100?t="Mood Master":e>=50&&(t="Mood Explorer"),document.getElementById("title").textContent=t}
     </script>
 </body>
 </html>
