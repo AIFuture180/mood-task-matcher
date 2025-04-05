@@ -60,36 +60,43 @@
         <option value="stressed">Stressed</option>
         <option value="bored">Bored</option>
         <option value="excited">Excited</option>
+        <option value="sad">Sad</option>
+        <option value="angry">Angry</option>
+        <option value="happy">Happy</option>
+        <option value="confused">Confused</option>
     </select>
     <button onclick="matchTask()">Match Me</button>
     <div id="result"></div>
     <div id="ad">Feeling off? Try <a href="https://example.com" target="_blank">this cool product</a>!</div>
 
     <script>
-        function matchTask() {
-            const mood = document.getElementById("mood").value;
-            const result = document.getElementById("result");
-            let task = "";
-
-            switch (mood) {
-                case "tired":
-                    task = "Take a 5-minute power nap.";
-                    break;
-                case "stressed":
-                    task = "Do 5 deep breaths slowly.";
-                    break;
-                case "bored":
-                    task = "Doodle something silly for 2 minutes.";
-                    break;
-                case "excited":
-                    task = "Write down one wild idea you have right now.";
-                    break;
-                default:
-                    task = "Please select a mood first!";
-            }
-
-            result.innerHTML = task;
-        }
-    </script>
-</body>
-</html>
+        const tasks = {
+            tired: [
+                "Take a 5-minute power nap.",
+                "Sip a glass of cold water slowly.",
+                "Stretch your legs for 2 minutes.",
+                "Close your eyes and imagine a beach.",
+                "Eat a quick energy snack like a banana.",
+                "Listen to a calming song.",
+                "Step outside for a breath of fresh air.",
+                "Do a quick shoulder roll 10 times.",
+                "Set a timer for a 3-minute rest.",
+                "Look at something green for 30 seconds."
+            ],
+            stressed: [
+                "Do 5 deep breaths slowly.",
+                "Squeeze a stress ball 10 times.",
+                "Write down one worry and crumple it up.",
+                "Count backward from 20 slowly.",
+                "Tense and relax your hands 5 times.",
+                "Hum a tune for 30 seconds.",
+                "Look out a window for a minute.",
+                "Sip warm tea or water.",
+                "Shake out your arms like a wet dog.",
+                "Say 'I’ve got this' out loud."
+            ],
+            bored: [
+                "Doodle something silly for 2 minutes.",
+                "Make a paper airplane and fly it.",
+                "Find 5 random objects and stack them.",
+                "Invent a
