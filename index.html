@@ -9,7 +9,7 @@
     <title>Mood-to-Task Matcher | Boost Your Day with Fun Tasks</title>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1511837633001567" crossorigin="anonymous" data-ad-init-load="300"></script>
     <style>
-        body{font-family:Arial,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;margin:0;background:linear-gradient(135deg,#a8caba,#f0f4ef);overflow:hidden;transition:background 0.5s ease-in-out}h1{color:#fff;font-size:2.5em;text-shadow:2px 2px 4px rgba(0,0,0,.3);margin-bottom:10px;animation:fadeIn 2s ease-in-out}h2{color:#fff;font-size:1.2em;text-shadow:1px 1px 3px rgba(0,0,0,.3);margin-bottom:20px}p#instruction{color:#fff;font-size:1em;margin-bottom:10px}#mood-buttons{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:10px 0}#mood-buttons button{padding:10px;border:none;border-radius:8px;font-size:1em;color:#fff;cursor:pointer;transition:transform .3s}#mood-buttons button:hover{transform:scale(1.1)}#mood-buttons button.tired{background-color:#d3d3d3;color:#333}#mood-buttons button.stressed{background-color:#ff9999}#mood-buttons button.bored{background-color:#b3e5fc;color:#333}#mood-buttons button.excited{background-color:#ffeb3b;color:#333}#mood-buttons button.sad{background-color:#bbdefb;color:#333}#mood-buttons button.angry{background-color:#ff5722}#mood-buttons button.happy{background-color:#81c784}#mood-buttons button.confused{background-color:#ce93d8}#result{margin-top:20px;font-size:1.3em;color:#333;text-align:center;max-width:80%;padding:15px;background-color:rgba(255,255,255,.9);border-radius:10px;box-shadow:0 4px 8px rgba(0,0,0,.2);animation:fadeIn 1s ease-in-out;display:none}#result.show{display:block}#ad,#affiliate,#premium,#donate{margin-top:10px;font-size:1em;color:#fff;text-align:center;padding:10px;background-color:rgba(0,0,0,.2);border-radius:5px}#ad a,#affiliate a,#premium a,#donate a{color:#ffeb3b;text-decoration:underline}#ad a:hover,#affiliate a:hover,#premium a:hover,#donate a:hover{color:#fff}#share{margin-top:10px;padding:10px 20px;background-color:#1da1f2;color:#fff;text-decoration:none;border-radius:5px}#share:hover{background-color:#1a91da}#challenge,#points,#progress{margin-top:10px;font-size:.9em;color:#333;text-align:center}@-webkit-keyframes fadeIn{from{opacity:0}to{opacity:1}}@-webkit-keyframes bounce{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}@media(max-width:600px){h1{font-size:2em}h2{font-size:1em}#mood-buttons{grid-template-columns:repeat(2,1fr)}#result{font-size:1.1em}}
+        body{font-family:Arial,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;margin:0;background:linear-gradient(135deg,#a8caba,#f0f4ef);overflow:hidden;transition:background 0.5s ease-in-out}h1{color:#fff;font-size:2.5em;text-shadow:2px 2px 4px rgba(0,0,0,.3);margin-bottom:10px;animation:fadeIn 2s ease-in-out}h2{color:#fff;font-size:1.2em;text-shadow:1px 1px 3px rgba(0,0,0,.3);margin-bottom:20px}p#instruction{color:#fff;font-size:1em;margin-bottom:10px}#mood-buttons{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:10px 0}#mood-buttons button{padding:10px;border:none;border-radius:8px;font-size:1em;color:#fff;cursor:pointer;transition:transform .3s}#mood-buttons button:hover{transform:scale(1.1)}#mood-buttons button.tired{background-color:#d3d3d3;color:#333}#mood-buttons button.stressed{background-color:#ff9999}#mood-buttons button.bored{background-color:#b3e5fc;color:#333}#mood-buttons button.excited{background-color:#ffeb3b;color:#333}#mood-buttons button.sad{background-color:#bbdefb;color:#333}#mood-buttons button.angry{background-color:#ff5722}#mood-buttons button.happy{background-color:#81c784}#mood-buttons button.confused{background-color:#ce93d8}#result{margin-top:20px;font-size:1.3em;color:#333;text-align:center;max-width:80%;padding:15px;background-color:rgba(255,255,255,.9);border-radius:10px;box-shadow:0 4px 8px rgba(0,0,0,.2);animation:fadeIn 1s ease-in-out;display:none}#result.show{display:block}#ad,#affiliate,#premium,#donate{margin-top:10px;font-size:1em;color:#fff;text-align:center;padding:10px;background-color:rgba(0,0,0,.2);border-radius:5px}#ad a,#affiliate a,#premium a,#donate a{color:#ffeb3b;text-decoration:underline}#ad a:hover,#affiliate a:hover,#premium a:hover,#donate a:hover{color:#fff}#share{margin-top:10px;padding:10px 20px;background-color:#1da1f2;color:#fff;text-decoration:none;border-radius:5px}#share:hover{background-color:#1a91da}#challenge,#points,#progress{margin-top:10px;font-size:.9em;color:#333;text-align:center}@-webkit-keyframes fadeIn{from{opacity:0}to{opacity:1}}@-webkit@keyframes bounce{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}@media(max-width:600px){h1{font-size:2em}h2{font-size:1em}#mood-buttons{grid-template-columns:repeat(2,1fr)}#result{font-size:1.1em}}
     </style>
 </head>
 <body>
@@ -39,7 +39,104 @@
     <div id="progress">Progress: <span id="progressCount">0/8</span> moods tried</div>
 
     <script>
-        const tasks={tired:["Take a 5-minute power nap.","Sip a glass of cold water slowly.","Stretch your legs for 2 minutes.","Close your eyes and imagine a beach.","Eat a quick energy snack like a banana.","Listen to a calming song.","Step outside for a breath of fresh air.","Do a quick shoulder roll 10 times.","Set a timer for a 3-minute rest.","Look at something green for 30 seconds."],stressed:["Do 5 deep breaths slowly.","Squeeze a stress ball 10 times.","Write down one worry and crumple it up.","Count backward from 20 slowly.","Tense and relax your hands 5 times.","Hum a tune for 30 seconds.","Look out a window for a minute.","Sip warm tea or water.","Shake out your arms like a wet dog.","Say 'I’ve got this' out loud."],bored:["Doodle something silly for 2 minutes.","Make a paper airplane and fly it.","Find 5 random objects and stack them.","Invent a 3-word story.","Spin around 3 times and laugh.","Look up a weird fact online.","Rearrange something small nearby.","Pretend you’re a robot for 30 seconds.","Draw a quick stick figure battle.","Sing a jingle from a commercial."],excited:["Write down one wild idea you have now.","Do a quick victory dance.","Tell someone about your excitement.","Jump up and down 5 times.","High-five yourself in a mirror.","Plan one tiny step for your idea.","Shout 'Yes!' as loud as you dare.","Draw a star and color it in.","Imagine your success in 10 seconds.","Snap your fingers 10 times fast."],sad:["Listen to your favorite song for 3 minutes.","Hug a pillow or yourself tight.","Look at a photo that makes you smile.","Sip something warm and cozy.","Write one thing you’re grateful for.","Watch a cute animal video.","Take 5 slow, gentle breaths.","Wrap up in a blanket for a minute.","Say 'This will pass' softly.","Draw a tiny heart somewhere."],angry:["Punch a pillow 5 times to let it out.","Scribble hard on paper then toss it.","Take 10 quick, sharp breaths.","Squeeze your fists then release.","Stomp your feet 5 times.","Growl like a bear for 5 seconds.","Rip up an old piece of paper.","Count to 10 in your head slowly.","Shake your whole body for 10 seconds.","Say 'I’m letting this go' out loud."],happy:["Share a quick smile with someone nearby.","Do a little happy wiggle dance.","Write down why you’re happy now.","Hum a cheerful tune for 30 seconds.","Give yourself a pat on the back.","Look around and name 3 pretty things.","Snap your fingers to a beat.","Say 'Life’s good!' out loud.","Draw a quick smiley face.","Stretch your arms up high."],confused:["Flip a coin to decide something small.","Write your question and underline it.","Count to 5 and pick the first idea.","Shake your head and say 'Clarity!'","Draw a question mark and laugh.","Ask someone nearby a random question.","Close your eyes and pick blindly.","Take 3 slow breaths to reset.","Look up and say 'I’ll figure it out.'","Tap your forehead 5 times."]},messages=["Great choice!","You’re on fire!","Awesome pick!","Feeling the vibe!","You got this!","Super decision!","Rock on!","Perfect move!"],moodColors={tired:"#d3d3d3",stressed:"#ff9999",bored:"#b3e5fc",excited:"#ffeb3b",sad:"#bbdefb",angry:"#ff5722",happy:"#81c784",confused:"#ce93d8"};window.onload=function(){const e=localStorage.getItem("lastVisit"),t=new Date().toDateString(),n=localStorage.getItem("challengeTask");if(!e||e!==t){const e=Object.keys(tasks)[Math.floor(Math.random()*Object.keys(tasks).length)],s=tasks[e][Math.floor(Math.random()*tasks[e].length)];n=`Today’s Challenge (${e}): ${s}`,localStorage.setItem("challengeTask",n),localStorage.setItem("lastVisit",t)}document.getElementById("challengeTask").textContent=n;let a=parseInt(localStorage.getItem("points")||0),o=new Set(JSON.parse(localStorage.getItem("triedMoods")||"[]"));document.getElementById("pointCount").textContent=a,updateTitle(a),document.getElementById("progressCount").textContent=`${o.size}/8`};function matchTask(mood){const t=document.getElementById("result"),n=document.getElementById("share");if(!mood)return t.innerHTML="Please select a mood first!",t.classList.remove("show"),void(n.href="");const a=tasks[mood],o=a[Math.floor(Math.random()*a.length)],i=messages[Math.floor(Math.random()*messages.length)];t.innerHTML=`${i} <br> ${o}`,t.classList.add("show"),n.href=`https://twitter.com/intent/tweet?text=I just got this mood fix from Mood-to-Task Matcher: ${encodeURIComponent(i+" "+o)} - https://www.moodtask.org/`,document.body.style.background=moodColors[mood];const s=new Set(JSON.parse(localStorage.getItem("triedMoods")||"[]"));if(!s.has(mood)){s.add(mood);let t=parseInt(localStorage.getItem("points")||0)+10;localStorage.setItem("points",t),localStorage.setItem("triedMoods",JSON.stringify([...s])),document.getElementById("pointCount").textContent=t,updateTitle(t),document.getElementById("progressCount").textContent=`${o.size}/8`}}function updateTitle(e){let t="Mood Novice";e>=100?t="Mood Master":e>=50&&(t="Mood Explorer"),document.getElementById("title").textContent=t}
+        const tasks={
+            tired:[
+                "Close your eyes for 1 minute and imagine you’re napping on a fluffy cloud with a unicorn pillow!",
+                "Sip a glass of cold water and pretend you’re a sleepy robot recharging with magic juice!",
+                "Do a silly stretch: reach for the sky like you’re picking stars for a sleepy galaxy!",
+                "Hum a lullaby for 30 seconds to trick your brain into a mini-rest mode!",
+                "Look at something green for 30 seconds and imagine you’re a tired frog on a lily pad!",
+                "Take 5 slow breaths and picture a hamster wheel slowing down in your brain!",
+                "Wiggle your toes 10 times to wake up your sleepy feet like they’re dancing ants!",
+                "Set a timer for a 2-minute rest and pretend you’re a bear hibernating in a cozy cave!",
+                "Sniff something refreshing (like a lemon) and imagine you’re a sleepy pirate finding treasure!",
+                "Blink 10 times fast to reboot your tired eyes like a blinking disco light!"
+            ],
+            stressed:[
+                "Take 5 deep breaths and pretend you’re blowing up a giant balloon for a silly party!",
+                "Squeeze your hands into fists, then release them like you’re letting go of a grumpy stress monster!",
+                "Count 5 things you can see and imagine they’re all part of a wacky stress-free circus!",
+                "Hum a silly tune for 30 seconds to distract your brain from stress gremlins!",
+                "Tense your shoulders, then drop them like you’re a puppet cutting its strings in a goofy play!",
+                "Say 'I’m a calm potato!' out loud to remind your brain to chill like a veggie!",
+                "Look out a window for 1 minute and imagine your stress floating away on a fluffy cloud!",
+                "Shake your arms like a wiggly jellyfish for 10 seconds to shake off the stress vibes!",
+                "Sip warm water and pretend it’s a magic potion to melt away your worries!",
+                "Close your eyes and picture a giggling puppy to chase away your stress with cuddles!"
+            ],
+            bored:[
+                "Doodle a silly monster for 1 minute and give it a funny name like ‘Sir Bloop’!",
+                "Make a paper airplane and pretend it’s flying to a magical land of un-boredom!",
+                "Invent a 3-word story about a bored banana who becomes a superhero!",
+                "Spin around 3 times and laugh like a goofy villain to spark some fun energy!",
+                "Find 3 random objects and pretend they’re treasures in a pirate’s bored-busting chest!",
+                "Sing a jingle from a commercial in a funny voice to entertain your bored brain!",
+                "Draw a stick figure doing a silly dance to join your boredom-banishing party!",
+                "Pretend you’re a robot for 30 seconds and beep-boop your way out of boredom!",
+                "Rearrange 3 things nearby and imagine you’re decorating a castle for a bored king!",
+                "Write down a wacky idea, like ‘What if clouds were cotton candy?’ to spark creativity!"
+            ],
+            excited:[
+                "Do a 10-second victory dance like you’re a disco ball at an excitement party!",
+                "Write down one wild idea and imagine it coming true with a parade of happy squirrels!",
+                "Jump up and down 5 times and shout ‘I’m a rocket of excitement!’ to launch your energy!",
+                "High-five yourself in a mirror and say ‘You’re an excitement superstar!’",
+                "Snap your fingers 10 times fast to create a beat for your excited heart!",
+                "Draw a big star and color it in with all your sparkly, excited vibes!",
+                "Shout ‘Yes!’ as loud as you dare, like you’re cheering for a team of excited kittens!",
+                "Plan one tiny step for your idea and pretend you’re a wizard making magic happen!",
+                "Imagine your excitement as a bouncy ball zooming around a happy room for 10 seconds!",
+                "Tell someone (or yourself) why you’re excited, like you’re announcing it on a game show!"
+            ],
+            sad:[
+                "Hug yourself tight for 10 seconds and whisper ‘You’re a sad little muffin, but I love you!’",
+                "Write down one thing you’re grateful for, like ‘I have a cozy sock!’ and smile at it!",
+                "Look at a photo that makes you smile and imagine giving it a big, silly hug!",
+                "Wrap up in a blanket for 1 minute and pretend you’re a sad burrito getting cozy!",
+                "Sip something warm and imagine it’s a potion of tiny hugs for your sad heart!",
+                "Draw a tiny heart and say ‘This is for you, sad me!’ to cheer yourself up!",
+                "Listen to your favorite song for 1 minute and pretend it’s a lullaby for your sadness!",
+                "Take 5 slow breaths and picture a friendly cloud saying ‘It’s okay to be sad!’",
+                "Say ‘This will pass!’ softly, like you’re a wise old turtle comforting a sad fish!",
+                "Watch a cute animal video and imagine you’re best friends with that fluffy critter!"
+            ],
+            angry:[
+                "Stomp your feet 5 times like a grumpy dinosaur to let out your angry roars!",
+                "Take 5 quick breaths and imagine blowing out your anger like a fiery dragon!",
+                "Squeeze a pillow 5 times and pretend it’s a squishy anger monster you’re taming!",
+                "Count 5 things you can touch and imagine they’re calming your anger like magic pebbles!",
+                "Shake your whole body for 10 seconds like a wiggly dog shaking off angry water!",
+                "Growl like a bear for 5 seconds, then laugh to turn your anger into silliness!",
+                "Scribble hard on paper, then toss it like you’re throwing away your angry scribbles!",
+                "Say ‘I’m cooling down!’ out loud, like you’re an angry volcano turning into a chill hill!",
+                "Tap your fingers 10 times fast and imagine your anger turning into tiny drumbeats!",
+                "Close your eyes and picture a silly clown juggling your anger away for 10 seconds!"
+            ],
+            happy:[
+                "Do a little happy wiggle dance for 10 seconds like you’re a joyful jellybean!",
+                "Write down why you’re happy and pretend you’re sending it to a happiness fairy!",
+                "Share a quick smile with someone (or yourself in a mirror) like you’re a sunshine star!",
+                "Hum a cheerful tune for 30 seconds and imagine you’re a happy bird singing!",
+                "Say ‘Life’s good!’ out loud, like you’re announcing it to a crowd of happy puppies!",
+                "Draw a quick smiley face and give it a high-five to celebrate your happiness!",
+                "Look around and name 3 pretty things, like you’re a happiness detective on a mission!",
+                "Stretch your arms up high and pretend you’re reaching for a giant happiness balloon!",
+                "Snap your fingers to a happy beat for 10 seconds, like you’re in a joy parade!",
+                "Give yourself a pat on the back and say ‘You’re a happiness hero!’ with a big grin!"
+            ],
+            confused:[
+                "Flip a coin to decide something small and pretend you’re a confused pirate picking treasure!",
+                "Take 3 slow breaths and imagine your confusion turning into a clear, sparkly bubble!",
+                "Write your question on paper and draw a silly smiley face to cheer up your confused brain!",
+                "Count to 5 and pick the first idea that pops into your head, like a magical lightbulb moment!",
+                "Tap your forehead 5 times and say ‘Clarity, come to me!’ like a confused wizard!",
+                "Shake your head gently and imagine your confusion falling off like glittery confetti!",
+                "Look up and say ‘I’ll figure it out!’ like you’re a detective solving a wacky mystery!",
+                "Draw a question mark, then turn it into a silly doodle to laugh at your confusion!",
+                "Ask someone (or yourself) a random question, like ‘What would a confused cat do?’",
+                "Close your eyes and pick a direction to point, like you’re a confused compass finding north!"
+            ]
+        },messages=["Great choice!","You’re on fire!","Awesome pick!","Feeling the vibe!","You got this!","Super decision!","Rock on!","Perfect move!"],moodColors={tired:"#d3d3d3",stressed:"#ff9999",bored:"#b3e5fc",excited:"#ffeb3b",sad:"#bbdefb",angry:"#ff5722",happy:"#81c784",confused:"#ce93d8"};window.onload=function(){const e=localStorage.getItem("lastVisit"),t=new Date().toDateString(),n=localStorage.getItem("challengeTask");if(!e||e!==t){const e=Object.keys(tasks)[Math.floor(Math.random()*Object.keys(tasks).length)],s=tasks[e][Math.floor(Math.random()*tasks[e].length)];n=`Today’s Challenge (${e}): ${s}`,localStorage.setItem("challengeTask",n),localStorage.setItem("lastVisit",t)}document.getElementById("challengeTask").textContent=n;let a=parseInt(localStorage.getItem("points")||0),o=new Set(JSON.parse(localStorage.getItem("triedMoods")||"[]"));document.getElementById("pointCount").textContent=a,updateTitle(a),document.getElementById("progressCount").textContent=`${o.size}/8`};function matchTask(mood){const t=document.getElementById("result"),n=document.getElementById("share");if(!mood)return t.innerHTML="Please select a mood first!",t.classList.remove("show"),void(n.href="");const a=tasks[mood],o=a[Math.floor(Math.random()*a.length)],i=messages[Math.floor(Math.random()*messages.length)];t.innerHTML=`${i} <br> ${o}`,t.classList.add("show"),n.href=`https://twitter.com/intent/tweet?text=I just got this mood fix from Mood-to-Task Matcher: ${encodeURIComponent(i+" "+o)} - https://www.moodtask.org/`,document.body.style.background=moodColors[mood];const s=new Set(JSON.parse(localStorage.getItem("triedMoods")||"[]"));if(!s.has(mood)){s.add(mood);let t=parseInt(localStorage.getItem("points")||0)+10;localStorage.setItem("points",t),localStorage.setItem("triedMoods",JSON.stringify([...s])),document.getElementById("pointCount").textContent=t,updateTitle(t),document.getElementById("progressCount").textContent=`${s.size}/8`}}function updateTitle(e){let t="Mood Novice";e>=100?t="Mood Master":e>=50&&(t="Mood Explorer"),document.getElementById("title").textContent=t}
     </script>
 </body>
 </html>
