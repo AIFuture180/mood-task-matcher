@@ -32,6 +32,12 @@ h3 {
     text-align: center;
 }
 
+h4 {
+    font-size: 1.2em;
+    margin: 10px 0;
+    text-align: center;
+}
+
 p {
     margin: 10px 0;
 }
@@ -288,29 +294,40 @@ footer {
     text-align: center;
 }
 
-#impact-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
+#impact-sections {
     margin: 20px 0;
 }
 
 .impact-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 6px 12px;
-    background-color: #000;
-    color: #fff;
-    border-radius: 5px;
-    font-size: 0.9em;
-    text-decoration: none;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1em;
     font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    background-color: #e6f5fa;
+    color: #333;
+    cursor: pointer;
     transition: background-color 0.3s ease;
+    margin: 5px;
 }
 
 .impact-button:hover {
-    background-color: #333;
-    text-decoration: none;
+    background-color: #c9e6f0;
+    color: #007bff;
+}
+
+.impact-button.active {
+    background-color: #c9e6f0;
+    color: #007bff;
+}
+
+.impact-content {
+    max-width: 800px;
+    margin: 10px auto;
+    padding: 15px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    text-align: left;
+    display: none;
 }
