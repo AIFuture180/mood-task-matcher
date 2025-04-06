@@ -9,18 +9,325 @@
     <title>Mood-to-Task Matcher | Boost Your Day with Fun Tasks</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1511837633001567" crossorigin="anonymous" data-ad-init-load="300"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
-        body{font-family:Arial,sans-serif;display:flex;flex-direction:column;align-items:center;min-height:100vh;margin:0;background:linear-gradient(135deg,#a8caba,#f0f4ef);overflow-x:hidden;padding-bottom:20px}nav{background-color:rgba(0,0,0,.3);width:100%;padding:10px 0;text-align:center}nav a{color:#fff;font-size:1.1em;margin:0 20px;text-decoration:none}nav a:hover{color:#ffeb3b}h1{color:#222;font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.2);margin-bottom:10px;animation:fadeIn 2s ease-in-out}h2{color:#222;font-size:1.2em;text-shadow:1px 1px 2px rgba(0,0,0,.2);margin-bottom:20px}h3{color:#222;font-size:1.1em;margin-top:20px}p#instruction{color:#fff;font-size:1.2em;font-weight:700;background-color:rgba(0,0,0,.3);padding:8px 15px;border-radius:8px;text-shadow:1px 1px 2px rgba(0,0,0,.5);margin-bottom:10px;animation:pulse 2s infinite}#intro-content{max-width:80%;margin:20px 0;color:#333;font-size:1em;line-height:1.5;text-align:center;background-color:rgba(255,255,255,0.8);padding:15px;border-radius:10px;box-shadow:0 2px 4px rgba(0,0,0,.1)}#intro-content p{margin-bottom:15px}#mood-buttons{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:10px 0;animation:fadeIn 1.5s ease-in-out}#mood-buttons button{padding:10px;border:none;border-radius:8px;font-size:1em;color:#fff;cursor:pointer;transition:transform .3s}#mood-buttons button:hover{transform:scale(1.1)}#mood-buttons button.tired{background-color:#e6e6e6;color:#333}#mood-buttons button.stressed{background-color:#ffcccc}#mood-buttons button.bored{background-color:#cceeff;color:#333}#mood-buttons button.excited{background-color:#fff9c4;color:#333}#mood-buttons button.sad{background-color:#d6eaff;color:#333}#mood-buttons button.angry{background-color:#ff867a}#mood-buttons button.happy{background-color:#b3e0b5}#mood-buttons button.confused{background-color:#e6ccee}#mood-buttons button.selected{border:3px solid #333;box-shadow:0 0 8px rgba(0,0,0,.3)}#result{margin-top:20px;font-size:1.3em;color:#333;text-align:center;max-width:80%;padding:15px;background-color:#fff;border-radius:10px;box-shadow:0 4px 8px rgba(0,0,0,.2);animation:fadeIn 1s ease-in-out;display:none;transition:background-color 0.5s ease-in-out, color 0.5s ease-in-out}#result.show{display:block}.favorite-button{margin-top:10px;padding:5px 10px;border:none;border-radius:5px;font-size:0.9em;cursor:pointer;background-color:#b3e0b5;color:#333}.favorite-button:hover{background-color:#a1d1a3}#daily-checkin-section,#history-section,#favorites-section{max-width:80%;margin:20px 0;background-color:rgba(255,255,255,0.8);padding:15px;border-radius:10px;box-shadow:0 2px 4px rgba(0,0,0,.1);text-align:center}#daily-checkin-section h3,#history-section h3,#favorites-section h3{margin-top:0}.checkin-button{padding:10px 20px;border:none;border-radius:5px;font-size:1em;cursor:pointer;background-color:#1da1f2;color:#fff}.checkin-button:hover{background-color:#1a91da}#recommendation{margin-top:10px;font-size:1.1em;color:#333}#history-list,#favorites-list{list-style:none;padding:0;color:#333}#history-list li,#favorites-list li{margin-bottom:10px}.clear-history-button{padding:5px 10px;border:none;border-radius:5px;font-size:0.9em;cursor:pointer;background-color:#ff867a;color:#333}.clear-history-button:hover{background-color:#e67a6e}#ad{position:fixed;bottom:10px;left:10px;font-size:1em;color:#fff;text-align:left;padding:10px;background-color:rgba(0,0,0,.5);border-radius:5px;z-index:10}#ad a{color:#1a73e8;text-decoration:underline}#ad a:hover{color:#1557b0}#donate{margin-top:10px;font-size:1em;color:#333;text-align:center;padding:10px;background-color:rgba(255,255,255,0.8);border-radius:5px}#donate a{color:#1a73e8;text-decoration:underline}#donate a:hover{color:#1557b0}#share{margin-top:10px;padding:10px 20px;background-color:#1da1f2;color:#fff;text-decoration:none;border-radius:5px}#share:hover{background-color:#1a91da}#banner{margin:20px 0;text-align:center}#banner img{max-width:100%;height:auto;display:block;margin-left:auto;margin-right:auto}a{color:#1a73e8;text-decoration:underline}a:hover{color:#1557b0}footer{background-color:rgba(0,0,0,.3);width:100%;padding:10px 0;text-align:center;color:#fff;font-size:0.9em;margin-top:auto}footer a{color:#fff;text-decoration:underline}footer a:hover{color:#ffeb3b}@-webkit-keyframes fadeIn{from{opacity:0}to{opacity:1}}@-webkit-keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}@media(max-width:600px){h1{font-size:2em}h2{font-size:1em}nav a{font-size:1em;margin:0 10px}p#instruction{font-size:1em;padding:6px 12px}#mood-buttons{grid-template-columns:repeat(2,1fr)}#result{font-size:1.1em}#ad{font-size:0.9em;padding:8px}footer a{font-size:0.9em;margin:0 10px}}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #E6F0FA 0%, #FFFFFF 100%);
+            color: #333333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 40px;
+        }
+        /* Fixed Header */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            text-align: center;
+            z-index: 1000;
+            transition: background 0.3s ease;
+        }
+        nav.scrolled {
+            background: #FFFFFF;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        nav a {
+            color: #333333;
+            font-size: 1.1em;
+            font-weight: 500;
+            margin: 0 20px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #A3CFFA;
+        }
+        /* Headings */
+        h1 {
+            font-size: 3em;
+            font-weight: 700;
+            color: #333333;
+            margin: 100px 0 10px;
+            text-align: center;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        h2 {
+            font-size: 1.5em;
+            font-weight: 400;
+            color: #666666;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        h3 {
+            font-size: 1.3em;
+            font-weight: 500;
+            color: #333333;
+            margin-bottom: 20px;
+        }
+        /* Intro Content */
+        #intro-content {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 30px;
+            background: #FFFFFF;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        #intro-content p {
+            font-size: 1.1em;
+            font-weight: 300;
+            line-height: 1.8;
+            color: #666666;
+            margin-bottom: 20px;
+        }
+        /* Instruction */
+        p#instruction {
+            font-size: 1.2em;
+            font-weight: 500;
+            color: #333333;
+            background: #F7F7F7;
+            padding: 10px 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            animation: fadeIn 1s ease-in-out;
+        }
+        /* Mood Buttons */
+        #mood-buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        #mood-buttons button {
+            padding: 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: 500;
+            color: #333333;
+            background: #FFFFFF;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        #mood-buttons button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        #mood-buttons button.tired { background-color: #E6F0FA; }
+        #mood-buttons button.stressed { background-color: #FFE6E6; }
+        #mood-buttons button.bored { background-color: #E6F5FA; }
+        #mood-buttons button.excited { background-color: #FFF9E6; }
+        #mood-buttons button.sad { background-color: #E6ECFA; }
+        #mood-buttons button.angry { background-color: #FFE6E6; }
+        #mood-buttons button.happy { background-color: #E6FAE6; }
+        #mood-buttons button.confused { background-color: #F5E6FA; }
+        #mood-buttons button.selected {
+            border: 2px solid #A3CFFA;
+            box-shadow: 0 0 10px rgba(163, 207, 250, 0.5);
+        }
+        /* Result */
+        #result {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background: #FFFFFF;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            font-size: 1.2em;
+            font-weight: 400;
+            color: #333333;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+            display: none;
+        }
+        #result.show { display: block; }
+        .favorite-button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1em;
+            font-weight: 500;
+            background: #A3CFFA;
+            color: #FFFFFF;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .favorite-button:hover {
+            background: #8BB8F5;
+        }
+        /* Sections */
+        #daily-checkin-section, #history-section, #favorites-section {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 30px;
+            background: #FFFFFF;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        .checkin-button {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1em;
+            font-weight: 500;
+            background: #A3CFFA;
+            color: #FFFFFF;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        .checkin-button:hover {
+            background: #8BB8F5;
+            transform: translateY(-2px);
+        }
+        #recommendation {
+            margin-top: 15px;
+            font-size: 1.1em;
+            font-weight: 400;
+            color: #666666;
+        }
+        #history-list, #favorites-list {
+            list-style: none;
+            padding: 0;
+            color: #666666;
+        }
+        #history-list li, #favorites-list li {
+            margin-bottom: 10px;
+            font-size: 1em;
+            font-weight: 400;
+        }
+        .clear-history-button {
+            margin-top: 15px;
+            padding: 8px 20px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1em;
+            font-weight: 500;
+            background: #FF867A;
+            color: #FFFFFF;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .clear-history-button:hover {
+            background: #F5766A;
+        }
+        /* Affiliate Banner */
+        #ad {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            font-size: 1em;
+            font-weight: 400;
+            color: #FFFFFF;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            border-radius: 10px;
+            z-index: 10;
+        }
+        #ad a {
+            color: #A3CFFA;
+            text-decoration: none;
+        }
+        #ad a:hover {
+            color: #8BB8F5;
+        }
+        /* Donate and Share */
+        #donate {
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: center;
+        }
+        #share {
+            display: inline-block;
+            margin: 20px auto;
+            padding: 12px 30px;
+            background: #A3CFFA;
+            color: #FFFFFF;
+            font-size: 1.1em;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: background 0.3s ease;
+        }
+        #share:hover {
+            background: #8BB8F5;
+        }
+        /* Banner */
+        #banner {
+            margin: 30px auto;
+            text-align: center;
+        }
+        #banner img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        /* Footer */
+        footer {
+            background: #333333;
+            width: 100%;
+            padding: 20px 0;
+            text-align: center;
+            color: #FFFFFF;
+            font-size: 0.9em;
+            font-weight: 400;
+            margin-top: auto;
+        }
+        footer a {
+            color: #FFFFFF;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        footer a:hover {
+            color: #A3CFFA;
+        }
+        /* Animations */
+        @-webkit-keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2em; margin-top: 80px; }
+            h2 { font-size: 1.2em; }
+            nav a { font-size: 1em; margin: 0 10px; }
+            #mood-buttons { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+            #result { font-size: 1.1em; }
+            #ad { font-size: 0.9em; padding: 8px 15px; bottom: 10px; left: 10px; }
+            footer a { font-size: 0.9em; margin: 0 10px; }
+        }
+        @media (max-width: 480px) {
+            h1 { font-size: 1.8em; }
+            #mood-buttons { grid-template-columns: 1fr; }
+            #intro-content, #daily-checkin-section, #history-section, #favorites-section { padding: 20px; }
+        }
     </style>
 </head>
 <body>
-    <nav>
+    <nav id="nav">
         <a href="index.html">Home</a>
         <a href="blog.html">Blog</a>
         <a href="about.html">About</a>
     </nav>
     <h1>Mood-to-Task Matcher</h1>
-    <h2>Transform Your Mood in Seconds!</h2>
+    <h2>Transform Your Mood in Seconds</h2>
     <div id="intro-content">
         <p>Welcome to Mood-to-Task Matcher, your go-to tool for boosting your mood in just a few seconds! Whether you're feeling tired, stressed, bored, or excited, we’ve got the perfect fun task to match your mood and brighten your day.</p>
         <p>Our tool is simple: select your current mood from the options below, and we’ll suggest a quick, playful activity to help you feel better. For example, if you’re feeling tired, you might get a task like "Close your eyes for 1 minute and imagine you’re napping on a fluffy cloud with a unicorn pillow!" It’s all about bringing a little joy and lightness to your day.</p>
@@ -33,7 +340,7 @@
         <button class="checkin-button" onclick="showMoodButtons()">Check In Now</button>
         <div id="recommendation"></div>
     </div>
-    <p id="instruction" style="display:none;">Click your mood below!</p>
+    <p id="instruction" style="display:none;">Select Your Mood</p>
     <div id="mood-buttons" style="display:none;">
         <button class="tired" onclick="matchTask('tired')" aria-label="Select Tired mood">Tired 😴</button>
         <button class="stressed" onclick="matchTask('stressed')" aria-label="Select Stressed mood">Stressed 😣</button>
@@ -177,7 +484,17 @@
             "Good for you! This activity can help lift your spirits.",
             "Smart move! This task is a great way to care for yourself.",
             "You’re doing great! This can help you find some ease."
-        ],moodColors={tired:"#e6e6e6",stressed:"#ffcccc",bored:"#cceeff",excited:"#fff9c4",sad:"#d6eaff",angry:"#ff867a",happy:"#b3e0b5",confused:"#e6ccee"},goodFeelingColors=["#b3e0b5","#fff9c4","#cceeff","#ffcccc","#e6ccee"];let currentMood=null,currentTask=null;function calculateLuminance(color){const hex=color.replace("#",""),r=parseInt(hex.substring(0,2),16),g=parseInt(hex.substring(2,4),16),b=parseInt(hex.substring(4,6),16);return 0.299*r+0.587*g+0.114*b}function showMoodButtons(){document.getElementById("instruction").style.display="block",document.getElementById("mood-buttons").style.display="grid"}function matchTask(mood,excludeTask=null){currentMood=mood;const t=document.getElementById("result"),n=document.getElementById("share"),buttons=document.querySelectorAll("#mood-buttons button"),currentButton=document.querySelector(`#mood-buttons button[onclick="matchTask('${mood}')"]`);if(!mood)return t.innerHTML="Please select a mood first!",t.classList.remove("show"),void(n.href="");buttons.forEach(btn=>btn.classList.remove("selected")),currentButton.classList.add("selected");const a=tasks[mood];let o;do{o=a[Math.floor(Math.random()*a.length)]}while(o===excludeTask&&a.length>1);currentTask=o;const i=messages[Math.floor(Math.random()*messages.length)],selectedColor=goodFeelingColors[Math.floor(Math.random()*goodFeelingColors.length)];t.innerHTML=`${i} <br> ${o} <br><button class="favorite-button" onclick="saveToFavorites('${mood}', '${o}')">Save to Favorites</button>`,t.classList.add("show"),n.href=`https://twitter.com/intent/tweet?text=I just got this mood fix from Mood-to-Task Matcher: ${encodeURIComponent(i+" "+o)} - https://www.moodtask.org/`,t.style.backgroundColor=selectedColor;const luminance=calculateLuminance(selectedColor);t.style.color=luminance>128?"#222":"#333";saveMoodHistory(mood),provideRecommendation()}function saveMoodHistory(mood){const history=JSON.parse(localStorage.getItem("moodHistory")||"[]"),date=new Date().toLocaleDateString("en-US",{year:"numeric",month:"short",day:"numeric"});history.push({mood,date}),localStorage.setItem("moodHistory",JSON.stringify(history)),displayMoodHistory()}function displayMoodHistory(){const history=JSON.parse(localStorage.getItem("moodHistory")||"[]"),historyList=document.getElementById("history-list");historyList.innerHTML="",history.length>0?history.forEach(entry=>{const li=document.createElement("li");li.textContent=`${entry.mood} on ${entry.date}`,historyList.appendChild(li)}):historyList.innerHTML="<li>No mood history yet!</li>"}function saveToFavorites(mood,task){const favorites=JSON.parse(localStorage.getItem("favorites")||"[]");favorites.push({mood,task}),localStorage.setItem("favorites",JSON.stringify(favorites)),displayFavorites()}function displayFavorites(){const favorites=JSON.parse(localStorage.getItem("favorites")||"[]"),favoritesList=document.getElementById("favorites-list");favoritesList.innerHTML="",favorites.length>0?favorites.forEach(entry=>{const li=document.createElement("li");li.textContent=`${entry.mood}: ${entry.task}`,favoritesList.appendChild(li)}):favoritesList.innerHTML="<li>No favorites yet!</li>"}function clearHistory(){localStorage.removeItem("moodHistory"),localStorage.removeItem("favorites"),displayMoodHistory(),displayFavorites(),provideRecommendation()}function provideRecommendation(){const history=JSON.parse(localStorage.getItem("moodHistory")||"[]"),recommendationDiv=document.getElementById("recommendation");if(history.length<3)return recommendationDiv.innerHTML="";const recentMoods=history.slice(-3).map(entry=>entry.mood),stressCount=recentMoods.filter(mood=>mood==="stressed").length,sadCount=recentMoods.filter(mood=>mood==="sad").length,happyCount=recentMoods.filter(mood=>mood==="happy").length;let recommendation="";if(stressCount>=2){recommendation="You’ve been stressed lately—try this relaxation task: Take 5 deep breaths and imagine your stress floating away on a fluffy cloud! Also, check out our <a href='blog-post-2.html'>blog post on stress relief</a>."}else if(sadCount>=2){recommendation="You’ve been feeling sad lately—here’s a comforting task: Hug yourself tight for 10 seconds and whisper ‘You’re a sad little muffin, but I love you!’"}else if(happyCount>=2){recommendation="You’ve been happy lately—keep the good vibes going! Try this: Do a little happy wiggle dance for 10 seconds like you’re a joyful jellybean!"}else{recommendation="Keep checking in daily to get personalized mood recommendations!"}recommendationDiv.innerHTML=recommendation}window.onload=()=>{displayMoodHistory(),displayFavorites(),provideRecommendation()};
+        ],moodColors={tired:"#E6F0FA",stressed:"#FFE6E6",bored:"#E6F5FA",excited:"#FFF9E6",sad:"#E6ECFA",angry:"#FFE6E6",happy:"#E6FAE6",confused:"#F5E6FA"},goodFeelingColors=["#E6FAE6","#FFF9E6","#E6F5FA","#FFE6E6","#F5E6FA"];let currentMood=null,currentTask=null;function calculateLuminance(color){const hex=color.replace("#",""),r=parseInt(hex.substring(0,2),16),g=parseInt(hex.substring(2,4),16),b=parseInt(hex.substring(4,6),16);return 0.299*r+0.587*g+0.114*b}function showMoodButtons(){document.getElementById("instruction").style.display="block",document.getElementById("mood-buttons").style.display="grid"}function matchTask(mood,excludeTask=null){currentMood=mood;const t=document.getElementById("result"),n=document.getElementById("share"),buttons=document.querySelectorAll("#mood-buttons button"),currentButton=document.querySelector(`#mood-buttons button[onclick="matchTask('${mood}')"]`);if(!mood)return t.innerHTML="Please select a mood first!",t.classList.remove("show"),void(n.href="");buttons.forEach(btn=>btn.classList.remove("selected")),currentButton.classList.add("selected");const a=tasks[mood];let o;do{o=a[Math.floor(Math.random()*a.length)]}while(o===excludeTask&&a.length>1);currentTask=o;const i=messages[Math.floor(Math.random()*messages.length)],selectedColor=goodFeelingColors[Math.floor(Math.random()*goodFeelingColors.length)];t.innerHTML=`${i} <br> ${o} <br><button class="favorite-button" onclick="saveToFavorites('${mood}', '${o}')">Save to Favorites</button>`,t.classList.add("show"),n.href=`https://twitter.com/intent/tweet?text=I just got this mood fix from Mood-to-Task Matcher: ${encodeURIComponent(i+" "+o)} - https://www.moodtask.org/`,t.style.backgroundColor=selectedColor;const luminance=calculateLuminance(selectedColor);t.style.color=luminance>128?"#333333":"#666666";saveMoodHistory(mood),provideRecommendation()}function saveMoodHistory(mood){const history=JSON.parse(localStorage.getItem("moodHistory")||"[]"),date=new Date().toLocaleDateString("en-US",{year:"numeric",month:"short",day:"numeric"});history.push({mood,date}),localStorage.setItem("moodHistory",JSON.stringify(history)),displayMoodHistory()}function displayMoodHistory(){const history=JSON.parse(localStorage.getItem("moodHistory")||"[]"),historyList=document.getElementById("history-list");historyList.innerHTML="",history.length>0?history.forEach(entry=>{const li=document.createElement("li");li.textContent=`${entry.mood} on ${entry.date}`,historyList.appendChild(li)}):historyList.innerHTML="<li>No mood history yet!</li>"}function saveToFavorites(mood,task){const favorites=JSON.parse(localStorage.getItem("favorites")||"[]");favorites.push({mood,task}),localStorage.setItem("favorites",JSON.stringify(favorites)),displayFavorites()}function displayFavorites(){const favorites=JSON.parse(localStorage.getItem("favorites")||"[]"),favoritesList=document.getElementById("favorites-list");favoritesList.innerHTML="",favorites.length>0?favorites.forEach(entry=>{const li=document.createElement("li");li.textContent=`${entry.mood}: ${entry.task}`,favoritesList.appendChild(li)}):favoritesList.innerHTML="<li>No favorites yet!</li>"}function clearHistory(){localStorage.removeItem("moodHistory"),localStorage.removeItem("favorites"),displayMoodHistory(),displayFavorites(),provideRecommendation()}function provideRecommendation(){const history=JSON.parse(localStorage.getItem("moodHistory")||"[]"),recommendationDiv=document.getElementById("recommendation");if(history.length<3)return recommendationDiv.innerHTML="";const recentMoods=history.slice(-3).map(entry=>entry.mood),stressCount=recentMoods.filter(mood=>mood==="stressed").length,sadCount=recentMoods.filter(mood=>mood==="sad").length,happyCount=recentMoods.filter(mood=>mood==="happy").length;let recommendation="";if(stressCount>=2){recommendation="You’ve been stressed lately—try this relaxation task: Take 5 deep breaths and imagine your stress floating away on a fluffy cloud! Also, check out our <a href='blog-post-2.html'>blog post on stress relief</a>."}else if(sadCount>=2){recommendation="You’ve been feeling sad lately—here’s a comforting task: Hug yourself tight for 10 seconds and whisper ‘You’re a sad little muffin, but I love you!’"}else if(happyCount>=2){recommendation="You’ve been happy lately—keep the good vibes going! Try this: Do a little happy wiggle dance for 10 seconds like you’re a joyful jellybean!"}else{recommendation="Keep checking in daily to get personalized mood recommendations!"}recommendationDiv.innerHTML=recommendation}window.onload=()=>{displayMoodHistory(),displayFavorites(),provideRecommendation()};
+
+// Add scroll effect for nav
+window.addEventListener('scroll', () => {
+    const nav = document.getElementById('nav');
+    if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+    } else {
+        nav.classList.remove('scrolled');
+    }
+});
     </script>
 </body>
 </html>
