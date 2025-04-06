@@ -9,7 +9,7 @@
     <title>Mood-to-Task Matcher Blog | Tips to Boost Your Mood</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
-        body{font-family:Arial,sans-serif;display:flex;flex-direction:column;align-items:center;min-height:100vh;margin:0;background:linear-gradient(135deg,#a8caba,#f0f4ef);overflow-x:hidden;padding-bottom:20px}nav{background-color:rgba(0,0,0,.3);width:100%;padding:10px 0;text-align:center}nav a{color:#fff;font-size:1.1em;margin:0 20px;text-decoration:none}nav a:hover{color:#ffeb3b}h1{color:#222;font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.2);margin-bottom:10px;animation:fadeIn 2s ease-in-out}h2{color:#222;font-size:1.2em;text-shadow:1px 1px 2px rgba(0,0,0,.2);margin-bottom:20px}.blog-list{max-width:80%;margin:20px 0}.blog-post-preview{margin-bottom:30px;background-color:rgba(255,255,255,0.8);padding:15px;border-radius:10px;box-shadow:0 2px 4px rgba(0,0,0,.1)}.blog-post-preview h3{color:#222;font-size:1.5em;margin-bottom:10px}.blog-post-preview p{color:#333;font-size:1em;line-height:1.5;margin-bottom:10px}.blog-post-preview a{color:#1a73e8;text-decoration:underline}.blog-post-preview a:hover{color:#1557b0}footer{background-color:rgba(0,0,0,.3);width:100%;padding:10px 0;text-align:center;color:#fff;font-size:0.9em;margin-top:auto}footer a{color:#fff;text-decoration:underline}footer a:hover{color:#ffeb3b}@-webkit-keyframes fadeIn{from{opacity:0}to{opacity:1}}@media(max-width:600px){h1{font-size:2em}h2{font-size:1em}nav a{font-size:1em;margin:0 10px}.blog-post-preview h3{font-size:1.3em}footer a{font-size:0.9em;margin:0 10px}}
+        body{font-family:Arial,sans-serif;display:flex;flex-direction:column;align-items:center;min-height:100vh;margin:0;background:linear-gradient(135deg,#a8caba,#f0f4ef);overflow-x:hidden;padding-bottom:20px}nav{background-color:rgba(0,0,0,.3);width:100%;padding:10px 0;text-align:center}nav a{color:#fff;font-size:1.1em;margin:0 20px;text-decoration:none}nav a:hover{color:#ffeb3b}h1{color:#222;font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.2);margin-bottom:10px;animation:fadeIn 2s ease-in-out}h2{color:#222;font-size:1.2em;text-shadow:1px 1px 2px rgba(0,0,0,.2);margin-bottom:20px}.blog-list{max-width:80%;margin:20px 0}.blog-post-preview{margin-bottom:30px;background-color:rgba(255,255,255,0.8);padding:15px;border-radius:10px;box-shadow:0 2px 4px rgba(0,0,0,.1);display:none}.blog-post-preview.show{display:block}.blog-post-preview h3{color:#222;font-size:1.5em;margin-bottom:10px}.blog-post-preview p{color:#333;font-size:1em;line-height:1.5;margin-bottom:10px}.blog-post-preview a{color:#1a73e8;text-decoration:underline}.blog-post-preview a:hover{color:#1557b0}.category-filter,.search-bar{max-width:80%;margin:10px 0;text-align:center}.category-filter button{padding:8px 15px;margin:5px;border:none;border-radius:5px;font-size:1em;color:#fff;cursor:pointer;background-color:#b3e0b5}.category-filter button:hover{background-color:#a1d1a3}.category-filter button.active{background-color:#333;color:#fff}.search-bar input[type="text"]{padding:8px;width:60%;max-width:300px;border:1px solid #ccc;border-radius:5px;font-size:1em}.search-bar input[type="text"]::placeholder{color:#999}footer{background-color:rgba(0,0,0,.3);width:100%;padding:10px 0;text-align:center;color:#fff;font-size:0.9em;margin-top:auto}footer a{color:#fff;text-decoration:underline}footer a:hover{color:#ffeb3b}@-webkit-keyframes fadeIn{from{opacity:0}to{opacity:1}}@media(max-width:600px){h1{font-size:2em}h2{font-size:1em}nav a{font-size:1em;margin:0 10px}.blog-post-preview h3{font-size:1.3em}.category-filter button{font-size:0.9em;padding:6px 12px}.search-bar input[type="text"]{width:80%}footer a{font-size:0.9em;margin:0 10px}}
     </style>
 </head>
 <body>
@@ -20,18 +20,26 @@
     </nav>
     <h1>Mood-to-Task Matcher Blog</h1>
     <h2>Tips to Boost Your Mood and Brighten Your Day</h2>
+    <div class="category-filter">
+        <button onclick="filterPosts('all')" class="active">All</button>
+        <button onclick="filterPosts('Mood Boosting')">Mood Boosting</button>
+        <button onclick="filterPosts('Stress Relief')">Stress Relief</button>
+    </div>
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search blog posts..." onkeyup="searchPosts()">
+    </div>
     <div class="blog-list">
-        <div class="blog-post-preview">
+        <div class="blog-post-preview" data-category="Mood Boosting">
             <h3>5 Fun Ways to Boost Your Mood When You’re Feeling Tired</h3>
             <p>Feeling exhausted and unmotivated? Discover five simple, fun activities to recharge your energy and lift your spirits, like imagining a nap on a fluffy cloud!</p>
             <a href="blog-post-1.html">Read More</a>
         </div>
-        <div class="blog-post-preview">
+        <div class="blog-post-preview" data-category="Stress Relief">
             <h3>How to Relieve Stress in Under a Minute with Playful Tasks</h3>
             <p>Stress can be overwhelming, but quick activities can help! Learn how to shake off stress with playful tasks like blowing up an imaginary balloon.</p>
             <a href="blog-post-2.html">Read More</a>
         </div>
-        <div class="blog-post-preview">
+        <div class="blog-post-preview" data-category="Mood Boosting">
             <h3>Why Small Actions Can Make a Big Difference in Your Mood</h3>
             <p>Did you know that small, intentional actions can transform your mood? Explore the science behind mood-boosting activities and try some fun tasks!</p>
             <a href="blog-post-3.html">Read More</a>
@@ -43,5 +51,40 @@
         <a href="about.html">About</a> | 
         <a href="privacy.html">Privacy Policy</a>
     </footer>
+
+    <script>
+        function filterPosts(category) {
+            const posts = document.querySelectorAll('.blog-post-preview');
+            const buttons = document.querySelectorAll('.category-filter button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            posts.forEach(post => {
+                const postCategory = post.getAttribute('data-category');
+                if (category === 'all' || postCategory === category) {
+                    post.classList.add('show');
+                } else {
+                    post.classList.remove('show');
+                }
+            });
+        }
+
+        function searchPosts() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const posts = document.querySelectorAll('.blog-post-preview');
+            posts.forEach(post => {
+                const title = post.querySelector('h3').textContent.toLowerCase();
+                const content = post.querySelector('p').textContent.toLowerCase();
+                if (title.includes(searchTerm) || content.includes(searchTerm)) {
+                    post.classList.add('show');
+                } else {
+                    post.classList.remove('show');
+                }
+            });
+        }
+
+        window.onload = () => {
+            filterPosts('all');
+        };
+    </script>
 </body>
 </html>
