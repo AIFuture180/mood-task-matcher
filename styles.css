@@ -1,4 +1,3 @@
-/* Reset default styles */
 * {
     margin: 0;
     padding: 0;
@@ -10,49 +9,9 @@ body {
     line-height: 1.6;
     color: #333;
     background-color: #f9f9f9;
-    padding-top: 80px; /* Increased to accommodate larger nav */
+    padding-top: 60px;
 }
 
-/* Navigation Bar */
-#nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    padding: 10px 0;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 5px; /* Reduced gap for better blending */
-}
-
-#nav.scrolled {
-    background-color: #f5f5f5;
-}
-
-.nav-button {
-    padding: 12px 25px; /* Increased padding for larger buttons */
-    font-size: 1.2em; /* Increased font size */
-    font-weight: 500;
-    text-decoration: none;
-    border-radius: 8px;
-    background: linear-gradient(135deg, #e6f5fa, #c9e6f0);
-    color: #333;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Slightly larger shadow */
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
-}
-
-.nav-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-    background: linear-gradient(135deg, #c9e6f0, #a8d5e8);
-    color: #007bff;
-}
-
-/* Headings */
 h1 {
     font-size: 2.5em;
     text-align: center;
@@ -70,23 +29,7 @@ h2 {
 h3 {
     font-size: 1.5em;
     margin: 15px 0;
-}
-
-h4 {
-    font-size: 1.3em;
-    margin: 10px 0;
-}
-
-h5 {
-    font-size: 1.1em;
-    margin: 10px 0;
-}
-
-/* Content */
-.content, #intro-content, #daily-checkin-section, #history-section {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+    text-align: center;
 }
 
 p {
@@ -111,105 +54,66 @@ li {
     margin: 5px 0;
 }
 
-/* Check In Now Button */
-.checkin-button {
-    padding: 12px 20px;
-    font-size: 1.1em;
-    font-weight: 500;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    background-color: #FFDD00; /* Bright yellow to grab attention */
-    background: linear-gradient(135deg, #FFDD00, #FFC107); /* Subtle gradient */
-    color: #333;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
-    display: block;
+#intro-content {
+    max-width: 800px;
     margin: 0 auto;
+    padding: 20px;
+    text-align: center;
 }
 
-.checkin-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    background: linear-gradient(135deg, #FFC107, #FFB300); /* Slightly darker on hover */
+#daily-checkin-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
 }
 
-/* Mood Buttons */
+#instruction {
+    text-align: center;
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
 #mood-buttons {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Slightly wider to fit text comfortably */
-    gap: 15px; /* Increased gap for better spacing */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
     margin: 20px auto;
-    max-width: 800px; /* Center the grid and limit its width */
+    max-width: 800px;
 }
 
 #mood-buttons button {
-    padding: 12px 15px; /* Adjusted padding for a compact look */
+    padding: 10px;
     font-size: 1em;
-    font-weight: 500; /* Slightly bolder text for readability */
     border: none;
-    border-radius: 10px; /* Rounded corners */
+    border-radius: 5px;
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease; /* Smooth transitions */
-    max-width: 150px; /* Limit the width to make buttons smaller horizontally */
-    margin: 0 auto; /* Center the button within its grid cell */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for 3D effect */
-    background: linear-gradient(135deg, rgba(255, 255, 0, 0.3), rgba(0, 0, 0, 0.1)); /* Subtle gradient overlay */
+    transition: transform 0.2s ease;
 }
 
-/* Restore and enhance colors with gradients */
-#mood-buttons button.tired { 
-    background-color: #E6F0FA; 
-    background: linear-gradient(135deg, #E6F0FA, #C9DDF5); 
-}
-#mood-buttons button.stressed { 
-    background-color: #FFE6E6; 
-    background: linear-gradient(135deg, #FFE6E6, #F5C9C9); 
-}
-#mood-buttons button.bored { 
-    background-color: #E6F5FA; 
-    background: linear-gradient(135deg, #E6F5FA, #C9E6F0); 
-}
-#mood-buttons button.excited { 
-    background-color: #FFF9E6; 
-    background: linear-gradient(135deg, #FFF9E6, #F5EBC9); 
-}
-#mood-buttons button.sad { 
-    background-color: #E6ECFA; 
-    background: linear-gradient(135deg, #E6ECFA, #C9D4F5); 
-}
-#mood-buttons button.angry { 
-    background-color: #FFE6E6; 
-    background: linear-gradient(135deg, #FFE6E6, #F5C9C9); 
-}
-#mood-buttons button.happy { 
-    background-color: #E6FAE6; 
-    background: linear-gradient(135deg, #E6FAE6, #C9F5C9); 
-}
-#mood-buttons button.confused { 
-    background-color: #F5E6FA; 
-    background: linear-gradient(135deg, #F5E6FA, #E6C9F5); 
-}
-
-/* Hover effect to grab attention */
 #mood-buttons button:hover {
-    transform: scale(1.05); /* Slight scale-up on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
-    opacity: 1; /* Ensure full opacity on hover */
+    transform: scale(1.05);
 }
 
-/* Selected state */
+#mood-buttons button.tired { background-color: #E6F0FA; }
+#mood-buttons button.stressed { background-color: #FFE6E6; }
+#mood-buttons button.bored { background-color: #E6F5FA; }
+#mood-buttons button.excited { background-color: #FFF9E6; }
+#mood-buttons button.sad { background-color: #E6ECFA; }
+#mood-buttons button.angry { background-color: #FFE6E6; }
+#mood-buttons button.happy { background-color: #E6FAE6; }
+#mood-buttons button.confused { background-color: #F5E6FA; }
+
 #mood-buttons button.selected {
     border: 2px solid #333;
-    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2); /* Add a subtle glow effect */
 }
 
-/* Result Section */
 #result {
     margin: 20px auto;
     padding: 20px;
     max-width: 800px;
     border-radius: 10px;
+    text-align: center;
     opacity: 0;
     transition: opacity 0.5s ease;
 }
@@ -218,7 +122,6 @@ li {
     opacity: 1;
 }
 
-/* Favorite Button */
 .favorite-button {
     margin-top: 10px;
     padding: 8px 15px;
@@ -235,64 +138,70 @@ li {
     background-color: #0056b3;
 }
 
-/* Clear History Button */
+#history-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
 .clear-history-button {
-    padding: 10px 15px;
-    font-size: 1em;
-    font-weight: 500;
+    margin-top: 10px;
+    padding: 8px 15px;
+    font-size: 0.9em;
     border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    background-color: #FF6F61; /* Coral red to indicate action */
-    background: linear-gradient(135deg, #FF6F61, #FF4D4D); /* Subtle gradient */
+    border-radius: 5px;
+    background-color: #dc3545;
     color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
-    display: block;
-    margin: 10px auto;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .clear-history-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    background: linear-gradient(135deg, #FF4D4D, #FF2E2E); /* Slightly darker on hover */
+    background-color: #c82333;
 }
 
-/* Recommendation Section */
 #recommendation {
     margin: 20px auto;
     padding: 15px;
     max-width: 800px;
     background-color: #e6f5fa;
     border-radius: 10px;
+    text-align: center;
 }
 
-/* Share Link */
-#share {
-    display: block;
-    text-align: center;
+#donate {
     margin: 20px 0;
-    padding: 10px;
-    background-color: #1da1f2;
+    text-align: center;
+}
+
+#share {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px auto;
+    padding: 6px 12px;
+    background-color: #000;
     color: #fff;
     border-radius: 5px;
-    max-width: 200px;
-    margin-left: auto;
-    margin-right: auto;
+    font-size: 0.9em;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
 }
 
 #share:hover {
-    background-color: #0d8bf0;
+    background-color: #333;
     text-decoration: none;
 }
 
-/* Donate Section */
-#donate {
-    margin: 20px 0;
+.share-logo {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
 }
 
-/* Banner and Ad */
-#banner, #ad {
+#banner {
     text-align: center;
     margin: 20px 0;
 }
@@ -301,84 +210,73 @@ li {
     max-width: 100%;
 }
 
-/* Footer and Sitemap Buttons */
+#ad {
+    text-align: center;
+    margin: 20px 0;
+}
+
 footer {
     text-align: center;
     padding: 20px;
     background-color: #f5f5f5;
     margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 5px; /* Reduced gap for better blending */
 }
 
 .sitemap-button {
-    padding: 10px 20px; /* Increased padding for larger buttons */
-    font-size: 1em; /* Increased font size */
-    font-weight: 500;
+    margin: 5px;
+    padding: 5px 10px;
     text-decoration: none;
-    border-radius: 8px;
-    background: linear-gradient(135deg, #e6f0fa, #c9ddf5);
-    color: #333;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Slightly larger shadow */
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+    color: #007bff;
 }
 
 .sitemap-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-    background: linear-gradient(135deg, #c9ddf5, #a8c7e8);
-}
-
-/* Accordion Styles */
-.accordion {
-    margin: 20px 0;
-}
-
-.accordion-item {
-    margin-bottom: 10px;
-}
-
-.accordion-header {
-    background: linear-gradient(135deg, #e6f5fa, #c9e6f0); /* Match nav and sitemap button gradient */
-    color: #333;
-    padding: 15px;
-    border: none;
-    width: 100%;
-    text-align: left;
-    font-size: 1.2em;
-    font-weight: 500;
-    cursor: pointer;
-    border-radius: 10px; /* More rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Match shadow of other buttons */
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
-}
-
-.accordion-header:hover {
-    transform: scale(1.02); /* Subtle scale on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    background: linear-gradient(135deg, #c9e6f0, #a8d5e8); /* Match hover effect */
-}
-
-.accordion-content {
-    display: none;
-    padding: 15px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-top: 5px;
-}
-
-.accordion-content p, .accordion-content h4, .accordion-content h5, .accordion-content ul {
-    margin: 10px 0;
-}
-
-.accordion-content a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-.accordion-content a:hover {
     text-decoration: underline;
+}
+
+#nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#nav.scrolled {
+    background-color: #f5f5f5;
+}
+
+.nav-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: #e6f5fa;
+    color: #333;
+    transition: background-color 0.3s ease;
+}
+
+.nav-button:hover {
+    background-color: #c9e6f0;
+    color: #007bff;
+}
+
+.checkin-button {
+    padding: 10px 20px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.checkin-button:hover {
+    background-color: #0056b3;
 }
