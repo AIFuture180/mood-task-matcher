@@ -51,7 +51,7 @@ a:hover {
     text-decoration: underline;
 }
 
-ul {
+ul, ol {
     margin: 10px 0;
     padding-left: 20px;
 }
@@ -390,5 +390,22 @@ footer {
 }
 
 .blog-post p {
-    margin: 0;
+    margin: 0 0 10px 0;
+}
+
+.read-more {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.read-more:hover {
+    background-color: #0056b3;
+    text-decoration: none;
 }
