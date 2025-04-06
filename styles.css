@@ -280,3 +280,37 @@ footer {
 .checkin-button:hover {
     background-color: #0056b3;
 }
+
+#content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+#impact-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.impact-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 12px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 0.9em;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.impact-button:hover {
+    background-color: #333;
+    text-decoration: none;
+}
