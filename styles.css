@@ -10,7 +10,7 @@ body {
     line-height: 1.6;
     color: #333;
     background-color: #f9f9f9;
-    padding-top: 60px; /* Adjust for fixed nav */
+    padding-top: 70px; /* Increased to accommodate larger nav */
 }
 
 /* Navigation Bar */
@@ -22,22 +22,32 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     padding: 10px 0;
-    text-align: center;
+    display: flex;
+    justify-content: space-around; /* Space buttons evenly */
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
 #nav.scrolled {
     background-color: #f5f5f5;
 }
 
-#nav a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: #333;
+.nav-button {
+    padding: 10px 20px;
+    font-size: 1.1em;
     font-weight: 500;
-    transition: color 0.3s ease;
+    text-decoration: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #e6f5fa, #c9e6f0); /* Subtle blue gradient */
+    color: #333;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
 }
 
-#nav a:hover {
+.nav-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(135deg, #c9e6f0, #a8d5e8); /* Slightly darker on hover */
     color: #007bff;
 }
 
@@ -290,21 +300,34 @@ li {
     max-width: 100%;
 }
 
-/* Footer */
+/* Footer and Sitemap Buttons */
 footer {
     text-align: center;
     padding: 20px;
     background-color: #f5f5f5;
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px; /* Space between buttons */
 }
 
-footer a {
-    margin: 0 10px;
+.sitemap-button {
+    padding: 8px 15px;
+    font-size: 0.9em;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #e6f0fa, #c9ddf5); /* Subtle blue gradient */
     color: #333;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
 }
 
-footer a:hover {
-    color: #007bff;
+.sitemap-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(135deg, #c9ddf5, #a8c7e8); /* Slightly darker on hover */
 }
 
 /* Accordion Styles */
@@ -317,41 +340,4 @@ footer a:hover {
 }
 
 .accordion-header {
-    background-color: #f5f5f5;
-    color: #333;
-    padding: 15px;
-    border: none;
-    width: 100%;
-    text-align: left;
-    font-size: 1.2em;
-    font-weight: 500;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.accordion-header:hover {
-    background-color: #e0e0e0;
-}
-
-.accordion-content {
-    display: none;
-    padding: 15px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-top: 5px;
-}
-
-.accordion-content p, .accordion-content h4, .accordion-content h5, .accordion-content ul {
-    margin: 10px 0;
-}
-
-.accordion-content a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-.accordion-content a:hover {
-    text-decoration: underline;
-}
+    background-color: #
