@@ -269,29 +269,21 @@ li {
 
 /* Share Link */
 #share {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 20px auto;
+    display: block;
+    text-align: center;
+    margin: 20px 0;
     padding: 10px;
-    background-color: #000; /* Black background for X branding */
+    background-color: #1da1f2;
     color: #fff;
     border-radius: 5px;
     max-width: 200px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: background-color 0.3s ease;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #share:hover {
-    background-color: #333; /* Slightly lighter black on hover */
+    background-color: #0d8bf0;
     text-decoration: none;
-}
-
-.share-logo {
-    width: 20px; /* Adjust size as needed */
-    height: 20px;
-    margin-right: 8px; /* Space between logo and text */
 }
 
 /* Donate Section */
