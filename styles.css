@@ -1,321 +1,48 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-    font-family: 'Poppins', sans-serif;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #E6F0FA 0%, #FFFFFF 100%);
-    color: #333333;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 40px;
-}
-/* Fixed Header */
-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(10px);
-    padding: 15px 0;
-    text-align: center;
-    z-index: 1000;
-    transition: background 0.3s ease;
-}
-nav.scrolled {
-    background: #FFFFFF;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-nav a {
-    color: #333333;
-    font-size: 1.1em;
-    font-weight: 500;
-    margin: 0 20px;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-nav a:hover {
-    color: #A3CFFA;
-}
-/* Headings */
-h1 {
-    font-size: 3em;
-    font-weight: 700;
-    color: #333333;
-    margin: 100px 0 10px;
-    text-align: center;
-    animation: fadeIn 1.5s ease-in-out;
-}
-h2 {
-    font-size: 1.5em;
-    font-weight: 400;
-    color: #666666;
-    margin-bottom: 30px;
-    text-align: center;
-}
-h3 {
-    font-size: 1.3em;
-    font-weight: 500;
-    color: #333333;
-    margin-bottom: 20px;
-}
-/* Content Containers */
-.content, #intro-content, #daily-checkin-section, #history-section, #favorites-section {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 30px;
-    background: #FFFFFF;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    text-align: center;
-    animation: fadeIn 1.5s ease-in-out;
-}
-.content p, #intro-content p {
-    font-size: 1.1em;
-    font-weight: 300;
-    line-height: 1.8;
-    color: #666666;
-    margin-bottom: 20px;
-}
-/* Blog Post List */
-.blog-posts {
-    list-style: none;
-    padding: 0;
-}
-.blog-posts li {
-    margin-bottom: 20px;
-}
-.blog-posts a {
-    font-size: 1.2em;
-    font-weight: 500;
-    color: #333333;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-.blog-posts a:hover {
-    color: #A3CFFA;
-}
-.blog-posts p {
-    font-size: 1em;
-    font-weight: 300;
-    color: #666666;
-}
-/* Instruction */
-p#instruction {
-    font-size: 1.2em;
-    font-weight: 500;
-    color: #333333;
-    background: #F7F7F7;
-    padding: 10px 20px;
-    border-radius: 10px;
+/* Accordion Styles */
+.accordion {
     margin: 20px 0;
-    animation: fadeIn 1s ease-in-out;
 }
-/* Mood Buttons */
-#mood-buttons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    max-width: 800px;
-    margin: 20px auto;
-    animation: fadeIn 1.5s ease-in-out;
-}
-#mood-buttons button {
-    padding: 20px;
-    border: none;
-    border-radius: 10px;
-    font-size: 1.1em;
-    font-weight: 500;
-    color: #333333;
-    background: #FFFFFF;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-#mood-buttons button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-#mood-buttons button.tired { background-color: #E6F0FA; }
-#mood-buttons button.stressed { background-color: #FFE6E6; }
-#mood-buttons button.bored { background-color: #E6F5FA; }
-#mood-buttons button.excited { background-color: #FFF9E6; }
-#mood-buttons button.sad { background-color: #E6ECFA; }
-#mood-buttons button.angry { background-color: #FFE6E6; }
-#mood-buttons button.happy { background-color: #E6FAE6; }
-#mood-buttons button.confused { background-color: #F5E6FA; }
-#mood-buttons button.selected {
-    border: 2px solid #A3CFFA;
-    box-shadow: 0 0 10px rgba(163, 207, 250, 0.5);
-}
-/* Result */
-#result {
-    max-width: 800px;
-    margin: 30px auto;
-    padding: 20px;
-    background: #FFFFFF;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    font-size: 1.2em;
-    font-weight: 400;
-    color: #333333;
-    text-align: center;
-    animation: fadeIn 1s ease-in-out;
-    display: none;
-}
-#result.show { display: block; }
-.favorite-button {
-    margin-top: 15px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 25px;
-    font-size: 1em;
-    font-weight: 500;
-    background: #A3CFFA;
-    color: #FFFFFF;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-.favorite-button:hover {
-    background: #8BB8F5;
-}
-/* Sections */
-.checkin-button {
-    padding: 12px 30px;
-    border: none;
-    border-radius: 25px;
-    font-size: 1.1em;
-    font-weight: 500;
-    background: #A3CFFA;
-    color: #FFFFFF;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease;
-}
-.checkin-button:hover {
-    background: #8BB8F5;
-    transform: translateY(-2px);
-}
-#recommendation {
-    margin-top: 15px;
-    font-size: 1.1em;
-    font-weight: 400;
-    color: #666666;
-}
-#history-list, #favorites-list {
-    list-style: none;
-    padding: 0;
-    color: #666666;
-}
-#history-list li, #favorites-list li {
+
+.accordion-item {
     margin-bottom: 10px;
-    font-size: 1em;
-    font-weight: 400;
 }
-.clear-history-button {
-    margin-top: 15px;
-    padding: 8px 20px;
+
+.accordion-header {
+    background-color: #f5f5f5;
+    color: #333;
+    padding: 15px;
     border: none;
-    border-radius: 25px;
-    font-size: 1em;
-    font-weight: 500;
-    background: #FF867A;
-    color: #FFFFFF;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-.clear-history-button:hover {
-    background: #F5766A;
-}
-/* Affiliate Banner */
-#ad {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    font-size: 1em;
-    font-weight: 400;
-    color: #FFFFFF;
-    background: rgba(0, 0, 0, 0.7);
-    padding: 10px 20px;
-    border-radius: 10px;
-    z-index: 10;
-}
-#ad a {
-    color: #A3CFFA;
-    text-decoration: none;
-}
-#ad a:hover {
-    color: #8BB8F5;
-}
-/* Donate and Share */
-#donate {
-    margin: 20px auto;
-    max-width: 800px;
-    text-align: center;
-}
-#share {
-    display: inline-block;
-    margin: 20px auto;
-    padding: 12px 30px;
-    background: #A3CFFA;
-    color: #FFFFFF;
-    font-size: 1.1em;
-    font-weight: 500;
-    text-decoration: none;
-    border-radius: 25px;
-    transition: background 0.3s ease;
-}
-#share:hover {
-    background: #8BB8F5;
-}
-/* Banner */
-#banner {
-    margin: 30px auto;
-    text-align: center;
-}
-#banner img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
-/* Footer */
-footer {
-    background: #333333;
     width: 100%;
-    padding: 20px 0;
-    text-align: center;
-    color: #FFFFFF;
-    font-size: 0.9em;
-    font-weight: 400;
-    margin-top: auto;
+    text-align: left;
+    font-size: 1.2em;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
-footer a {
-    color: #FFFFFF;
+
+.accordion-header:hover {
+    background-color: #e0e0e0;
+}
+
+.accordion-content {
+    display: none;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.accordion-content p, .accordion-content h4, .accordion-content h5, .accordion-content ul {
+    margin: 10px 0;
+}
+
+.accordion-content a {
+    color: #007bff;
     text-decoration: none;
-    margin: 0 15px;
 }
-footer a:hover {
-    color: #A3CFFA;
-}
-/* Animations */
-@-webkit-keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-/* Responsive Design */
-@media (max-width: 768px) {
-    h1 { font-size: 2.2em; margin-top: 80px; }
-    h2 { font-size: 1.2em; }
-    nav a { font-size: 1em; margin: 0 10px; }
-    #mood-buttons { grid-template-columns: repeat(2, 1fr); gap: 15px; }
-    #result { font-size: 1.1em; }
-    #ad { font-size: 0.9em; padding: 8px 15px; bottom: 10px; left: 10px; }
-    footer a { font-size: 0.9em; margin: 0 10px; }
-}
-@media (max-width: 480px) {
-    h1 { font-size: 1.8em; }
-    #mood-buttons { grid-template-columns: 1fr; }
-    .content, #intro-content, #daily-checkin-section, #history-section, #favorites-section { padding: 20px; }
+
+.accordion-content a:hover {
+    text-decoration: underline;
 }
