@@ -9,7 +9,7 @@
     <title>Privacy Policy | Mood-to-Task Matcher</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
-        body{font-family:Arial,sans-serif;display:flex;flex-direction:column;align-items:center;min-height:100vh;margin:0;background:linear-gradient(135deg,#a8caba,#f0f4ef);overflow-x:hidden;padding-bottom:20px}nav{background-color:rgba(0,0,0,.3);width:100%;padding:10px 0;text-align:center}nav a{color:#fff;font-size:1.1em;margin:0 20px;text-decoration:none}nav a:hover{color:#ffeb3b}h1{color:#222;font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.2);margin-bottom:10px;animation:fadeIn 2s ease-in-out}h2{color:#222;font-size:1.5em;margin-top:20px;margin-bottom:10px}p{color:#333;font-size:1em;line-height:1.5;margin-bottom:15px}.content{max-width:80%;margin:20px 0;background-color:rgba(255,255,255,0.8);padding:15px;border-radius:10px;box-shadow:0 2px 4px rgba(0,0,0,.1)}footer{background-color:rgba(0,0,0,.3);width:100%;padding:10px 0;text-align:center;color:#fff;font-size:0.9em;margin-top:auto}footer a{color:#fff;text-decoration:underline}footer a:hover{color:#ffeb3b}a{color:#1a73e8;text-decoration:underline}a:hover{color:#1557b0}#ad{position:fixed;bottom:10px;left:10px;font-size:1em;color:#fff;text-align:left;padding:10px;background-color:rgba(0,0,0,.5);border-radius:5px;z-index:10}#ad a{color:#1a73e8;text-decoration:underline}#ad a:hover{color:#1557b0}@-webkit-keyframes fadeIn{from{opacity:0}to{opacity:1}}@media(max-width:600px){h1{font-size:2em}h2{font-size:1.3em}nav a{font-size:1em;margin:0 10px}footer a{font-size:0.9em;margin:0 10px}#ad{font-size:0.9em;padding:8px}}
+        body{font-family:Arial,sans-serif;display:flex;flex-direction:column;align-items:center;min-height:100vh;margin:0;background:linear-gradient(135deg,#a8caba,#f0f4ef);overflow-x:hidden;padding-bottom:20px}nav{background-color:rgba(0,0,0,.3);width:100%;padding:10px 0;text-align:center}nav a{color:#fff;font-size:1.1em;margin:0 20px;text-decoration:none}nav a:hover{color:#ffeb3b}h1{color:#222;font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.2);margin-bottom:10px;animation:fadeIn 2s ease-in-out}h2{color:#222;font-size:1.5em;margin-top:20px;margin-bottom:10px}p{color:#333;font-size:1em;line-height:1.5;margin-bottom:15px}.content{max-width:80%;margin:20px 0;background-color:rgba(255,255,255,0.8);padding:15px;border-radius:10px;box-shadow:0 2px 4px rgba(0,0,0,.1)}footer{background-color:rgba(0,0,0,.3);width:100%;padding:10px 0;text-align:center;color:#fff;font-size:0.9em;margin-top:auto}footer a{color:#fff;text-decoration:underline}footer a:hover{color:#ffeb3b}a{color:#1a73e8;text-decoration:underline}a:hover{color:#1557b0}#ad{position:fixed;bottom:10px;left:10px;font-size:1.1em;color:#fff;text-align:left;padding:10px;background:linear-gradient(90deg,rgba(0,0,0,0.7),rgba(0,0,0,0.5));border:1px solid #ffffff33;border-radius:5px;z-index:10;display:none;animation:slideUp 1s ease-in-out}#ad:hover{transform:scale(1.03);transition:transform 0.2s ease-in-out}#ad a{color:#1a73e8;text-decoration:underline}#ad a:hover{color:#1557b0}#dismiss-ad{position:absolute;top:2px;right:5px;cursor:pointer;color:#fff;font-size:1.2em}@-webkit@keyframes fadeIn{from{opacity:0}to{opacity:1}}@-webkit@keyframes slideUp{from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}@media(max-width:600px){h1{font-size:2em}h2{font-size:1.3em}nav a{font-size:1em;margin:0 10px}footer a{font-size:0.9em;margin:0 10px}#ad{font-size:1em;padding:10px;left:50%;transform:translateX(-50%);width:90%;text-align:center}}
     </style>
 </head>
 <body>
@@ -47,6 +47,7 @@
             <li><strong>Google AdSense:</strong> We may display ads through Google AdSense, which uses cookies to serve relevant advertisements. You can opt out of personalized ads via Google’s <a href="https://adssettings.google.com" target="_blank">Ad Settings</a>.</li>
             <li><strong>Buy Me a Coffee:</strong> We use Buy Me a Coffee for donations, which may collect payment information if you choose to donate. This data is handled according to their <a href="https://www.buymeacoffee.com/privacy" target="_blank">Privacy Policy</a>.</li>
             <li><strong>Online Therapy Affiliate:</strong> We include affiliate links to Online Therapy, which may track referrals. This does not involve collecting your personal data.</li>
+            <li><strong>Blueprint by Bryan Johnson Affiliate:</strong> We include affiliate links to Blueprint by Bryan Johnson, a wellness program. We may earn a commission on purchases made through these links, at no additional cost to you.</li>
         </ul>
         
         <h2>5. Data Security</h2>
@@ -68,12 +69,49 @@
         
         <p><em>Last Updated: April 5, 2025</em></p>
     </div>
-    <div id="ad">Need a mood boost? Try <a href="https://blueprint.bryanjohnson.com/SFWJRHYB" target="_blank">Blueprint by Bryan Johnson</a>!</div>
+    <div id="ad">
+        <span id="dismiss-ad">×</span>
+    </div>
     <footer>
         <a href="index.html">Home</a> | 
         <a href="blog.html">Blog</a> | 
         <a href="about.html">About</a> | 
         <a href="privacy.html">Privacy Policy</a>
     </footer>
+    <script>
+        // Show banner after 5 seconds
+        document.getElementById('ad').style.display = 'none';
+        setTimeout(() => {
+            document.getElementById('ad').style.display = 'block';
+        }, 5000);
+
+        // Dismiss banner
+        document.getElementById('dismiss-ad').addEventListener('click', () => {
+            document.getElementById('ad').style.display = 'none';
+        });
+
+        // Dynamic message based on mood
+        const selectedMood = localStorage.getItem('selectedMood') || 'default';
+        const adDiv = document.getElementById('ad');
+        const moodMessages = {
+            'sad': '✨ Feeling Down? Lift Your Spirits with <a href="https://blueprint.bryanjohnson.com/SFWJRHYB" target="_blank"><strong>Blueprint by Bryan Johnson</strong></a>—Science-Backed Wellness!',
+            'bored': '✨ Bored? Boost Your Mood with <a href="https://blueprint.bryanjohnson.com/SFWJRHYB" target="_blank"><strong>Blueprint by Bryan Johnson</strong></a>—Science-Backed Wellness!',
+            'stressed': '✨ Stressed Out? Find Calm with <a href="https://blueprint.bryanjohnson.com/SFWJRHYB" target="_blank"><strong>Blueprint by Bryan Johnson</strong></a>—Science-Backed Wellness!',
+            'default': '✨ Boost Your Mood Today—Discover <a href="https://blueprint.bryanjohnson.com/SFWJRHYB" target="_blank"><strong>Blueprint by Bryan Johnson</strong></a>—Science-Backed Wellness!'
+        };
+
+        // A/B testing for banner messages
+        const version = Math.random() < 0.5 ? 'version1' : 'version2';
+        const abTestMessages = {
+            'version1': moodMessages[selectedMood] || moodMessages['default'],
+            'version2': '✨ Feeling Low? Try <a href="https://blueprint.bryanjohnson.com/SFWJRHYB" target="_blank"><strong>Blueprint by Bryan Johnson</strong></a> for a Mood Lift—Science-Backed!'
+        };
+        adDiv.innerHTML = (abTestMessages[version] || abTestMessages['version1']) + '<span id="dismiss-ad">×</span>';
+
+        // Track clicks
+        document.getElementById('ad').querySelector('a').addEventListener('click', () => {
+            console.log(`Affiliate banner clicked on ${window.location.pathname} - Version: ${version}`);
+        });
+    </script>
 </body>
 </html>
