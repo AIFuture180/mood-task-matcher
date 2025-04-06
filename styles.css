@@ -1,3 +1,129 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+    padding-top: 60px; /* Adjust for fixed nav */
+}
+
+/* Navigation Bar */
+#nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 10px 0;
+    text-align: center;
+}
+
+#nav.scrolled {
+    background-color: #f5f5f5;
+}
+
+#nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+#nav a:hover {
+    color: #007bff;
+}
+
+/* Headings */
+h1 {
+    font-size: 2.5em;
+    text-align: center;
+    margin: 20px 0;
+    color: #333;
+}
+
+h2 {
+    font-size: 1.8em;
+    text-align: center;
+    margin: 10px 0;
+    color: #555;
+}
+
+h3 {
+    font-size: 1.5em;
+    margin: 15px 0;
+}
+
+h4 {
+    font-size: 1.3em;
+    margin: 10px 0;
+}
+
+h5 {
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
+/* Content */
+.content, #intro-content, #daily-checkin-section, #history-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+p {
+    margin: 10px 0;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+li {
+    margin: 5px 0;
+}
+
+/* Check In Now Button */
+.checkin-button {
+    padding: 12px 20px;
+    font-size: 1.1em;
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #FFDD00; /* Bright yellow to grab attention */
+    background: linear-gradient(135deg, #FFDD00, #FFC107); /* Subtle gradient */
+    color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
+    display: block;
+    margin: 0 auto;
+}
+
+.checkin-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(135deg, #FFC107, #FFB300); /* Slightly darker on hover */
+}
+
+/* Mood Buttons */
 #mood-buttons {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Slightly wider to fit text comfortably */
@@ -65,4 +191,167 @@
 #mood-buttons button.selected {
     border: 2px solid #333;
     box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2); /* Add a subtle glow effect */
+}
+
+/* Result Section */
+#result {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+#result.show {
+    opacity: 1;
+}
+
+/* Favorite Button */
+.favorite-button {
+    margin-top: 10px;
+    padding: 8px 15px;
+    font-size: 0.9em;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.favorite-button:hover {
+    background-color: #0056b3;
+}
+
+/* Clear History Button */
+.clear-history-button {
+    padding: 10px 15px;
+    font-size: 1em;
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #FF6F61; /* Coral red to indicate action */
+    background: linear-gradient(135deg, #FF6F61, #FF4D4D); /* Subtle gradient */
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
+    display: block;
+    margin: 10px auto;
+}
+
+.clear-history-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(135deg, #FF4D4D, #FF2E2E); /* Slightly darker on hover */
+}
+
+/* Recommendation Section */
+#recommendation {
+    margin: 20px auto;
+    padding: 15px;
+    max-width: 800px;
+    background-color: #e6f5fa;
+    border-radius: 10px;
+}
+
+/* Share Link */
+#share {
+    display: block;
+    text-align: center;
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #1da1f2;
+    color: #fff;
+    border-radius: 5px;
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#share:hover {
+    background-color: #0d8bf0;
+    text-decoration: none;
+}
+
+/* Donate Section */
+#donate {
+    margin: 20px 0;
+}
+
+/* Banner and Ad */
+#banner, #ad {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#banner img {
+    max-width: 100%;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f5f5f5;
+    margin-top: 20px;
+}
+
+footer a {
+    margin: 0 10px;
+    color: #333;
+}
+
+footer a:hover {
+    color: #007bff;
+}
+
+/* Accordion Styles */
+.accordion {
+    margin: 20px 0;
+}
+
+.accordion-item {
+    margin-bottom: 10px;
+}
+
+.accordion-header {
+    background-color: #f5f5f5;
+    color: #333;
+    padding: 15px;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-size: 1.2em;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.accordion-header:hover {
+    background-color: #e0e0e0;
+}
+
+.accordion-content {
+    display: none;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.accordion-content p, .accordion-content h4, .accordion-content h5, .accordion-content ul {
+    margin: 10px 0;
+}
+
+.accordion-content a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.accordion-content a:hover {
+    text-decoration: underline;
 }
