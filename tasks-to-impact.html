@@ -6,7 +6,7 @@
     <meta name="description" content="Explore tasks that make a lasting impact on your mood and well-being with Mood-to-Task Matcher.">
     <title>Tasks to Impact | Mood-to-Task Matcher</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -21,17 +21,20 @@
         <h2>Make a Lasting Impact on Your Mood</h2>
         <p>Explore tasks and strategies designed to create a deeper, more sustainable impact on your mood and overall well-being. Click a category below to expand and learn more.</p>
         <div id="impact-sections">
-            <button class="impact-button" onclick="toggleSection('sleep-content')">Sleep</button>
+            <button class="impact-button sleep-button" onclick="toggleSection('sleep-content')">Sleep</button>
             <div id="sleep-content" class="impact-content">
-                <h3>Optimize Your Sleep</h3>
-                <p>Getting quality sleep is essential for mood regulation and overall health. Try these tips to improve your sleep:</p>
+                <h3>Optimize Your Sleep with Matt Walker’s Insights</h3>
+                <p>Sleep is the foundation of a healthy mind and body, and few understand this better than Dr. Matt Walker, a renowned sleep scientist and author of <em>Why We Sleep</em>. Walker emphasizes that quality sleep enhances mood, cognitive function, and overall health. Here are some of his science-backed tips to improve your sleep:</p>
                 <ul>
-                    <li>Stick to a consistent sleep schedule, even on weekends.</li>
-                    <li>Create a relaxing bedtime routine, like reading or meditating.</li>
-                    <li>Avoid screens at least 1 hour before bed to reduce blue light exposure.</li>
+                    <li><strong>Stick to a Consistent Sleep Schedule:</strong> Go to bed and wake up at the same time every day, even on weekends, to regulate your body’s internal clock.</li>
+                    <li><strong>Optimize Your Sleep Environment:</strong> Keep your bedroom cool (around 65°F or 18°C), dark, and quiet. Consider blackout curtains and a white noise machine if needed.</li>
+                    <li><strong>Avoid Caffeine and Alcohol:</strong> Caffeine can stay in your system for up to 10 hours, so avoid it after mid-afternoon. Alcohol may help you fall asleep but disrupts REM sleep, reducing sleep quality.</li>
+                    <li><strong>Limit Screen Time Before Bed:</strong> Blue light from screens suppresses melatonin production. Walker recommends avoiding screens at least 1 hour before bed or using blue light-blocking glasses.</li>
+                    <li><strong>Create a Pre-Sleep Routine:</strong> Wind down with calming activities like reading, meditating, or taking a warm bath to signal to your brain that it’s time to sleep.</li>
                 </ul>
+                <p>Walker also highlights the importance of getting 7-9 hours of sleep per night for most adults. Prioritizing sleep can lead to better mood stability, improved focus, and a stronger immune system.</p>
             </div>
-            <button class="impact-button" onclick="toggleSection('diet-content')">Diet</button>
+            <button class="impact-button diet-button" onclick="toggleSection('diet-content')">Diet</button>
             <div id="diet-content" class="impact-content">
                 <h3>Transform Your Diet with Gary Brecka’s Model</h3>
                 <p>At Mood-to-Task Matcher, we believe in science-backed approaches to improve your well-being. That’s why we’ve adopted Gary Brecka’s diet model from The Ultimate Human to guide our dietary recommendations. Brecka, a renowned human biologist and biohacker, focuses on a high-fat, low-carb, moderate-protein ketogenic diet to optimize health, energy, and longevity.</p>
@@ -67,7 +70,7 @@
                 <h4>Additional Tips</h4>
                 <p>Stay hydrated with hydrogen water, as recommended by Brecka, to support digestion and reduce inflammation. Consider personalized supplements (e.g., Vitamin D3) based on bloodwork, and consult a healthcare professional before making significant dietary changes.</p>
             </div>
-            <button class="impact-button" onclick="toggleSection('exercise-content')">Exercise</button>
+            <button class="impact-button exercise-button" onclick="toggleSection('exercise-content')">Exercise</button>
             <div id="exercise-content" class="impact-content">
                 <h3>Boost Your Mood with Exercise</h3>
                 <p>Regular physical activity can significantly improve your mood and energy levels. Here are some ideas:</p>
@@ -77,7 +80,7 @@
                     <li>Join a local sports club or class to make exercise fun and social.</li>
                 </ul>
             </div>
-            <button class="impact-button" onclick="toggleSection('mindfulness-content')">Mindfulness</button>
+            <button class="impact-button mindfulness-button" onclick="toggleSection('mindfulness-content')">Mindfulness</button>
             <div id="mindfulness-content" class="impact-content">
                 <h3>Practice Mindfulness for Inner Peace</h3>
                 <p>Mindfulness can help you stay present and reduce stress. Try these techniques:</p>
