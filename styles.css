@@ -1,68 +1,41 @@
-#mood-buttons {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Slightly wider to fit text comfortably */
-    gap: 15px; /* Increased gap for better spacing */
-    margin: 20px auto;
-    max-width: 800px; /* Center the grid and limit its width */
-}
-
-#mood-buttons button {
-    padding: 12px 15px; /* Adjusted padding for a compact look */
-    font-size: 1em;
-    font-weight: 500; /* Slightly bolder text for readability */
+/* Check In Now Button */
+.checkin-button {
+    padding: 12px 20px;
+    font-size: 1.1em;
+    font-weight: 500;
     border: none;
-    border-radius: 10px; /* Rounded corners */
+    border-radius: 10px;
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease; /* Smooth transitions */
-    max-width: 150px; /* Limit the width to make buttons smaller horizontally */
-    margin: 0 auto; /* Center the button within its grid cell */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for 3D effect */
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.1)); /* Subtle gradient overlay */
+    background-color: #FFDD00; /* Bright yellow to grab attention */
+    background: linear-gradient(135deg, #FFDD00, #FFC107); /* Subtle gradient */
+    color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
 }
 
-/* Restore and enhance colors with gradients */
-#mood-buttons button.tired { 
-    background-color: #E6F0FA; 
-    background: linear-gradient(135deg, #E6F0FA, #C9DDF5); 
-}
-#mood-buttons button.stressed { 
-    background-color: #FFE6E6; 
-    background: linear-gradient(135deg, #FFE6E6, #F5C9C9); 
-}
-#mood-buttons button.bored { 
-    background-color: #E6F5FA; 
-    background: linear-gradient(135deg, #E6F5FA, #C9E6F0); 
-}
-#mood-buttons button.excited { 
-    background-color: #FFF9E6; 
-    background: linear-gradient(135deg, #FFF9E6, #F5EBC9); 
-}
-#mood-buttons button.sad { 
-    background-color: #E6ECFA; 
-    background: linear-gradient(135deg, #E6ECFA, #C9D4F5); 
-}
-#mood-buttons button.angry { 
-    background-color: #FFE6E6; 
-    background: linear-gradient(135deg, #FFE6E6, #F5C9C9); 
-}
-#mood-buttons button.happy { 
-    background-color: #E6FAE6; 
-    background: linear-gradient(135deg, #E6FAE6, #C9F5C9); 
-}
-#mood-buttons button.confused { 
-    background-color: #F5E6FA; 
-    background: linear-gradient(135deg, #F5E6FA, #E6C9F5); 
+.checkin-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(135deg, #FFC107, #FFB300); /* Slightly darker on hover */
 }
 
-/* Hover effect to grab attention */
-#mood-buttons button:hover {
-    transform: scale(1.05); /* Slight scale-up on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
-    opacity: 1; /* Ensure full opacity on hover */
+/* Clear History Button */
+.clear-history-button {
+    padding: 10px 15px;
+    font-size: 1em;
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #FF6F61; /* Coral red to indicate action */
+    background: linear-gradient(135deg, #FF6F61, #FF4D4D); /* Subtle gradient */
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
 }
 
-/* Selected state */
-#mood-buttons button.selected {
-    border: 2px solid #333;
-    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2); /* Add a subtle glow effect */
+.clear-history-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(135deg, #FF4D4D, #FF2E2E); /* Slightly darker on hover */
 }
