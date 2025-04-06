@@ -302,24 +302,61 @@ footer {
     display: inline-block;
     padding: 10px 20px;
     font-size: 1em;
-    font-weight: 500;
+    font-weight: 600;
+    letter-spacing: 0.5px;
     border: none;
     border-radius: 5px;
-    background-color: #e6f5fa;
-    color: #333;
     cursor: pointer;
     transition: background-color 0.3s ease;
     margin: 5px;
 }
 
 .impact-button:hover {
-    background-color: #c9e6f0;
-    color: #007bff;
+    opacity: 0.9;
 }
 
 .impact-button.active {
-    background-color: #c9e6f0;
-    color: #007bff;
+    opacity: 0.9;
+}
+
+.sleep-button {
+    background-color: #d6bcfa;
+    color: #333;
+}
+
+.sleep-button:hover, .sleep-button.active {
+    background-color: #c3a7f7;
+    color: #333;
+}
+
+.diet-button {
+    background-color: #b5f5b5;
+    color: #333;
+}
+
+.diet-button:hover, .diet-button.active {
+    background-color: #a0e6a0;
+    color: #333;
+}
+
+.exercise-button {
+    background-color: #feb694;
+    color: #333;
+}
+
+.exercise-button:hover, .exercise-button.active {
+    background-color: #f5a67e;
+    color: #333;
+}
+
+.mindfulness-button {
+    background-color: #a3e4d7;
+    color: #333;
+}
+
+.mindfulness-button:hover, .mindfulness-button.active {
+    background-color: #8ed6c7;
+    color: #333;
 }
 
 .impact-content {
@@ -330,4 +367,28 @@ footer {
     border-radius: 5px;
     text-align: left;
     display: none;
+}
+
+#blog-posts {
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.blog-post {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.blog-post h3 {
+    font-size: 1.3em;
+    margin: 0 0 10px 0;
+    text-align: left;
+}
+
+.blog-post p {
+    margin: 0;
 }
