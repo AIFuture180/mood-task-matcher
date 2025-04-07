@@ -106,7 +106,7 @@ body {
     100% { transform: scale(1); }
 }
 
-/* Mood Prompt */
+/* Mood Prompt (used on home page) */
 #mood-prompt {
     text-align: center;
     padding: 20px;
@@ -213,7 +213,7 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Result Section (Chat Bubble) */
+/* Result Section (Chat Bubble) - Used on home page */
 #result {
     margin: 20px auto;
     max-width: 500px;
@@ -329,7 +329,7 @@ body {
     margin-right: 5px;
 }
 
-/* Intro Content */
+/* Intro Content (used on home page) */
 #intro-content {
     max-width: 800px;
     margin: 40px auto;
@@ -393,7 +393,64 @@ body {
     margin-top: 20px;
 }
 
-/* Banner */
+/* Blog Content */
+#blog-content {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.blog-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.blog-post-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+}
+
+.blog-post-card h3 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.blog-post-card p {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.read-more-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.read-more-button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: bounce 0.3s ease;
+}
+
+.read-more-button:active {
+    transform: scale(0.95);
+    animation: pop 0.2s ease;
+}
+
+/* Banner (used on home page) */
 .premium-offer {
     max-width: 800px;
     margin: 20px auto;
@@ -474,7 +531,7 @@ body {
     background-color: #45a049;
 }
 
-/* Tabs Section */
+/* Tabs Section (used on home page) */
 .container {
     max-width: 800px;
     margin: 40px auto;
@@ -756,5 +813,18 @@ footer .disclaimer {
     .share-button {
         padding: 10px 20px;
         font-size: 14px;
+    }
+
+    .blog-post-card h3 {
+        font-size: 1.1em;
+    }
+
+    .blog-post-card p {
+        font-size: 0.9em;
+    }
+
+    .read-more-button {
+        padding: 8px 16px;
+        font-size: 0.8em;
     }
 }
