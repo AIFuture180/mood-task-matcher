@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Transform your mood in seconds with the Mood-to-Task Matcher! Fun, personalized micro-tasks to boost happiness, reduce stress, and brighten your day.">
-    <meta name="keywords" content="mood matcher, stress relief, happiness boost, mood tasks, mental health, quick mood fix">
+    <meta name="description" content="Boost your mood with quick, fun tasks tailored to how you feel. Try Mood-to-Task Matcher today!">
+    <meta name="keywords" content="mood matcher, mood booster, mental health, quick tasks, stress relief">
     <meta name="robots" content="index, follow">
-    <title>Mood-to-Task Matcher | 10-Second Mood Boosters for Happier Days</title>
+    <title>Mood-to-Task Matcher | Boost Your Mood in Seconds</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1511837633001567" crossorigin="anonymous" data-ad-init-load="300"></script>
     <!-- Google tag (gtag.js) -->
@@ -32,155 +32,116 @@
     </nav>
 
     <div class="hero-section">
-        <h1>Mood-to-Task Matcher</h1>
-        <h2>Transform Your Mood in Just 10 Seconds</h2>
-        <button class="hero-cta pulse-animation" onclick="showMoodButtons()">Boost My Mood Now</button>
+        <h1>Boost Your Mood in Seconds</h1>
+        <h2>Fun, Quick Tasks Tailored to How You Feel</h2>
     </div>
 
-    <div id="mood-prompt" class="hidden">
+    <div id="mood-prompt">
         <p id="instruction">How are you feeling right now?</p>
         <div id="mood-buttons">
-            <button class="tired" onclick="matchTask('tired')" aria-label="Select Tired mood" data-tooltip="E.g., Take a 1-minute nap on a fluffy cloud!">
-                <span class="mood-icon">🌙</span> Tired 😴
+            <button class="tired" onclick="selectMood('tired')" data-tooltip="Feeling low-energy?">
+                <span class="mood-icon">😴</span> Tired
             </button>
-            <button class="stressed" onclick="matchTask('stressed')" aria-label="Select Stressed mood" data-tooltip="E.g., Blow away stress with a giant balloon!">
-                <span class="mood-icon">⚡</span> Stressed 😣
+            <button class="stressed" onclick="selectMood('stressed')" data-tooltip="Feeling overwhelmed?">
+                <span class="mood-icon">😓</span> Stressed
             </button>
-            <button class="bored" onclick="matchTask('bored')" aria-label="Select Bored mood" data-tooltip="E.g., Doodle a silly monster named Sir Bloop!">
-                <span class="mood-icon">🌀</span> Bored 😐
+            <button class="bored" onclick="selectMood('bored')" data-tooltip="Need some excitement?">
+                <span class="mood-icon">🥱</span> Bored
             </button>
-            <button class="excited" onclick="matchTask('excited')" aria-label="Select Excited mood" data-tooltip="E.g., Do a 10-second victory dance!">
-                <span class="mood-icon">🎉</span> Excited 😄
+            <button class="excited" onclick="selectMood('excited')" data-tooltip="Feeling energized?">
+                <span class="mood-icon">🤩</span> Excited
             </button>
-            <button class="sad" onclick="matchTask('sad')" aria-label="Select Sad mood" data-tooltip="E.g., Hug yourself like a cozy muffin!">
-                <span class="mood-icon">☔</span> Sad 😢
+            <button class="sad" onclick="selectMood('sad')" data-tooltip="Feeling down?">
+                <span class="mood-icon">😢</span> Sad
             </button>
-            <button class="angry" onclick="matchTask('angry')" aria-label="Select Angry mood" data-tooltip="E.g., Stomp like a grumpy dinosaur!">
-                <span class="mood-icon">🔥</span> Angry 😡
+            <button class="angry" onclick="selectMood('angry')" data-tooltip="Feeling frustrated?">
+                <span class="mood-icon">😡</span> Angry
             </button>
-            <button class="happy" onclick="matchTask('happy')" aria-label="Select Happy mood" data-tooltip="E.g., Do a happy wiggle dance!">
-                <span class="mood-icon">🌞</span> Happy 😊
+            <button class="happy" onclick="selectMood('happy')" data-tooltip="Feeling great?">
+                <span class="mood-icon">😊</span> Happy
             </button>
-            <button class="confused" onclick="matchTask('confused')" aria-label="Select Confused mood" data-tooltip="E.g., Flip a coin like a pirate!">
-                <span class="mood-icon">❓</span> Confused 🤔
+            <button class="confused" onclick="selectMood('confused')" data-tooltip="Feeling unsure?">
+                <span class="mood-icon">🤔</span> Confused
             </button>
         </div>
-        <div id="result"></div>
     </div>
+
+    <div id="result"></div>
 
     <div id="intro-content">
+        <h3 class="section-heading">Why Mood-to-Task Matcher?</h3>
         <div class="feature-cards">
-            <div class="feature-card">
-                <div class="feature-icon">⚡</div>
-                <h3>Quick Mood Fixes</h3>
-                <p>10-second activities scientifically designed to shift your emotional state</p>
+            <div class="feature-card fade-in">
+                <span class="feature-icon">⚡</span>
+                <h3>Quick & Easy</h3>
+                <p>Tasks take just 1-5 minutes to boost your mood instantly.</p>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">🧠</div>
-                <h3>Mental Wellness</h3>
-                <p>Simple practices that build resilience and emotional intelligence</p>
+            <div class="feature-card fade-in">
+                <span class="feature-icon">🧠</span>
+                <h3>Science-Backed</h3>
+                <p>Activities designed with psychology and neuroscience in mind.</p>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">📊</div>
-                <h3>Track Progress</h3>
-                <p>Monitor your mood patterns and see your emotional journey</p>
+            <div class="feature-card fade-in">
+                <span class="feature-icon">🎯</span>
+                <h3>Personalized</h3>
+                <p>Get tasks tailored to your current mood and needs.</p>
             </div>
         </div>
-
-        <h3 class="section-heading">How It Works</h3>
-        <p>Our tool is simple: select your current mood, and we'll suggest a quick, playful activity to help you feel better. For example, if you're feeling tired, you might get a task like "Close your eyes for 1 minute and imagine you're napping on a fluffy cloud with a unicorn pillow!"</p>
-        
-        <div class="testimonial">
-            <p class="quote">"I use this every morning to set my day off right. Such a simple but effective concept!"</p>
-            <p class="author">— Sarah K.</p>
+        <div class="testimonial fade-in">
+            <p class="quote">"I was feeling so stressed, but the quick breathing exercise really helped me calm down in just a minute!"</p>
+            <p class="author">— Sarah M.</p>
         </div>
-        
-        <p class="disclaimer"><em>Health Disclaimer: The tasks provided are for informational and entertainment purposes only and are not intended as medical advice. Always consult a qualified healthcare provider before making changes to your routines, especially if you have pre-existing health conditions or are taking medication.</em></p>
-    </div>
-
-    <!-- Online Therapy banner strategically placed after first interaction -->
-    <div id="banner" class="premium-offer">
-        <div class="ribbon">
-            <span>SPECIAL OFFER</span>
-        </div>
-        <p class="ad-label">Feel Better Faster with Professional Support</p>
-        <p class="disclaimer"><em>Affiliate Disclosure: We may earn a commission from purchases at no extra cost to you.</em></p>
-        <a href="https://onlinetherapy.go2cloud.org/aff_c?offer_id=2&aff_id=4837&file_id=5" class="banner-link">
-            <img src="https://media.go2speed.org/brand/files/onlinetherapy/2/online-therapy-banner_728x90.jpg" alt="Online Therapy Banner" class="banner-img">
-        </a>
-        <img src="https://onlinetherapy.go2cloud.org/aff_i?offer_id=2&file_id=5&aff_id=4837" width="0" height="0" style="position:absolute;visibility:hidden;" border="0" />
-        <div class="ad-info">
-            <h4>Why 10,000+ People Choose Online Therapy:</h4>
-            <div class="benefits-grid">
-                <div class="benefit-item">
-                    <span class="benefit-icon">🎯</span>
-                    <span>Weekly video sessions</span>
-                </div>
-                <div class="benefit-item">
-                    <span class="benefit-icon">💬</span>
-                    <span>Unlimited messaging</span>
-                </div>
-                <div class="benefit-item">
-                    <span class="benefit-icon">📱</span>
-                    <span>Access anywhere</span>
-                </div>
-                <div class="benefit-item">
-                    <span class="benefit-icon">🛠️</span>
-                    <span>25+ practical worksheets</span>
-                </div>
-            </div>
-            <div class="promo-code">
-                <p>Use code: <strong>THERAPY20</strong> for 20% OFF</p>
-            </div>
-            <button class="cta-button" onclick="window.open('https://onlinetherapy.go2cloud.org/aff_c?offer_id=2&aff_id=4837&file_id=5', '_blank')">Get Started Now</button>
-        </div>
+        <p class="disclaimer"><em>Disclaimer: Results may vary. Always consult a professional for mental health concerns.</em></p>
     </div>
 
     <div class="container">
         <div class="tabs">
-            <button class="tab-button active" onclick="openTab(event, 'daily-tab')">Daily Check-In</button>
-            <button class="tab-button" onclick="openTab(event, 'history-tab')">Your History</button>
-            <button class="tab-button" onclick="openTab(event, 'favorites-tab')">Your Favorites</button>
+            <button class="tab-button active" onclick="openTab('daily-checkin')">Daily Check-In</button>
+            <button class="tab-button" onclick="openTab('history')">Mood History</button>
+            <button class="tab-button" onclick="openTab('favorites')">Favorites</button>
         </div>
-        
-        <div id="daily-tab" class="tab-content active">
+
+        <div id="daily-checkin" class="tab-content active">
             <div id="daily-checkin-section">
                 <h3>Daily Mood Check-In</h3>
-                <p>Track your mood regularly for personalized recommendations!</p>
-                <button class="checkin-button" onclick="showMoodButtons()">Check In Now</button>
+                <p>Track your mood daily to get personalized task recommendations.</p>
+                <button class="checkin-button" onclick="startDailyCheckIn()">Start Check-In</button>
                 <div id="recommendation"></div>
             </div>
         </div>
-        
-        <div id="history-tab" class="tab-content">
+
+        <div id="history" class="tab-content">
             <div id="history-section">
                 <h3>Your Mood History</h3>
-                <div id="history-visualization" class="history-viz"></div>
+                <div class="history-viz">
+                    <div class="mood-viz" id="mood-viz"></div>
+                    <p class="trend-info" id="trend-info"></p>
+                </div>
                 <ul id="history-list"></ul>
+                <p id="empty-history" class="empty-list">No mood history yet. Start by checking in!</p>
                 <button class="clear-history-button" onclick="clearHistory()">Clear History</button>
             </div>
         </div>
-        
-        <div id="favorites-tab" class="tab-content">
+
+        <div id="favorites" class="tab-content">
             <div id="favorites-section">
                 <h3>Your Favorite Tasks</h3>
                 <ul id="favorites-list"></ul>
+                <p id="empty-favorites" class="empty-list">No favorite tasks yet. Save tasks you love!</p>
             </div>
         </div>
     </div>
 
-    <!-- Updated Share on X Button -->
-    <button id="share" class="share-button" aria-label="Share your mood task on X">
+    <button id="share" class="share-button" aria-label="Share this page on X">
         <svg class="share-logo" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
             <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
         </svg>
         <span>Share on X</span>
     </button>
 
-    <!-- Support Us section moved closer to main content -->
     <div id="donate">
         <h3>Support Us</h3>
-        <p>If you find this tool helpful, please consider supporting us!</p>
+        <p>If you love Mood-to-Task Matcher, please consider supporting us!</p>
         <a href="https://www.buymeacoffee.com/moodtask" target="_blank" rel="noopener noreferrer">
             <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" style="width: 150px; height: auto;">
         </a>
@@ -210,378 +171,219 @@
     </footer>
 
     <script>
-        const tasks={
-            tired:[
-                "Close your eyes for 1 minute and imagine you're napping on a fluffy cloud with a unicorn pillow!",
-                "Sip a glass of cold water and pretend you're a sleepy robot recharging with magic juice!",
-                "Do a silly stretch: reach for the sky like you're picking stars for a sleepy galaxy!",
-                "Hum a lullaby for 30 seconds to trick your brain into a mini-rest mode!",
-                "Look at something green for 30 seconds and imagine you're a tired frog on a lily pad!",
-                "Take 5 slow breaths and picture a hamster wheel slowing down in your brain!",
-                "Wiggle your toes 10 times to wake up your sleepy feet like they're dancing ants!",
-                "Set a timer for a 2-minute rest and pretend you're a bear hibernating in a cozy cave!",
-                "Sniff something refreshing (like a lemon) and imagine you're a sleepy pirate finding treasure!",
-                "Blink 10 times fast to reboot your tired eyes like a blinking disco light!"
+        // Mood-to-task mapping
+        const moodTasks = {
+            tired: [
+                { emoji: "😴", task: "Take a 5-minute power nap to recharge your energy." },
+                { emoji: "☕", task: "Sip a cup of herbal tea to relax and re-energize." },
+                { emoji: "🚶", task: "Take a 3-minute walk to boost your energy levels." }
             ],
-            stressed:[
-                "Take 5 deep breaths and pretend you're blowing up a giant balloon for a silly party!",
-                "Squeeze your hands into fists, then release them like you're letting go of a grumpy stress monster!",
-                "Count 5 things you can see and imagine they're all part of a wacky stress-free circus!",
-                "Hum a silly tune for 30 seconds to distract your brain from stress gremlins!",
-                "Tense your shoulders, then drop them like you're a puppet cutting its strings in a goofy play!",
-                "Say 'I'm a calm potato!' out loud to remind your brain to chill like a veggie!",
-                "Look out a window for 1 minute and imagine your stress floating away on a fluffy cloud!",
-                "Shake your arms like a wiggly jellyfish for 10 seconds to shake off the stress vibes!",
-                "Sip warm water and pretend it's a magic potion to melt away your worries!",
-                "Close your eyes and picture a giggling puppy to chase away your stress with cuddles!"
+            stressed: [
+                { emoji: "🧘", task: "Try a 2-minute deep breathing exercise: inhale for 4 seconds, exhale for 4 seconds." },
+                { emoji: "📝", task: "Write down 3 things stressing you out, then crumple the paper and toss it." },
+                { emoji: "🎶", task: "Listen to calming music for 3 minutes to relax your mind." }
             ],
-            bored:[
-                "Doodle a silly monster for 1 minute and give it a funny name like 'Sir Bloop'!",
-                "Make a paper airplane and pretend it's flying to a magical land of un-boredom!",
-                "Invent a 3-word story about a bored banana who becomes a superhero!",
-                "Spin around 3 times and laugh like a goofy villain to spark some fun energy!",
-                "Find 3 random objects and pretend they're treasures in a pirate's bored-busting chest!",
-                "Sing a jingle from a commercial in a funny voice to entertain your bored brain!",
-                "Draw a stick figure doing a silly dance to join your boredom-banishing party!",
-                "Pretend you're a robot for 30 seconds and beep-boop your way out of boredom!",
-                "Rearrange 3 things nearby and imagine you're decorating a castle for a bored king!",
-                "Write down a wacky idea, like 'What if clouds were cotton candy?' to spark creativity!"
+            bored: [
+                { emoji: "🎨", task: "Doodle or sketch something fun for 5 minutes." },
+                { emoji: "🧩", task: "Try a quick online puzzle or brain teaser to spark creativity." },
+                { emoji: "📖", task: "Read a short, funny article or comic strip to entertain yourself." }
             ],
-            excited:[
-                "Do a 10-second victory dance like you're a disco ball at an excitement party!",
-                "Write down one wild idea and imagine it coming true with a parade of happy squirrels!",
-                "Jump up and down 5 times and shout 'I'm a rocket of excitement!' to launch your energy!",
-                "High-five yourself in a mirror and say 'You're an excitement superstar!'",
-                "Snap your fingers 10 times fast to create a beat for your excited heart!",
-                "Draw a big star and color it in with all your sparkly, excited vibes!",
-                "Shout 'Yes!' as loud as you dare, like you're cheering for a team of excited kittens!",
-                "Plan one tiny step for your idea and pretend you're a wizard making magic happen!",
-                "Imagine your excitement as a bouncy ball zooming around a happy room for 10 seconds!",
-                "Tell someone (or yourself) why you're excited, like you're announcing it on a game show!"
+            excited: [
+                { emoji: "💃", task: "Dance to your favorite song for 3 minutes to celebrate your energy!" },
+                { emoji: "📸", task: "Take a fun selfie and share it with a friend to spread the joy." },
+                { emoji: "🎉", task: "Write down 3 things you’re excited about today to keep the vibe going." }
             ],
-            sad:[
-                "Hug yourself tight for 10 seconds and whisper 'You're a sad little muffin, but I love you!'",
-                "Write down one thing you're grateful for, like 'I have a cozy sock!' and smile at it!",
-                "Look at a photo that makes you smile and imagine giving it a big, silly hug!",
-                "Wrap up in a blanket for 1 minute and pretend you're a sad burrito getting cozy!",
-                "Sip something warm and imagine it's a potion of tiny hugs for your sad heart!",
-                "Draw a tiny heart and say 'This is for you, sad me!' to cheer yourself up!",
-                "Listen to your favorite song for 1 minute and pretend it's a lullaby for your sadness!",
-                "Take 5 slow breaths and picture a friendly cloud saying 'It's okay to be sad!'",
-                "Say 'This will pass!' softly, like you're a wise old turtle comforting a sad fish!",
-                "Watch a cute animal video and imagine you're best friends with that fluffy critter!"
+            sad: [
+                { emoji: "🤗", task: "Text a friend or loved one to share how you’re feeling." },
+                { emoji: "🎥", task: "Watch a short, uplifting video or clip to lift your spirits." },
+                { emoji: "📝", task: "Write down 3 things you’re grateful for to shift your focus." }
             ],
-            angry:[
-                "Stomp your feet 5 times like a grumpy dinosaur to let out your angry roars!",
-                "Take 5 quick breaths and imagine blowing out your anger like a fiery dragon!",
-                "Squeeze a pillow 5 times and pretend it's a squishy anger monster you're taming!",
-                "Count 5 things you can touch and imagine they're calming your anger like magic pebbles!",
-                "Shake your whole body for 10 seconds like a wiggly dog shaking off angry water!",
-                "Growl like a bear for 5 seconds, then laugh to turn your anger into silliness!",
-                "Scribble hard on paper, then toss it like you're throwing away your angry scribbles!",
-                "Say 'I'm cooling down!' out loud, like you're an angry volcano turning into a chill hill!",
-                "Tap your fingers 10 times fast and imagine your anger turning into tiny drumbeats!",
-                "Close your eyes and picture a silly clown juggling your anger away for 10 seconds!"
+            angry: [
+                { emoji: "👊", task: "Do a quick 1-minute punching motion (in the air) to release frustration." },
+                { emoji: "🗣️", task: "Talk to yourself in the mirror for 2 minutes to vent your feelings." },
+                { emoji: "🧘", task: "Try a 2-minute deep breathing exercise to calm down." }
             ],
-            happy:[
-                "Do a little happy wiggle dance for 10 seconds like you're a joyful jellybean!",
-                "Write down why you're happy and pretend you're sending it to a happiness fairy!",
-                "Share a quick smile with someone (or yourself in a mirror) like you're a sunshine star!",
-                "Hum a cheerful tune for 30 seconds and imagine you're a happy bird singing!",
-                "Say 'Life's good!' out loud, like you're announcing it to a crowd of happy puppies!",
-                "Draw a quick smiley face and give it a high-five to celebrate your happiness!",
-                "Look around and name 3 pretty things, like you're a happiness detective on a mission!",
-                "Stretch your arms up high and pretend you're reaching for a giant happiness balloon!",
-                "Snap your fingers to a happy beat for 10 seconds, like you're in a joy parade!",
-                "Give yourself a pat on the back and say 'You're a happiness hero!' with a big grin!"
+            happy: [
+                { emoji: "😊", task: "Share your happiness—compliment someone today!" },
+                { emoji: "📸", task: "Capture this moment: take a photo of something that’s making you smile." },
+                { emoji: "🎶", task: "Play an upbeat song and dance for 3 minutes to keep the joy flowing." }
             ],
-            confused:[
-                "Flip a coin to decide something small and pretend you're a confused pirate picking treasure!",
-                "Take 3 slow breaths and imagine your confusion turning into a clear, sparkly bubble!",
-                "Write your question on paper and draw a silly smiley face to cheer up your confused brain!",
-                "Count to 5 and pick the first idea that pops into your head, like a magical lightbulb moment!",
-                "Tap your forehead 5 times and say 'Clarity, come to me!' like a confused wizard!",
-                "Shake your head gently and imagine your confusion falling off like glittery confetti!",
-                "Look up and say 'I'll figure it out!' like you're a detective solving a wacky mystery!",
-                "Draw a question mark, then turn it into a silly doodle to laugh at your confusion!",
-                "Ask someone (or yourself) a random question, like 'What would a confused cat do?'",
-                "Close your eyes and pick a direction to point, like you're a confused compass finding north!"
+            confused: [
+                { emoji: "📝", task: "Write down your thoughts for 3 minutes to clear your mind." },
+                { emoji: "🧘", task: "Take 10 deep breaths to center yourself and reduce overwhelm." },
+                { emoji: "❓", task: "Ask a friend or search online for clarity on what’s confusing you." }
             ]
-        },messages=[
-            "Perfect match! This quick task will help you feel better:",
-            "Here's your personalized mood-booster:",
-            "Try this fun activity to shift your mood:",
-            "This is exactly what you need right now:",
-            "Your custom mood-lifter is ready:",
-            "Here's a perfect 10-second task for you:",
-            "Let's transform that feeling with this activity:",
-            "Your mood prescription is ready:"
-        ],moodColors={tired:"#E6F0FA",stressed:"#FFE6E6",bored:"#E6F5FA",excited:"#FFF9E6",sad:"#E6ECFA",angry:"#FFE6E6",happy:"#E6FAE6",confused:"#F5E6FA"},goodFeelingColors=["#E6FAE6","#FFF9E6","#E6F5FA","#FFE6E6","#F5E6FA"];
-        
-        let currentMood = null, currentTask = null;
+        };
 
-        function calculateLuminance(color) {
-            const hex = color.replace("#", ""),
-                  r = parseInt(hex.substring(0, 2), 16),
-                  g = parseInt(hex.substring(2, 4), 16),
-                  b = parseInt(hex.substring(4, 6), 16);
-            return 0.299 * r + 0.587 * g + 0.114 * b;
-        }
+        // Select mood and display task
+        function selectMood(mood) {
+            const buttons = document.querySelectorAll('#mood-buttons button');
+            buttons.forEach(btn => btn.classList.remove('selected'));
+            document.querySelector(`button.${mood}`).classList.add('selected');
 
-        function showMoodButtons() {
-            const moodPrompt = document.getElementById("mood-prompt");
-            moodPrompt.classList.remove("hidden");
-            const rect = moodPrompt.getBoundingClientRect();
-            if (rect.top < 0 || rect.bottom > window.innerHeight) {
-                moodPrompt.scrollIntoView({ behavior: "smooth", block: "center" });
-            }
+            const tasks = moodTasks[mood];
+            const randomTask = tasks[Math.floor(Math.random() * tasks.length)];
             
-            const buttons = document.querySelectorAll("#mood-buttons button");
-            buttons.forEach((btn, index) => {
-                setTimeout(() => {
-                    btn.classList.add("fade-in");
-                }, index * 50);
-            });
-        }
-
-        function matchTask(mood, excludeTask = null) {
-            currentMood = mood;
-            const resultDiv = document.getElementById("result"),
-                  shareLink = document.getElementById("share"),
-                  buttons = document.querySelectorAll("#mood-buttons button"),
-                  currentButton = document.querySelector(`#mood-buttons button[onclick="matchTask('${mood}')"]`);
-
-            if (!mood) {
-                resultDiv.innerHTML = "Please select a mood first!";
-                resultDiv.classList.remove("show");
-                shareLink.href = "";
-                return;
-            }
-
-            buttons.forEach(btn => btn.classList.remove("selected"));
-            currentButton.classList.add("selected");
-
-            const taskList = tasks[mood];
-            let task;
-            do {
-                task = taskList[Math.floor(Math.random() * taskList.length)];
-            } while (task === excludeTask && taskList.length > 1);
-
-            currentTask = task;
-            const message = messages[Math.floor(Math.random() * messages.length)],
-                  selectedColor = goodFeelingColors[Math.floor(Math.random() * goodFeelingColors.length)];
-
+            const resultDiv = document.getElementById('result');
             resultDiv.innerHTML = `
                 <div class="task-card">
                     <div class="task-header">
-                        <span class="mood-emoji">${getEmojiForMood(mood)}</span>
-                        <h3>${message}</h3>
+                        <span class="mood-emoji">${randomTask.emoji}</span>
+                        <h3>Task for ${mood.charAt(0).toUpperCase() + mood.slice(1)}</h3>
                     </div>
                     <div class="task-body">
-                        <p class="task-text">${task}</p>
+                        <p class="task-text">${randomTask.task}</p>
                     </div>
                     <div class="task-footer">
-                        <button class="favorite-button" onclick="saveToFavorites('${mood}', '${task}')">
+                        <button class="favorite-button" onclick="saveFavorite('${mood}', '${randomTask.task}', '${randomTask.emoji}')">
                             <span class="heart-icon">❤️</span> Save to Favorites
                         </button>
-                        <button class="new-task-button" onclick="matchTask('${mood}', '${task}')">
-                            Try Another
-                        </button>
+                        <button class="new-task-button" onclick="selectMood('${mood}')">Get New Task</button>
                     </div>
                 </div>
             `;
-            
-            resultDiv.classList.add("show");
-            shareLink.href = `https://x.com/intent/post?text=I just got this mood fix from Mood-to-Task Matcher: ${encodeURIComponent(message + " " + task)} - https://www.moodtask.org/`;
-            resultDiv.style.backgroundColor = selectedColor;
+            resultDiv.classList.add('show');
 
-            const luminance = calculateLuminance(selectedColor);
-            resultDiv.style.color = luminance > 128 ? "#333333" : "#666666";
+            // Track mood selection in history
+            const history = JSON.parse(localStorage.getItem('moodHistory')) || [];
+            history.push({ mood, emoji: randomTask.emoji, date: new Date().toLocaleDateString() });
+            localStorage.setItem('moodHistory', JSON.stringify(history));
+            updateHistory();
 
-            document.getElementById("banner").classList.add("show-banner");
-
-            saveMoodHistory(mood);
-            provideRecommendation();
-            updateHistoryVisualization();
-        }
-
-        function getEmojiForMood(mood) {
-            const emojis = {
-                tired: "😴",
-                stressed: "😣",
-                bored: "😐",
-                excited: "😄",
-                sad: "😢",
-                angry: "😡",
-                happy: "😊",
-                confused: "🤔"
-            };
-            return emojis[mood] || "😊";
-        }
-
-        function saveMoodHistory(mood) {
-            const history = JSON.parse(localStorage.getItem("moodHistory") || "[]"),
-                  date = new Date().toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
-            history.push({ mood, date, timestamp: new Date().getTime() });
-            localStorage.setItem("moodHistory", JSON.stringify(history));
-            displayMoodHistory();
-        }
-
-        function displayMoodHistory() {
-            const history = JSON.parse(localStorage.getItem("moodHistory") || "[]"),
-                  historyList = document.getElementById("history-list");
-            historyList.innerHTML = "";
-            
-            const recentHistory = [...history].reverse().slice(0, 10);
-            
-            if (recentHistory.length > 0) {
-                recentHistory.forEach(entry => {
-                    const li = document.createElement("li");
-                    li.className = "history-item";
-                    li.innerHTML = `<span class="history-emoji">${getEmojiForMood(entry.mood)}</span> <span class="history-mood">${entry.mood}</span> <span class="history-date">${entry.date}</span>`;
-                    historyList.appendChild(li);
-                });
-            } else {
-                historyList.innerHTML = "<li class='empty-list'>No mood history yet!</li>";
-            }
-        }
-
-        function updateHistoryVisualization() {
-            const history = JSON.parse(localStorage.getItem("moodHistory") || "[]");
-            const vizContainer = document.getElementById("history-visualization");
-            vizContainer.innerHTML = "";
-            
-            if (history.length < 3) {
-                vizContainer.innerHTML = "<p>Check in more to see your mood trends!</p>";
-                return;
-            }
-            
-            const recentHistory = [...history].reverse().slice(0, 7);
-            const moodViz = document.createElement("div");
-            moodViz.className = "mood-viz";
-            
-            recentHistory.forEach(entry => {
-                const dot = document.createElement("div");
-                dot.className = "mood-dot";
-                dot.style.backgroundColor = moodColors[entry.mood];
-                dot.title = `${entry.mood} on ${entry.date}`;
-                
-                const emoji = document.createElement("span");
-                emoji.className = "dot-emoji";
-                emoji.textContent = getEmojiForMood(entry.mood);
-                dot.appendChild(emoji);
-                
-                moodViz.appendChild(dot);
+            // Track event for analytics
+            gtag('event', 'Mood Selection', {
+                'event_category': 'Mood',
+                'event_label': mood
             });
-            
-            vizContainer.appendChild(moodViz);
-            
-            const trendInfo = document.createElement("p");
-            trendInfo.className = "trend-info";
-            
-            const happyCount = history.filter(entry => entry.mood === "happy" || entry.mood === "excited").length;
-            const sadCount = history.filter(entry => entry.mood === "sad" || entry.mood === "stressed" || entry.mood === "angry").length;
-            
-            if (happyCount > sadCount) {
-                trendInfo.innerHTML = "You've been <span class='positive'>mostly positive</span> lately!";
-            } else if (sadCount > happyCount) {
-                trendInfo.innerHTML = "You've been feeling <span class='negative'>challenged</span> lately. Try some happy tasks!";
+        }
+
+        // Save favorite task
+        function saveFavorite(mood, task, emoji) {
+            const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+            favorites.push({ mood, task, emoji });
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+            updateFavorites();
+            alert('Task saved to favorites!');
+        }
+
+        // Update favorites list
+        function updateFavorites() {
+            const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+            const favoritesList = document.getElementById('favorites-list');
+            const emptyFavorites = document.getElementById('empty-favorites');
+            favoritesList.innerHTML = '';
+
+            if (favorites.length === 0) {
+                emptyFavorites.style.display = 'block';
             } else {
-                trendInfo.innerHTML = "Your moods are <span class='neutral'>balanced</span>. Keep exploring!";
-            }
-            
-            vizContainer.appendChild(trendInfo);
-        }
-
-        function saveToFavorites(mood, task) {
-            const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
-            if (!favorites.some(fav => fav.mood === mood && fav.task === task)) {
-                favorites.push({ mood, task });
-                localStorage.setItem("favorites", JSON.stringify(favorites));
-            }
-            displayFavorites();
-        }
-
-        function displayFavorites() {
-            const favorites = JSON.parse(localStorage.getItem("favorites") || "[]"),
-                  favoritesList = document.getElementById("favorites-list");
-            favoritesList.innerHTML = "";
-            
-            if (favorites.length > 0) {
-                favorites.forEach(entry => {
-                    const li = document.createElement("li");
-                    li.className = "favorite-item";
+                emptyFavorites.style.display = 'none';
+                favorites.forEach(item => {
+                    const li = document.createElement('li');
+                    li.className = 'favorite-item';
                     li.innerHTML = `
-                        <span class="favorite-emoji">${getEmojiForMood(entry.mood)}</span>
-                        <span class="favorite-mood">${entry.mood}:</span>
-                        <span class="favorite-task">${entry.task}</span>
+                        <span class="favorite-emoji">${item.emoji}</span>
+                        <span class="favorite-mood">${item.mood.charAt(0).toUpperCase() + item.mood.slice(1)}:</span>
+                        <span class="favorite-task">${item.task}</span>
                     `;
                     favoritesList.appendChild(li);
                 });
-            } else {
-                favoritesList.innerHTML = "<li class='empty-list'>No favorite tasks yet!</li>";
             }
         }
 
-        function clearHistory() {
-            localStorage.removeItem("moodHistory");
-            localStorage.removeItem("favorites");
-            displayMoodHistory();
-            displayFavorites();
-            updateHistoryVisualization();
-            provideRecommendation();
+        // Update mood history
+        function updateHistory() {
+            const history = JSON.parse(localStorage.getItem('moodHistory')) || [];
+            const historyList = document.getElementById('history-list');
+            const emptyHistory = document.getElementById('empty-history');
+            const moodViz = document.getElementById('mood-viz');
+            const trendInfo = document.getElementById('trend-info');
+            historyList.innerHTML = '';
+            moodViz.innerHTML = '';
+
+            if (history.length === 0) {
+                emptyHistory.style.display = 'block';
+                trendInfo.style.display = 'none';
+            } else {
+                emptyHistory.style.display = 'none';
+                history.slice(-5).forEach(item => {
+                    const li = document.createElement('li');
+                    li.className = 'history-item';
+                    li.innerHTML = `
+                        <span class="history-emoji">${item.emoji}</span>
+                        <span class="history-mood">${item.mood.charAt(0).toUpperCase() + item.mood.slice(1)}</span>
+                        <span class="history-date">${item.date}</span>
+                    `;
+                    historyList.appendChild(li);
+
+                    const dot = document.createElement('div');
+                    dot.className = `mood-dot ${item.mood}`;
+                    dot.innerHTML = `<span class="dot-emoji">${item.emoji}</span>`;
+                    moodViz.appendChild(dot);
+                });
+
+                // Simple trend analysis
+                const recentMoods = history.slice(-3).map(item => item.mood);
+                const positiveMoods = ['happy', 'excited'];
+                const negativeMoods = ['sad', 'angry', 'stressed'];
+                let trend = 'neutral';
+                if (recentMoods.every(mood => positiveMoods.includes(mood))) {
+                    trend = 'positive';
+                    trendInfo.innerHTML = 'Your mood trend is positive! Keep it up! 😊';
+                } else if (recentMoods.every(mood => negativeMoods.includes(mood))) {
+                    trend = 'negative';
+                    trendInfo.innerHTML = 'Your mood trend is negative. Try some uplifting tasks! 🌟';
+                } else {
+                    trendInfo.innerHTML = 'Your mood trend is mixed. Keep exploring tasks! ⚖️';
+                }
+                trendInfo.className = `trend-info ${trend}`;
+                trendInfo.style.display = 'block';
+            }
         }
 
-        function provideRecommendation() {
-            const history = JSON.parse(localStorage.getItem("moodHistory") || "[]"),
-                  recommendationDiv = document.getElementById("recommendation");
-            if (history.length < 3) {
-                recommendationDiv.innerHTML = "Keep checking in to get personalized recommendations!";
+        // Clear history
+        function clearHistory() {
+            localStorage.removeItem('moodHistory');
+            updateHistory();
+        }
+
+        // Daily check-in
+        function startDailyCheckIn() {
+            const today = new Date().toLocaleDateString();
+            const lastCheckIn = localStorage.getItem('lastCheckIn');
+            const recommendationDiv = document.getElementById('recommendation');
+
+            if (lastCheckIn === today) {
+                recommendationDiv.innerHTML = '<p>You’ve already checked in today! Try again tomorrow.</p>';
                 return;
             }
 
-            const recentMoods = history.slice(-3).map(entry => entry.mood),
-                  stressCount = recentMoods.filter(mood => mood === "stressed").length,
-                  sadCount = recentMoods.filter(mood => mood === "sad").length,
-                  happyCount = recentMoods.filter(mood => mood === "happy").length;
+            const randomMood = Object.keys(moodTasks)[Math.floor(Math.random() * Object.keys(moodTasks).length)];
+            const tasks = moodTasks[randomMood];
+            const randomTask = tasks[Math.floor(Math.random() * tasks.length)];
+            recommendationDiv.innerHTML = `
+                <p>Based on a quick check-in, you might be feeling <strong>${randomMood}</strong>. Try this task:</p>
+                <p><strong>${randomTask.emoji} ${randomTask.task}</strong></p>
+            `;
+            localStorage.setItem('lastCheckIn', today);
 
-            let recommendation = "";
-            if (stressCount >= 2) {
-                recommendation = "You've been stressed lately—try this relaxation task: Take 5 deep breaths and imagine your stress floating away on a fluffy cloud! Also, check out our <a href='blog-post-2.html'>blog post on stress relief</a>.";
-            } else if (sadCount >= 2) {
-                recommendation = "You've been feeling sad lately—here's a comforting task: Hug yourself tight for 10 seconds and whisper 'You're a sad little muffin, but I love you!'";
-            } else if (happyCount >= 2) {
-                recommendation = "You've been happy lately—keep the good vibes going! Try this: Do a little happy wiggle dance for 10 seconds like you're a joyful jellybean!";
-            } else {
-                recommendation = "Your recent moods are mixed. Try a variety of tasks to find what feels best!";
-            }
-            recommendationDiv.innerHTML = recommendation;
+            // Track check-in event
+            gtag('event', 'Daily Check-In', {
+                'event_category': 'Engagement',
+                'event_label': 'Daily Check-In'
+            });
         }
 
-        function openTab(evt, tabName) {
-            const tabContents = document.getElementsByClassName("tab-content");
-            for (let i = 0; i < tabContents.length; i++) {
-                tabContents[i].classList.remove("active");
-            }
-
-            const tabButtons = document.getElementsByClassName("tab-button");
-            for (let i = 0; i < tabButtons.length; i++) {
-                tabButtons[i].classList.remove("active");
-            }
-
-            document.getElementById(tabName).classList.add("active");
-            evt.currentTarget.classList.add("active");
-
-            document.getElementById(tabName).scrollIntoView({ behavior: "smooth" });
+        // Tab functionality
+        function openTab(tabName) {
+            const tabs = document.querySelectorAll('.tab-content');
+            const buttons = document.querySelectorAll('.tab-button');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            buttons.forEach(btn => btn.classList.remove('active'));
+            document.getElementById(tabName).classList.add('active');
+            document.querySelector(`button[onclick="openTab('${tabName}')"]`).classList.add('active');
         }
 
-        window.onload = () => {
-            displayMoodHistory();
-            displayFavorites();
-            updateHistoryVisualization();
-            provideRecommendation();
-        };
-
+        // Add scroll effect for nav
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('nav');
             if (window.scrollY > 50) {
@@ -591,11 +393,24 @@
             }
         });
 
+        // Share on X functionality
         document.getElementById('share').addEventListener('click', () => {
             const url = encodeURIComponent(window.location.href);
-            const text = encodeURIComponent('Check out Mood-to-Task Matcher! Match your mood to fun, quick tasks to improve your day. #MoodToTask');
+            const text = encodeURIComponent('Boost your mood in seconds with Mood-to-Task Matcher! Try it now! #MoodToTask');
             window.open(`https://x.com/intent/tweet?url=${url}&text=${text}`, '_blank');
         });
+
+        // Initialize history and favorites on load
+        window.onload = () => {
+            updateHistory();
+            updateFavorites();
+            const featureCards = document.querySelectorAll('.feature-card, .testimonial');
+            featureCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('fade-in');
+                }, index * 200);
+            });
+        };
     </script>
 </body>
 </html>
