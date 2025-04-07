@@ -333,6 +333,10 @@ footer {
 
 #impact-sections {
     margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
 }
 
 .impact-button {
@@ -403,7 +407,7 @@ footer {
     background-color: #f5f5f5;
     border-radius: 5px;
     text-align: left;
-    display: none;
+    display: none; /* Hidden by default */
 }
 
 #blog-posts {
