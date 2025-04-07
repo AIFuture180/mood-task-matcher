@@ -65,9 +65,8 @@
                 <span class="mood-icon">❓</span> Confused 🤔
             </button>
         </div>
+        <div id="result"></div> <!-- Moved inside #mood-prompt -->
     </div>
-    
-    <div id="result"></div>
 
     <div id="intro-content">
         <div class="feature-cards">
@@ -352,7 +351,11 @@
         function showMoodButtons() {
             const moodPrompt = document.getElementById("mood-prompt");
             moodPrompt.classList.remove("hidden");
-            moodPrompt.scrollIntoView({ behavior: "smooth" });
+            // Optional: Scroll to the mood prompt only if it's not in view
+            const rect = moodPrompt.getBoundingClientRect();
+            if (rect.top < 0 || rect.bottom > window.innerHeight) {
+                moodPrompt.scrollIntoView({ behavior: "smooth", block: "center" });
+            }
             
             // Add animation to mood buttons
             const buttons = document.querySelectorAll("#mood-buttons button");
@@ -411,7 +414,7 @@
             `;
             
             resultDiv.classList.add("show");
-            resultDiv.scrollIntoView({ behavior: "smooth" });
+            // Removed resultDiv.scrollIntoView() to prevent jarring scroll
             
             shareLink.href = `https://x.com/intent/post?text=I just got this mood fix from Mood-to-Task Matcher: ${encodeURIComponent(message + " " + task)} - https://www.moodtask.org/`;
             resultDiv.style.backgroundColor = selectedColor;
