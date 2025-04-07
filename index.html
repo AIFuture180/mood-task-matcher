@@ -65,7 +65,7 @@
                 <span class="mood-icon">❓</span> Confused 🤔
             </button>
         </div>
-        <div id="result"></div> <!-- Moved inside #mood-prompt -->
+        <div id="result"></div>
     </div>
 
     <div id="intro-content">
@@ -169,33 +169,13 @@
         </div>
     </div>
 
-    <div class="cta-section">
-        <h3>Ready to feel better every day?</h3>
-        <p>Join thousands of people improving their mood in seconds</p>
-        <button class="cta-button pulse-animation" onclick="showMoodButtons()">Try It Now</button>
-        
-        <div class="social-proof">
-            <div class="stat">
-                <span class="stat-number">10,000+</span>
-                <span class="stat-label">Daily Users</span>
-            </div>
-            <div class="stat">
-                <span class="stat-number">4.8⭐</span>
-                <span class="stat-label">User Rating</span>
-            </div>
-            <div class="stat">
-                <span class="stat-number">85%</span>
-                <span class="stat-label">Mood Improvement</span>
-            </div>
-        </div>
-    </div>
-
-    <div id="share">
-        <svg class="share-logo" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0V3h-.5a.5.5 0 0 1-.5-.5zm-1.5 8a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-7-6a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm10.586 9.293-5-5a1 1 0 0 1 0-1.414l5-5a1 1 0 0 1 1.414 1.414L10.414 8l4.293 4.293a1 1 0 0 1-1.414 1.414zM5.5 5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0V6h-.5a.5.5 0 0 1-.5-.5z"/>
+    <!-- Updated Share on X Button -->
+    <button id="share" class="share-button" aria-label="Share your mood task on X">
+        <svg class="share-logo" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
         </svg>
         <span>Share on X</span>
-    </div>
+    </button>
 
     <!-- Support Us section moved closer to main content -->
     <div id="donate">
@@ -351,13 +331,11 @@
         function showMoodButtons() {
             const moodPrompt = document.getElementById("mood-prompt");
             moodPrompt.classList.remove("hidden");
-            // Optional: Scroll to the mood prompt only if it's not in view
             const rect = moodPrompt.getBoundingClientRect();
             if (rect.top < 0 || rect.bottom > window.innerHeight) {
                 moodPrompt.scrollIntoView({ behavior: "smooth", block: "center" });
             }
             
-            // Add animation to mood buttons
             const buttons = document.querySelectorAll("#mood-buttons button");
             buttons.forEach((btn, index) => {
                 setTimeout(() => {
@@ -414,15 +392,12 @@
             `;
             
             resultDiv.classList.add("show");
-            // Removed resultDiv.scrollIntoView() to prevent jarring scroll
-            
             shareLink.href = `https://x.com/intent/post?text=I just got this mood fix from Mood-to-Task Matcher: ${encodeURIComponent(message + " " + task)} - https://www.moodtask.org/`;
             resultDiv.style.backgroundColor = selectedColor;
 
             const luminance = calculateLuminance(selectedColor);
             resultDiv.style.color = luminance > 128 ? "#333333" : "#666666";
 
-            // Show banner after task is displayed
             document.getElementById("banner").classList.add("show-banner");
 
             saveMoodHistory(mood);
@@ -457,7 +432,6 @@
                   historyList = document.getElementById("history-list");
             historyList.innerHTML = "";
             
-            // Show most recent entries first
             const recentHistory = [...history].reverse().slice(0, 10);
             
             if (recentHistory.length > 0) {
@@ -482,7 +456,6 @@
                 return;
             }
             
-            // Create simple mood dots
             const recentHistory = [...history].reverse().slice(0, 7);
             const moodViz = document.createElement("div");
             moodViz.className = "mood-viz";
@@ -493,7 +466,6 @@
                 dot.style.backgroundColor = moodColors[entry.mood];
                 dot.title = `${entry.mood} on ${entry.date}`;
                 
-                // Add emoji to dot
                 const emoji = document.createElement("span");
                 emoji.className = "dot-emoji";
                 emoji.textContent = getEmojiForMood(entry.mood);
@@ -504,7 +476,6 @@
             
             vizContainer.appendChild(moodViz);
             
-            // Add trend info
             const trendInfo = document.createElement("p");
             trendInfo.className = "trend-info";
             
@@ -601,7 +572,6 @@
             document.getElementById(tabName).classList.add("active");
             evt.currentTarget.classList.add("active");
 
-            // Scroll to the tab content
             document.getElementById(tabName).scrollIntoView({ behavior: "smooth" });
         }
 
@@ -612,7 +582,6 @@
             provideRecommendation();
         };
 
-        // Add scroll effect for nav
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('nav');
             if (window.scrollY > 50) {
@@ -622,7 +591,6 @@
             }
         });
 
-        // Share on X functionality
         document.getElementById('share').addEventListener('click', () => {
             const url = encodeURIComponent(window.location.href);
             const text = encodeURIComponent('Check out Mood-to-Task Matcher! Match your mood to fun, quick tasks to improve your day. #MoodToTask');
