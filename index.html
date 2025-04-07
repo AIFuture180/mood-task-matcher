@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Boost your mood in seconds with Mood-to-Task Matcher! Select your mood and get quick, science-backed tasks to feel better instantly.">
-    <meta name="keywords" content="mood-to-task matcher, mental health, mood booster, quick tasks">
+    <meta name="description" content="Boost your mood with quick, fun tasks tailored to how you feel. Try Mood-to-Task Matcher today!">
+    <meta name="keywords" content="mood matcher, mood booster, mental health, quick tasks, stress relief">
     <meta name="robots" content="index, follow">
-    <title>Mood-to-Task Matcher | Boost Your Mood Instantly</title>
+    <title>Mood-to-Task Matcher | Boost Your Mood in Seconds</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1511837633001567" crossorigin="anonymous" data-ad-init-load="300"></script>
     <!-- Google tag (gtag.js) -->
@@ -33,81 +33,101 @@
 
     <div class="hero-section">
         <h1>Boost Your Mood in Seconds</h1>
-        <h2>Quick, Science-Backed Tasks Tailored to How You Feel</h2>
-        <button class="hero-cta pulse-animation" onclick="document.getElementById('mood-prompt').scrollIntoView({ behavior: 'smooth', block: 'start' })">Get Started</button>
+        <h2>Fun, Quick Tasks Tailored to How You Feel</h2>
     </div>
 
     <div id="mood-prompt">
         <p id="instruction">How are you feeling right now?</p>
         <div id="mood-buttons">
-            <button class="tired" data-mood="tired" data-tooltip="Feeling low on energy?"><span class="mood-icon">😴</span>Tired</button>
-            <button class="stressed" data-mood="stressed" data-tooltip="Feeling overwhelmed?"><span class="mood-icon">😓</span>Stressed</button>
-            <button class="bored" data-mood="bored" data-tooltip="Need some inspiration?"><span class="mood-icon">🥱</span>Bored</button>
-            <button class="excited" data-mood="excited" data-tooltip="Feeling energized?"><span class="mood-icon">🤩</span>Excited</button>
-            <button class="sad" data-mood="sad" data-tooltip="Feeling down?"><span class="mood-icon">😢</span>Sad</button>
-            <button class="angry" data-mood="angry" data-tooltip="Feeling frustrated?"><span class="mood-icon">😡</span>Angry</button>
-            <button class="happy" data-mood="happy" data-tooltip="Feeling great?"><span class="mood-icon">😊</span>Happy</button>
-            <button class="confused" data-mood="confused" data-tooltip="Feeling unclear?"><span class="mood-icon">😕</span>Confused</button>
+            <button class="tired" onclick="selectMood('tired')" data-tooltip="Feeling low-energy?">
+                <span class="mood-icon">😴</span> Tired
+            </button>
+            <button class="stressed" onclick="selectMood('stressed')" data-tooltip="Feeling overwhelmed?">
+                <span class="mood-icon">😓</span> Stressed
+            </button>
+            <button class="bored" onclick="selectMood('bored')" data-tooltip="Need some excitement?">
+                <span class="mood-icon">🥱</span> Bored
+            </button>
+            <button class="excited" onclick="selectMood('excited')" data-tooltip="Feeling energized?">
+                <span class="mood-icon">🤩</span> Excited
+            </button>
+            <button class="sad" onclick="selectMood('sad')" data-tooltip="Feeling down?">
+                <span class="mood-icon">😢</span> Sad
+            </button>
+            <button class="angry" onclick="selectMood('angry')" data-tooltip="Feeling frustrated?">
+                <span class="mood-icon">😡</span> Angry
+            </button>
+            <button class="happy" onclick="selectMood('happy')" data-tooltip="Feeling great?">
+                <span class="mood-icon">😊</span> Happy
+            </button>
+            <button class="confused" onclick="selectMood('confused')" data-tooltip="Feeling unsure?">
+                <span class="mood-icon">🤔</span> Confused
+            </button>
         </div>
-        <div id="result" class="hidden"></div>
     </div>
+
+    <div id="result"></div>
 
     <div id="intro-content">
         <h3 class="section-heading">Why Mood-to-Task Matcher?</h3>
         <div class="feature-cards">
             <div class="feature-card fade-in">
-                <span class="feature-icon">⏱️</span>
-                <h3>Quick Tasks</h3>
-                <p>Each task takes just 1-5 minutes, perfect for busy schedules.</p>
+                <span class="feature-icon">⚡</span>
+                <h3>Quick & Easy</h3>
+                <p>Tasks take just 1-5 minutes to boost your mood instantly.</p>
             </div>
             <div class="feature-card fade-in">
                 <span class="feature-icon">🧠</span>
                 <h3>Science-Backed</h3>
-                <p>Our tasks are based on the latest research in psychology and neuroscience.</p>
+                <p>Activities designed with psychology and neuroscience in mind.</p>
             </div>
             <div class="feature-card fade-in">
                 <span class="feature-icon">🎯</span>
                 <h3>Personalized</h3>
-                <p>Tasks are tailored to your mood, ensuring they’re relevant and effective.</p>
+                <p>Get tasks tailored to your current mood and needs.</p>
             </div>
         </div>
         <div class="testimonial fade-in">
-            <p class="quote">"Mood-to-Task Matcher has been a game-changer for my daily mood management!"</p>
-            <p class="author">- Sarah K.</p>
+            <p class="quote">"I was feeling so stressed, but the quick breathing exercise really helped me calm down in just a minute!"</p>
+            <p class="author">— Sarah M.</p>
         </div>
-        <p class="disclaimer"><em>General Disclaimer: Mood-to-Task Matcher provides this website for informational purposes only. We are not responsible for any errors, omissions, or outcomes resulting from the use of this information.</em></p>
+        <p class="disclaimer"><em>Disclaimer: Results may vary. Always consult a professional for mental health concerns.</em></p>
     </div>
 
     <div class="container">
         <div class="tabs">
-            <button class="tab-button active" onclick="showTab('daily-checkin')">Daily Check-In</button>
-            <button class="tab-button" onclick="showTab('history')">Mood History</button>
-            <button class="tab-button" onclick="showTab('favorites')">Favorites</button>
+            <button class="tab-button active" onclick="openTab('daily-checkin')">Daily Check-In</button>
+            <button class="tab-button" onclick="openTab('history')">Mood History</button>
+            <button class="tab-button" onclick="openTab('favorites')">Favorites</button>
         </div>
+
         <div id="daily-checkin" class="tab-content active">
             <div id="daily-checkin-section">
                 <h3>Daily Mood Check-In</h3>
-                <button class="checkin-button" onclick="dailyCheckIn()">Check In Now</button>
-                <p id="recommendation" class="hidden"></p>
+                <p>Track your mood daily to get personalized task recommendations.</p>
+                <button class="checkin-button" onclick="startDailyCheckIn()">Start Check-In</button>
+                <div id="recommendation"></div>
             </div>
         </div>
+
         <div id="history" class="tab-content">
             <div id="history-section">
                 <h3>Your Mood History</h3>
                 <div class="history-viz">
-                    <div id="mood-viz" class="mood-viz"></div>
-                    <p id="trend-info"></p>
+                    <div class="mood-viz" id="mood-viz"></div>
+                    <p class="trend-info" id="trend-info"></p>
                 </div>
                 <ul id="history-list"></ul>
-                <p id="empty-history" class="empty-list hidden">No mood history yet. Check in to start tracking!</p>
+                <p id="empty-history" class="empty-list">No mood history yet. Start by checking in!</p>
                 <button class="clear-history-button" onclick="clearHistory()">Clear History</button>
             </div>
         </div>
+
         <div id="favorites" class="tab-content">
             <div id="favorites-section">
                 <h3>Your Favorite Tasks</h3>
                 <ul id="favorites-list"></ul>
-                <p id="empty-favorites" class="empty-list hidden">No favorite tasks yet. Save tasks you love!</p>
+                <p id="empty-favorites" class="empty-list">No favorite tasks yet. Save tasks you love!</p>
             </div>
         </div>
     </div>
@@ -121,7 +141,7 @@
 
     <div id="donate">
         <h3>Support Us</h3>
-        <p>If you find Mood-to-Task Matcher helpful, please consider supporting us!</p>
+        <p>If you love Mood-to-Task Matcher, please consider supporting us!</p>
         <a href="https://www.buymeacoffee.com/moodtask" target="_blank" rel="noopener noreferrer">
             <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" style="width: 150px; height: auto;">
         </a>
@@ -151,373 +171,227 @@
     </footer>
 
     <script>
-        // Mood tasks with follow-up questions
+        // Mood-to-task mapping
         const moodTasks = {
             tired: [
-                { task: "Practice a 2-minute diaphragmatic breathing exercise: Inhale for 4 seconds, hold for 4, exhale for 6.", question: "Are you getting enough sleep? Adults need 7-9 hours nightly. Check out our Sleep tips on the Tasks to Impact page!" },
-                { task: "Do a 3-minute stretch: Reach your arms up, then bend side to side to release tension.", question: "Have you been sitting for long periods? Learn more about movement in our Exercise section on Tasks to Impact!" },
-                { task: "Take a 5-minute break to close your eyes and visualize a restful place, like a beach or forest.", question: "Are you overworking? Our blog on '5 Quick Ways to Boost Your Mood' has tips to recharge!" },
-                { task: "Drink a glass of water to rehydrate—dehydration can worsen fatigue.", question: "Are you staying hydrated? See our Diet tips on Tasks to Impact for more on hydration!" },
-                { task: "Write down 3 things you’re grateful for to shift your focus and boost energy.", question: "Do you practice gratitude regularly? Our Mindfulness section on Tasks to Impact can help!" },
-                { task: "Step outside for 2 minutes to get fresh air and natural light to reset your energy.", question: "Are you getting enough sunlight? Learn about its benefits in our blog article 'The Science of Happiness'!" },
-                { task: "Do a 1-minute body scan: Notice areas of tension and consciously relax them.", question: "Are you holding stress in your body? Try our Mindfulness exercises on Tasks to Impact!" },
-                { task: "Set a timer for 5 minutes and declutter a small space to feel more in control.", question: "Does your environment feel chaotic? Our blog on 'Creating a Calming Space' has more ideas!" },
-                { task: "Listen to a calming song for 3 minutes to soothe your nervous system.", question: "Do you use music to relax? Explore our Mindfulness tips on Tasks to Impact for more!" },
-                { task: "Take 10 slow, deep breaths to oxygenate your body and reduce fatigue.", question: "Are you breathing deeply enough? Check out our blog on 'Breathing Techniques for Relaxation'!" },
-                { task: "Write down one task you can postpone to reduce pressure and rest instead.", question: "Are you overcommitting? Our Stress Management blog article has strategies to help!" },
-                { task: "Do a 2-minute neck and shoulder stretch to release physical tension.", question: "Are you physically active? See our Exercise tips on Tasks to Impact for more ideas!" },
-                { task: "Sip a warm, non-caffeinated tea to relax your body and mind.", question: "Are you consuming too much caffeine? Our Diet section on Tasks to Impact has healthier options!" },
-                { task: "Close your eyes for 2 minutes and focus on the sensation of your breath to center yourself.", question: "Do you practice mindfulness? Try our Mindfulness exercises on Tasks to Impact!" },
-                { task: "Stand up and shake out your arms and legs for 1 minute to re-energize.", question: "Have you been sedentary today? Check out our Exercise tips on Tasks to Impact!" },
-                { task: "Write a quick list of 3 things you’ve accomplished today to feel a sense of progress.", question: "Are you acknowledging your wins? Our blog on 'Building Positive Habits' can help!" },
-                { task: "Take a 3-minute walk, even if it’s just around your room, to get your blood flowing.", question: "Are you moving enough? Explore our Exercise section on Tasks to Impact!" },
-                { task: "Set a 5-minute timer to rest your eyes by looking away from screens and focusing on a distant object.", question: "Are screens causing eye strain? Our blog on 'Digital Detox Tips' has more advice!" },
-                { task: "Do a 1-minute grounding exercise: Name 5 things you can see to reconnect with the present.", question: "Are you feeling disconnected? Try our Mindfulness tips on Tasks to Impact!" },
-                { task: "Plan a 10-minute break later today to rest without guilt—schedule it now.", question: "Do you prioritize rest? Our Sleep section on Tasks to Impact has more strategies!" }
+                { emoji: "😴", task: "Take a 5-minute power nap to recharge your energy." },
+                { emoji: "☕", task: "Sip a cup of herbal tea to relax and re-energize." },
+                { emoji: "🚶", task: "Take a 3-minute walk to boost your energy levels." }
             ],
             stressed: [
-                { task: "Practice the 4-7-8 breathing technique: Inhale for 4, hold for 7, exhale for 8. Repeat 4 times.", question: "Are you managing stress effectively? Check out our Mindfulness tips on Tasks to Impact!" },
-                { task: "Write down 3 things causing stress, then identify one you can address today.", question: "Do you journal to process stress? Our blog on 'Journaling for Mental Health' has more tips!" },
-                { task: "Do a 2-minute progressive muscle relaxation: Tense and release each muscle group.", question: "Are you holding physical tension? Try our Mindfulness exercises on Tasks to Impact!" },
-                { task: "Step away for 3 minutes to focus on a calming object, like a plant or photo.", question: "Does your environment help you relax? See our blog on 'Creating a Calming Space'!" },
-                { task: "List 3 things you can control right now to feel more grounded.", question: "Are you focusing on what you can control? Our Stress Management blog article has more strategies!" },
-                { task: "Take 5 slow breaths while visualizing a peaceful place to calm your mind.", question: "Do you use visualization to relax? Check out our Mindfulness section on Tasks to Impact!" },
-                { task: "Set a 2-minute timer to stretch your arms and back, releasing physical stress.", question: "Are you moving enough to reduce stress? Explore our Exercise tips on Tasks to Impact!" },
-                { task: "Write a quick affirmation: 'I am capable of handling this.' Repeat it 3 times.", question: "Do you use affirmations to cope? Our blog on 'Building Positive Habits' has more ideas!" },
-                { task: "Do a 1-minute grounding exercise: Name 4 things you can touch to stay present.", question: "Are you feeling overwhelmed? Try our Mindfulness exercises on Tasks to Impact!" },
-                { task: "Take a 3-minute break to sip water and focus on the sensation of drinking.", question: "Are you staying hydrated? See our Diet tips on Tasks to Impact for more on hydration!" },
-                { task: "Identify one stressor and brainstorm 2 solutions for it in 5 minutes.", question: "Are you problem-solving effectively? Our blog on 'Stress Management' has more strategies!" },
-                { task: "Close your eyes for 2 minutes and listen to the sounds around you to center yourself.", question: "Do you practice mindfulness? Check out our Mindfulness section on Tasks to Impact!" },
-                { task: "Write down one thing you’re looking forward to today to shift your focus.", question: "Are you finding joy in your day? Our blog on 'The Science of Happiness' has more tips!" },
-                { task: "Do a 1-minute shoulder roll exercise to release tension in your upper body.", question: "Are you physically active? See our Exercise tips on Tasks to Impact for more ideas!" },
-                { task: "Take 10 deep breaths, counting each one to slow your heart rate.", question: "Are you breathing deeply enough? Our blog on 'Breathing Techniques for Relaxation' has more!" },
-                { task: "Set a boundary: Say 'no' to one non-essential task today to reduce pressure.", question: "Are you overcommitting? Our Stress Management blog article has more strategies!" },
-                { task: "Spend 3 minutes organizing your workspace to feel more in control.", question: "Does your environment feel chaotic? See our blog on 'Creating a Calming Space'!" },
-                { task: "Repeat a calming mantra for 1 minute: 'This too shall pass.'", question: "Do you use mantras to cope? Check out our Mindfulness tips on Tasks to Impact!" },
-                { task: "Take a 2-minute walk to clear your mind and reset your focus.", question: "Are you moving enough? Explore our Exercise section on Tasks to Impact!" },
-                { task: "Write down 3 things you’re grateful for to shift your perspective.", question: "Do you practice gratitude? Our Mindfulness section on Tasks to Impact can help!" }
+                { emoji: "🧘", task: "Try a 2-minute deep breathing exercise: inhale for 4 seconds, exhale for 4 seconds." },
+                { emoji: "📝", task: "Write down 3 things stressing you out, then crumple the paper and toss it." },
+                { emoji: "🎶", task: "Listen to calming music for 3 minutes to relax your mind." }
             ],
             bored: [
-                { task: "Spend 5 minutes learning a new word and using it in a sentence to engage your mind.", question: "Are you challenging your brain enough? Check out our blog on 'The Science of Happiness'!" },
-                { task: "Do a 3-minute doodle of something that makes you smile to spark creativity.", question: "Do you engage in creative activities? Our Mindfulness section on Tasks to Impact has more ideas!" },
-                { task: "Write down 3 things you’re curious about and pick one to research for 5 minutes.", question: "Are you exploring your interests? See our blog on 'Finding Joy in Small Things'!" },
-                { task: "Listen to a 3-minute upbeat song and dance along to lift your mood.", question: "Does music inspire you? Check out our Exercise tips on Tasks to Impact for more movement ideas!" },
-                { task: "Try a 2-minute mindfulness exercise: Notice 5 things you can see around you.", question: "Are you staying present? Try our Mindfulness exercises on Tasks to Impact!" },
-                { task: "Write a quick story in 5 minutes about a character who overcomes boredom.", question: "Do you journal creatively? Our blog on 'Journaling for Mental Health' has more tips!" },
-                { task: "Organize a small area of your space for 5 minutes to feel productive.", question: "Does your environment inspire you? See our blog on 'Creating a Calming Space'!" },
-                { task: "Do a 2-minute stretch to get your body moving and spark energy.", question: "Are you physically active? Explore our Exercise section on Tasks to Impact!" },
-                { task: "Spend 3 minutes brainstorming a new hobby you’d like to try.", question: "Are you trying new things? Our blog on 'Building Positive Habits' has more ideas!" },
-                { task: "Take a 3-minute walk outside to find something interesting in your surroundings.", question: "Are you connecting with nature? Check out our Mindfulness tips on Tasks to Impact!" },
-                { task: "Write down 3 goals for the day to give yourself a sense of purpose.", question: "Do you set daily intentions? Our blog on 'Building Positive Habits' can help!" },
-                { task: "Try a 1-minute breathing exercise: Inhale for 4, exhale for 4, to refocus.", question: "Are you breathing deeply? Our blog on 'Breathing Techniques for Relaxation' has more!" },
-                { task: "Spend 5 minutes reading an article or book that interests you.", question: "Are you engaging your mind? See our blog on 'The Science of Happiness' for more ideas!" },
-                { task: "Do a 2-minute body movement: Jump in place 10 times to get your blood flowing.", question: "Are you moving enough? Explore our Exercise section on Tasks to Impact!" },
-                { task: "Write a letter to your future self about what you hope to achieve this month.", question: "Do you set long-term goals? Our blog on 'Building Positive Habits' has more strategies!" },
-                { task: "Spend 3 minutes listening to a podcast snippet to learn something new.", question: "Are you seeking new knowledge? Check out our blog on 'Finding Joy in Small Things'!" },
-                { task: "Try a 1-minute grounding exercise: Name 4 things you can touch to stay present.", question: "Are you feeling disconnected? Try our Mindfulness exercises on Tasks to Impact!" },
-                { task: "Create a quick playlist of 3 songs that inspire you to feel motivated.", question: "Does music lift your mood? Check out our Mindfulness tips on Tasks to Impact!" },
-                { task: "Spend 5 minutes planning a fun activity for later this week.", question: "Are you making time for fun? Our blog on 'The Science of Happiness' has more ideas!" },
-                { task: "Do a 2-minute visualization: Imagine achieving a small goal to feel inspired.", question: "Do you use visualization? Check out our Mindfulness section on Tasks to Impact!" }
+                { emoji: "🎨", task: "Doodle or sketch something fun for 5 minutes." },
+                { emoji: "🧩", task: "Try a quick online puzzle or brain teaser to spark creativity." },
+                { emoji: "📖", task: "Read a short, funny article or comic strip to entertain yourself." }
             ],
             excited: [
-                { task: "Write down 3 things you’re excited about to savor the feeling.", question: "Are you celebrating your emotions? Our blog on 'The Science of Happiness' has more tips!" },
-                { task: "Share your excitement with a friend—send a quick message or call them.", question: "Do you share positive emotions? Check out our blog on 'Building Positive Habits'!" },
-                { task: "Do a 2-minute dance to your favorite song to channel your energy.", question: "Are you moving to express joy? Explore our Exercise section on Tasks to Impact!" },
-                { task: "Take 5 deep breaths to stay grounded while enjoying your excitement.", question: "Are you staying present? Try our Mindfulness exercises on Tasks to Impact!" },
-                { task: "Write a quick gratitude note about what’s making you excited.", question: "Are you practicing gratitude? Our Mindfulness section on Tasks to Impact can help!" },
-                { task: "Spend 3 minutes visualizing the best possible outcome of what’s exciting you.", question: "Do you use visualization? Check out our Mindfulness tips on Tasks to Impact!" },
-                { task: "Do a 1-minute stretch to release excess energy and stay balanced.", question: "Are you physically active? See our Exercise tips on Tasks to Impact for more ideas!" },
-                { task: "Set a small goal related to your excitement to keep the momentum going.", question: "Are you setting goals? Our blog on 'Building Positive Habits' has more strategies!" },
-                { task: "Take a 2-minute walk to reflect on what’s making you excited.", question: "Are you connecting with your emotions? Try our Mindfulness exercises on Tasks to Impact!" },
-                { task: "Write down one way you can share your excitement with others today.", question: "Do you spread positivity? Check out our blog on 'The Science of Happiness'!" },
-                { task: "Do a 1-minute grounding exercise: Name 5 things you can see to stay present.", question: "Are you staying grounded? Try our Mindfulness tips on Tasks to Impact!" },
-                { task: "Spend 3 minutes journaling about what this excitement means to you.", question: "Do you journal your emotions? Our blog on 'Journaling for Mental Health' has more tips!" },
-                { task: "Take a moment to smile and notice how your body feels when you’re excited.", question: "Are you aware of your body’s signals? Check out our Mindfulness section on Tasks to Impact!" },
-                { task: "Plan a small reward for yourself to celebrate your excitement.", question: "Do you celebrate your wins? Our blog on 'Building Positive Habits' has more ideas!" },
-                { task: "Do a 2-minute breathing exercise: Inhale for 4, exhale for 4, to stay calm.", question: "Are you breathing deeply? Our blog on 'Breathing Techniques for Relaxation' has more!" },
-                { task: "Spend 3 minutes creating a vision board of what excites you.", question: "Do you visualize your goals? Check out our Mindfulness tips on Tasks to Impact!" },
-                { task: "Write down 3 things you’re grateful for related to your excitement.", question: "Are you practicing gratitude? Our Mindfulness section on Tasks to Impact can help!" },
-                { task: "Do a 1-minute body movement: Jump in place 10 times to express your joy.", question: "Are you moving enough? Explore our Exercise section on Tasks to Impact!" },
-                { task: "Spend 5 minutes planning how to sustain this excitement over the week.", question: "Are you planning for positivity? Our blog on 'The Science of Happiness' has more ideas!" },
-                { task: "Take a photo of something that represents your excitement to remember this moment.", question: "Do you capture positive moments? Check out our blog on 'Finding Joy in Small Things'!" }
+                { emoji: "💃", task: "Dance to your favorite song for 3 minutes to celebrate your energy!" },
+                { emoji: "📸", task: "Take a fun selfie and share it with a friend to spread the joy." },
+                { emoji: "🎉", task: "Write down 3 things you’re excited about today to keep the vibe going." }
             ],
             sad: [
-                { task: "Write down 3 things you’re grateful for to shift your focus to positivity.", question: "Do you practice gratitude? Our Mindfulness section on Tasks to Impact can help!" },
-                { task: "Do a 2-minute breathing exercise: Inhale for 4, exhale for 6, to calm your mind.", question: "Are you breathing deeply? Check out our blog on 'Breathing Techniques for Relaxation'!" },
-                { task: "Spend 3 minutes listening to a comforting song to soothe your emotions.", question: "Does music help you cope? Try our Mindfulness tips on Tasks to Impact!" },
-                { task: "Write a letter to yourself with 3 kind things you appreciate about yourself.", question: "Are you practicing self-compassion? Our blog on 'Journaling for Mental Health' has more tips!" },
-                { task: "Do a 1-minute grounding exercise: Name 5 things you can see to stay present.", question: "Are you feeling disconnected? Try our Mindfulness exercises on Tasks to Impact!" },
-                { task: "Take a 3-minute walk to get fresh air and clear your mind.", question: "Are you connecting with nature? Check out our Exercise section on Tasks to Impact!" },
-                { task: "Spend 5 minutes journaling about what’s making you sad to process your feelings.", question: "Do you journal your emotions? Our blog on 'Journaling for Mental Health' has more tips!" },
-                { task: "Reach out to a friend or loved one for a quick chat to feel supported.", question: "Are you seeking support? Our blog on 'The Science of Happiness' has more on connection!" },
-                { task: "Do a 2-minute stretch to release physical tension and feel lighter.", question: "Are you moving enough? Explore our Exercise section on Tasks to Impact!" },
-                { task: "Write down one small thing you can do today to feel better, then do it.", question: "Are you taking small steps? Our blog on 'Building Positive Habits' has more strategies!" },
-                { task: "Spend 3 minutes visualizing a happy memory to lift your spirits.", question: "Do you use visualization? Check out our Mindfulness tips on Tasks to Impact!" },
-                { task: "Take 5 deep breaths while focusing on a comforting object, like a photo.", question: "Are you staying present? Try our Mindfulness exercises on Tasks to Impact!" },
-                { task: "Write down 3 things you’re looking forward to, even if they’re small.", question: "Are you finding hope? Our blog on 'The Science of Happiness' has more ideas!" },
-                { task: "Do a 1-minute body scan: Notice areas of tension and relax them.", question: "Are you holding stress in your body? Check out our Mindfulness section on Tasks to Impact!" },
-                { task: "Spend 5 minutes creating a playlist of songs that make you feel understood.", question: "Does music help you process emotions? Try our Mindfulness tips on Tasks to Impact!" },
-                { task: "Take a warm shower or wash your face to feel refreshed and cared for.", question: "Are you practicing self-care? Our blog on 'Self-Care Essentials' has more ideas!" },
-                { task: "Write a quick affirmation: 'I am enough.' Repeat it 3 times.", question: "Do you use affirmations? Check out our blog on 'Building Positive Habits'!" },
-                { task: "Spend 3 minutes organizing a small space to feel more in control.", question: "Does your environment feel calming? See our blog on 'Creating a Calming Space'!" },
-                { task: "Do a 2-minute progressive muscle relaxation: Tense and release each muscle group.", question: "Are you releasing tension? Try our Mindfulness exercises on Tasks to Impact!" },
-                { task: "Plan a small act of kindness for someone else to feel connected.", question: "Are you fostering connection? Our blog on 'The Science of Happiness' has more on this!" }
+                { emoji: "🤗", task: "Text a friend or loved one to share how you’re feeling." },
+                { emoji: "🎥", task: "Watch a short, uplifting video or clip to lift your spirits." },
+                { emoji: "📝", task: "Write down 3 things you’re grateful for to shift your focus." }
             ],
             angry: [
-                { task: "Take 10 deep breaths, counting each one to calm your nervous system.", question: "Are you breathing deeply enough? Check out our blog on 'Breathing Techniques for Relaxation'!" },
-                { task: "Write down what’s making you angry, then tear up the paper to release it.", question: "Do you journal to process emotions? Our blog on 'Journaling for Mental Health' has more tips!" },
-                { task: "Do a 2-minute grounding exercise: Name 5 things you can see to stay present.", question: "Are you feeling overwhelmed? Try our Mindfulness exercises on Tasks to Impact!" },
-                { task: "Take a 3-minute walk to release physical tension and clear your mind.", question: "Are you moving enough? Explore our Exercise section on Tasks to Impact!" },
-                { task: "Squeeze a stress ball or clench and release your fists for 1 minute to let out energy.", question: "Are you releasing physical tension? Check out our Mindfulness tips on Tasks to Impact!" },
-                { task: "Write a letter to the person or situation you’re angry at, then set it aside.", question: "Are you processing your anger? Our blog on 'Journaling for Mental Health' has more strategies!" },
-                { task: "Do a 2-minute breathing exercise: Inhale for 4, exhale for 6, to calm down.", question: "Are you using breathing to cope? Try our Mindfulness section on Tasks to Impact!" },
-                { task: "Spend 3 minutes listening to a calming song to shift your mood.", question: "Does music help you relax? Check out our Mindfulness tips on Tasks to Impact!" },
-                { task: "Write down 3 things you’re grateful for to shift your perspective.", question: "Do you practice gratitude? Our Mindfulness section on Tasks to Impact can help!" },
-                { task: "Do a 1-minute body scan: Notice areas of tension and consciously relax them.", question: "Are you holding anger in your body? Try our Mindfulness exercises on Tasks to Impact!" },
-                { task: "Take 5 minutes to organize a small space to feel more in control.", question: "Does your environment feel chaotic? See our blog on 'Creating a Calming Space'!" },
-                { task: "Repeat a calming mantra for 1 minute: 'I can handle this with calm.'", question: "Do you use mantras to cope? Check out our Mindfulness tips on Tasks to Impact!" },
-                { task: "Do a 2-minute stretch to release physical tension in your shoulders and neck.", question: "Are you physically active? See our Exercise tips on Tasks to Impact for more ideas!" },
-                { task: "Spend 3 minutes visualizing a peaceful place to cool down your emotions.", question: "Do you use visualization? Check out our Mindfulness section on Tasks to Impact!" },
-                { task: "Write down one thing you can do to address the situation calmly.", question: "Are you problem-solving effectively? Our blog on 'Stress Management' has more strategies!" },
-                { task: "Take a 3-minute break to sip water and focus on the sensation of drinking.", question: "Are you staying hydrated? See our Diet tips on Tasks to Impact for more on hydration!" },
-                { task: "Do a 1-minute grounding exercise: Name 4 things you can touch to stay present.", question: "Are you staying grounded? Try our Mindfulness exercises on Tasks to Impact!" },
-                { task: "Spend 5 minutes journaling about what triggered your anger to process it.", question: "Do you journal your emotions? Our blog on 'Journaling for Mental Health' has more tips!" },
-                { task: "Plan a 5-minute break later to do something you enjoy and reset.", question: "Are you making time for joy? Our blog on 'The Science of Happiness' has more ideas!" },
-                { task: "Write down 3 things you appreciate about the person or situation to reframe your thoughts.", question: "Are you reframing your thoughts? Check out our blog on 'Building Positive Habits'!" }
+                { emoji: "👊", task: "Do a quick 1-minute punching motion (in the air) to release frustration." },
+                { emoji: "🗣️", task: "Talk to yourself in the mirror for 2 minutes to vent your feelings." },
+                { emoji: "🧘", task: "Try a 2-minute deep breathing exercise to calm down." }
             ],
             happy: [
-                { task: "Write down 3 things you’re grateful for to amplify your happiness.", question: "Do you practice gratitude? Our Mindfulness section on Tasks to Impact can help!" },
-                { task: "Share your happiness with a friend—send a quick message or call them.", question: "Do you share positive emotions? Check out our blog on 'The Science of Happiness'!" },
-                { task: "Do a 2-minute dance to your favorite song to celebrate your mood.", question: "Are you moving to express joy? Explore our Exercise section on Tasks to Impact!" },
-                { task: "Take 5 deep breaths to stay grounded while savoring your happiness.", question: "Are you staying present? Try our Mindfulness exercises on Tasks to Impact!" },
-                { task: "Spend 3 minutes journaling about what’s making you happy today.", question: "Do you journal your emotions? Our blog on 'Journaling for Mental Health' has more tips!" },
-                { task: "Write a quick gratitude note to someone who’s contributed to your happiness.", question: "Are you expressing gratitude? Check out our Mindfulness tips on Tasks to Impact!" },
-                { task: "Do a 1-minute stretch to keep your body feeling as good as your mind.", question: "Are you physically active? See our Exercise tips on Tasks to Impact for more ideas!" },
-                { task: "Spend 3 minutes visualizing how you can spread happiness to others today.", question: "Do you use visualization? Check out our Mindfulness section on Tasks to Impact!" },
-                { task: "Take a 2-minute walk to reflect on what’s making you happy.", question: "Are you connecting with your emotions? Try our Mindfulness exercises on Tasks to Impact!" },
-                { task: "Write down one way you can sustain this happiness throughout the day.", question: "Are you planning for positivity? Our blog on 'The Science of Happiness' has more ideas!" },
-                { task: "Do a 1-minute grounding exercise: Name 5 things you can see to stay present.", question: "Are you staying grounded? Try our Mindfulness tips on Tasks to Impact!" },
-                { task: "Spend 5 minutes creating a playlist of songs that match your happy mood.", question: "Does music amplify your joy? Check out our Mindfulness tips on Tasks to Impact!" },
-                { task: "Take a moment to smile and notice how your body feels when you’re happy.", question: "Are you aware of your body’s signals? Check out our Mindfulness section on Tasks to Impact!" },
-                { task: "Plan a small act of kindness to share your happiness with someone else.", question: "Are you spreading positivity? Our blog on 'The Science of Happiness' has more on this!" },
-                { task: "Do a 2-minute breathing exercise: Inhale for 4, exhale for 4, to stay calm.", question: "Are you breathing deeply? Our blog on 'Breathing Techniques for Relaxation' has more!" },
-                { task: "Spend 3 minutes creating a vision board of what makes you happy.", question: "Do you visualize your goals? Check out our Mindfulness tips on Tasks to Impact!" },
-                { task: "Write down 3 things you’re looking forward to, to keep the happiness going.", question: "Are you finding joy in the future? Our blog on 'Building Positive Habits' has more ideas!" },
-                { task: "Do a 1-minute body movement: Jump in place 10 times to express your joy.", question: "Are you moving enough? Explore our Exercise section on Tasks to Impact!" },
-                { task: "Spend 5 minutes planning a fun activity to celebrate your happiness.", question: "Are you making time for fun? Our blog on 'Finding Joy in Small Things' has more ideas!" },
-                { task: "Take a photo of something that represents your happiness to remember this moment.", question: "Do you capture positive moments? Check out our blog on 'Finding Joy in Small Things'!" }
+                { emoji: "😊", task: "Share your happiness—compliment someone today!" },
+                { emoji: "📸", task: "Capture this moment: take a photo of something that’s making you smile." },
+                { emoji: "🎶", task: "Play an upbeat song and dance for 3 minutes to keep the joy flowing." }
             ],
             confused: [
-                { task: "Write down what’s confusing you, then break it into 3 smaller parts to clarify.", question: "Do you journal to process thoughts? Our blog on 'Journaling for Mental Health' has more tips!" },
-                { task: "Do a 2-minute breathing exercise: Inhale for 4, exhale for 6, to clear your mind.", question: "Are you breathing deeply? Check out our blog on 'Breathing Techniques for Relaxation'!" },
-                { task: "Spend 3 minutes organizing your thoughts by making a quick to-do list.", question: "Does your environment feel chaotic? See our blog on 'Creating a Calming Space'!" },
-                { task: "Take a 3-minute walk to step away and gain a fresh perspective.", question: "Are you moving enough? Explore our Exercise section on Tasks to Impact!" },
-                { task: "Do a 1-minute grounding exercise: Name 5 things you can see to stay present.", question: "Are you feeling overwhelmed? Try our Mindfulness exercises on Tasks to Impact!" },
-                { task: "Write down 3 questions you need answered to feel less confused.", question: "Are you seeking clarity? Our blog on 'Stress Management' has more strategies!" },
-                { task: "Spend 5 minutes researching one thing that’s confusing you to gain understanding.", question: "Are you engaging your mind? Check out our blog on 'The Science of Happiness'!" },
-                { task: "Do a 2-minute stretch to release physical tension and clear your mind.", question: "Are you physically active? See our Exercise tips on Tasks to Impact for more ideas!" },
-                { task: "Take 5 deep breaths while focusing on a calming object to center yourself.", question: "Are you staying present? Try our Mindfulness exercises on Tasks to Impact!" },
-                { task: "Write down one small step you can take to address your confusion.", question: "Are you taking small steps? Our blog on 'Building Positive Habits' has more strategies!" },
-                { task: "Spend 3 minutes visualizing a clear solution to what’s confusing you.", question: "Do you use visualization? Check out our Mindfulness tips on Tasks to Impact!" },
-                { task: "Do a 1-minute body scan: Notice areas of tension and relax them.", question: "Are you holding stress in your body? Check out our Mindfulness section on Tasks to Impact!" },
-                { task: "Write down 3 things you know for sure to feel more grounded.", question: "Are you focusing on what you know? Our blog on 'Stress Management' has more tips!" },
-                { task: "Take a 3-minute break to sip water and focus on the sensation of drinking.", question: "Are you staying hydrated? See our Diet tips on Tasks to Impact for more on hydration!" },
-                { task: "Spend 5 minutes organizing a small space to feel more in control.", question: "Does your environment help you think? See our blog on 'Creating a Calming Space'!" },
-                { task: "Do a 2-minute progressive muscle relaxation: Tense and release each muscle group.", question: "Are you releasing tension? Try our Mindfulness exercises on Tasks to Impact!" },
-                { task: "Write down one person you can ask for help with what’s confusing you.", question: "Are you seeking support? Our blog on 'The Science of Happiness' has more on connection!" },
-                { task: "Spend 3 minutes listening to a calming song to clear your mental fog.", question: "Does music help you focus? Check out our Mindfulness tips on Tasks to Impact!" },
-                { task: "Take a 2-minute break to close your eyes and focus on your breath.", question: "Are you practicing mindfulness? Try our Mindfulness section on Tasks to Impact!" },
-                { task: "Write down 3 things you’re grateful for to shift your focus and feel grounded.", question: "Do you practice gratitude? Our Mindfulness section on Tasks to Impact can help!" }
+                { emoji: "📝", task: "Write down your thoughts for 3 minutes to clear your mind." },
+                { emoji: "🧘", task: "Take 10 deep breaths to center yourself and reduce overwhelm." },
+                { emoji: "❓", task: "Ask a friend or search online for clarity on what’s confusing you." }
             ]
         };
 
-        // Track used tasks for each mood to avoid immediate repetition
-        const usedTasks = {
-            tired: [],
-            stressed: [],
-            bored: [],
-            excited: [],
-            sad: [],
-            angry: [],
-            happy: [],
-            confused: []
+        // Follow-up questions for each mood
+        const followUpQuestions = {
+            tired: "Are you getting enough sleep? Adults need 7-9 hours nightly. Check out our Sleep tips on the Tasks to Impact page!",
+            stressed: "Have you tried mindfulness? It can help reduce stress. See our Mindfulness tips on the Tasks to Impact page!",
+            bored: "Looking for more activities? Explore our Exercise tips on the Tasks to Impact page for some fun ideas!",
+            excited: "Want to keep the energy up? Check out our Exercise tips on the Tasks to Impact page!",
+            sad: "Feeling down often? Consider our Mindfulness tips on the Tasks to Impact page for more support.",
+            angry: "Need more ways to cool off? Try our Mindfulness tips on the Tasks to Impact page!",
+            happy: "Keep the positivity going! See our Exercise tips on the Tasks to Impact page for more uplifting activities.",
+            confused: "Need clarity? Our Mindfulness tips on the Tasks to Impact page might help you focus."
         };
 
-        // Function to get a random task for a mood
-        function getRandomTask(mood) {
-            let availableTasks = moodTasks[mood].filter((_, index) => !usedTasks[mood].includes(index));
+        // Select mood and display task
+        function selectMood(mood) {
+            const buttons = document.querySelectorAll('#mood-buttons button');
+            buttons.forEach(btn => btn.classList.remove('selected'));
+            document.querySelector(`button.${mood}`).classList.add('selected');
+
+            const tasks = moodTasks[mood];
+            const randomTask = tasks[Math.floor(Math.random() * tasks.length)];
             
-            // If all tasks have been used, reset the used tasks list
-            if (availableTasks.length === 0) {
-                usedTasks[mood] = [];
-                availableTasks = moodTasks[mood];
-            }
-
-            const randomIndex = Math.floor(Math.random() * availableTasks.length);
-            const taskIndex = moodTasks[mood].indexOf(availableTasks[randomIndex]);
-            usedTasks[mood].push(taskIndex);
-            return moodTasks[mood][taskIndex];
-        }
-
-        // Function to escape single quotes in a string
-        function escapeQuotes(str) {
-            return str.replace(/'/g, "\\'");
-        }
-
-        // Function to display the task and question
-        function displayTask(mood) {
-            const taskObj = getRandomTask(mood);
             const resultDiv = document.getElementById('result');
-            // Escape single quotes in task and question to prevent breaking onclick handlers
-            const escapedTask = escapeQuotes(taskObj.task);
-            const escapedQuestion = escapeQuotes(taskObj.question);
-            resultDiv.classList.remove('hidden');
             resultDiv.innerHTML = `
                 <div class="chat-bubble">
-                    <p class="task-text">${taskObj.task}</p>
-                    <p class="follow-up-question">${taskObj.question}</p>
+                    <div class="task-header">
+                        <span class="mood-emoji">${randomTask.emoji}</span>
+                        <h3>Task for ${mood.charAt(0).toUpperCase() + mood.slice(1)}</h3>
+                    </div>
+                    <p class="task-text">${randomTask.task}</p>
+                    <p class="follow-up-question">${followUpQuestions[mood]}</p>
                     <div class="task-buttons">
-                        <button class="favorite-button" onclick="saveToFavorites('${mood}', '${escapedTask}')">Save to Favorites</button>
-                        <button class="new-task-button" onclick="displayTask('${mood}')">Get New Task</button>
+                        <button class="favorite-button" onclick="saveFavorite('${mood}', '${randomTask.task}', '${randomTask.emoji}')">
+                            <span class="heart-icon">❤️</span> Save to Favorites
+                        </button>
+                        <button class="new-task-button" onclick="selectMood('${mood}')">Get New Task</button>
                     </div>
                 </div>
             `;
-            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            saveMoodHistory(mood, taskObj.task);
-            gtag('event', 'Mood Selection', { 'event_category': 'Mood', 'event_label': mood });
+            resultDiv.classList.add('show');
+
+            // Track mood selection in history
+            const history = JSON.parse(localStorage.getItem('moodHistory')) || [];
+            history.push({ mood, emoji: randomTask.emoji, date: new Date().toLocaleDateString() });
+            localStorage.setItem('moodHistory', JSON.stringify(history));
+            updateHistory();
+
+            // Track event for analytics
+            gtag('event', 'Mood Selection', {
+                'event_category': 'Mood',
+                'event_label': mood
+            });
         }
 
-        // Save to favorites
-        function saveToFavorites(mood, task) {
-            let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-            if (!favorites.some(fav => fav.mood === mood && fav.task === task)) {
-                favorites.push({ mood, task });
-                localStorage.setItem('favorites', JSON.stringify(favorites));
-                updateFavoritesList();
-                gtag('event', 'Save to Favorites', { 'event_category': 'Favorites', 'event_label': mood });
-            }
+        // Save favorite task
+        function saveFavorite(mood, task, emoji) {
+            const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+            favorites.push({ mood, task, emoji });
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+            updateFavorites();
+            alert('Task saved to favorites!');
         }
 
         // Update favorites list
-        function updateFavoritesList() {
+        function updateFavorites() {
+            const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
             const favoritesList = document.getElementById('favorites-list');
             const emptyFavorites = document.getElementById('empty-favorites');
-            const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-            
             favoritesList.innerHTML = '';
+
             if (favorites.length === 0) {
-                emptyFavorites.classList.remove('hidden');
+                emptyFavorites.style.display = 'block';
             } else {
-                emptyFavorites.classList.add('hidden');
-                favorites.forEach(fav => {
+                emptyFavorites.style.display = 'none';
+                favorites.forEach(item => {
                     const li = document.createElement('li');
-                    li.innerHTML = `<span class="mood-label">${fav.mood.charAt(0).toUpperCase() + fav.mood.slice(1)}:</span> ${fav.task}`;
+                    li.className = 'favorite-item';
+                    li.innerHTML = `
+                        <span class="favorite-emoji">${item.emoji}</span>
+                        <span class="favorite-mood">${item.mood.charAt(0).toUpperCase() + item.mood.slice(1)}:</span>
+                        <span class="favorite-task">${item.task}</span>
+                    `;
                     favoritesList.appendChild(li);
                 });
             }
         }
 
-        // Save mood to history
-        function saveMoodHistory(mood, task) {
+        // Update mood history
+        function updateHistory() {
             const history = JSON.parse(localStorage.getItem('moodHistory')) || [];
-            const timestamp = new Date().toLocaleString();
-            history.push({ mood, task, timestamp });
-            localStorage.setItem('moodHistory', JSON.stringify(history));
-            updateHistoryList();
-            updateMoodVisualization();
-        }
-
-        // Update history list
-        function updateHistoryList() {
             const historyList = document.getElementById('history-list');
             const emptyHistory = document.getElementById('empty-history');
-            const history = JSON.parse(localStorage.getItem('moodHistory')) || [];
-            
-            historyList.innerHTML = '';
-            if (history.length === 0) {
-                emptyHistory.classList.remove('hidden');
-            } else {
-                emptyHistory.classList.add('hidden');
-                history.forEach(entry => {
-                    const li = document.createElement('li');
-                    li.innerHTML = `<span class="timestamp">[${entry.timestamp}]</span> <span class="mood-label">${entry.mood.charAt(0).toUpperCase() + entry.mood.slice(1)}:</span> ${entry.task}`;
-                    historyList.appendChild(li);
-                });
-            }
-        }
-
-        // Update mood visualization
-        function updateMoodVisualization() {
-            const history = JSON.parse(localStorage.getItem('moodHistory')) || [];
-            const moodCount = {};
-            history.forEach(entry => {
-                moodCount[entry.mood] = (moodCount[entry.mood] || 0) + 1;
-            });
-
-            const total = history.length;
             const moodViz = document.getElementById('mood-viz');
+            const trendInfo = document.getElementById('trend-info');
+            historyList.innerHTML = '';
             moodViz.innerHTML = '';
-            let trendText = 'Mood Trend: ';
-            if (total > 0) {
-                for (const mood in moodCount) {
-                    const percentage = (moodCount[mood] / total) * 100;
-                    const bar = document.createElement('div');
-                    bar.className = `mood-bar ${mood}`;
-                    bar.style.width = `${percentage}%`;
-                    bar.setAttribute('data-tooltip', `${mood.charAt(0).toUpperCase() + mood.slice(1)}: ${Math.round(percentage)}%`);
-                    moodViz.appendChild(bar);
-                }
-                const mostFrequentMood = Object.keys(moodCount).reduce((a, b) => moodCount[a] > moodCount[b] ? a : b);
-                trendText += `You've been feeling ${mostFrequentMood} most often.`;
+
+            if (history.length === 0) {
+                emptyHistory.style.display = 'block';
+                trendInfo.style.display = 'none';
             } else {
-                trendText += 'No data yet. Check in to see your mood trends!';
+                emptyHistory.style.display = 'none';
+                history.slice(-5).forEach(item => {
+                    const li = document.createElement('li');
+                    li.className = 'history-item';
+                    li.innerHTML = `
+                        <span class="history-emoji">${item.emoji}</span>
+                        <span class="history-mood">${item.mood.charAt(0).toUpperCase() + item.mood.slice(1)}</span>
+                        <span class="history-date">${item.date}</span>
+                    `;
+                    historyList.appendChild(li);
+
+                    const dot = document.createElement('div');
+                    dot.className = `mood-dot ${item.mood}`;
+                    dot.innerHTML = `<span class="dot-emoji">${item.emoji}</span>`;
+                    moodViz.appendChild(dot);
+                });
+
+                // Simple trend analysis
+                const recentMoods = history.slice(-3).map(item => item.mood);
+                const positiveMoods = ['happy', 'excited'];
+                const negativeMoods = ['sad', 'angry', 'stressed'];
+                let trend = 'neutral';
+                if (recentMoods.every(mood => positiveMoods.includes(mood))) {
+                    trend = 'positive';
+                    trendInfo.innerHTML = 'Your mood trend is positive! Keep it up! 😊';
+                } else if (recentMoods.every(mood => negativeMoods.includes(mood))) {
+                    trend = 'negative';
+                    trendInfo.innerHTML = 'Your mood trend is negative. Try some uplifting tasks! 🌟';
+                } else {
+                    trendInfo.innerHTML = 'Your mood trend is mixed. Keep exploring tasks! ⚖️';
+                }
+                trendInfo.className = `trend-info ${trend}`;
+                trendInfo.style.display = 'block';
             }
-            document.getElementById('trend-info').textContent = trendText;
         }
 
         // Clear history
         function clearHistory() {
             localStorage.removeItem('moodHistory');
-            updateHistoryList();
-            updateMoodVisualization();
-            gtag('event', 'Clear History', { 'event_category': 'History', 'event_label': 'Clear' });
+            updateHistory();
         }
 
         // Daily check-in
-        function dailyCheckIn() {
+        function startDailyCheckIn() {
+            const today = new Date().toLocaleDateString();
             const lastCheckIn = localStorage.getItem('lastCheckIn');
-            const today = new Date().toDateString();
             const recommendationDiv = document.getElementById('recommendation');
-            
+
             if (lastCheckIn === today) {
-                recommendationDiv.innerHTML = "You've already checked in today! Here's a suggestion based on your recent moods.";
-            } else {
-                localStorage.setItem('lastCheckIn', today);
-                recommendationDiv.innerHTML = "Thanks for checking in! Here's a suggestion based on your recent moods.";
+                recommendationDiv.innerHTML = '<p>You’ve already checked in today! Try again tomorrow.</p>';
+                return;
             }
 
-            const history = JSON.parse(localStorage.getItem('moodHistory')) || [];
-            if (history.length > 0) {
-                const mostRecentMood = history[history.length - 1].mood;
-                const taskObj = getRandomTask(mostRecentMood);
-                const escapedTask = escapeQuotes(taskObj.task);
-                const escapedQuestion = escapeQuotes(taskObj.question);
-                recommendationDiv.innerHTML += `<p class="task-text">You might be feeling ${mostRecentMood}. Try this: ${taskObj.task}</p><p class="follow-up-question">${taskObj.question}</p>`;
-            } else {
-                recommendationDiv.innerHTML += "<p class='task-text'>Select a mood to get started!</p>";
-            }
-            recommendationDiv.classList.remove('hidden');
-            recommendationDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            gtag('event', 'Daily Check-In', { 'event_category': 'Check-In', 'event_label': 'Daily' });
+            const randomMood = Object.keys(moodTasks)[Math.floor(Math.random() * Object.keys(moodTasks).length)];
+            const tasks = moodTasks[randomMood];
+            const randomTask = tasks[Math.floor(Math.random() * tasks.length)];
+            recommendationDiv.innerHTML = `
+                <p>Based on a quick check-in, you might be feeling <strong>${randomMood}</strong>. Try this task:</p>
+                <p><strong>${randomTask.emoji} ${randomTask.task}</strong></p>
+            `;
+            localStorage.setItem('lastCheckIn', today);
+
+            // Track check-in event
+            gtag('event', 'Daily Check-In', {
+                'event_category': 'Engagement',
+                'event_label': 'Daily Check-In'
+            });
         }
 
-        // Show tab
-        function showTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-            document.querySelectorAll('.tab-button').forEach(button => button.classList.remove('active'));
-            document.getElementById(tabId).classList.add('active');
-            document.querySelector(`button[onclick="showTab('${tabId}')"]`).classList.add('active');
-            gtag('event', 'Tab Switch', { 'event_category': 'Tabs', 'event_label': tabId });
+        // Tab functionality
+        function openTab(tabName) {
+            const tabs = document.querySelectorAll('.tab-content');
+            const buttons = document.querySelectorAll('.tab-button');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            buttons.forEach(btn => btn.classList.remove('active'));
+            document.getElementById(tabName).classList.add('active');
+            document.querySelector(`button[onclick="openTab('${tabName}')"]`).classList.add('active');
         }
 
         // Add scroll effect for nav
@@ -533,26 +407,14 @@
         // Share on X functionality
         document.getElementById('share').addEventListener('click', () => {
             const url = encodeURIComponent(window.location.href);
-            const text = encodeURIComponent('Boost your mood in seconds with Mood-to-Task Matcher! #MoodToTask');
+            const text = encodeURIComponent('Boost your mood in seconds with Mood-to-Task Matcher! Try it now! #MoodToTask');
             window.open(`https://x.com/intent/tweet?url=${url}&text=${text}`, '_blank');
-            gtag('event', 'Share on X', { 'event_category': 'Share', 'event_label': 'Home Page' });
         });
 
-        // Initialize page
+        // Initialize history and favorites on load
         window.onload = () => {
-            // Add event listeners for mood buttons
-            document.querySelectorAll('#mood-buttons button').forEach(button => {
-                button.addEventListener('click', () => {
-                    const mood = button.getAttribute('data-mood');
-                    displayTask(mood);
-                });
-            });
-
-            updateFavoritesList();
-            updateHistoryList();
-            updateMoodVisualization();
-
-            // Add fade-in animation for feature cards
+            updateHistory();
+            updateFavorites();
             const featureCards = document.querySelectorAll('.feature-card, .testimonial');
             featureCards.forEach((card, index) => {
                 setTimeout(() => {
