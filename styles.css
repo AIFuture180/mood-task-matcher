@@ -246,9 +246,10 @@ li {
     border-radius: 5px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
     .banner-img {
-        max-width: 320px; /* Ensure the mobile image doesn't stretch too wide */
+        max-width: 100%;
+        width: 100%; /* Ensure the image scales down to fit smaller screens */
     }
 }
 
