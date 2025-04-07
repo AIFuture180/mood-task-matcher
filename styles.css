@@ -222,6 +222,11 @@ li {
     max-width: 100%;
 }
 
+#ad {
+    text-align: center;
+    margin: 20px 0;
+}
+
 footer {
     text-align: center;
     padding: 20px;
