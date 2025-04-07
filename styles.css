@@ -499,3 +499,11 @@ footer {
 .close-button:hover {
     background-color: #c82333;
 }
+
+.disclaimer {
+    font-size: 0.85em;
+    color: #666;
+    margin: 10px 0;
+    font-style: italic;
+    text-align: center;
+}
