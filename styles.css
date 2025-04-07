@@ -216,15 +216,27 @@ li {
 #banner {
     text-align: center;
     margin: 20px 0;
+    background-color: #e6f5fa; /* Subtle background to make the ad stand out */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#banner a {
+    display: inline-block; /* Ensure the link wraps the image properly */
 }
 
 #banner img {
     max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd; /* Subtle border for definition */
+    border-radius: 5px;
 }
 
-#ad {
-    text-align: center;
-    margin: 20px 0;
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+    #banner img {
+        content: url("https://via.placeholder.com/320x50.png?text=Boost+Your+Mood+Now!");
+    }
 }
 
 footer {
