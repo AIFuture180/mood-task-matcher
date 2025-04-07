@@ -359,17 +359,25 @@
             return moodTasks[mood][taskIndex];
         }
 
+        // Function to escape single quotes in a string
+        function escapeQuotes(str) {
+            return str.replace(/'/g, "\\'");
+        }
+
         // Function to display the task and question
         function displayTask(mood) {
             const taskObj = getRandomTask(mood);
             const resultDiv = document.getElementById('result');
+            // Escape single quotes in task and question to prevent breaking onclick handlers
+            const escapedTask = escapeQuotes(taskObj.task);
+            const escapedQuestion = escapeQuotes(taskObj.question);
             resultDiv.classList.remove('hidden');
             resultDiv.innerHTML = `
                 <div class="chat-bubble">
                     <p class="task-text">${taskObj.task}</p>
                     <p class="follow-up-question">${taskObj.question}</p>
                     <div class="task-buttons">
-                        <button class="favorite-button" onclick="saveToFavorites('${mood}', '${taskObj.task}')">Save to Favorites</button>
+                        <button class="favorite-button" onclick="saveToFavorites('${mood}', '${escapedTask}')">Save to Favorites</button>
                         <button class="new-task-button" onclick="displayTask('${mood}')">Get New Task</button>
                     </div>
                 </div>
@@ -378,14 +386,6 @@
             saveMoodHistory(mood, taskObj.task);
             gtag('event', 'Mood Selection', { 'event_category': 'Mood', 'event_label': mood });
         }
-
-        // Event listeners for mood buttons
-        document.querySelectorAll('#mood-buttons button').forEach(button => {
-            button.addEventListener('click', () => {
-                const mood = button.getAttribute('data-mood');
-                displayTask(mood);
-            });
-        });
 
         // Save to favorites
         function saveToFavorites(mood, task) {
@@ -500,6 +500,8 @@
             if (history.length > 0) {
                 const mostRecentMood = history[history.length - 1].mood;
                 const taskObj = getRandomTask(mostRecentMood);
+                const escapedTask = escapeQuotes(taskObj.task);
+                const escapedQuestion = escapeQuotes(taskObj.question);
                 recommendationDiv.innerHTML += `<p class="task-text">You might be feeling ${mostRecentMood}. Try this: ${taskObj.task}</p><p class="follow-up-question">${taskObj.question}</p>`;
             } else {
                 recommendationDiv.innerHTML += "<p class='task-text'>Select a mood to get started!</p>";
@@ -538,6 +540,14 @@
 
         // Initialize page
         window.onload = () => {
+            // Add event listeners for mood buttons
+            document.querySelectorAll('#mood-buttons button').forEach(button => {
+                button.addEventListener('click', () => {
+                    const mood = button.getAttribute('data-mood');
+                    displayTask(mood);
+                });
+            });
+
             updateFavoritesList();
             updateHistoryList();
             updateMoodVisualization();
