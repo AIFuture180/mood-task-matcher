@@ -32,18 +32,6 @@ h3 {
     text-align: center;
 }
 
-h4 {
-    font-size: 1.2em;
-    margin: 10px 0;
-    text-align: center;
-}
-
-h5 {
-    font-size: 1.1em;
-    margin: 10px 0;
-    text-align: center;
-}
-
 p {
     margin: 10px 0;
 }
@@ -57,7 +45,7 @@ a:hover {
     text-decoration: underline;
 }
 
-ul, ol {
+ul {
     margin: 10px 0;
     padding-left: 20px;
 }
@@ -187,6 +175,11 @@ li {
     text-align: center;
 }
 
+#donate img {
+    max-width: 150px;
+    height: auto;
+}
+
 #share {
     display: inline-flex;
     align-items: center;
@@ -200,6 +193,7 @@ li {
     text-decoration: none;
     font-weight: 500;
     transition: background-color 0.3s ease;
+    cursor: pointer;
 }
 
 #share:hover {
@@ -251,11 +245,6 @@ li {
         max-width: 100%;
         width: 100%; /* Ensure the image scales down to fit smaller screens */
     }
-}
-
-#ad {
-    text-align: center;
-    margin: 20px 0;
 }
 
 footer {
@@ -322,182 +311,6 @@ footer {
 
 .checkin-button:hover {
     background-color: #0056b3;
-}
-
-#content {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-}
-
-#impact-sections {
-    margin: 20px 0;
-    text-align: center;
-}
-
-.button-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0;
-}
-
-@media (max-width: 768px) {
-    .button-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 480px) {
-    .button-container {
-        grid-template-columns: 1fr;
-    }
-}
-
-.impact-button {
-    padding: 10px 20px;
-    font-size: 1em;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: opacity 0.3s ease; /* Only transition opacity to avoid size/position changes */
-    width: 100%; /* Ensure buttons take full width of their grid cell */
-    box-sizing: border-box;
-}
-
-.impact-button:hover {
-    opacity: 0.9;
-}
-
-.impact-button.active {
-    opacity: 0.9;
-}
-
-.sleep-button {
-    background-color: #d6bcfa;
-    color: #333;
-}
-
-.sleep-button:hover, .sleep-button.active {
-    background-color: #c3a7f7;
-    color: #333;
-}
-
-.diet-button {
-    background-color: #b5f5b5;
-    color: #333;
-}
-
-.diet-button:hover, .diet-button.active {
-    background-color: #a0e6a0;
-    color: #333;
-}
-
-.exercise-button {
-    background-color: #feb694;
-    color: #333;
-}
-
-.exercise-button:hover, .exercise-button.active {
-    background-color: #f5a67e;
-    color: #333;
-}
-
-.mindfulness-button {
-    background-color: #a3e4d7;
-    color: #333;
-}
-
-.mindfulness-button:hover, .mindfulness-button.active {
-    background-color: #8ed6c7;
-    color: #333;
-}
-
-.impact-content {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 15px;
-    background-color: #f5f5f5;
-    border-radius: 5px;
-    text-align: left;
-    display: none; /* Hidden by default */
-}
-
-#blog-posts {
-    max-width: 800px;
-    margin: 20px auto;
-}
-
-.blog-post {
-    margin: 20px 0;
-    padding: 15px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: left;
-}
-
-.blog-post h3 {
-    font-size: 1.3em;
-    margin: 0 0 10px 0;
-    text-align: left;
-}
-
-.blog-post p {
-    margin: 0 0 10px 0;
-}
-
-.read-more {
-    display: inline-block;
-    padding: 8px 15px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 0.9em;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.read-more:hover {
-    background-color: #0056b3;
-}
-
-.read-more.active {
-    background-color: #0056b3;
-}
-
-.blog-content {
-    margin-top: 15px;
-    padding: 15px;
-    background-color: #f5f5f5;
-    border-radius: 5px;
-    text-align: left;
-    display: none;
-}
-
-.close-button {
-    display: inline-block;
-    padding: 8px 15px;
-    background-color: #dc3545;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 0.9em;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 10px;
-}
-
-.close-button:hover {
-    background-color: #c82333;
 }
 
 .disclaimer {
