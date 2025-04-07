@@ -343,20 +343,16 @@
 
         function calculateLuminance(color) {
             const hex = color.replace("#", ""),
-                  r = parse SyparseInt(hex.substring(0, 2), 16),
+                  r = parseInt(hex.substring(0, 2), 16),
                   g = parseInt(hex.substring(2, 4), 16),
                   b = parseInt(hex.substring(4, 6), 16);
             return 0.299 * r + 0.587 * g + 0.114 * b;
         }
 
-        function playClickSound() {
-            const audio = new Audio('click.mp3');
-            audio.play();
-        }
-
         function showMoodButtons() {
-            document.getElementById("mood-prompt").classList.remove("hidden");
-            document.getElementById("mood-prompt").scrollIntoView({behavior: "smooth"});
+            const moodPrompt = document.getElementById("mood-prompt");
+            moodPrompt.classList.remove("hidden");
+            moodPrompt.scrollIntoView({ behavior: "smooth" });
             
             // Add animation to mood buttons
             const buttons = document.querySelectorAll("#mood-buttons button");
@@ -368,7 +364,6 @@
         }
 
         function matchTask(mood, excludeTask = null) {
-            playClickSound(); // Play sound on click (requires click.mp3 file in project directory)
             currentMood = mood;
             const resultDiv = document.getElementById("result"),
                   shareLink = document.getElementById("share"),
@@ -416,7 +411,7 @@
             `;
             
             resultDiv.classList.add("show");
-            resultDiv.scrollIntoView({behavior: "smooth"});
+            resultDiv.scrollIntoView({ behavior: "smooth" });
             
             shareLink.href = `https://x.com/intent/post?text=I just got this mood fix from Mood-to-Task Matcher: ${encodeURIComponent(message + " " + task)} - https://www.moodtask.org/`;
             resultDiv.style.backgroundColor = selectedColor;
@@ -604,7 +599,7 @@
             evt.currentTarget.classList.add("active");
 
             // Scroll to the tab content
-            document.getElementById(tabName).scrollIntoView({behavior: "smooth"});
+            document.getElementById(tabName).scrollIntoView({ behavior: "smooth" });
         }
 
         window.onload = () => {
