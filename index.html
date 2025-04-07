@@ -34,7 +34,7 @@
     <div class="hero-section">
         <h1>Boost Your Mood in Seconds</h1>
         <h2>Quick, Science-Backed Tasks Tailored to How You Feel</h2>
-        <button class="hero-cta pulse-animation" onclick="document.getElementById('mood-prompt').scrollIntoView({ behavior: 'smooth' })">Get Started</button>
+        <button class="hero-cta pulse-animation" onclick="document.getElementById('mood-prompt').scrollIntoView({ behavior: 'smooth', block: 'start' })">Get Started</button>
     </div>
 
     <div id="mood-prompt">
@@ -382,7 +382,7 @@
                     </div>
                 </div>
             `;
-            resultDiv.scrollIntoView({ behavior: 'smooth' });
+            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
             saveMoodHistory(mood, taskObj.task);
             gtag('event', 'Mood Selection', { 'event_category': 'Mood', 'event_label': mood });
         }
@@ -507,7 +507,7 @@
                 recommendationDiv.innerHTML += "<p class='task-text'>Select a mood to get started!</p>";
             }
             recommendationDiv.classList.remove('hidden');
-            recommendationDiv.scrollIntoView({ behavior: 'smooth' });
+            recommendationDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
             gtag('event', 'Daily Check-In', { 'event_category': 'Check-In', 'event_label': 'Daily' });
         }
 
