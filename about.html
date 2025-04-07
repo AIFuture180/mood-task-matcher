@@ -33,33 +33,83 @@
 
     <div class="hero-section">
         <h1>About Mood-to-Task Matcher</h1>
-        <h2>Helping You Feel Better, One Task at a Time</h2>
+        <h2>Empowering You to Feel Your Best, Every Day</h2>
         <button class="hero-cta pulse-animation" onclick="window.location.href='index.html'">Boost My Mood Now</button>
     </div>
 
     <div id="about-content">
         <h3 class="section-heading">Our Mission</h3>
-        <p>At Mood-to-Task Matcher, our mission is to help you improve your mood and well-being through quick, science-backed tasks tailored to how you feel. Whether you're feeling tired, stressed, or just need a little boost, we’re here to provide simple, effective activities that fit into your busy day.</p>
+        <p>At Mood-to-Task Matcher, we believe that small actions can lead to big changes in your well-being. Our mission is to empower you with quick, science-backed tasks that fit seamlessly into your day, helping you manage your mood and live a more balanced, fulfilling life. Whether you're feeling stressed, tired, or just need a moment of joy, we’re here to support you with personalized, actionable strategies.</p>
 
         <h3 class="section-heading">Why We Started</h3>
-        <p>We noticed that many people struggle to find quick, actionable ways to manage their moods. Inspired by psychology and neuroscience, we created Mood-to-Task Matcher to bridge that gap—offering personalized tasks that take just 1-5 minutes to make a big difference.</p>
+        <p>In a fast-paced world, finding time for self-care can feel overwhelming. We started Mood-to-Task Matcher to make mental wellness accessible to everyone. Inspired by the latest research in psychology and neuroscience, we curate tasks that take just 1-5 minutes but deliver lasting benefits. Our goal is to help you take control of your mood, one small step at a time, without adding stress to your already busy life.</p>
 
         <h3 class="section-heading">Meet the Team</h3>
         <div class="team-cards">
             <div class="team-card fade-in">
+                <span class="team-icon">👩‍💻</span>
                 <h4>Jane Doe</h4>
                 <p class="role">Founder & Lead Developer</p>
-                <p>Jane is passionate about mental health and technology, combining her expertise to create tools that make a real impact.</p>
+                <p>Jane is a tech enthusiast with a passion for mental health. With a background in software development and psychology, she created Mood-to-Task Matcher to combine her love for coding with her desire to help others thrive.</p>
             </div>
             <div class="team-card fade-in">
+                <span class="team-icon">✍️</span>
                 <h4>John Smith</h4>
-                <p class="role">Content Creator</p>
-                <p>John researches and curates science-backed tasks to ensure you get the best recommendations for your mood.</p>
+                <p class="role">Content Creator & Researcher</p>
+                <p>John is a wellness advocate who spends his days diving into the latest studies on mental health. He ensures that every task on Mood-to-Task Matcher is backed by science and tailored to your needs.</p>
+            </div>
+            <div class="team-card fade-in">
+                <span class="team-icon">🎨</span>
+                <h4>Emily Johnson</h4>
+                <p class="role">Designer</p>
+                <p>Emily brings creativity to the team, designing a user-friendly and visually appealing experience. Her goal is to make Mood-to-Task Matcher a place where you feel inspired and supported.</p>
+            </div>
+        </div>
+
+        <h3 class="section-heading">Frequently Asked Questions</h3>
+        <div class="faq-section">
+            <div class="faq-item">
+                <button class="faq-button" onclick="toggleFAQ('faq1'); gtag('event', 'FAQ Click', { 'event_category': 'FAQ', 'event_label': 'What is Mood-to-Task Matcher?' });">What is Mood-to-Task Matcher?</button>
+                <div class="faq-content" id="faq1">
+                    <p>Mood-to-Task Matcher is a platform that provides quick, science-backed tasks to help you manage your mood. Whether you're feeling stressed, tired, or happy, we offer personalized activities that take just 1-5 minutes to boost your well-being.</p>
+                    <button class="close-button" onclick="toggleFAQ('faq1')">Close</button>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-button" onclick="toggleFAQ('faq2'); gtag('event', 'FAQ Click', { 'event_category': 'FAQ', 'event_label': 'How are the tasks created?' });">How are the tasks created?</button>
+                <div class="faq-content" id="faq2">
+                    <p>Our tasks are curated by a team of researchers who draw from the latest studies in psychology and neuroscience. We focus on activities that are proven to improve mood and well-being, ensuring they’re both effective and easy to do.</p>
+                    <button class="close-button" onclick="toggleFAQ('faq2')">Close</button>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-button" onclick="toggleFAQ('faq3'); gtag('event', 'FAQ Click', { 'event_category': 'FAQ', 'event_label': 'Is Mood-to-Task Matcher free?' });">Is Mood-to-Task Matcher free?</button>
+                <div class="faq-content" id="faq3">
+                    <p>Yes, Mood-to-Task Matcher is completely free to use! We’re supported by affiliate partnerships and donations, which allow us to keep our services accessible to everyone.</p>
+                    <button class="close-button" onclick="toggleFAQ('faq3')">Close</button>
+                </div>
             </div>
         </div>
 
         <h3 class="section-heading">Get in Touch</h3>
-        <p>Have questions or feedback? We’d love to hear from you! Reach out to us at <a href="mailto:support@moodtotask.com">support@moodtotask.com</a>.</p>
+        <p>We’d love to hear from you! Whether you have questions, feedback, or just want to say hello, feel free to reach out.</p>
+        <div class="contact-form">
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-button">Send Message</button>
+            </form>
+        </div>
         <p class="disclaimer"><em>General Disclaimer: Mood-to-Task Matcher provides this website for informational purposes only. We are not responsible for any errors, omissions, or outcomes resulting from the use of this information.</em></p>
     </div>
 
@@ -102,6 +152,31 @@
     </footer>
 
     <script>
+        // Function to toggle FAQ content visibility
+        function toggleFAQ(faqId) {
+            const content = document.getElementById(faqId);
+            const button = document.querySelector(`button[onclick*="toggleFAQ('${faqId}')"]`);
+            const allContents = document.querySelectorAll('.faq-content');
+            const allButtons = document.querySelectorAll('.faq-button');
+
+            // Close all other FAQ sections and reset buttons
+            allContents.forEach(item => {
+                if (item !== content) {
+                    item.classList.remove('show');
+                }
+            });
+            allButtons.forEach(btn => btn.classList.remove('active'));
+
+            // Toggle the clicked FAQ section
+            if (content.classList.contains('show')) {
+                content.classList.remove('show');
+                button.classList.remove('active');
+            } else {
+                content.classList.add('show');
+                button.classList.add('active');
+            }
+        }
+
         // Add scroll effect for nav
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('nav');
@@ -126,6 +201,12 @@
                 setTimeout(() => {
                     card.classList.add('fade-in');
                 }, index * 200);
+            });
+
+            // Initialize by hiding all FAQ sections
+            const faqSections = document.querySelectorAll('.faq-content');
+            faqSections.forEach(section => {
+                section.classList.remove('show');
             });
         };
     </script>
