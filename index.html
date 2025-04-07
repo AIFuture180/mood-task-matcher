@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Match your mood to fun, quick tasks with Mood-to-Task Matcher. Improve your day in just a few minutes!">
-    <meta name="keywords" content="mood matcher, quick tasks, daily activities, mental health, productivity">
+    <meta name="description" content="Boost your mood with the Mood-to-Task Matcher! Get fun, quick tasks tailored to your feelings like tired, stressed, or happy.">
+    <meta name="keywords" content="mood matcher, stress relief, productivity tool, mood tasks, mental health">
     <meta name="robots" content="index, follow">
-    <title>Mood-to-Task Matcher</title>
+    <title>Mood-to-Task Matcher | Boost Your Day with Fun Tasks</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1511837633001567" crossorigin="anonymous" data-ad-init-load="300"></script>
     <!-- Google tag (gtag.js) -->
@@ -28,36 +28,53 @@
         <a href="about.html" class="nav-button">About</a>
     </nav>
     <h1>Mood-to-Task Matcher</h1>
+    <h2>Transform Your Mood in Seconds</h2>
     <div id="intro-content">
-        <h2>Find Fun, Quick Tasks Based on Your Mood</h2>
-        <p>Feeling tired, stressed, or bored? Select your mood below, and we’ll match you with a simple, enjoyable task to boost your day—all in under 5 minutes!</p>
+        <p>Welcome to Mood-to-Task Matcher, your go-to tool for boosting your mood in just a few seconds! Whether you're feeling tired, stressed, bored, or excited, we’ve got the perfect fun task to match your mood and brighten your day.</p>
+        <p>Our tool is simple: select your current mood from the options below, and we’ll suggest a quick, playful activity to help you feel better. For example, if you’re feeling tired, you might get a task like "Close your eyes for 1 minute and imagine you’re napping on a fluffy cloud with a unicorn pillow!" It’s all about bringing a little joy and lightness to your day.</p>
+        <h3>Why Use Mood-to-Task Matcher?</h3>
+        <p>We believe that small actions can make a big difference in how you feel. Our tasks are designed to be quick, easy, and fun, helping you shift your mood without taking up too much time. Whether you need a quick pick-me-up or a moment of relaxation, Mood-to-Task Matcher is here to help.</p>
+        <p>Ready to get started? Just click your mood below and let the magic happen! Also, check out our <a href="blog.html">blog</a> for more mood-boosting tips and ideas!</p>
         <p class="disclaimer"><em>Health Disclaimer: The tasks provided are for informational and entertainment purposes only and are not intended as medical advice. Always consult a qualified healthcare provider before making changes to your routines, especially if you have pre-existing health conditions or are taking medication.</em></p>
     </div>
     <div id="daily-checkin-section">
-        <h3>Daily Check-In</h3>
-        <p id="instruction">How are you feeling right now?</p>
-        <div id="mood-buttons">
-            <button class="tired" onclick="selectMood('tired')">Tired</button>
-            <button class="stressed" onclick="selectMood('stressed')">Stressed</button>
-            <button class="bored" onclick="selectMood('bored')">Bored</button>
-            <button class="excited" onclick="selectMood('excited')">Excited</button>
-            <button class="sad" onclick="selectMood('sad')">Sad</button>
-            <button class="angry" onclick="selectMood('angry')">Angry</button>
-            <button class="happy" onclick="selectMood('happy')">Happy</button>
-            <button class="confused" onclick="selectMood('confused')">Confused</button>
-        </div>
-        <button class="checkin-button" onclick="checkIn()">Check In</button>
+        <h3>Daily Mood Check-In</h3>
+        <button class="checkin-button" onclick="showMoodButtons()">Check In Now</button>
+        <div id="recommendation"></div>
+    </div>
+    <p id="instruction" style="display:none;">Select Your Mood</p>
+    <div id="mood-buttons" style="display:none;">
+        <button class="tired" onclick="matchTask('tired')" aria-label="Select Tired mood">Tired 😴</button>
+        <button class="stressed" onclick="matchTask('stressed')" aria-label="Select Stressed mood">Stressed 😣</button>
+        <button class="bored" onclick="matchTask('bored')" aria-label="Select Bored mood">Bored 😐</button>
+        <button class="excited" onclick="matchTask('excited')" aria-label="Select Excited mood">Excited 😄</button>
+        <button class="sad" onclick="matchTask('sad')" aria-label="Select Sad mood">Sad 😢</button>
+        <button class="angry" onclick="matchTask('angry')" aria-label="Select Angry mood">Angry 😡</button>
+        <button class="happy" onclick="matchTask('happy')" aria-label="Select Happy mood">Happy 😊</button>
+        <button class="confused" onclick="matchTask('confused')" aria-label="Select Confused mood">Confused 🤔</button>
     </div>
     <div id="result"></div>
+    
+    <!-- Updated Online Therapy banner -->
+    <div id="banner">
+        <p class="disclaimer"><em>Affiliate Disclosure: Mood-to-Task Matcher may earn a commission if you click the link below and make a purchase, at no additional cost to you.</em></p>
+        <p class="ad-label">Sponsored: Support Your Mental Health</p>
+        <a href="https://onlinetherapy.go2cloud.org/SHjO?file_id=78" class="banner-link">
+            <img src="https://media.go2speed.org/brand/files/onlinetherapy/2/online-therapy-com-logo-728x90.png" alt="Online Therapy Banner" class="banner-img">
+        </a>
+        <img src="https://onlinetherapy.go2cloud.org/aff_i?offer_id=2&file_id=78&aff_id=4837" width="0" height="0" style="position:absolute;visibility:hidden;" border="0" />
+    </div>
+
     <div id="history-section">
-        <h3>Your History</h3>
-        <p id="history"></p>
+        <h3>Your Mood History</h3>
+        <ul id="history-list"></ul>
         <button class="clear-history-button" onclick="clearHistory()">Clear History</button>
     </div>
-    <div id="recommendation">
-        <h3>Explore More</h3>
-        <p>Check out our <a href="tasks-to-impact.html">Tasks to Impact</a> page for more ideas on how small tasks can improve your sleep, diet, exercise, and mindfulness.</p>
+    <div id="history-section">
+        <h3>Your Favorites</h3>
+        <ul id="favorites-list"></ul>
     </div>
+
     <div id="donate">
         <h3>Support Us</h3>
         <p>If you find this tool helpful, please consider supporting us with a small donation!</p>
@@ -71,14 +88,6 @@
         </svg>
         <span>Share on X</span>
     </div>
-    <div id="banner">
-        <p class="disclaimer"><em>Affiliate Disclosure: Mood-to-Task Matcher may earn a commission if you click the link below and make a purchase, at no additional cost to you.</em></p>
-        <p class="ad-label">Sponsored: Support Your Mental Health</p>
-        <a href="https://onlinetherapy.go2cloud.org/SHjO?file_id=78" class="banner-link">
-            <img src="https://media.go2speed.org/brand/files/onlinetherapy/2/online-therapy-com-logo-728x90.png" alt="Online Therapy Banner" class="banner-img">
-        </a>
-        <img src="https://onlinetherapy.go2cloud.org/aff_i?offer_id=2&file_id=78&aff_id=4837" width="0" height="0" style="position:absolute;visibility:hidden;" border="0" />
-    </div>
     <footer>
         <a href="index.html" class="sitemap-button">Home</a>
         <a href="blog.html" class="sitemap-button">Blog</a>
@@ -88,8 +97,255 @@
         <a href="terms.html" class="sitemap-button">Terms of Use</a>
         <p class="disclaimer"><em>General Disclaimer: Mood-to-Task Matcher provides this website for informational purposes only. We are not responsible for any errors, omissions, or outcomes resulting from the use of this information. Users follow external links, including those to third-party sites, at their own risk. Always review the terms and privacy policies of external websites.</em></p>
     </footer>
-    <script src="script.js"></script>
+
     <script>
+        const tasks={
+            tired:[
+                "Close your eyes for 1 minute and imagine you’re napping on a fluffy cloud with a unicorn pillow!",
+                "Sip a glass of cold water and pretend you’re a sleepy robot recharging with magic juice!",
+                "Do a silly stretch: reach for the sky like you’re picking stars for a sleepy galaxy!",
+                "Hum a lullaby for 30 seconds to trick your brain into a mini-rest mode!",
+                "Look at something green for 30 seconds and imagine you’re a tired frog on a lily pad!",
+                "Take 5 slow breaths and picture a hamster wheel slowing down in your brain!",
+                "Wiggle your toes 10 times to wake up your sleepy feet like they’re dancing ants!",
+                "Set a timer for a 2-minute rest and pretend you’re a bear hibernating in a cozy cave!",
+                "Sniff something refreshing (like a lemon) and imagine you’re a sleepy pirate finding treasure!",
+                "Blink 10 times fast to reboot your tired eyes like a blinking disco light!"
+            ],
+            stressed:[
+                "Take 5 deep breaths and pretend you’re blowing up a giant balloon for a silly party!",
+                "Squeeze your hands into fists, then release them like you’re letting go of a grumpy stress monster!",
+                "Count 5 things you can see and imagine they’re all part of a wacky stress-free circus!",
+                "Hum a silly tune for 30 seconds to distract your brain from stress gremlins!",
+                "Tense your shoulders, then drop them like you’re a puppet cutting its strings in a goofy play!",
+                "Say 'I’m a calm potato!' out loud to remind your brain to chill like a veggie!",
+                "Look out a window for 1 minute and imagine your stress floating away on a fluffy cloud!",
+                "Shake your arms like a wiggly jellyfish for 10 seconds to shake off the stress vibes!",
+                "Sip warm water and pretend it’s a magic potion to melt away your worries!",
+                "Close your eyes and picture a giggling puppy to chase away your stress with cuddles!"
+            ],
+            bored:[
+                "Doodle a silly monster for 1 minute and give it a funny name like ‘Sir Bloop’!",
+                "Make a paper airplane and pretend it’s flying to a magical land of un-boredom!",
+                "Invent a 3-word story about a bored banana who becomes a superhero!",
+                "Spin around 3 times and laugh like a goofy villain to spark some fun energy!",
+                "Find 3 random objects and pretend they’re treasures in a pirate’s bored-busting chest!",
+                "Sing a jingle from a commercial in a funny voice to entertain your bored brain!",
+                "Draw a stick figure doing a silly dance to join your boredom-banishing party!",
+                "Pretend you’re a robot for 30 seconds and beep-boop your way out of boredom!",
+                "Rearrange 3 things nearby and imagine you’re decorating a castle for a bored king!",
+                "Write down a wacky idea, like ‘What if clouds were cotton candy?’ to spark creativity!"
+            ],
+            excited:[
+                "Do a 10-second victory dance like you’re a disco ball at an excitement party!",
+                "Write down one wild idea and imagine it coming true with a parade of happy squirrels!",
+                "Jump up and down 5 times and shout ‘I’m a rocket of excitement!’ to launch your energy!",
+                "High-five yourself in a mirror and say ‘You’re an excitement superstar!’",
+                "Snap your fingers 10 times fast to create a beat for your excited heart!",
+                "Draw a big star and color it in with all your sparkly, excited vibes!",
+                "Shout ‘Yes!’ as loud as you dare, like you’re cheering for a team of excited kittens!",
+                "Plan one tiny step for your idea and pretend you’re a wizard making magic happen!",
+                "Imagine your excitement as a bouncy ball zooming around a happy room for 10 seconds!",
+                "Tell someone (or yourself) why you’re excited, like you’re announcing it on a game show!"
+            ],
+            sad:[
+                "Hug yourself tight for 10 seconds and whisper ‘You’re a sad little muffin, but I love you!’",
+                "Write down one thing you’re grateful for, like ‘I have a cozy sock!’ and smile at it!",
+                "Look at a photo that makes you smile and imagine giving it a big, silly hug!",
+                "Wrap up in a blanket for 1 minute and pretend you’re a sad burrito getting cozy!",
+                "Sip something warm and imagine it’s a potion of tiny hugs for your sad heart!",
+                "Draw a tiny heart and say ‘This is for you, sad me!’ to cheer yourself up!",
+                "Listen to your favorite song for 1 minute and pretend it’s a lullaby for your sadness!",
+                "Take 5 slow breaths and picture a friendly cloud saying ‘It’s okay to be sad!’",
+                "Say ‘This will pass!’ softly, like you’re a wise old turtle comforting a sad fish!",
+                "Watch a cute animal video and imagine you’re best friends with that fluffy critter!"
+            ],
+            angry:[
+                "Stomp your feet 5 times like a grumpy dinosaur to let out your angry roars!",
+                "Take 5 quick breaths and imagine blowing out your anger like a fiery dragon!",
+                "Squeeze a pillow 5 times and pretend it’s a squishy anger monster you’re taming!",
+                "Count 5 things you can touch and imagine they’re calming your anger like magic pebbles!",
+                "Shake your whole body for 10 seconds like a wiggly dog shaking off angry water!",
+                "Growl like a bear for 5 seconds, then laugh to turn your anger into silliness!",
+                "Scribble hard on paper, then toss it like you’re throwing away your angry scribbles!",
+                "Say ‘I’m cooling down!’ out loud, like you’re an angry volcano turning into a chill hill!",
+                "Tap your fingers 10 times fast and imagine your anger turning into tiny drumbeats!",
+                "Close your eyes and picture a silly clown juggling your anger away for 10 seconds!"
+            ],
+            happy:[
+                "Do a little happy wiggle dance for 10 seconds like you’re a joyful jellybean!",
+                "Write down why you’re happy and pretend you’re sending it to a happiness fairy!",
+                "Share a quick smile with someone (or yourself in a mirror) like you’re a sunshine star!",
+                "Hum a cheerful tune for 30 seconds and imagine you’re a happy bird singing!",
+                "Say ‘Life’s good!’ out loud, like you’re announcing it to a crowd of happy puppies!",
+                "Draw a quick smiley face and give it a high-five to celebrate your happiness!",
+                "Look around and name 3 pretty things, like you’re a happiness detective on a mission!",
+                "Stretch your arms up high and pretend you’re reaching for a giant happiness balloon!",
+                "Snap your fingers to a happy beat for 10 seconds, like you’re in a joy parade!",
+                "Give yourself a pat on the back and say ‘You’re a happiness hero!’ with a big grin!"
+            ],
+            confused:[
+                "Flip a coin to decide something small and pretend you’re a confused pirate picking treasure!",
+                "Take 3 slow breaths and imagine your confusion turning into a clear, sparkly bubble!",
+                "Write your question on paper and draw a silly smiley face to cheer up your confused brain!",
+                "Count to 5 and pick the first idea that pops into your head, like a magical lightbulb moment!",
+                "Tap your forehead 5 times and say ‘Clarity, come to me!’ like a confused wizard!",
+                "Shake your head gently and imagine your confusion falling off like glittery confetti!",
+                "Look up and say ‘I’ll figure it out!’ like you’re a detective solving a wacky mystery!",
+                "Draw a question mark, then turn it into a silly doodle to laugh at your confusion!",
+                "Ask someone (or yourself) a random question, like ‘What would a confused cat do?’",
+                "Close your eyes and pick a direction to point, like you’re a confused compass finding north!"
+            ]
+        },messages=[
+            "Wonderful! Let’s nurture your mood with this task.",
+            "Nice selection! This task can help you feel more balanced.",
+            "Great step! This activity is a perfect way to recharge.",
+            "Well done! This task can bring a bit of calm and joy.",
+            "Excellent choice! Let’s support your well-being with this.",
+            "Good for you! This activity can help lift your spirits.",
+            "Smart move! This task is a great way to care for yourself.",
+            "You’re doing great! This can help you find some ease."
+        ],moodColors={tired:"#E6F0FA",stressed:"#FFE6E6",bored:"#E6F5FA",excited:"#FFF9E6",sad:"#E6ECFA",angry:"#FFE6E6",happy:"#E6FAE6",confused:"#F5E6FA"},goodFeelingColors=["#E6FAE6","#FFF9E6","#E6F5FA","#FFE6E6","#F5E6FA"];
+        
+        let currentMood = null, currentTask = null;
+
+        function calculateLuminance(color) {
+            const hex = color.replace("#", ""),
+                  r = parseInt(hex.substring(0, 2), 16),
+                  g = parseInt(hex.substring(2, 4), 16),
+                  b = parseInt(hex.substring(4, 6), 16);
+            return 0.299 * r + 0.587 * g + 0.114 * b;
+        }
+
+        function showMoodButtons() {
+            document.getElementById("instruction").style.display = "block";
+            document.getElementById("mood-buttons").style.display = "grid";
+        }
+
+        function matchTask(mood, excludeTask = null) {
+            currentMood = mood;
+            const resultDiv = document.getElementById("result"),
+                  shareLink = document.getElementById("share"),
+                  buttons = document.querySelectorAll("#mood-buttons button"),
+                  currentButton = document.querySelector(`#mood-buttons button[onclick="matchTask('${mood}')"]`);
+
+            if (!mood) {
+                resultDiv.innerHTML = "Please select a mood first!";
+                resultDiv.classList.remove("show");
+                shareLink.href = "";
+                return;
+            }
+
+            buttons.forEach(btn => btn.classList.remove("selected"));
+            currentButton.classList.add("selected");
+
+            const taskList = tasks[mood];
+            let task;
+            do {
+                task = taskList[Math.floor(Math.random() * taskList.length)];
+            } while (task === excludeTask && taskList.length > 1);
+
+            currentTask = task;
+            const message = messages[Math.floor(Math.random() * messages.length)],
+                  selectedColor = goodFeelingColors[Math.floor(Math.random() * goodFeelingColors.length)];
+
+            resultDiv.innerHTML = `${message} <br> ${task} <br><button class="favorite-button" onclick="saveToFavorites('${mood}', '${task}')">Save to Favorites</button>`;
+            resultDiv.classList.add("show");
+            shareLink.href = `https://x.com/intent/post?text=I just got this mood fix from Mood-to-Task Matcher: ${encodeURIComponent(message + " " + task)} - https://www.moodtask.org/`;
+            resultDiv.style.backgroundColor = selectedColor;
+
+            const luminance = calculateLuminance(selectedColor);
+            resultDiv.style.color = luminance > 128 ? "#333333" : "#666666";
+
+            saveMoodHistory(mood);
+            provideRecommendation();
+        }
+
+        function saveMoodHistory(mood) {
+            const history = JSON.parse(localStorage.getItem("moodHistory") || "[]"),
+                  date = new Date().toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
+            history.push({ mood, date });
+            localStorage.setItem("moodHistory", JSON.stringify(history));
+            displayMoodHistory();
+        }
+
+        function displayMoodHistory() {
+            const history = JSON.parse(localStorage.getItem("moodHistory") || "[]"),
+                  historyList = document.getElementById("history-list");
+            historyList.innerHTML = "";
+            if (history.length > 0) {
+                history.forEach(entry => {
+                    const li = document.createElement("li");
+                    li.textContent = `${entry.mood} on ${entry.date}`;
+                    historyList.appendChild(li);
+                });
+            } else {
+                historyList.innerHTML = "<li>No mood history yet!</li>";
+            }
+        }
+
+        function saveToFavorites(mood, task) {
+            const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+            favorites.push({ mood, task });
+            localStorage.setItem("favorites", JSON.stringify(favorites));
+            displayFavorites();
+        }
+
+        function displayFavorites() {
+            const favorites = JSON.parse(localStorage.getItem("favorites") || "[]"),
+                  favoritesList = document.getElementById("favorites-list");
+            favoritesList.innerHTML = "";
+            if (favorites.length > 0) {
+                favorites.forEach(entry => {
+                    const li = document.createElement("li");
+                    li.textContent = `${entry.mood}: ${entry.task}`;
+                    favoritesList.appendChild(li);
+                });
+            } else {
+                favoritesList.innerHTML = "<li>No favorites yet!</li>";
+            }
+        }
+
+        function clearHistory() {
+            localStorage.removeItem("moodHistory");
+            localStorage.removeItem("favorites");
+            displayMoodHistory();
+            displayFavorites();
+            provideRecommendation();
+        }
+
+        function provideRecommendation() {
+            const history = JSON.parse(localStorage.getItem("moodHistory") || "[]"),
+                  recommendationDiv = document.getElementById("recommendation");
+            if (history.length < 3) {
+                recommendationDiv.innerHTML = "";
+                return;
+            }
+
+            const recentMoods = history.slice(-3).map(entry => entry.mood),
+                  stressCount = recentMoods.filter(mood => mood === "stressed").length,
+                  sadCount = recentMoods.filter(mood => mood === "sad").length,
+                  happyCount = recentMoods.filter(mood => mood === "happy").length;
+
+            let recommendation = "";
+            if (stressCount >= 2) {
+                recommendation = "You’ve been stressed lately—try this relaxation task: Take 5 deep breaths and imagine your stress floating away on a fluffy cloud! Also, check out our <a href='blog-post-2.html'>blog post on stress relief</a>.";
+            } else if (sadCount >= 2) {
+                recommendation = "You’ve been feeling sad lately—here’s a comforting task: Hug yourself tight for 10 seconds and whisper ‘You’re a sad little muffin, but I love you!’";
+            } else if (happyCount >= 2) {
+                recommendation = "You’ve been happy lately—keep the good vibes going! Try this: Do a little happy wiggle dance for 10 seconds like you’re a joyful jellybean!";
+            } else {
+                recommendation = "Keep checking in daily to get personalized mood recommendations!";
+            }
+            recommendationDiv.innerHTML = recommendation;
+        }
+
+        window.onload = () => {
+            displayMoodHistory();
+            displayFavorites();
+            provideRecommendation();
+        };
+
         // Add scroll effect for nav
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('nav');
