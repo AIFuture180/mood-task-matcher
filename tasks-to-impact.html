@@ -21,53 +21,64 @@
     </nav>
     <h1>Tasks to Impact</h1>
     <div id="content">
-        <p>Explore how small, fun tasks can positively impact your sleep, diet, exercise, and mindfulness. Click on each category below to discover simple activities that can make a big difference in your daily life!</p>
+        <p>Explore how science-backed protocols can positively impact your sleep, diet, exercise, and mindfulness. Click on each category below to discover expert-recommended strategies that can make a big difference in your daily life!</p>
     </div>
     <div id="impact-sections">
-        <button class="impact-button sleep-button" onclick="toggleContent('sleep')">Sleep</button>
+        <div class="button-container">
+            <button class="impact-button sleep-button" onclick="toggleContent('sleep')">Sleep</button>
+            <button class="impact-button diet-button" onclick="toggleContent('diet')">Diet</button>
+            <button class="impact-button exercise-button" onclick="toggleContent('exercise')">Exercise</button>
+            <button class="impact-button mindfulness-button" onclick="toggleContent('mindfulness')">Mindfulness</button>
+        </div>
+
         <div class="impact-content" id="sleep">
-            <h4>Improve Your Sleep with These Tasks</h4>
-            <p>Good sleep is essential for a healthy mind and body. Try these quick tasks to enhance your sleep quality:</p>
+            <h4>Improve Your Sleep with Dr. Matthew Walker’s Protocol</h4>
+            <p>Dr. Matthew Walker, a sleep expert, shares these science-backed steps to enhance your sleep quality:</p>
             <ul>
-                <li><strong>1-Minute Cloud Nap:</strong> Close your eyes and imagine you’re napping on a fluffy cloud for 1 minute to relax your mind before bed.</li>
-                <li><strong>Hum a Lullaby:</strong> Hum a gentle tune for 30 seconds to calm your nervous system and prepare for sleep.</li>
-                <li><strong>Stretch Like a Star:</strong> Reach for the sky like you’re picking stars for a sleepy galaxy to release tension.</li>
+                <li><strong>Regularity:</strong> Go to bed and wake up at the same time every day to anchor your sleep cycle.</li>
+                <li><strong>Darkness:</strong> Dim lights by 50% in the last hour before bed to boost melatonin production.</li>
+                <li><strong>Temperature:</strong> Keep your bedroom cool, around 67°F (18.5°C), to help your body’s core temperature drop for sleep.</li>
+                <li><strong>Avoid Caffeine and Alcohol:</strong> Limit caffeine 8–12 hours before bed and avoid alcohol, as even one drink can disrupt sleep architecture.</li>
+                <li><strong>Wind-Down Routine:</strong> Use meditation or a relaxing activity before bed to reduce anxiety and prepare your mind for sleep.</li>
             </ul>
             <button class="close-button" onclick="toggleContent('sleep')">Close</button>
         </div>
 
-        <button class="impact-button diet-button" onclick="toggleContent('diet')">Diet</button>
         <div class="impact-content" id="diet">
-            <h4>Boost Your Diet with Fun Tasks</h4>
-            <p>Eating well can improve your mood and energy. Here are some playful tasks to support a healthy diet:</p>
+            <h4>Optimize Your Diet with Gary Brecka’s Protocol</h4>
+            <p>Gary Brecka, a human biologist, recommends these steps to improve your diet and overall health:</p>
             <ul>
-                <li><strong>Magic Juice Sip:</strong> Sip a glass of water and pretend it’s a magic potion that boosts your energy!</li>
-                <li><strong>Colorful Snack Hunt:</strong> Find 3 colorful fruits or veggies to snack on, imagining you’re a chef in a rainbow kitchen.</li>
-                <li><strong>Gratitude Bite:</strong> Before eating, say one thing you’re grateful for to make your meal a mindful experience.</li>
+                <li><strong>Address Nutrient Deficiencies:</strong> Get a comprehensive blood test to identify deficiencies, such as issues with methyl folate due to MTHFR gene mutations.</li>
+                <li><strong>Avoid Synthetic Folic Acid:</strong> Remove folic acid from your diet (found in “enriched” or “fortified” foods) and opt for natural folate or methyl folate supplements (e.g., 800 mcg daily).</li>
+                <li><strong>Hydrate with Celtic Salt:</strong> Add a small pinch of Celtic salt to your water (e.g., sesame seed-sized amount per 250ml) to improve hydration and mineral balance.</li>
+                <li><strong>Choose Bioavailable Nutrients:</strong> Opt for methylated versions of B vitamins (e.g., from brands like Thorne or Pure Encapsulations) to ensure your body can use them effectively.</li>
+                <li><strong>Eat Whole Foods:</strong> Focus on whole, unprocessed foods to provide your body with the raw materials it needs for optimal health.</li>
             </ul>
             <button class="close-button" onclick="toggleContent('diet')">Close</button>
         </div>
 
-        <button class="impact-button exercise-button" onclick="toggleContent('exercise')">Exercise</button>
         <div class="impact-content" id="exercise">
-            <h4>Get Moving with These Exercise Tasks</h4>
-            <p>Exercise can lift your spirits and keep you healthy. Try these fun activities to get moving:</p>
+            <h4>Enhance Your Exercise with Andrew Huberman’s Protocol</h4>
+            <p>Dr. Andrew Huberman, a neuroscientist, recommends this weekly exercise protocol for overall fitness:</p>
             <ul>
-                <li><strong>Victory Dance:</strong> Do a 10-second victory dance like you’re a disco ball at a party to get your heart pumping!</li>
-                <li><strong>Wiggly Jellyfish Shake:</strong> Shake your arms like a wiggly jellyfish for 10 seconds to loosen up your body.</li>
-                <li><strong>Star Jump Party:</strong> Do 5 star jumps and pretend you’re a superhero leaping into action!</li>
+                <li><strong>Endurance (Weekly):</strong> Do at least 30 minutes of Zone 2 cardio (e.g., jogging or hiking) to build cardiovascular health; aim for 60–75 minutes if possible.</li>
+                <li><strong>Strength (Weekly):</strong> Train major muscle groups (e.g., legs, torso) with 3–4 sets of 5–8 reps using heavy weights, resting 2–4 minutes between sets.</li>
+                <li><strong>Flexibility (Daily):</strong> Hold static stretches for 30–60 seconds per major muscle group, 3x/week or daily, to improve flexibility.</li>
+                <li><strong>Recovery (Post-Workout):</strong> After training, do 3–5 minutes of slow breathing to relax your nervous system and aid recovery.</li>
+                <li><strong>Supplements (Optional):</strong> Consider Alpha-GPC (300mg) or L-Tyrosine (500mg) 30–60 minutes before key workouts to boost focus and performance.</li>
             </ul>
             <button class="close-button" onclick="toggleContent('exercise')">Close</button>
         </div>
 
-        <button class="impact-button mindfulness-button" onclick="toggleContent('mindfulness')">Mindfulness</button>
         <div class="impact-content" id="mindfulness">
-            <h4>Practice Mindfulness with These Tasks</h4>
-            <p>Mindfulness helps you stay present and calm. Try these simple tasks to cultivate mindfulness:</p>
+            <h4>Practice Mindfulness with Dr. Julie Smith’s Protocol</h4>
+            <p>Dr. Julie Smith, a clinical psychologist, suggests these mindfulness techniques to improve mental well-being:</p>
             <ul>
-                <li><strong>5 Deep Breaths:</strong> Take 5 deep breaths and imagine you’re blowing up a giant balloon for a silly party.</li>
-                <li><strong>Gratitude Moment:</strong> Look around and name 3 things you’re grateful for, like a happiness detective on a mission.</li>
-                <li><strong>Window Gaze:</strong> Look out a window for 1 minute and imagine your worries floating away on a fluffy cloud.</li>
+                <li><strong>Grounding Exercise:</strong> Take 1 minute to notice 5 things you can see, 4 things you can touch, 3 things you can hear, 2 things you can smell, and 1 thing you can taste to anchor yourself in the present.</li>
+                <li><strong>Mindful Breathing:</strong> Spend 2 minutes breathing deeply—inhale for 4 seconds, hold for 4 seconds, exhale for 4 seconds—to calm your mind.</li>
+                <li><strong>Journal Your Emotions:</strong> Write down how you’re feeling for 3 minutes to process emotions without judgment.</li>
+                <li><strong>Body Scan:</strong> Take 2 minutes to mentally scan your body from head to toe, noticing any tension and consciously relaxing those areas.</li>
+                <li><strong>Gratitude Practice:</strong> Name 3 things you’re grateful for each day to shift your focus toward positivity.</li>
             </ul>
             <button class="close-button" onclick="toggleContent('mindfulness')">Close</button>
         </div>
