@@ -450,7 +450,77 @@ body {
     animation: pop 0.2s ease;
 }
 
-/* Banner (used on home page) */
+.read-more-button.active {
+    background-color: #45a049;
+}
+
+.blog-content {
+    display: none;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.blog-content.show {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+.blog-content h4 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.blog-content h5 {
+    font-size: 1.1em;
+    margin: 15px 0 10px;
+    color: #4CAF50;
+}
+
+.blog-content p {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.blog-content ol {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+.blog-content li {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.close-button {
+    background-color: #ff6f61;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.close-button:hover {
+    background-color: #ff4f41;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: bounce 0.3s ease;
+}
+
+.close-button:active {
+    transform: scale(0.95);
+    animation: pop 0.2s ease;
+}
+
+/* Banner */
 .premium-offer {
     max-width: 800px;
     margin: 20px auto;
@@ -459,7 +529,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    opacity: 0;
+    opacity: 1;
     transition: opacity 0.5s ease;
 }
 
@@ -823,8 +893,20 @@ footer .disclaimer {
         font-size: 0.9em;
     }
 
-    .read-more-button {
+    .read-more-button, .close-button {
         padding: 8px 16px;
         font-size: 0.8em;
+    }
+
+    .blog-content h4 {
+        font-size: 1.1em;
+    }
+
+    .blog-content h5 {
+        font-size: 1em;
+    }
+
+    .blog-content p {
+        font-size: 0.9em;
     }
 }
