@@ -8,9 +8,9 @@
     <meta name="robots" content="index, follow">
     <title>Mood-to-Task Matcher | Boost Your Mood in Seconds</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1511837633001567" crossorigin="anonymous" data-ad-init-load="300"></script>
+    <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1511837633001567" crossorigin="anonymous" data-ad-init-load="300"></script>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4985X51W1J"></script>
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-4985X51W1J"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -39,28 +39,28 @@
     <div id="mood-prompt">
         <p id="instruction">How are you feeling right now?</p>
         <div id="mood-buttons">
-            <button class="tired" onclick="selectMood('tired')" data-tooltip="Feeling low-energy?">
+            <button class="tired" onclick="selectMood('tired')" data-tooltip="Feeling low-energy?" aria-label="Tired">
                 <span class="mood-icon">😴</span> Tired
             </button>
-            <button class="stressed" onclick="selectMood('stressed')" data-tooltip="Feeling overwhelmed?">
+            <button class="stressed" onclick="selectMood('stressed')" data-tooltip="Feeling overwhelmed?" aria-label="Stressed">
                 <span class="mood-icon">😓</span> Stressed
             </button>
-            <button class="bored" onclick="selectMood('bored')" data-tooltip="Need some excitement?">
+            <button class="bored" onclick="selectMood('bored')" data-tooltip="Need some excitement?" aria-label="Bored">
                 <span class="mood-icon">🥱</span> Bored
             </button>
-            <button class="excited" onclick="selectMood('excited')" data-tooltip="Feeling energized?">
+            <button class="excited" onclick="selectMood('excited')" data-tooltip="Feeling energized?" aria-label="Excited">
                 <span class="mood-icon">🤩</span> Excited
             </button>
-            <button class="sad" onclick="selectMood('sad')" data-tooltip="Feeling down?">
+            <button class="sad" onclick="selectMood('sad')" data-tooltip="Feeling down?" aria-label="Sad">
                 <span class="mood-icon">😢</span> Sad
             </button>
-            <button class="angry" onclick="selectMood('angry')" data-tooltip="Feeling frustrated?">
+            <button class="angry" onclick="selectMood('angry')" data-tooltip="Feeling frustrated?" aria-label="Angry">
                 <span class="mood-icon">😡</span> Angry
             </button>
-            <button class="happy" onclick="selectMood('happy')" data-tooltip="Feeling great?">
+            <button class="happy" onclick="selectMood('happy')" data-tooltip="Feeling great?" aria-label="Happy">
                 <span class="mood-icon">😊</span> Happy
             </button>
-            <button class="confused" onclick="selectMood('confused')" data-tooltip="Feeling unsure?">
+            <button class="confused" onclick="selectMood('confused')" data-tooltip="Feeling unsure?" aria-label="Confused">
                 <span class="mood-icon">🤔</span> Confused
             </button>
         </div>
@@ -256,10 +256,14 @@
             resultDiv.classList.add('show');
 
             // Track mood selection in history
-            const history = JSON.parse(localStorage.getItem('moodHistory')) || [];
-            history.push({ mood, emoji: randomTask.emoji, date: new Date().toLocaleDateString() });
-            localStorage.setItem('moodHistory', JSON.stringify(history));
-            updateHistory();
+            try {
+                const history = JSON.parse(localStorage.getItem('moodHistory')) || [];
+                history.push({ mood, emoji: randomTask.emoji, date: new Date().toLocaleDateString() });
+                localStorage.setItem('moodHistory', JSON.stringify(history));
+                updateHistory();
+            } catch (e) {
+                console.error('Error saving to localStorage:', e);
+            }
 
             // Track event for analytics
             gtag('event', 'Mood Selection', {
@@ -270,16 +274,26 @@
 
         // Save favorite task
         function saveFavorite(mood, task, emoji) {
-            const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-            favorites.push({ mood, task, emoji });
-            localStorage.setItem('favorites', JSON.stringify(favorites));
-            updateFavorites();
-            alert('Task saved to favorites!');
+            try {
+                const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+                favorites.push({ mood, task, emoji });
+                localStorage.setItem('favorites', JSON.stringify(favorites));
+                updateFavorites();
+                alert('Task saved to favorites!');
+            } catch (e) {
+                console.error('Error saving favorite:', e);
+                alert('Failed to save favorite due to storage issue.');
+            }
         }
 
         // Update favorites list
         function updateFavorites() {
-            const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+            let favorites = [];
+            try {
+                favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+            } catch (e) {
+                console.error('Error reading favorites:', e);
+            }
             const favoritesList = document.getElementById('favorites-list');
             const emptyFavorites = document.getElementById('empty-favorites');
             favoritesList.innerHTML = '';
@@ -303,7 +317,12 @@
 
         // Update mood history
         function updateHistory() {
-            const history = JSON.parse(localStorage.getItem('moodHistory')) || [];
+            let history = [];
+            try {
+                history = JSON.parse(localStorage.getItem('moodHistory')) || [];
+            } catch (e) {
+                console.error('Error reading history:', e);
+            }
             const historyList = document.getElementById('history-list');
             const emptyHistory = document.getElementById('empty-history');
             const moodViz = document.getElementById('mood-viz');
@@ -353,14 +372,23 @@
 
         // Clear history
         function clearHistory() {
-            localStorage.removeItem('moodHistory');
-            updateHistory();
+            try {
+                localStorage.removeItem('moodHistory');
+                updateHistory();
+            } catch (e) {
+                console.error('Error clearing history:', e);
+            }
         }
 
         // Daily check-in
         function startDailyCheckIn() {
             const today = new Date().toLocaleDateString();
-            const lastCheckIn = localStorage.getItem('lastCheckIn');
+            let lastCheckIn = '';
+            try {
+                lastCheckIn = localStorage.getItem('lastCheckIn');
+            } catch (e) {
+                console.error('Error reading last check-in:', e);
+            }
             const recommendationDiv = document.getElementById('recommendation');
 
             if (lastCheckIn === today) {
@@ -375,7 +403,11 @@
                 <p>Based on a quick check-in, you might be feeling <strong>${randomMood}</strong>. Try this task:</p>
                 <p><strong>${randomTask.emoji} ${randomTask.task}</strong></p>
             `;
-            localStorage.setItem('lastCheckIn', today);
+            try {
+                localStorage.setItem('lastCheckIn', today);
+            } catch (e) {
+                console.error('Error saving check-in:', e);
+            }
 
             // Track check-in event
             gtag('event', 'Daily Check-In', {
