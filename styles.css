@@ -216,16 +216,16 @@ li {
 #banner {
     text-align: center;
     margin: 20px 0;
-    background-color: #e6f5fa; /* Subtle background */
+    background-color: #e6f5fa;
     padding: 10px;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover effect */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 #banner:hover {
-    transform: scale(1.02); /* Slight scale on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .ad-label {
@@ -236,20 +236,19 @@ li {
 }
 
 .banner-link {
-    display: inline-block; /* Ensure the link wraps the image properly */
+    display: inline-block;
 }
 
 .banner-img {
     max-width: 100%;
     height: auto;
-    border: 1px solid #ddd; /* Subtle border for definition */
+    border: 1px solid #ddd;
     border-radius: 5px;
 }
 
-/* Responsive design for mobile */
 @media (max-width: 768px) {
     .banner-img {
-        content: url("https://via.placeholder.com/320x50.png?text=Online+Therapy+-+Boost+Your+Mood+Today!");
+        max-width: 320px; /* Ensure the mobile image doesn't stretch too wide */
     }
 }
 
