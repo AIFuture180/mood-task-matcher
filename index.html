@@ -25,7 +25,9 @@
         .tool-button { background: #28a745; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin: 5px; }
         .tool-button:hover { background: #218838; }
         #gratitude-text { width: 100%; max-width: 300px; margin: 10px 0; }
-        .tools-container { text-align: center; margin: 20px auto; max-width: 500px; }
+        .tools-container { text-align: center; margin: 20px auto; max-width: 500px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+        #punching-bag { width: 100px; height: 100px; background: #ff4f41; border-radius: 50%; cursor: pointer; margin: 10px auto; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: bold; }
+        #punching-bag:hover { background: #e64539; }
     </style>
 </head>
 <body>
@@ -58,17 +60,19 @@
             <button class="confused" data-mood="confused" data-tooltip="Feeling puzzled or unsure?"><span class="mood-icon">🤔</span>Confused</button>
         </div>
         <div id="result"></div>
-        <!-- Added Tools Container -->
+        <!-- Tools Container -->
         <div class="tools-container">
             <button class="tool-button" onclick="showBreathingTimer()">Start Breathing Exercise</button>
             <button class="tool-button" onclick="showGratitudeNote()">Write a Gratitude Note</button>
+            <button class="tool-button" onclick="showSoundscape()">Play a Soundscape</button>
+            <button class="tool-button" onclick="showPunchingBag()">Punch Out Frustration</button>
         </div>
         <!-- Breathing Exercise Popup -->
         <div id="breathing-popup" class="popup">
             <div class="popup-content">
                 <h4>Breathing Exercise</h4>
-                <p id="breathing-step">Inhale for 4 seconds</p>
-                <p id="timer">60</p>
+                <p id="breathing-step">Inhale</p>
+                <p id="breathing-timer">4</p>
                 <button class="close-button" onclick="closePopup('breathing-popup')">Close</button>
             </div>
         </div>
@@ -80,6 +84,26 @@
                 <button class="tool-button" onclick="saveGratitude()">Save</button>
                 <p id="gratitude-result" style="display: none;"></p>
                 <button class="close-button" onclick="closePopup('gratitude-popup')">Close</button>
+            </div>
+        </div>
+        <!-- Soundscape Popup -->
+        <div id="soundscape-popup" class="popup">
+            <div class="popup-content">
+                <h4>90-Second Soundscape</h4>
+                <audio id="soundscape-audio" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+                <button class="tool-button" onclick="toggleSoundscape()">Play</button>
+                <p id="soundscape-timer">90</p>
+                <button class="close-button" onclick="closePopup('soundscape-popup')">Close</button>
+            </div>
+        </div>
+        <!-- Punching Bag Popup -->
+        <div id="punching-popup" class="popup">
+            <div class="popup-content">
+                <h4>Punch Out Frustration</h4>
+                <div id="punching-bag" onclick="punchBag()">Punch Me!</div>
+                <p id="punch-count">Punches: 0</p>
+                <p id="punch-timer">30</p>
+                <button class="close-button" onclick="closePopup('punching-popup')">Close</button>
             </div>
         </div>
     </div>
@@ -258,7 +282,6 @@
                     'event_label': mood
                 });
             });
-            // No scrolling here - explicitly removed to prevent page jump
         }
 
         // Add scroll effect for nav
@@ -282,29 +305,32 @@
             });
         });
 
-        // Breathing Exercise Timer
+        // Breathing Exercise Timer (Updated)
         function showBreathingTimer() {
             const popup = document.getElementById('breathing-popup');
             const step = document.getElementById('breathing-step');
-            const timer = document.getElementById('timer');
-            let timeLeft = 60;
+            const timer = document.getElementById('breathing-timer');
+            let totalTime = 60; // 5 cycles of 12s
+            let phaseTime = 4;  // 4s per phase
             let phase = 0;
             popup.style.display = 'block';
             
-            const steps = [
-                "Inhale for 4 seconds",
-                "Hold for 4 seconds",
-                "Exhale for 4 seconds"
-            ];
+            const steps = ["Inhale", "Hold", "Exhale"];
+            step.textContent = steps[phase];
+            timer.textContent = phaseTime;
             
             const interval = setInterval(() => {
-                timer.textContent = timeLeft;
-                if (timeLeft % 12 === 0 || timeLeft === 60) {
+                phaseTime--;
+                timer.textContent = phaseTime;
+                
+                if (phaseTime <= 0) {
                     phase = (phase + 1) % 3;
                     step.textContent = steps[phase];
+                    phaseTime = 4;
                 }
-                timeLeft--;
-                if (timeLeft < 0) {
+                
+                totalTime--;
+                if (totalTime <= 0) {
                     clearInterval(interval);
                     step.textContent = "Great job! Feel calmer?";
                     timer.textContent = "";
@@ -325,8 +351,67 @@
                 result.style.display = 'block';
                 document.getElementById('gratitude-text').style.display = 'none';
                 document.querySelector('#gratitude-popup .tool-button').style.display = 'none';
-                setTimeout(() => closePopup('gratitude-popup'), 3000); // Auto-close after 3s
+                setTimeout(() => closePopup('gratitude-popup'), 3000);
             }
+        }
+
+        // Soundscape Player
+        function showSoundscape() {
+            document.getElementById('soundscape-popup').style.display = 'block';
+        }
+
+        function toggleSoundscape() {
+            const audio = document.getElementById('soundscape-audio');
+            const timer = document.getElementById('soundscape-timer');
+            let timeLeft = 90;
+            if (audio.paused) {
+                audio.play();
+                const interval = setInterval(() => {
+                    timer.textContent = timeLeft;
+                    timeLeft--;
+                    if (timeLeft < 0) {
+                        clearInterval(interval);
+                        audio.pause();
+                        audio.currentTime = 0;
+                        timer.textContent = "Done! Refocused?";
+                    }
+                }, 1000);
+            } else {
+                audio.pause();
+                audio.currentTime = 0;
+                timer.textContent = "90";
+            }
+        }
+
+        // Punching Bag
+        let punchCount = 0;
+        function showPunchingBag() {
+            const popup = document.getElementById('punching-popup');
+            const count = document.getElementById('punch-count');
+            const timer = document.getElementById('punch-timer');
+            let timeLeft = 30;
+            punchCount = 0;
+            count.textContent = "Punches: 0";
+            timer.textContent = timeLeft;
+            popup.style.display = 'block';
+            
+            const interval = setInterval(() => {
+                timeLeft--;
+                timer.textContent = timeLeft;
+                if (timeLeft < 0) {
+                    clearInterval(interval);
+                    count.textContent = `Punches: ${punchCount} - Feel lighter?`;
+                    document.getElementById('punching-bag').style.display = 'none';
+                }
+            }, 1000);
+        }
+
+        function punchBag() {
+            punchCount++;
+            document.getElementById('punch-count').textContent = `Punches: ${punchCount}`;
+            const bag = document.getElementById('punching-bag');
+            bag.style.transform = 'scale(0.9)';
+            setTimeout(() => bag.style.transform = 'scale(1)', 100); // Simple punch animation
         }
 
         // Close Popup Function
@@ -338,6 +423,13 @@
                 document.getElementById('gratitude-result').style.display = 'none';
                 document.querySelector('#gratitude-popup .tool-button').style.display = 'block';
                 document.getElementById('gratitude-text').value = '';
+            } else if (id === 'soundscape-popup') {
+                const audio = document.getElementById('soundscape-audio');
+                audio.pause();
+                audio.currentTime = 0;
+                document.getElementById('soundscape-timer').textContent = "90";
+            } else if (id === 'punching-popup') {
+                document.getElementById('punching-bag').style.display = 'flex';
             }
         }
     </script>
