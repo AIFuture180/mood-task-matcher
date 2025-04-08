@@ -8,9 +8,9 @@
     <meta name="robots" content="index, follow">
     <title>Tasks to Impact | Mood-to-Task Matcher</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1511837633001567" crossorigin="anonymous" data-ad-init-load="300"></script>
+    <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1511837633001567" crossorigin="anonymous" data-ad-init-load="300"></script>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4985X51W1J"></script>
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-4985X51W1J"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -42,10 +42,10 @@
         <p class="disclaimer"><em>Health Disclaimer: The information provided on this page is for informational purposes only and is not intended as medical advice. It should not be used as a substitute for professional medical advice, diagnosis, or treatment. Always consult a qualified healthcare provider before making changes to your sleep, diet, exercise, or mindfulness routines, especially if you have pre-existing health conditions or are taking medication.</em></p>
 
         <div class="button-container">
-            <button class="impact-button sleep-button" onclick="toggleContent('sleep'); gtag('event', 'Impact Button Click', { 'event_category': 'Impact Button', 'event_label': 'Sleep' });">Sleep</button>
-            <button class="impact-button diet-button" onclick="toggleContent('diet'); gtag('event', 'Impact Button Click', { 'event_category': 'Impact Button', 'event_label': 'Diet' });">Diet</button>
-            <button class="impact-button exercise-button" onclick="toggleContent('exercise'); gtag('event', 'Impact Button Click', { 'event_category': 'Impact Button', 'event_label': 'Exercise' });">Exercise</button>
-            <button class="impact-button mindfulness-button" onclick="toggleContent('mindfulness'); gtag('event', 'Impact Button Click', { 'event_category': 'Impact Button', 'event_label': 'Mindfulness' });">Mindfulness</button>
+            <button class="impact-button sleep-button" onclick="toggleContent('sleep'); gtag('event', 'Impact Button Click', { 'event_category': 'Impact Button', 'event_label': 'Sleep' });" aria-expanded="false" aria-controls="sleep">Sleep</button>
+            <button class="impact-button diet-button" onclick="toggleContent('diet'); gtag('event', 'Impact Button Click', { 'event_category': 'Impact Button', 'event_label': 'Diet' });" aria-expanded="false" aria-controls="diet">Diet</button>
+            <button class="impact-button exercise-button" onclick="toggleContent('exercise'); gtag('event', 'Impact Button Click', { 'event_category': 'Impact Button', 'event_label': 'Exercise' });" aria-expanded="false" aria-controls="exercise">Exercise</button>
+            <button class="impact-button mindfulness-button" onclick="toggleContent('mindfulness'); gtag('event', 'Impact Button Click', { 'event_category': 'Impact Button', 'event_label': 'Mindfulness' });" aria-expanded="false" aria-controls="mindfulness">Mindfulness</button>
         </div>
 
         <div class="impact-content" id="sleep">
@@ -168,7 +168,7 @@
         // Function to toggle content visibility (accordion style)
         function toggleContent(sectionId) {
             const content = document.getElementById(sectionId);
-            const button = document.querySelector(`button[onclick*="toggleContent('${sectionId}')"]`);
+            const button = document.querySelector(`button[aria-controls="${sectionId}"]`);
             const allContents = document.querySelectorAll('.impact-content');
             const allButtons = document.querySelectorAll('.impact-button');
 
@@ -178,15 +178,20 @@
                     item.classList.remove('show');
                 }
             });
-            allButtons.forEach(btn => btn.classList.remove('active'));
+            allButtons.forEach(btn => {
+                btn.classList.remove('active');
+                btn.setAttribute('aria-expanded', 'false');
+            });
 
             // Toggle the clicked section
             if (content.classList.contains('show')) {
                 content.classList.remove('show');
                 button.classList.remove('active');
+                button.setAttribute('aria-expanded', 'false');
             } else {
                 content.classList.add('show');
                 button.classList.add('active');
+                button.setAttribute('aria-expanded', 'true');
             }
         }
 
@@ -212,6 +217,10 @@
             const impactSections = document.querySelectorAll('.impact-content');
             impactSections.forEach(section => {
                 section.classList.remove('show');
+            });
+            const impactButtons = document.querySelectorAll('.impact-button');
+            impactButtons.forEach(button => {
+                button.setAttribute('aria-expanded', 'false');
             });
         };
     </script>
