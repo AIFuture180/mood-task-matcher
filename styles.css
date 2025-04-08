@@ -550,6 +550,66 @@ body {
     color: #333;
 }
 
+/* Sub-Accordion Styles for Diet Section */
+.sub-button-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.sub-impact-button {
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.sub-impact-button:hover {
+    background-color: #e0e0e0;
+}
+
+.sub-impact-button.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.sub-impact-content {
+    display: none;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.sub-impact-content.show {
+    display: block;
+}
+
+.sub-impact-content h5 {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.close-sub-button {
+    margin-top: 10px;
+    padding: 5px 15px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.close-sub-button:hover {
+    background-color: #c82333;
+}
+
+/* General Button Styles */
 .read-more-button {
     background-color: #4CAF50;
     color: white;
@@ -1204,5 +1264,15 @@ footer .disclaimer {
     .submit-button {
         padding: 8px 16px;
         font-size: 0.9em;
+    }
+
+    .sub-button-container {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .sub-impact-button {
+        padding: 8px 16px;
+        font-size: 14px;
     }
 }
