@@ -24,10 +24,12 @@
         .popup-content { text-align: center; }
         .tool-button { background: #28a745; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin: 5px; }
         .tool-button:hover { background: #218838; }
-        #gratitude-text { width: 100%; max-width: 300px; margin: 10px 0; }
-        .tools-container { text-align: center; margin: 20px auto; max-width: 500px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+        #gratitude-text, #worry-text { width: 100%; max-width: 300px; margin: 10px 0; }
+        .tools-container { text-align: center; margin: 20px auto; max-width: 600px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
         #punching-bag { width: 100px; height: 100px; background: #ff4f41; border-radius: 50%; cursor: pointer; margin: 10px auto; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: bold; }
         #punching-bag:hover { background: #e64539; }
+        #doodle-canvas { border: 1px solid #ccc; }
+        #color-square { width: 100px; height: 100px; margin: 10px auto; }
     </style>
 </head>
 <body>
@@ -66,6 +68,11 @@
             <button class="tool-button" onclick="showGratitudeNote()">Write a Gratitude Note</button>
             <button class="tool-button" onclick="showSoundscape()">Play a Soundscape</button>
             <button class="tool-button" onclick="showPunchingBag()">Punch Out Frustration</button>
+            <button class="tool-button" onclick="showStretch()">Quick Stretch</button>
+            <button class="tool-button" onclick="showDoodle()">Doodle Dash</button>
+            <button class="tool-button" onclick="showDance()">Happy Dance</button>
+            <button class="tool-button" onclick="showWorryShredder()">Shred a Worry</button>
+            <button class="tool-button" onclick="showColorPicker()">Mood Color</button>
         </div>
         <!-- Breathing Exercise Popup -->
         <div id="breathing-popup" class="popup">
@@ -104,6 +111,54 @@
                 <p id="punch-count">Punches: 0</p>
                 <p id="punch-timer">30</p>
                 <button class="close-button" onclick="closePopup('punching-popup')">Close</button>
+            </div>
+        </div>
+        <!-- Stretch Popup -->
+        <div id="stretch-popup" class="popup">
+            <div class="popup-content">
+                <h4>60-Second Stretch</h4>
+                <p id="stretch-prompt"></p>
+                <p id="stretch-timer">60</p>
+                <button class="close-button" onclick="closePopup('stretch-popup')">Close</button>
+            </div>
+        </div>
+        <!-- Doodle Popup -->
+        <div id="doodle-popup" class="popup">
+            <div class="popup-content">
+                <h4>90-Second Doodle</h4>
+                <canvas id="doodle-canvas" width="200" height="150" style="border: 1px solid #ccc;"></canvas>
+                <p id="doodle-timer">90</p>
+                <button class="tool-button" onclick="saveDoodle()">Save</button>
+                <button class="close-button" onclick="closePopup('doodle-popup')">Close</button>
+            </div>
+        </div>
+        <!-- Dance Popup -->
+        <div id="dance-popup" class="popup">
+            <div class="popup-content">
+                <h4>30-Second Dance Party</h4>
+                <p id="dance-prompt"></p>
+                <p id="dance-timer">30</p>
+                <button class="close-button" onclick="closePopup('dance-popup')">Close</button>
+            </div>
+        </div>
+        <!-- Worry Shredder Popup -->
+        <div id="worry-popup" class="popup">
+            <div class="popup-content">
+                <h4>Worry Shredder</h4>
+                <textarea id="worry-text" rows="3" placeholder="Type a worry..."></textarea>
+                <button class="tool-button" onclick="shredWorry()">Shred It</button>
+                <p id="worry-result" style="display: none;"></p>
+                <button class="close-button" onclick="closePopup('worry-popup')">Close</button>
+            </div>
+        </div>
+        <!-- Color Picker Popup -->
+        <div id="color-popup" class="popup">
+            <div class="popup-content">
+                <h4>60-Second Color Focus</h4>
+                <p id="color-prompt"></p>
+                <div id="color-square" style="width: 100px; height: 100px; margin: 10px auto;"></div>
+                <p id="color-timer">60</p>
+                <button class="close-button" onclick="closePopup('color-popup')">Close</button>
             </div>
         </div>
     </div>
@@ -305,13 +360,13 @@
             });
         });
 
-        // Breathing Exercise Timer (Updated)
+        // Breathing Exercise Timer
         function showBreathingTimer() {
             const popup = document.getElementById('breathing-popup');
             const step = document.getElementById('breathing-step');
             const timer = document.getElementById('breathing-timer');
-            let totalTime = 60; // 5 cycles of 12s
-            let phaseTime = 4;  // 4s per phase
+            let totalTime = 60;
+            let phaseTime = 4;
             let phase = 0;
             popup.style.display = 'block';
             
@@ -411,7 +466,135 @@
             document.getElementById('punch-count').textContent = `Punches: ${punchCount}`;
             const bag = document.getElementById('punching-bag');
             bag.style.transform = 'scale(0.9)';
-            setTimeout(() => bag.style.transform = 'scale(1)', 100); // Simple punch animation
+            setTimeout(() => bag.style.transform = 'scale(1)', 100);
+        }
+
+        // Quick Stretch Challenge
+        function showStretch() {
+            const popup = document.getElementById('stretch-popup');
+            const prompt = document.getElementById('stretch-prompt');
+            const timer = document.getElementById('stretch-timer');
+            const stretches = ["Reach for the sky", "Touch your toes", "Side stretch left", "Side stretch right"];
+            let timeLeft = 60;
+            prompt.textContent = stretches[Math.floor(Math.random() * stretches.length)];
+            popup.style.display = 'block';
+            
+            const interval = setInterval(() => {
+                timer.textContent = timeLeft;
+                timeLeft--;
+                if (timeLeft < 0) {
+                    clearInterval(interval);
+                    prompt.textContent = "Nice stretch! Energized?";
+                    timer.textContent = "";
+                }
+            }, 1000);
+        }
+
+        // Doodle Dash
+        function showDoodle() {
+            const popup = document.getElementById('doodle-popup');
+            const canvas = document.getElementById('doodle-canvas');
+            const ctx = canvas.getContext('2d');
+            const timer = document.getElementById('doodle-timer');
+            let timeLeft = 90;
+            let drawing = false;
+            popup.style.display = 'block';
+            
+            canvas.addEventListener('mousedown', () => drawing = true);
+            canvas.addEventListener('mouseup', () => drawing = false);
+            canvas.addEventListener('mousemove', (e) => {
+                if (drawing) {
+                    const rect = canvas.getBoundingClientRect();
+                    ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
+                    ctx.stroke();
+                }
+            });
+            ctx.beginPath();
+            
+            const interval = setInterval(() => {
+                timer.textContent = timeLeft;
+                timeLeft--;
+                if (timeLeft < 0) {
+                    clearInterval(interval);
+                    timer.textContent = "Cool doodle! Inspired?";
+                }
+            }, 1000);
+        }
+
+        function saveDoodle() {
+            const canvas = document.getElementById('doodle-canvas');
+            const link = document.createElement('a');
+            link.download = 'doodle.png';
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+
+        // Happy Dance Party
+        function showDance() {
+            const popup = document.getElementById('dance-popup');
+            const prompt = document.getElementById('dance-prompt');
+            const timer = document.getElementById('dance-timer');
+            const dances = ["Spin around", "Wave your arms", "Hop on one foot", "Shimmy side to side"];
+            let timeLeft = 30;
+            prompt.textContent = dances[Math.floor(Math.random() * dances.length)];
+            popup.style.display = 'block';
+            
+            const interval = setInterval(() => {
+                timer.textContent = timeLeft;
+                timeLeft--;
+                if (timeLeft < 0) {
+                    clearInterval(interval);
+                    prompt.textContent = "Dance it out! Still happy?";
+                    timer.textContent = "";
+                }
+            }, 1000);
+        }
+
+        // Worry Shredder
+        function showWorryShredder() {
+            document.getElementById('worry-popup').style.display = 'block';
+        }
+
+        function shredWorry() {
+            const text = document.getElementById('worry-text').value;
+            const result = document.getElementById('worry-result');
+            if (text) {
+                result.textContent = "Shredding...";
+                result.style.display = 'block';
+                document.getElementById('worry-text').style.display = 'none';
+                document.querySelector('#worry-popup .tool-button').style.display = 'none';
+                setTimeout(() => {
+                    result.textContent = "Worry shredded! Lighter now?";
+                }, 2000);
+            }
+        }
+
+        // Mood Color Picker
+        function showColorPicker() {
+            const popup = document.getElementById('color-popup');
+            const prompt = document.getElementById('color-prompt');
+            const square = document.getElementById('color-square');
+            const timer = document.getElementById('color-timer');
+            const colors = [
+                { name: "Blue to soothe", hex: "#3498db" },
+                { name: "Yellow to uplift", hex: "#f1c40f" },
+                { name: "Green to calm", hex: "#2ecc71" }
+            ];
+            let timeLeft = 60;
+            const picked = colors[Math.floor(Math.random() * colors.length)];
+            prompt.textContent = picked.name;
+            square.style.backgroundColor = picked.hex;
+            popup.style.display = 'block';
+            
+            const interval = setInterval(() => {
+                timer.textContent = timeLeft;
+                timeLeft--;
+                if (timeLeft < 0) {
+                    clearInterval(interval);
+                    prompt.textContent = "Color worked? Feeling better?";
+                    timer.textContent = "";
+                }
+            }, 1000);
         }
 
         // Close Popup Function
@@ -430,6 +613,15 @@
                 document.getElementById('soundscape-timer').textContent = "90";
             } else if (id === 'punching-popup') {
                 document.getElementById('punching-bag').style.display = 'flex';
+            } else if (id === 'worry-popup') {
+                document.getElementById('worry-text').style.display = 'block';
+                document.getElementById('worry-result').style.display = 'none';
+                document.querySelector('#worry-popup .tool-button').style.display = 'block';
+                document.getElementById('worry-text').value = '';
+            } else if (id === 'doodle-popup') {
+                const canvas = document.getElementById('doodle-canvas');
+                const ctx = canvas.getContext('2d');
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
             }
         }
     </script>
