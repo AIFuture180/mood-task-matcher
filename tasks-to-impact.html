@@ -113,16 +113,53 @@
         </div>
 
         <div class="impact-content" id="exercise">
-            <h4>Enhance Your Exercise with Andrew Huberman’s Protocol</h4>
-            <p>Dr. Andrew Huberman, a neuroscientist, recommends this weekly exercise protocol for overall fitness:</p>
-            <ul>
-                <li><strong>Endurance (Weekly):</strong> Do at least 30 minutes of Zone 2 cardio (e.g., jogging or hiking) to build cardiovascular health; aim for 60–75 minutes if possible.</li>
-                <li><strong>Strength (Weekly):</strong> Train major muscle groups (e.g., legs, torso) with 3–4 sets of 5–8 reps using heavy weights, resting 2–4 minutes between sets.</li>
-                <li><strong>Flexibility (Daily):</strong> Hold static stretches for 30–60 seconds per major muscle group, 3x/week or daily, to improve flexibility.</li>
-                <li><strong>Recovery (Post-Workout):</strong> After training, do 3–5 minutes of slow breathing to relax your nervous system and aid recovery.</li>
-                <li><strong>Supplements (Optional):</strong> Consider Alpha-GPC (300mg) or L-Tyrosine (500mg) 30–60 minutes before key workouts to boost focus and performance.</li>
-            </ul>
-            <p class="disclaimer"><em>Supplement Disclaimer: Consult a healthcare provider before taking any supplements, including Alpha-GPC or L-Tyrosine, especially if you have medical conditions, are pregnant, or are taking medication. Supplements may interact with medications or cause adverse effects if not used appropriately.</em></p>
+            <h4>Enhance Your Exercise with Expert Protocols</h4>
+            <p>Explore exercise recommendations from leading experts to optimize your fitness and performance. Click below to view each protocol:</p>
+            <div class="sub-button-container">
+                <button class="sub-impact-button" onclick="toggleSubContent('huberman-exercise')" aria-expanded="false" aria-controls="huberman-exercise">Andrew Huberman’s Exercise Protocol</button>
+                <button class="sub-impact-button" onclick="toggleSubContent('sims-exercise')" aria-expanded="false" aria-controls="sims-exercise">Dr. Stacy Sims’ Exercise Protocol</button>
+                <button class="sub-impact-button" onclick="toggleSubContent('cook-exercise')" aria-expanded="false" aria-controls="cook-exercise">Gray Cook’s Exercise Protocol</button>
+            </div>
+
+            <div class="sub-impact-content" id="huberman-exercise">
+                <h5>Andrew Huberman’s Exercise Protocol</h5>
+                <p>Dr. Andrew Huberman, a neuroscientist, recommends this weekly exercise protocol for overall fitness:</p>
+                <ul>
+                    <li><strong>Endurance (Weekly):</strong> Do at least 30 minutes of Zone 2 cardio (e.g., jogging or hiking) to build cardiovascular health; aim for 60–75 minutes if possible.</li>
+                    <li><strong>Strength (Weekly):</strong> Train major muscle groups (e.g., legs, torso) with 3–4 sets of 5–8 reps using heavy weights, resting 2–4 minutes between sets.</li>
+                    <li><strong>Flexibility (Daily):</strong> Hold static stretches for 30–60 seconds per major muscle group, 3x/week or daily, to improve flexibility.</li>
+                    <li><strong>Recovery (Post-Workout):</strong> After training, do 3–5 minutes of slow breathing to relax your nervous system and aid recovery.</li>
+                    <li><strong>Supplements (Optional):</strong> Consider Alpha-GPC (300mg) or L-Tyrosine (500mg) 30–60 minutes before key workouts to boost focus and performance.</li>
+                </ul>
+                <p class="disclaimer"><em>Supplement Disclaimer: Consult a healthcare provider before taking any supplements, including Alpha-GPC or L-Tyrosine, especially if you have medical conditions, are pregnant, or are taking medication. Supplements may interact with medications or cause adverse effects if not used appropriately.</em></p>
+                <button class="close-sub-button" onclick="toggleSubContent('huberman-exercise')">Close</button>
+            </div>
+
+            <div class="sub-impact-content" id="sims-exercise">
+                <h5>Dr. Stacy Sims’ Exercise Protocol</h5>
+                <p>Dr. Stacy Sims, an exercise physiologist and nutrition scientist, focuses on female-specific training and performance:</p>
+                <ul>
+                    <li><strong>HIIT (Weekly):</strong> Perform 2–3 sessions of high-intensity interval training (e.g., 30-sec sprints, 2-min recovery) for 20–30 minutes to boost VO2 max.</li>
+                    <li><strong>Strength (Weekly):</strong> Lift heavy weights 2–3x/week (e.g., 3–5 sets of 3–6 reps) targeting compound lifts (squats, deadlifts) to build lean muscle.</li>
+                    <li><strong>Timing:</strong> Train fasted or post-carb meal depending on menstrual cycle phase—high hormone phases (luteal) favor low-intensity, low hormone (follicular) favor high-intensity.</li>
+                    <li><strong>Hydration:</strong> Drink 500–700ml water with electrolytes (e.g., sodium, potassium) per hour of exercise to maintain performance.</li>
+                    <li><strong>Recovery:</strong> Consume 20–30g protein within 30 minutes post-workout to optimize muscle repair, especially for women.</li>
+                </ul>
+                <button class="close-sub-button" onclick="toggleSubContent('sims-exercise')">Close</button>
+            </div>
+
+            <div class="sub-impact-content" id="cook-exercise">
+                <h5>Gray Cook’s Exercise Protocol</h5>
+                <p>Gray Cook, a leading expert in movement and creator of the Functional Movement Screen (FMS), emphasizes movement quality:</p>
+                <ul>
+                    <li><strong>Movement Screening:</strong> Assess mobility and stability with FMS (e.g., deep squat, hurdle step) to identify weaknesses before training.</li>
+                    <li><strong>Mobility First:</strong> Perform daily corrective exercises (e.g., ankle mobility drills, thoracic spine rotations) for 10–15 minutes to improve movement patterns.</li>
+                    <li><strong>Strength (Weekly):</strong> Use kettlebells or bodyweight for 3–4 sessions (e.g., 3 sets of 10 Turkish get-ups) to build functional strength.</li>
+                    <li><strong>Stability:</strong> Train single-leg stance or plank variations 3x/week (e.g., 3 sets of 30–60 sec) to enhance core stability.</li>
+                    <li><strong>Progression:</strong> Only add load or intensity after achieving symmetry and pain-free movement in FMS tests.</li>
+                </ul>
+                <button class="close-sub-button" onclick="toggleSubContent('cook-exercise')">Close</button>
+            </div>
             <button class="close-button" onclick="toggleContent('exercise')">Close</button>
         </div>
 
@@ -284,7 +321,7 @@
         // Share on X functionality
         document.getElementById('share').addEventListener('click', () => {
             const url = encodeURIComponent(window.location.href);
-            const text = encodeURIComponent('Discover how small tasks can make a big impact on your mood with Mood-to-Task Matcher! #MoodToTask');
+            const text = encodeURIComponent('Discover how small tasks can makerology a big impact on your mood with Mood-to-Task Matcher! #MoodToTask');
             window.open(`https://x.com/intent/tweet?url=${url}&text=${text}`, '_blank');
         });
 
