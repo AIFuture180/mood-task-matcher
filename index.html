@@ -19,6 +19,14 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .popup { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); z-index: 1000; max-width: 90%; }
+        .popup-content { text-align: center; }
+        .tool-button { background: #28a745; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin: 5px; }
+        .tool-button:hover { background: #218838; }
+        #gratitude-text { width: 100%; max-width: 300px; margin: 10px 0; }
+        .tools-container { text-align: center; margin: 20px auto; max-width: 500px; }
+    </style>
 </head>
 <body>
     <nav id="nav">
@@ -50,6 +58,30 @@
             <button class="confused" data-mood="confused" data-tooltip="Feeling puzzled or unsure?"><span class="mood-icon">🤔</span>Confused</button>
         </div>
         <div id="result"></div>
+        <!-- Added Tools Container -->
+        <div class="tools-container">
+            <button class="tool-button" onclick="showBreathingTimer()">Start Breathing Exercise</button>
+            <button class="tool-button" onclick="showGratitudeNote()">Write a Gratitude Note</button>
+        </div>
+        <!-- Breathing Exercise Popup -->
+        <div id="breathing-popup" class="popup">
+            <div class="popup-content">
+                <h4>Breathing Exercise</h4>
+                <p id="breathing-step">Inhale for 4 seconds</p>
+                <p id="timer">60</p>
+                <button class="close-button" onclick="closePopup('breathing-popup')">Close</button>
+            </div>
+        </div>
+        <!-- Gratitude Note Popup -->
+        <div id="gratitude-popup" class="popup">
+            <div class="popup-content">
+                <h4>Gratitude Note</h4>
+                <textarea id="gratitude-text" rows="3" placeholder="What are you thankful for?"></textarea>
+                <button class="tool-button" onclick="saveGratitude()">Save</button>
+                <p id="gratitude-result" style="display: none;"></p>
+                <button class="close-button" onclick="closePopup('gratitude-popup')">Close</button>
+            </div>
+        </div>
     </div>
 
     <div id="intro-content">
@@ -249,6 +281,65 @@
                 'event_label': 'X'
             });
         });
+
+        // Breathing Exercise Timer
+        function showBreathingTimer() {
+            const popup = document.getElementById('breathing-popup');
+            const step = document.getElementById('breathing-step');
+            const timer = document.getElementById('timer');
+            let timeLeft = 60;
+            let phase = 0;
+            popup.style.display = 'block';
+            
+            const steps = [
+                "Inhale for 4 seconds",
+                "Hold for 4 seconds",
+                "Exhale for 4 seconds"
+            ];
+            
+            const interval = setInterval(() => {
+                timer.textContent = timeLeft;
+                if (timeLeft % 12 === 0 || timeLeft === 60) {
+                    phase = (phase + 1) % 3;
+                    step.textContent = steps[phase];
+                }
+                timeLeft--;
+                if (timeLeft < 0) {
+                    clearInterval(interval);
+                    step.textContent = "Great job! Feel calmer?";
+                    timer.textContent = "";
+                }
+            }, 1000);
+        }
+
+        // Gratitude Note Generator
+        function showGratitudeNote() {
+            document.getElementById('gratitude-popup').style.display = 'block';
+        }
+
+        function saveGratitude() {
+            const text = document.getElementById('gratitude-text').value;
+            const result = document.getElementById('gratitude-result');
+            if (text) {
+                result.textContent = `You wrote: "${text}" - Nice one!`;
+                result.style.display = 'block';
+                document.getElementById('gratitude-text').style.display = 'none';
+                document.querySelector('#gratitude-popup .tool-button').style.display = 'none';
+                setTimeout(() => closePopup('gratitude-popup'), 3000); // Auto-close after 3s
+            }
+        }
+
+        // Close Popup Function
+        function closePopup(id) {
+            const popup = document.getElementById(id);
+            popup.style.display = 'none';
+            if (id === 'gratitude-popup') {
+                document.getElementById('gratitude-text').style.display = 'block';
+                document.getElementById('gratitude-result').style.display = 'none';
+                document.querySelector('#gratitude-popup .tool-button').style.display = 'block';
+                document.getElementById('gratitude-text').value = '';
+            }
+        }
     </script>
 </body>
 </html>
