@@ -62,16 +62,53 @@
         </div>
 
         <div class="impact-content" id="diet">
-            <h4>Optimize Your Diet with Gary Brecka’s Protocol</h4>
-            <p>Gary Brecka, a human biologist, recommends these steps to improve your diet and overall health:</p>
-            <ul>
-                <li><strong>Address Nutrient Deficiencies:</strong> Get a comprehensive blood test to identify deficiencies, such as issues with methyl folate due to MTHFR gene mutations.</li>
-                <li><strong>Avoid Synthetic Folic Acid:</strong> Remove folic acid from your diet (found in “enriched” or “fortified” foods) and opt for natural folate or methyl folate supplements (e.g., 800 mcg daily).</li>
-                <li><strong>Hydrate with Celtic Salt:</strong> Add a small pinch of Celtic salt to your water (e.g., sesame seed-sized amount per 250ml) to improve hydration and mineral balance.</li>
-                <li><strong>Choose Bioavailable Nutrients:</strong> Opt for methylated versions of B vitamins (e.g., from brands like Thorne or Pure Encapsulations) to ensure your body can use them effectively.</li>
-                <li><strong>Eat Whole Foods:</strong> Focus on whole, unprocessed foods to provide your body with the raw materials it needs for optimal health.</li>
-            </ul>
-            <p class="disclaimer"><em>Supplement Disclaimer: Consult a healthcare provider before taking any supplements, including methyl folate or B vitamins, especially if you have medical conditions, are pregnant, or are taking medication. Supplements may interact with medications or cause adverse effects if not used appropriately.</em></p>
+            <h4>Optimize Your Diet with Expert Protocols</h4>
+            <p>Explore diet recommendations from leading experts to improve your health and well-being. Click below to view each protocol:</p>
+            <div class="sub-button-container">
+                <button class="sub-impact-button" onclick="toggleSubContent('brecka-diet')" aria-expanded="false" aria-controls="brecka-diet">Gary Brecka’s Diet Protocol</button>
+                <button class="sub-impact-button" onclick="toggleSubContent('johnson-diet')" aria-expanded="false" aria-controls="johnson-diet">Bryan Johnson’s Diet Protocol</button>
+                <button class="sub-impact-button" onclick="toggleSubContent('huberman-diet')" aria-expanded="false" aria-controls="huberman-diet">Andrew Huberman’s Diet Protocol</button>
+            </div>
+
+            <div class="sub-impact-content" id="brecka-diet">
+                <h5>Gary Brecka’s Diet Protocol</h5>
+                <p>Gary Brecka, a human biologist, recommends a high-fat, low-carb ketogenic diet with the 30-30-30 method:</p>
+                <ul>
+                    <li><strong>30-30-30 Method:</strong> Consume 30g of protein within 30 minutes of waking, followed by 30 minutes of low-intensity exercise (heart rate ~70% of max).</li>
+                    <li><strong>Macronutrients:</strong> 70-75% fat, 20-25% protein, 5-10% carbs to induce ketosis.</li>
+                    <li><strong>Foods to Eat:</strong> Grass-fed beef, wild-caught salmon, free-range eggs, avocado, coconut oil, organic frozen veggies (e.g., broccoli, asparagus).</li>
+                    <li><strong>Foods to Avoid:</strong> Refined sugars, white rice, seed oils (e.g., canola, soybean), non-organic/GMO produce.</li>
+                    <li><strong>Hydration:</strong> Add a pinch of Celtic sea salt to water for mineral balance.</li>
+                </ul>
+                <button class="close-sub-button" onclick="toggleSubContent('brecka-diet')">Close</button>
+            </div>
+
+            <div class="sub-impact-content" id="johnson-diet">
+                <h5>Bryan Johnson’s Diet Protocol</h5>
+                <p>Bryan Johnson, a longevity enthusiast, follows a strict, data-driven plant-based diet:</p>
+                <ul>
+                    <li><strong>Calorie Precision:</strong> ~1,977 calories/day, measured precisely to maintain optimal weight and health.</li>
+                    <li><strong>Plant-Based:</strong> Focuses on nutrient-dense foods like lentils, broccoli, cauliflower, mushrooms, and seeds.</li>
+                    <li><strong>Super Veggie Mix:</strong> Daily blend of broccoli, cauliflower, garlic, ginger, and hemp seeds.</li>
+                    <li><strong>Nutty Pudding:</strong> A mix of nuts, seeds, berries, and pomegranate juice for antioxidants and healthy fats.</li>
+                    <li><strong>Supplements:</strong> Over 40 daily supplements (e.g., NMN, rapamycin) tailored to biomarkers.</li>
+                    <li><strong>Affiliate Offer:</strong> Save on Bryan Johnson’s Blueprint products with <a href="https://teamblueprint.superfiliate.com/portal/wallet" target="_blank" rel="noopener noreferrer">this affiliate link</a>.</li>
+                </ul>
+                <button class="close-sub-button" onclick="toggleSubContent('johnson-diet')">Close</button>
+            </div>
+
+            <div class="sub-impact-content" id="huberman-diet">
+                <h5>Andrew Huberman’s Diet Protocol</h5>
+                <p>Dr. Andrew Huberman, a neuroscientist, uses time-restricted eating and balanced nutrition:</p>
+                <ul>
+                    <li><strong>Intermittent Fasting:</strong> 12-16 hour fast daily, eating window typically 11 AM–8 PM.</li>
+                    <li><strong>Morning Hydration:</strong> Water with lemon and salt; delays caffeine 90-120 minutes post-waking.</li>
+                    <li><strong>Low-Carb Lunch:</strong> High-quality meat (e.g., grass-fed beef) with vegetables (e.g., kale, spinach).</li>
+                    <li><strong>Evening Carbs:</strong> Starchy carbs (e.g., rice, pasta) with lean protein (e.g., salmon) to aid sleep.</li>
+                    <li><strong>Supplements:</strong> Fish oil, vitamin D, magnesium for brain and body health.</li>
+                </ul>
+                <button class="close-sub-button" onclick="toggleSubContent('huberman-diet')">Close</button>
+            </div>
             <button class="close-button" onclick="toggleContent('diet')">Close</button>
         </div>
 
@@ -165,14 +202,16 @@
     </footer>
 
     <script>
-        // Function to toggle content visibility (accordion style)
+        // Toggle top-level content visibility (accordion style)
         function toggleContent(sectionId) {
             const content = document.getElementById(sectionId);
             const button = document.querySelector(`button[aria-controls="${sectionId}"]`);
             const allContents = document.querySelectorAll('.impact-content');
             const allButtons = document.querySelectorAll('.impact-button');
+            const allSubContents = document.querySelectorAll('.sub-impact-content');
+            const allSubButtons = document.querySelectorAll('.sub-impact-button');
 
-            // Close all other sections and reset buttons
+            // Close all other top-level sections and reset buttons
             allContents.forEach(item => {
                 if (item !== content) {
                     item.classList.remove('show');
@@ -181,6 +220,13 @@
             allButtons.forEach(btn => {
                 btn.classList.remove('active');
                 btn.setAttribute('aria-expanded', 'false');
+            });
+
+            // Close all sub-sections when switching top-level sections
+            allSubContents.forEach(sub => sub.classList.remove('show'));
+            allSubButtons.forEach(subBtn => {
+                subBtn.classList.remove('active');
+                subBtn.setAttribute('aria-expanded', 'false');
             });
 
             // Toggle the clicked section
@@ -192,6 +238,36 @@
                 content.classList.add('show');
                 button.classList.add('active');
                 button.setAttribute('aria-expanded', 'true');
+            }
+        }
+
+        // Toggle sub-level content visibility (nested accordion)
+        function toggleSubContent(subSectionId) {
+            const subContent = document.getElementById(subSectionId);
+            const subButton = document.querySelector(`button[aria-controls="${subSectionId}"]`);
+            const allSubContents = document.querySelectorAll('.sub-impact-content');
+            const allSubButtons = document.querySelectorAll('.sub-impact-button');
+
+            // Close all other sub-sections and reset sub-buttons
+            allSubContents.forEach(item => {
+                if (item !== subContent) {
+                    item.classList.remove('show');
+                }
+            });
+            allSubButtons.forEach(btn => {
+                btn.classList.remove('active');
+                btn.setAttribute('aria-expanded', 'false');
+            });
+
+            // Toggle the clicked sub-section
+            if (subContent.classList.contains('show')) {
+                subContent.classList.remove('show');
+                subButton.classList.remove('active');
+                subButton.setAttribute('aria-expanded', 'false');
+            } else {
+                subContent.classList.add('show');
+                subButton.classList.add('active');
+                subButton.setAttribute('aria-expanded', 'true');
             }
         }
 
@@ -212,16 +288,17 @@
             window.open(`https://x.com/intent/tweet?url=${url}&text=${text}`, '_blank');
         });
 
-        // Initialize by hiding all impact sections
+        // Initialize by hiding all sections
         window.onload = () => {
             const impactSections = document.querySelectorAll('.impact-content');
-            impactSections.forEach(section => {
-                section.classList.remove('show');
-            });
+            impactSections.forEach(section => section.classList.remove('show'));
             const impactButtons = document.querySelectorAll('.impact-button');
-            impactButtons.forEach(button => {
-                button.setAttribute('aria-expanded', 'false');
-            });
+            impactButtons.forEach(button => button.setAttribute('aria-expanded', 'false'));
+
+            const subImpactSections = document.querySelectorAll('.sub-impact-content');
+            subImpactSections.forEach(subSection => subSection.classList.remove('show'));
+            const subImpactButtons = document.querySelectorAll('.sub-impact-button');
+            subImpactButtons.forEach(subButton => subButton.setAttribute('aria-expanded', 'false'));
         };
     </script>
 </body>
