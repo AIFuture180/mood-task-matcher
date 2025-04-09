@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Boost your mood in seconds with fun, science-backed tasks tailored to how you feel. Try Mood to Task now!">
-    <meta name="keywords" content="mood boost, quick tasks, mental health, emotional well-being">
+    <meta name="description" content="Boost your mood in seconds with Mood to Task! Select your mood and get quick, science-backed tasks to feel better instantly.">
+    <meta name="keywords" content="mood booster, mental health, quick tasks, stress relief, happiness">
     <meta name="robots" content="index, follow">
-    <title>Mood to Task | Boost Your Mood Instantly</title>
+    <title>Mood to Task | Boost Your Mood in Seconds</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1511837633001567" crossorigin="anonymous" data-ad-init-load="300"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1511837633001567" crossorigin="anonymous" data-ad-init-load="300"></script>
     <!-- Google tag (gtag.js) -->
-    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-4985X51W1J"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4985X51W1J"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -19,18 +19,6 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .popup { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); z-index: 1000; max-width: 90%; }
-        .popup-content { text-align: center; }
-        .tool-button { background: #28a745; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin: 5px; }
-        .tool-button:hover { background: #218838; }
-        #gratitude-text, #worry-text { width: 100%; max-width: 300px; margin: 10px 0; }
-        .tools-container { text-align: center; margin: 20px auto; max-width: 600px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
-        #punching-bag { width: 100px; height: 100px; background: #ff4f41; border-radius: 50%; cursor: pointer; margin: 10px auto; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: bold; }
-        #punching-bag:hover { background: #e64539; }
-        #doodle-canvas { border: 1px solid #ccc; }
-        #color-square { width: 100px; height: 100px; margin: 10px auto; }
-    </style>
 </head>
 <body>
     <nav id="nav">
@@ -45,168 +33,162 @@
 
     <div class="hero-section">
         <h1>Boost Your Mood in Seconds</h1>
-        <h2>Fun, Quick Tasks Tailored to How You Feel</h2>
-        <button class="hero-cta pulse-animation" onclick="document.getElementById('mood-prompt').scrollIntoView({ behavior: 'smooth' })">Get Started</button>
+        <h2>Feeling down, stressed, or bored? Select your mood and get a quick, science-backed task to feel better instantly!</h2>
+        <button class="hero-cta pulse-animation" onclick="showMoodPrompt()">Get Started</button>
     </div>
 
-    <div id="mood-prompt">
+    <div id="mood-prompt" class="hidden">
         <div id="instruction">How are you feeling right now?</div>
         <div id="mood-buttons">
-            <button class="tired" data-mood="tired" data-tooltip="Feeling low-energy or exhausted?"><span class="mood-icon">😴</span>Tired</button>
-            <button class="stressed" data-mood="stressed" data-tooltip="Feeling tense or overwhelmed?"><span class="mood-icon">😓</span>Stressed</button>
-            <button class="bored" data-mood="bored" data-tooltip="Feeling uninspired or restless?"><span class="mood-icon">🥱</span>Bored</button>
-            <button class="excited" data-mood="excited" data-tooltip="Feeling energized and thrilled?"><span class="mood-icon">🤩</span>Excited</button>
-            <button class="sad" data-mood="sad" data-tooltip="Feeling down or blue?"><span class="mood-icon">😢</span>Sad</button>
-            <button class="angry" data-mood="angry" data-tooltip="Feeling frustrated or mad?"><span class="mood-icon">😡</span>Angry</button>
-            <button class="happy" data-mood="happy" data-tooltip="Feeling cheerful and content?"><span class="mood-icon">😊</span>Happy</button>
-            <button class="confused" data-mood="confused" data-tooltip="Feeling puzzled or unsure?"><span class="mood-icon">🤔</span>Confused</button>
+            <button class="tired" onclick="selectMood('tired')" data-tooltip="Tired: Low energy, needing rest"><span class="mood-icon">😴</span>Tired</button>
+            <button class="stressed" onclick="selectMood('stressed')" data-tooltip="Stressed: Overwhelmed, tense"><span class="mood-icon">😓</span>Stressed</button>
+            <button class="bored" onclick="selectMood('bored')" data-tooltip="Bored: Unengaged, restless"><span class="mood-icon">🥱</span>Bored</button>
+            <button class="excited" onclick="selectMood('excited')" data-tooltip="Excited: Energized, enthusiastic"><span class="mood-icon">🤩</span>Excited</button>
+            <button class="sad" onclick="selectMood('sad')" data-tooltip="Sad: Down, emotional"><span class="mood-icon">😢</span>Sad</button>
+            <button class="angry" onclick="selectMood('angry')" data-tooltip="Angry: Frustrated, upset"><span class="mood-icon">😡</span>Angry</button>
+            <button class="happy" onclick="selectMood('happy')" data-tooltip="Happy: Content, joyful"><span class="mood-icon">😊</span>Happy</button>
+            <button class="confused" onclick="selectMood('confused')" data-tooltip="Confused: Uncertain, puzzled"><span class="mood-icon">🤔</span>Confused</button>
         </div>
-        <div id="result"></div>
-        <!-- Tools Container -->
-        <div class="tools-container">
-            <button class="tool-button" onclick="showBreathingTimer()">Start Breathing Exercise</button>
-            <button class="tool-button" onclick="showGratitudeNote()">Write a Gratitude Note</button>
-            <button class="tool-button" onclick="showSoundscape()">Play a Soundscape</button>
-            <button class="tool-button" onclick="showPunchingBag()">Punch Out Frustration</button>
-            <button class="tool-button" onclick="showStretch()">Quick Stretch</button>
-            <button class="tool-button" onclick="showDoodle()">Doodle Dash</button>
-            <button class="tool-button" onclick="showDance()">Happy Dance</button>
-            <button class="tool-button" onclick="showWorryShredder()">Shred a Worry</button>
-            <button class="tool-button" onclick="showColorPicker()">Mood Color</button>
+    </div>
+
+    <div id="result"></div>
+
+    <div class="container">
+        <div class="tabs">
+            <button class="tab-button active" onclick="showTab('daily-checkin')">Daily Check-In</button>
+            <button class="tab-button" onclick="showTab('history')">History</button>
+            <button class="tab-button" onclick="showTab('favorites')">Favorites</button>
         </div>
-        <!-- Breathing Exercise Popup -->
-        <div id="breathing-popup" class="popup">
-            <div class="popup-content">
-                <h4>Breathing Exercise</h4>
-                <p id="breathing-step">Inhale</p>
-                <p id="breathing-timer">4</p>
-                <button class="close-button" onclick="closePopup('breathing-popup')">Close</button>
+
+        <div id="daily-checkin-section" class="tab-content active">
+            <h3>Daily Check-In</h3>
+            <p>Check in with your mood to get a personalized recommendation!</p>
+            <button class="checkin-button" onclick="showMoodPrompt()">Check In Now</button>
+            <div id="recommendation"></div>
+        </div>
+
+        <div id="history-section" class="tab-content">
+            <h3>Your Mood History</h3>
+            <div class="history-viz">
+                <div class="mood-viz" id="mood-viz"></div>
+                <div class="trend-info" id="trend-info"></div>
             </div>
+            <ul id="history-list"></ul>
+            <button class="clear-history-button" onclick="clearHistory()">Clear History</button>
         </div>
-        <!-- Gratitude Note Popup -->
-        <div id="gratitude-popup" class="popup">
-            <div class="popup-content">
-                <h4>Gratitude Note</h4>
-                <textarea id="gratitude-text" rows="3" placeholder="What are you thankful for?"></textarea>
-                <button class="tool-button" onclick="saveGratitude()">Save</button>
-                <p id="gratitude-result" style="display: none;"></p>
-                <button class="close-button" onclick="closePopup('gratitude-popup')">Close</button>
-            </div>
-        </div>
-        <!-- Soundscape Popup -->
-        <div id="soundscape-popup" class="popup">
-            <div class="popup-content">
-                <h4>90-Second Soundscape</h4>
-                <audio id="soundscape-audio" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
-                <button class="tool-button" onclick="toggleSoundscape()">Play</button>
-                <p id="soundscape-timer">90</p>
-                <button class="close-button" onclick="closePopup('soundscape-popup')">Close</button>
-            </div>
-        </div>
-        <!-- Punching Bag Popup -->
-        <div id="punching-popup" class="popup">
-            <div class="popup-content">
-                <h4>Punch Out Frustration</h4>
-                <div id="punching-bag" onclick="punchBag()">Punch Me!</div>
-                <p id="punch-count">Punches: 0</p>
-                <p id="punch-timer">30</p>
-                <button class="close-button" onclick="closePopup('punching-popup')">Close</button>
-            </div>
-        </div>
-        <!-- Stretch Popup -->
-        <div id="stretch-popup" class="popup">
-            <div class="popup-content">
-                <h4>60-Second Stretch</h4>
-                <p id="stretch-prompt"></p>
-                <p id="stretch-timer">60</p>
-                <button class="close-button" onclick="closePopup('stretch-popup')">Close</button>
-            </div>
-        </div>
-        <!-- Doodle Popup -->
-        <div id="doodle-popup" class="popup">
-            <div class="popup-content">
-                <h4>90-Second Doodle</h4>
-                <canvas id="doodle-canvas" width="200" height="150" style="border: 1px solid #ccc;"></canvas>
-                <p id="doodle-timer">90</p>
-                <button class="tool-button" onclick="saveDoodle()">Save</button>
-                <button class="close-button" onclick="closePopup('doodle-popup')">Close</button>
-            </div>
-        </div>
-        <!-- Dance Popup -->
-        <div id="dance-popup" class="popup">
-            <div class="popup-content">
-                <h4>30-Second Dance Party</h4>
-                <p id="dance-prompt"></p>
-                <p id="dance-timer">30</p>
-                <button class="close-button" onclick="closePopup('dance-popup')">Close</button>
-            </div>
-        </div>
-        <!-- Worry Shredder Popup -->
-        <div id="worry-popup" class="popup">
-            <div class="popup-content">
-                <h4>Worry Shredder</h4>
-                <textarea id="worry-text" rows="3" placeholder="Type a worry..."></textarea>
-                <button class="tool-button" onclick="shredWorry()">Shred It</button>
-                <p id="worry-result" style="display: none;"></p>
-                <button class="close-button" onclick="closePopup('worry-popup')">Close</button>
-            </div>
-        </div>
-        <!-- Color Picker Popup -->
-        <div id="color-popup" class="popup">
-            <div class="popup-content">
-                <h4>60-Second Color Focus</h4>
-                <p id="color-prompt"></p>
-                <div id="color-square" style="width: 100px; height: 100px; margin: 10px auto;"></div>
-                <p id="color-timer">60</p>
-                <button class="close-button" onclick="closePopup('color-popup')">Close</button>
-            </div>
+
+        <div id="favorites-section" class="tab-content">
+            <h3>Your Favorite Tasks</h3>
+            <ul id="favorites-list"></ul>
         </div>
     </div>
 
     <div id="intro-content">
-        <h2 class="section-heading">Why Mood to Task?</h2>
+        <h3 class="section-heading">Why Mood to Task?</h3>
         <div class="feature-cards">
-            <div class="feature-card">
+            <div class="feature-card fade-in">
                 <span class="feature-icon">⚡</span>
-                <h3>Instant Mood Boost</h3>
-                <p>Get quick, fun tasks to shift your mood in under a minute.</p>
+                <h3>Quick & Easy</h3>
+                <p>Tasks take just 1-5 minutes, perfect for busy schedules.</p>
             </div>
-            <div class="feature-card">
+            <div class="feature-card fade-in">
                 <span class="feature-icon">🧠</span>
                 <h3>Science-Backed</h3>
-                <p>Activities rooted in psychology and neuroscience.</p>
+                <p>Activities are based on the latest psychology research.</p>
             </div>
-            <div class="feature-card">
+            <div class="feature-card fade-in">
                 <span class="feature-icon">🎯</span>
-                <h3>Tailored to You</h3>
-                <p>Personalized tasks based on your current mood.</p>
+                <h3>Personalized</h3>
+                <p>Get tasks tailored to your current mood.</p>
+            </div>
+        </div>
+
+        <div class="tools-container">
+            <h3 class="section-heading">Explore More Tools</h3>
+            <div class="feature-cards">
+                <div class="feature-card fade-in">
+                    <span class="feature-icon">🌬️</span>
+                    <h3>Breathing Exercise</h3>
+                    <p>Calm your mind with a quick 1-minute breathing exercise.</p>
+                    <button class="read-more-button" onclick="startBreathingExercise()">Try Now</button>
+                </div>
+                <div class="feature-card fade-in">
+                    <span class="feature-icon">✍️</span>
+                    <h3>Gratitude Prompt</h3>
+                    <p>Boost positivity by reflecting on what you're thankful for.</p>
+                    <button class="read-more-button" onclick="showGratitudePrompt()">Try Now</button>
+                </div>
+                <div class="feature-card fade-in">
+                    <span class="feature-icon">🎨</span>
+                    <h3>Doodle Break</h3>
+                    <p>Unleash creativity with a 2-minute doodling session.</p>
+                    <button class="read-more-button" onclick="startDoodleBreak()">Try Now</button>
+                </div>
+                <div class="feature-card fade-in">
+                    <span class="feature-icon">🧘</span>
+                    <h3>Mindful Moment</h3>
+                    <p>Ground yourself with a 1-minute mindfulness exercise.</p>
+                    <button class="read-more-button" onclick="startMindfulMoment()">Try Now</button>
+                </div>
             </div>
         </div>
 
         <div class="premium-offer">
-            <p class="disclaimer"><em>Affiliate Disclosure: Mood to Task may earn a commission if you click the link below and make a purchase, at no additional cost to you.</em></p>
-            <p class="ad-label">Sponsored: Support Your Mental Health with Online Therapy</p>
+            <div class="ribbon">
+                <span>SPECIAL OFFER</span>
+            </div>
+            <p class="ad-label">Feel Better Faster with Professional Support</p>
+            <p class="disclaimer"><em>Affiliate Disclosure: Mood to Task may earn a commission from purchases at no extra cost to you.</em></p>
             <a href="https://onlinetherapy.go2cloud.org/aff_c?offer_id=2&aff_id=4837&file_id=5" class="banner-link">
                 <img src="https://media.go2speed.org/brand/files/onlinetherapy/2/online-therapy-banner_728x90.jpg" alt="Online Therapy Banner" class="banner-img">
             </a>
             <img src="https://onlinetherapy.go2cloud.org/aff_i?offer_id=2&file_id=5&aff_id=4837" width="0" height="0" style="position:absolute;visibility:hidden;" border="0" />
             <div class="ad-info">
-                <h4>Why Choose Online Therapy?</h4>
-                <ul>
-                    <li>Individual and couples therapy</li>
-                    <li>Weekly 45-minute live sessions (video, voice, or text)</li>
-                    <li>Unlimited messaging with every plan</li>
-                    <li>A comprehensive 8-section CBT program with 25 worksheets</li>
-                    <li>Daily worksheet replies (Mon-Fri)</li>
-                    <li>Exclusive yoga & meditation videos, a journal, activity plan & tests</li>
-                    <li>Instant therapist match and the flexibility to seamlessly change therapists</li>
-                    <li>20% discount using the code: <strong>THERAPY20</strong></li>
-                    <li>Financial aid options available during checkout</li>
-                </ul>
+                <h4>Why 10,000+ People Choose Online Therapy:</h4>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <span class="benefit-icon">🎯</span>
+                        <span>Weekly video sessions</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">💬</span>
+                        <span>Unlimited messaging</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">📱</span>
+                        <span>Access anywhere</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">🛠️</span>
+                        <span>25+ practical worksheets</span>
+                    </div>
+                </div>
+                <div class="promo-code">
+                    <p>Use code: <strong>THERAPY20</strong> for 20% OFF</p>
+                </div>
+                <button class="cta-button" onclick="window.open('https://onlinetherapy.go2cloud.org/aff_c?offer_id=2&aff_id=4837&file_id=5', '_blank')">Get Started Now</button>
             </div>
         </div>
 
-        <p class="disclaimer"><em>General Disclaimer: Mood to Task provides suggestions for informational purposes only. These are not substitutes for professional medical or psychological advice.</em></p>
+        <div class="testimonial fade-in">
+            <p class="quote">"Mood to Task has been a game-changer for me. The quick tasks fit perfectly into my day, and I always feel better after doing them!"</p>
+            <p class="author">— Sarah M., Busy Professional</p>
+        </div>
+
+        <p class="disclaimer"><em>General Disclaimer: Mood to Task provides this website for informational purposes only. We are not responsible for any errors, omissions, or outcomes resulting from the use of this information.</em></p>
+    </div>
+
+    <!-- New Recommended Products Section -->
+    <div class="container">
+        <h3 class="section-heading">Recommended Products for Mood Boosting</h3>
+        <p class="affiliate-disclaimer">We may earn a small commission from purchases made through these links, at no extra cost to you.</p>
+        <div class="affiliate-products">
+            <div class="affiliate-card">
+                <h4>Wellness Product for Mood Support</h4>
+                <p>Enhance your mood with this carefully selected wellness product, perfect for daily self-care.</p>
+                <a href="https://amzn.to/4ir7OWZ" target="_blank" rel="noopener noreferrer" class="affiliate-button">Shop on Amazon</a>
+            </div>
+        </div>
     </div>
 
     <button id="share" class="share-button" aria-label="Share this page on X">
@@ -218,7 +200,7 @@
 
     <div id="donate">
         <h3>Support Us</h3>
-        <p>If you enjoy Mood to Task, consider buying us a coffee!</p>
+        <p>If you find Mood to Task helpful, please consider supporting us!</p>
         <a href="https://www.buymeacoffee.com/moodtask" target="_blank" rel="noopener noreferrer">
             <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" style="width: 150px; height: auto;">
         </a>
@@ -248,96 +230,261 @@
     </footer>
 
     <script>
-        // Mood button interaction
-        const moodButtons = document.querySelectorAll('#mood-buttons button');
-        const resultDiv = document.getElementById('result');
-        const tasks = {
+        // Mood-to-task mapping
+        const moodTasks = {
             tired: [
-                { task: "Take a quick power nap for 10-20 minutes to recharge.", question: "Did that nap give you a little boost?" },
-                { task: "Do a gentle 5-minute stretch to wake up your body.", question: "Feeling a bit more limber now?" }
+                { task: "Take a 2-minute power nap. Set a timer, close your eyes, and rest your head.", followUp: "Did that quick nap help you feel refreshed?" },
+                { task: "Drink a glass of water to rehydrate and boost your energy.", followUp: "Do you feel more awake after hydrating?" },
+                { task: "Step outside for 1 minute of fresh air to re-energize.", followUp: "Did the fresh air help you feel more alert?" }
             ],
             stressed: [
-                { task: "Try a 1-minute deep breathing exercise: inhale for 4, hold for 4, exhale for 4.", question: "Feel a bit calmer now?" },
-                { task: "Write down 3 things stressing you out, then crumple the paper and toss it.", question: "Did that feel satisfying?" }
+                { task: "Try a 1-minute breathing exercise: Inhale for 4 seconds, hold for 4, exhale for 4. Repeat 5 times.", followUp: "Do you feel calmer after that breathing exercise?" },
+                { task: "Write down 3 things stressing you out, then crumple the paper and toss it.", followUp: "Did writing and tossing help you let go of some stress?" },
+                { task: "Tense and release your muscles: Clench your fists for 5 seconds, then release. Repeat with shoulders and legs.", followUp: "Did that help release some tension?" }
             ],
             bored: [
-                { task: "Doodle something silly for 2 minutes—let your imagination run wild!", question: "Did that spark some fun?" },
-                { task: "Watch a funny 1-minute video online.", question: "Did you get a chuckle out of that?" }
+                { task: "Doodle for 2 minutes—grab a pen and paper and draw whatever comes to mind.", followUp: "Did doodling spark some creativity?" },
+                { task: "Listen to an upbeat song and dance for 1 minute to shake things up.", followUp: "Did that song get you moving and feeling more engaged?" },
+                { task: "Find a random object nearby and imagine a fun story about it for 1 minute.", followUp: "Did that spark your imagination?" }
             ],
             excited: [
-                { task: "Dance to your favorite song for 2 minutes to ride that high!", question: "Still buzzing with energy?" },
-                { task: "Tell someone (or yourself!) about what’s exciting you in 30 seconds.", question: "Did sharing amp it up?" }
+                { task: "Share your excitement! Text a friend about what’s making you happy right now.", followUp: "Did sharing your excitement amplify your joy?" },
+                { task: "Do a quick victory dance for 30 seconds to celebrate your energy.", followUp: "Did that dance make you feel even more pumped?" },
+                { task: "Write down one goal you’re excited to achieve today.", followUp: "Does having that goal written down keep your excitement focused?" }
             ],
             sad: [
-                { task: "Listen to an uplifting song for 3 minutes and let it sink in.", question: "Did that lift your spirits a bit?" },
-                { task: "Write down 1 thing you’re grateful for today.", question: "Did that shift your perspective?" }
+                { task: "Write down 1 thing you’re grateful for to shift your focus to the positive.", followUp: "Did reflecting on gratitude lift your spirits a bit?" },
+                { task: "Listen to a comforting song that resonates with how you feel for 2 minutes.", followUp: "Did the music help you process your emotions?" },
+                { task: "Give yourself a 1-minute hug—wrap your arms around yourself and breathe deeply.", followUp: "Did that self-hug make you feel a bit more comforted?" }
             ],
             angry: [
-                { task: "Punch a pillow for 30 seconds to let off some steam.", question: "Feel a bit lighter now?" },
-                { task: "Take 10 slow, deep breaths to cool down.", question: "Did that help you chill out?" }
+                { task: "Take 10 deep breaths: Inhale for 4 seconds, exhale for 6 seconds to calm your mind.", followUp: "Do you feel a bit calmer after those breaths?" },
+                { task: "Scribble on a piece of paper for 1 minute to release your frustration, then toss it.", followUp: "Did that help you let out some anger?" },
+                { task: "Step away for 1 minute—walk to another room or space to reset.", followUp: "Did stepping away help you cool down?" }
             ],
             happy: [
-                { task: "Share your happiness—text a friend a quick positive message.", question: "Did spreading joy feel good?" },
-                { task: "Do a quick happy dance for 30 seconds!", question: "Still smiling after that?" }
+                { task: "Share your happiness! Tell someone nearby or text a friend about your joy.", followUp: "Did sharing your happiness make it even better?" },
+                { task: "Do a quick stretch: Reach for the sky for 30 seconds to celebrate feeling good.", followUp: "Did that stretch keep your positive vibes going?" },
+                { task: "Write down this happy moment to remember later—savor the feeling!", followUp: "Does capturing this moment make you smile even more?" }
             ],
             confused: [
-                { task: "Jot down your thoughts for 1 minute to untangle them.", question: "Any clearer now?" },
-                { task: "Take a 2-minute break and look out a window to reset.", question: "Did that help you refocus?" }
+                { task: "Take a 1-minute brain break: Close your eyes and breathe deeply to clear your mind.", followUp: "Did that break help clear your thoughts?" },
+                { task: "Write down what’s confusing you for 1 minute to organize your thoughts.", followUp: "Did writing help you make sense of things?" },
+                { task: "Do a quick stretch: Roll your shoulders for 30 seconds to release mental tension.", followUp: "Did that stretch help you feel more focused?" }
             ]
         };
 
-        moodButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                moodButtons.forEach(btn => btn.classList.remove('selected'));
-                button.classList.add('selected');
-                const mood = button.getAttribute('data-mood');
-                showTask(mood);
-                gtag('event', 'Mood Selection', {
-                    'event_category': 'Mood',
-                    'event_label': mood
-                });
-            });
-        });
-
-        function showTask(mood) {
-            const taskList = tasks[mood];
-            const randomTask = taskList[Math.floor(Math.random() * taskList.length)];
-            const emoji = document.querySelector(`button[data-mood="${mood}"] .mood-icon`).textContent;
+        // Tool functions
+        function startBreathingExercise() {
+            const resultDiv = document.getElementById('result');
             resultDiv.innerHTML = `
-                <div class="chat-bubble">
+                <div class="chat-bubble fade-in">
                     <div class="task-header">
-                        <span class="mood-emoji">${emoji}</span>
-                        <h3>${mood.charAt(0).toUpperCase() + mood.slice(1)}</h3>
+                        <span class="mood-emoji">🌬️</span>
+                        <h3>Breathing Exercise</h3>
                     </div>
-                    <p class="task-text">${randomTask.task}</p>
-                    <p class="follow-up-question">${randomTask.question}</p>
+                    <p class="task-text">Let’s do a 1-minute breathing exercise. Inhale for 4 seconds, hold for 4 seconds, exhale for 4 seconds. Repeat for 5 cycles.</p>
+                    <p class="follow-up-question">Feeling calmer? Let us know how it went!</p>
                     <div class="task-buttons">
-                        <button class="favorite-button"><span class="heart-icon">❤️</span>Favorite</button>
-                        <button class="new-task-button">New Task</button>
+                        <button class="favorite-button" onclick="addToFavorites('Breathing Exercise', '🌬️')"><span class="heart-icon">❤️</span>Favorite</button>
+                        <button class="new-task-button" onclick="showMoodPrompt()">New Task</button>
                     </div>
                 </div>
             `;
             resultDiv.classList.add('show');
-
-            const favoriteButton = resultDiv.querySelector('.favorite-button');
-            const newTaskButton = resultDiv.querySelector('.new-task-button');
-
-            favoriteButton.addEventListener('click', () => {
-                favoriteButton.style.backgroundColor = '#ff4f41';
-                gtag('event', 'Favorite Task', {
-                    'event_category': 'Task',
-                    'event_label': `${mood} - ${randomTask.task}`
-                });
-            });
-
-            newTaskButton.addEventListener('click', () => {
-                showTask(mood);
-                gtag('event', 'New Task Request', {
-                    'event_category': 'Task',
-                    'event_label': mood
-                });
-            });
+            gtag('event', 'Tool Used', { 'event_category': 'Tool', 'event_label': 'Breathing Exercise' });
         }
+
+        function showGratitudePrompt() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `
+                <div class="chat-bubble fade-in">
+                    <div class="task-header">
+                        <span class="mood-emoji">✍️</span>
+                        <h3>Gratitude Prompt</h3>
+                    </div>
+                    <p class="task-text">Take 1 minute to write down 1 thing you’re grateful for today. It could be something small, like a warm cup of coffee or a kind word from a friend.</p>
+                    <p class="follow-up-question">Did reflecting on gratitude lift your spirits?</p>
+                    <div class="task-buttons">
+                        <button class="favorite-button" onclick="addToFavorites('Gratitude Prompt', '✍️')"><span class="heart-icon">❤️</span>Favorite</button>
+                        <button class="new-task-button" onclick="showMoodPrompt()">New Task</button>
+                    </div>
+                </div>
+            `;
+            resultDiv.classList.add('show');
+            gtag('event', 'Tool Used', { 'event_category': 'Tool', 'event_label': 'Gratitude Prompt' });
+        }
+
+        function startDoodleBreak() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `
+                <div class="chat-bubble fade-in">
+                    <div class="task-header">
+                        <span class="mood-emoji">🎨</span>
+                        <h3>Doodle Break</h3>
+                    </div>
+                    <p class="task-text">Grab a pen and paper (or use a digital app) and doodle for 2 minutes. Draw whatever comes to mind—no rules, just fun!</p>
+                    <p class="follow-up-question">Did doodling spark some creativity or help you relax?</p>
+                    <div class="task-buttons">
+                        <button class="favorite-button" onclick="addToFavorites('Doodle Break', '🎨')"><span class="heart-icon">❤️</span>Favorite</button>
+                        <button class="new-task-button" onclick="showMoodPrompt()">New Task</button>
+                    </div>
+                </div>
+            `;
+            resultDiv.classList.add('show');
+            gtag('event', 'Tool Used', { 'event_category': 'Tool', 'event_label': 'Doodle Break' });
+        }
+
+        function startMindfulMoment() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `
+                <div class="chat-bubble fade-in">
+                    <div class="task-header">
+                        <span class="mood-emoji">🧘</span>
+                        <h3>Mindful Moment</h3>
+                    </div>
+                    <p class="task-text">Take 1 minute to ground yourself. Notice 5 things you can see, 4 things you can touch, 3 things you can hear, 2 things you can smell, and 1 thing you can taste.</p>
+                    <p class="follow-up-question">Did this mindful moment help you feel more present?</p>
+                    <div class="task-buttons">
+                        <button class="favorite-button" onclick="addToFavorites('Mindful Moment', '🧘')"><span class="heart-icon">❤️</span>Favorite</button>
+                        <button class="new-task-button" onclick="showMoodPrompt()">New Task</button>
+                    </div>
+                </div>
+            `;
+            resultDiv.classList.add('show');
+            gtag('event', 'Tool Used', { 'event_category': 'Tool', 'event_label': 'Mindful Moment' });
+        }
+
+        // Show mood prompt
+        function showMoodPrompt() {
+            document.getElementById('mood-prompt').classList.remove('hidden');
+            document.getElementById('result').classList.remove('show');
+            const allButtons = document.querySelectorAll('#mood-buttons button');
+            allButtons.forEach(btn => btn.classList.remove('selected'));
+            gtag('event', 'Mood Prompt Shown', { 'event_category': 'Interaction', 'event_label': 'Mood Prompt' });
+        }
+
+        // Select mood and show task
+        function selectMood(mood) {
+            const allButtons = document.querySelectorAll('#mood-buttons button');
+            allButtons.forEach(btn => btn.classList.remove('selected'));
+            document.querySelector(`#mood-buttons button.${mood}`).classList.add('selected');
+
+            const tasks = moodTasks[mood];
+            const randomTask = tasks[Math.floor(Math.random() * tasks.length)];
+            const moodEmoji = document.querySelector(`#mood-buttons button.${mood} .mood-icon`).textContent;
+
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `
+                <div class="chat-bubble fade-in">
+                    <div class="task-header">
+                        <span class="mood-emoji">${moodEmoji}</span>
+                        <h3>Feeling ${mood.charAt(0).toUpperCase() + mood.slice(1)}</h3>
+                    </div>
+                    <p class="task-text">${randomTask.task}</p>
+                    <p class="follow-up-question">${randomTask.followUp}</p>
+                    <div class="task-buttons">
+                        <button class="favorite-button" onclick="addToFavorites('Feeling ${mood.charAt(0).toUpperCase() + mood.slice(1)}: ${randomTask.task}', '${moodEmoji}')"><span class="heart-icon">❤️</span>Favorite</button>
+                        <button class="new-task-button" onclick="showMoodPrompt()">New Task</button>
+                    </div>
+                </div>
+            `;
+            resultDiv.classList.add('show');
+            document.getElementById('mood-prompt').classList.add('hidden');
+
+            // Save to history
+            const history = JSON.parse(localStorage.getItem('moodHistory')) || [];
+            const date = new Date().toLocaleString();
+            history.push({ mood, task: randomTask.task, emoji: moodEmoji, date });
+            localStorage.setItem('moodHistory', JSON.stringify(history));
+            updateHistory();
+
+            gtag('event', 'Mood Selected', { 'event_category': 'Mood', 'event_label': mood });
+        }
+
+        // Add to favorites
+        function addToFavorites(task, emoji) {
+            const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+            favorites.push({ task, emoji });
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+            updateFavorites();
+            gtag('event', 'Task Favorited', { 'event_category': 'Interaction', 'event_label': task });
+        }
+
+        // Update history display
+        function updateHistory() {
+            const historyList = document.getElementById('history-list');
+            const history = JSON.parse(localStorage.getItem('moodHistory')) || [];
+            historyList.innerHTML = history.length ? history.map(item => `
+                <li class="history-item">
+                    <span class="history-emoji">${item.emoji}</span>
+                    <span class="history-mood">${item.mood.charAt(0).toUpperCase() + item.mood.slice(1)}</span>
+                    <span class="history-task">${item.task}</span>
+                    <span class="history-date">${item.date}</span>
+                </li>
+            `).join('') : '<li class="empty-list">No history yet. Check in with your mood to get started!</li>';
+
+            // Update visualization
+            const moodViz = document.getElementById('mood-viz');
+            moodViz.innerHTML = history.slice(-5).map(item => `
+                <div class="mood-dot ${item.mood}">
+                    <span class="dot-emoji">${item.emoji}</span>
+                </div>
+            `).join('');
+
+            // Trend analysis
+            const recentMoods = history.slice(-5).map(item => item.mood);
+            const positiveMoods = ['happy', 'excited'];
+            const negativeMoods = ['sad', 'angry', 'stressed'];
+            const positiveCount = recentMoods.filter(mood => positiveMoods.includes(mood)).length;
+            const negativeCount = recentMoods.filter(mood => negativeMoods.includes(mood)).length;
+            const trendInfo = document.getElementById('trend-info');
+            if (positiveCount > negativeCount) {
+                trendInfo.innerHTML = '<span class="positive">Your mood trend is looking positive! Keep it up! 🎉</span>';
+            } else if (negativeCount > positiveCount) {
+                trendInfo.innerHTML = '<span class="negative">You’ve had some tough moments lately. Try a calming task! 🌿</span>';
+            } else {
+                trendInfo.innerHTML = '<span class="neutral">Your mood is balanced. Let’s keep exploring tasks! ⚖️</span>';
+            }
+        }
+
+        // Update favorites display
+        function updateFavorites() {
+            const favoritesList = document.getElementById('favorites-list');
+            const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+            favoritesList.innerHTML = favorites.length ? favorites.map(item => `
+                <li class="favorite-item">
+                    <span class="favorite-emoji">${item.emoji}</span>
+                    <span class="favorite-task">${item.task}</span>
+                </li>
+            `).join('') : '<li class="empty-list">No favorites yet. Add tasks you love!</li>';
+        }
+
+        // Clear history
+        function clearHistory() {
+            localStorage.removeItem('moodHistory');
+            updateHistory();
+            gtag('event', 'History Cleared', { 'event_category': 'Interaction', 'event_label': 'Clear History' });
+        }
+
+        // Show tab content
+        function showTab(tabName) {
+            const tabs = document.querySelectorAll('.tab-content');
+            const buttons = document.querySelectorAll('.tab-button');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            buttons.forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`${tabName}-section`).classList.add('active');
+            document.querySelector(`button[onclick="showTab('${tabName}')"]`).classList.add('active');
+            gtag('event', 'Tab Viewed', { 'event_category': 'Tab', 'event_label': tabName });
+        }
+
+        // Share on X functionality
+        document.getElementById('share').addEventListener('click', () => {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent('Boost your mood in seconds with Mood to Task! Try a quick, science-backed task today. #MoodToTask');
+            window.open(`https://x.com/intent/tweet?url=${url}&text=${text}`, '_blank');
+            gtag('event', 'Share', { 'event_category': 'Social', 'event_label': 'Share on X' });
+        });
 
         // Add scroll effect for nav
         window.addEventListener('scroll', () => {
@@ -349,281 +496,25 @@
             }
         });
 
-        // Share on X functionality
-        document.getElementById('share').addEventListener('click', () => {
-            const url = encodeURIComponent(window.location.href);
-            const text = encodeURIComponent('Boost your mood instantly with Mood to Task! Fun, quick tasks tailored to how you feel. #MoodToTask');
-            window.open(`https://x.com/intent/tweet?url=${url}&text=${text}`, '_blank');
-            gtag('event', 'Share', {
-                'event_category': 'Social',
-                'event_label': 'X'
-            });
-        });
+        // Initialize on page load
+        window.onload = () => {
+            updateHistory();
+            updateFavorites();
 
-        // Breathing Exercise Timer
-        function showBreathingTimer() {
-            const popup = document.getElementById('breathing-popup');
-            const step = document.getElementById('breathing-step');
-            const timer = document.getElementById('breathing-timer');
-            let totalTime = 60;
-            let phaseTime = 4;
-            let phase = 0;
-            popup.style.display = 'block';
-            
-            const steps = ["Inhale", "Hold", "Exhale"];
-            step.textContent = steps[phase];
-            timer.textContent = phaseTime;
-            
-            const interval = setInterval(() => {
-                phaseTime--;
-                timer.textContent = phaseTime;
-                
-                if (phaseTime <= 0) {
-                    phase = (phase + 1) % 3;
-                    step.textContent = steps[phase];
-                    phaseTime = 4;
-                }
-                
-                totalTime--;
-                if (totalTime <= 0) {
-                    clearInterval(interval);
-                    step.textContent = "Great job! Feel calmer?";
-                    timer.textContent = "";
-                }
-            }, 1000);
-        }
-
-        // Gratitude Note Generator
-        function showGratitudeNote() {
-            document.getElementById('gratitude-popup').style.display = 'block';
-        }
-
-        function saveGratitude() {
-            const text = document.getElementById('gratitude-text').value;
-            const result = document.getElementById('gratitude-result');
-            if (text) {
-                result.textContent = `You wrote: "${text}" - Nice one!`;
-                result.style.display = 'block';
-                document.getElementById('gratitude-text').style.display = 'none';
-                document.querySelector('#gratitude-popup .tool-button').style.display = 'none';
-                setTimeout(() => closePopup('gratitude-popup'), 3000);
-            }
-        }
-
-        // Soundscape Player
-        function showSoundscape() {
-            document.getElementById('soundscape-popup').style.display = 'block';
-        }
-
-        function toggleSoundscape() {
-            const audio = document.getElementById('soundscape-audio');
-            const timer = document.getElementById('soundscape-timer');
-            let timeLeft = 90;
-            if (audio.paused) {
-                audio.play();
-                const interval = setInterval(() => {
-                    timer.textContent = timeLeft;
-                    timeLeft--;
-                    if (timeLeft < 0) {
-                        clearInterval(interval);
-                        audio.pause();
-                        audio.currentTime = 0;
-                        timer.textContent = "Done! Refocused?";
-                    }
-                }, 1000);
-            } else {
-                audio.pause();
-                audio.currentTime = 0;
-                timer.textContent = "90";
-            }
-        }
-
-        // Punching Bag
-        let punchCount = 0;
-        function showPunchingBag() {
-            const popup = document.getElementById('punching-popup');
-            const count = document.getElementById('punch-count');
-            const timer = document.getElementById('punch-timer');
-            let timeLeft = 30;
-            punchCount = 0;
-            count.textContent = "Punches: 0";
-            timer.textContent = timeLeft;
-            popup.style.display = 'block';
-            
-            const interval = setInterval(() => {
-                timeLeft--;
-                timer.textContent = timeLeft;
-                if (timeLeft < 0) {
-                    clearInterval(interval);
-                    count.textContent = `Punches: ${punchCount} - Feel lighter?`;
-                    document.getElementById('punching-bag').style.display = 'none';
-                }
-            }, 1000);
-        }
-
-        function punchBag() {
-            punchCount++;
-            document.getElementById('punch-count').textContent = `Punches: ${punchCount}`;
-            const bag = document.getElementById('punching-bag');
-            bag.style.transform = 'scale(0.9)';
-            setTimeout(() => bag.style.transform = 'scale(1)', 100);
-        }
-
-        // Quick Stretch Challenge
-        function showStretch() {
-            const popup = document.getElementById('stretch-popup');
-            const prompt = document.getElementById('stretch-prompt');
-            const timer = document.getElementById('stretch-timer');
-            const stretches = ["Reach for the sky", "Touch your toes", "Side stretch left", "Side stretch right"];
-            let timeLeft = 60;
-            prompt.textContent = stretches[Math.floor(Math.random() * stretches.length)];
-            popup.style.display = 'block';
-            
-            const interval = setInterval(() => {
-                timer.textContent = timeLeft;
-                timeLeft--;
-                if (timeLeft < 0) {
-                    clearInterval(interval);
-                    prompt.textContent = "Nice stretch! Energized?";
-                    timer.textContent = "";
-                }
-            }, 1000);
-        }
-
-        // Doodle Dash
-        function showDoodle() {
-            const popup = document.getElementById('doodle-popup');
-            const canvas = document.getElementById('doodle-canvas');
-            const ctx = canvas.getContext('2d');
-            const timer = document.getElementById('doodle-timer');
-            let timeLeft = 90;
-            let drawing = false;
-            popup.style.display = 'block';
-            
-            canvas.addEventListener('mousedown', () => drawing = true);
-            canvas.addEventListener('mouseup', () => drawing = false);
-            canvas.addEventListener('mousemove', (e) => {
-                if (drawing) {
-                    const rect = canvas.getBoundingClientRect();
-                    ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
-                    ctx.stroke();
-                }
-            });
-            ctx.beginPath();
-            
-            const interval = setInterval(() => {
-                timer.textContent = timeLeft;
-                timeLeft--;
-                if (timeLeft < 0) {
-                    clearInterval(interval);
-                    timer.textContent = "Cool doodle! Inspired?";
-                }
-            }, 1000);
-        }
-
-        function saveDoodle() {
-            const canvas = document.getElementById('doodle-canvas');
-            const link = document.createElement('a');
-            link.download = 'doodle.png';
-            link.href = canvas.toDataURL();
-            link.click();
-        }
-
-        // Happy Dance Party
-        function showDance() {
-            const popup = document.getElementById('dance-popup');
-            const prompt = document.getElementById('dance-prompt');
-            const timer = document.getElementById('dance-timer');
-            const dances = ["Spin around", "Wave your arms", "Hop on one foot", "Shimmy side to side"];
-            let timeLeft = 30;
-            prompt.textContent = dances[Math.floor(Math.random() * dances.length)];
-            popup.style.display = 'block';
-            
-            const interval = setInterval(() => {
-                timer.textContent = timeLeft;
-                timeLeft--;
-                if (timeLeft < 0) {
-                    clearInterval(interval);
-                    prompt.textContent = "Dance it out! Still happy?";
-                    timer.textContent = "";
-                }
-            }, 1000);
-        }
-
-        // Worry Shredder
-        function showWorryShredder() {
-            document.getElementById('worry-popup').style.display = 'block';
-        }
-
-        function shredWorry() {
-            const text = document.getElementById('worry-text').value;
-            const result = document.getElementById('worry-result');
-            if (text) {
-                result.textContent = "Shredding...";
-                result.style.display = 'block';
-                document.getElementById('worry-text').style.display = 'none';
-                document.querySelector('#worry-popup .tool-button').style.display = 'none';
+            const featureCards = document.querySelectorAll('.feature-card');
+            featureCards.forEach((card, index) => {
                 setTimeout(() => {
-                    result.textContent = "Worry shredded! Lighter now?";
-                }, 2000);
-            }
-        }
+                    card.classList.add('fade-in');
+                }, index * 200);
+            });
 
-        // Mood Color Picker
-        function showColorPicker() {
-            const popup = document.getElementById('color-popup');
-            const prompt = document.getElementById('color-prompt');
-            const square = document.getElementById('color-square');
-            const timer = document.getElementById('color-timer');
-            const colors = [
-                { name: "Blue to soothe", hex: "#3498db" },
-                { name: "Yellow to uplift", hex: "#f1c40f" },
-                { name: "Green to calm", hex: "#2ecc71" }
-            ];
-            let timeLeft = 60;
-            const picked = colors[Math.floor(Math.random() * colors.length)];
-            prompt.textContent = picked.name;
-            square.style.backgroundColor = picked.hex;
-            popup.style.display = 'block';
-            
-            const interval = setInterval(() => {
-                timer.textContent = timeLeft;
-                timeLeft--;
-                if (timeLeft < 0) {
-                    clearInterval(interval);
-                    prompt.textContent = "Color worked? Feeling better?";
-                    timer.textContent = "";
-                }
-            }, 1000);
-        }
-
-        // Close Popup Function
-        function closePopup(id) {
-            const popup = document.getElementById(id);
-            popup.style.display = 'none';
-            if (id === 'gratitude-popup') {
-                document.getElementById('gratitude-text').style.display = 'block';
-                document.getElementById('gratitude-result').style.display = 'none';
-                document.querySelector('#gratitude-popup .tool-button').style.display = 'block';
-                document.getElementById('gratitude-text').value = '';
-            } else if (id === 'soundscape-popup') {
-                const audio = document.getElementById('soundscape-audio');
-                audio.pause();
-                audio.currentTime = 0;
-                document.getElementById('soundscape-timer').textContent = "90";
-            } else if (id === 'punching-popup') {
-                document.getElementById('punching-bag').style.display = 'flex';
-            } else if (id === 'worry-popup') {
-                document.getElementById('worry-text').style.display = 'block';
-                document.getElementById('worry-result').style.display = 'none';
-                document.querySelector('#worry-popup .tool-button').style.display = 'block';
-                document.getElementById('worry-text').value = '';
-            } else if (id === 'doodle-popup') {
-                const canvas = document.getElementById('doodle-canvas');
-                const ctx = canvas.getContext('2d');
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            const testimonial = document.querySelector('.testimonial');
+            if (testimonial) {
+                setTimeout(() => {
+                    testimonial.classList.add('fade-in');
+                }, 800);
             }
-        }
+        };
     </script>
 </body>
 </html>
