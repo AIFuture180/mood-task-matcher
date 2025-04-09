@@ -19,6 +19,7 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <nav id="nav">
@@ -245,20 +246,6 @@
         </div>
     </div>
 
-    <!-- New Recommended Products Section -->
-    <div class="container">
-        <h3 class="section-heading">Recommended Products for a Happier You</h3>
-        <p class="affiliate-disclaimer">We may earn a small commission from purchases made through these links, at no extra cost to you.</p>
-        <div class="affiliate-products">
-            <div class="affiliate-card">
-                <h4>Serenilite Stress Balls</h4>
-                <p>Relieve stress and boost your mood with these stress balls, perfect for a quick relaxation break.</p>
-                <a href="https://amzn.to/4ir7OWZ" target="_blank" rel="noopener noreferrer" class="affiliate-button">Shop on Amazon</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Online Therapy Banner -->
     <div id="banner" class="premium-offer">
         <div class="ribbon">
             <span>SPECIAL OFFER</span>
@@ -357,16 +344,6 @@
                 document.querySelector(`button[onclick="toggleBlog('${contentId}')"]`).classList.add('active');
             }
         }
-
-        // Add scroll effect for nav
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('nav');
-            if (window.scrollY > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
 
         // Share on X functionality
         document.getElementById('share').addEventListener('click', () => {
