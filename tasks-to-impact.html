@@ -10,7 +10,7 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1511837633001567" crossorigin="anonymous" data-ad-init-load="300"></script>
     <!-- Google tag (gtag.js) -->
-    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-4985X51W1J"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4985X51W1J"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -19,6 +19,7 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <nav id="nav">
@@ -88,24 +89,23 @@
                 <p>Bryan Johnson, a longevity enthusiast, follows a strict, data-driven plant-based diet:</p>
                 <ul>
                     <li><strong>Calorie Precision:</strong> ~1,977 calories/day, measured precisely to maintain optimal weight and health.</li>
-                    <li><strong>Plant-Based:</strong> Focuses on nutrient-dense foods like lentils, broccoli, cauliflower, mushrooms, and seeds.</li>
-                    <li><strong>Super Veggie Mix:</strong> Daily blend of broccoli, cauliflower, garlic, ginger, and hemp seeds.</li>
-                    <li><strong>Nutty Pudding:</strong> A mix of nuts, seeds, berries, and pomegranate juice for antioxidants and healthy fats.</li>
-                    <li><strong>Supplements:</strong> Over 40 daily supplements (e.g., NMN, rapamycin) tailored to biomarkers.</li>
-                    <li><strong>Affiliate Offer:</strong> Save on Bryan Johnson’s Blueprint products with <a href="https://blueprint.bryanjohnson.com/SFWJRHYB" target="_blank" rel="noopener noreferrer">this affiliate link</a>.</li>
+                    <li><strong>Plant-Based:</strong> Focuses on nutrient-dense foods like lentils, black beans, broccoli, cauliflower, mushrooms, and seeds (chia, flax).</li>
+                    <li><strong>Super Veggie Blend:</strong> A daily mix of broccoli, cauliflower, mushrooms, garlic, ginger, and vinegar for anti-inflammatory benefits.</li>
+                    <li><strong>Supplements:</strong> Includes olive oil (1 tbsp), cacao flavanols, and a custom “Blueprint” stack for longevity.</li>
+                    <li><strong>Timing:</strong> Eats within an 8-hour window (intermittent fasting) to optimize metabolism.</li>
                 </ul>
                 <button class="close-sub-button" onclick="toggleSubContent('johnson-diet')">Close</button>
             </div>
 
             <div class="sub-impact-content" id="huberman-diet">
                 <h5>Andrew Huberman’s Diet Protocol</h5>
-                <p>Dr. Andrew Huberman, a neuroscientist, uses time-restricted eating and balanced nutrition:</p>
+                <p>Neuroscientist Andrew Huberman advocates a flexible, science-based approach to eating:</p>
                 <ul>
-                    <li><strong>Intermittent Fasting:</strong> 12-16 hour fast daily, eating window typically 11 AM–8 PM.</li>
-                    <li><strong>Morning Hydration:</strong> Water with lemon and salt; delays caffeine 90-120 minutes post-waking.</li>
-                    <li><strong>Low-Carb Lunch:</strong> High-quality meat (e.g., grass-fed beef) with vegetables (e.g., kale, spinach).</li>
-                    <li><strong>Evening Carbs:</strong> Starchy carbs (e.g., rice, pasta) with lean protein (e.g., salmon) to aid sleep.</li>
-                    <li><strong>Supplements:</strong> Fish oil, vitamin D, magnesium for brain and body health.</li>
+                    <li><strong>Protein Focus:</strong> 1g of protein per pound of body weight daily (e.g., eggs, lean meats, fish) to support muscle and brain health.</li>
+                    <li><strong>Carb Timing:</strong> Low-carb during the day (e.g., nuts, veggies) for mental clarity; higher carbs (e.g., rice, oats) at night to aid sleep via serotonin.</li>
+                    <li><strong>Fat Sources:</strong> Healthy fats from olive oil, avocados, and nuts for brain function.</li>
+                    <li><strong>Hydration:</strong> Drink water with electrolytes (e.g., a pinch of salt) first thing in the morning.</li>
+                    <li><strong>Fasting:</strong> Delays caffeine 90-120 minutes after waking and uses intermittent fasting to enhance focus.</li>
                 </ul>
                 <button class="close-sub-button" onclick="toggleSubContent('huberman-diet')">Close</button>
             </div>
@@ -113,90 +113,99 @@
         </div>
 
         <div class="impact-content" id="exercise">
-            <h4>Enhance Your Exercise with Expert Protocols</h4>
-            <p>Explore exercise recommendations from leading experts to optimize your fitness and performance. Click below to view each protocol:</p>
+            <h4>Boost Your Fitness with Expert Protocols</h4>
+            <p>Explore exercise routines from top experts to enhance your physical and mental health:</p>
             <div class="sub-button-container">
+                <button class="sub-impact-button" onclick="toggleSubContent('brecka-exercise')" aria-expanded="false" aria-controls="brecka-exercise">Gary Brecka’s Exercise Protocol</button>
+                <button class="sub-impact-button" onclick="toggleSubContent('johnson-exercise')" aria-expanded="false" aria-controls="johnson-exercise">Bryan Johnson’s Exercise Protocol</button>
                 <button class="sub-impact-button" onclick="toggleSubContent('huberman-exercise')" aria-expanded="false" aria-controls="huberman-exercise">Andrew Huberman’s Exercise Protocol</button>
-                <button class="sub-impact-button" onclick="toggleSubContent('sims-exercise')" aria-expanded="false" aria-controls="sims-exercise">Dr. Stacy Sims’ Exercise Protocol</button>
-                <button class="sub-impact-button" onclick="toggleSubContent('cook-exercise')" aria-expanded="false" aria-controls="cook-exercise">Gray Cook’s Exercise Protocol</button>
+            </div>
+
+            <div class="sub-impact-content" id="brecka-exercise">
+                <h5>Gary Brecka’s Exercise Protocol</h5>
+                <p>Gary Brecka emphasizes oxygen delivery and muscle efficiency:</p>
+                <ul>
+                    <li><strong>30-Minute Morning Walk:</strong> Low-intensity cardio post-protein (30-30-30) to burn fat and oxygenate blood.</li>
+                    <li><strong>Breathwork:</strong> 3 rounds of 30 deep breaths (Wim Hof-inspired) to boost energy and reduce stress.</li>
+                    <li><strong>Resistance Training:</strong> 3-4x/week, focusing on compound lifts (e.g., squats, deadlifts) for strength.</li>
+                    <li><strong>Cold Exposure:</strong> 3-5 minutes in cold water (50-55°F) post-workout to reduce inflammation.</li>
+                </ul>
+                <button class="close-sub-button" onclick="toggleSubContent('brecka-exercise')">Close</button>
+            </div>
+
+            <div class="sub-impact-content" id="johnson-exercise">
+                <h5>Bryan Johnson’s Exercise Protocol</h5>
+                <p>Bryan Johnson’s routine is optimized for longevity and efficiency:</p>
+                <ul>
+                    <li><strong>Daily Activity:</strong> 1 hour/day of mixed exercise (e.g., hiking, resistance training, HIIT).</li>
+                    <li><strong>Strength:</strong> High-intensity resistance 3x/week (e.g., leg press, pull-ups) for muscle maintenance.</li>
+                    <li><strong>Cardio:</strong> 3x/week of Zone 2 cardio (e.g., treadmill at 65-75% max heart rate) for 45 minutes.</li>
+                    <li><strong>Flexibility:</strong> Daily stretching or yoga to maintain mobility.</li>
+                </ul>
+                <button class="close-sub-button" onclick="toggleSubContent('johnson-exercise')">Close</button>
             </div>
 
             <div class="sub-impact-content" id="huberman-exercise">
                 <h5>Andrew Huberman’s Exercise Protocol</h5>
-                <p>Dr. Andrew Huberman, a neuroscientist, recommends this weekly exercise protocol for overall fitness:</p>
+                <p>Andrew Huberman balances fitness with brain health:</p>
                 <ul>
-                    <li><strong>Endurance (Weekly):</strong> Do at least 30 minutes of Zone 2 cardio (e.g., jogging or hiking) to build cardiovascular health; aim for 60–75 minutes if possible.</li>
-                    <li><strong>Strength (Weekly):</strong> Train major muscle groups (e.g., legs, torso) with 3–4 sets of 5–8 reps using heavy weights, resting 2–4 minutes between sets.</li>
-                    <li><strong>Flexibility (Daily):</strong> Hold static stretches for 30–60 seconds per major muscle group, 3x/week or daily, to improve flexibility.</li>
-                    <li><strong>Recovery (Post-Workout):</strong> After training, do 3–5 minutes of slow breathing to relax your nervous system and aid recovery.</li>
-                    <li><strong>Supplements (Optional):</strong> Consider Alpha-GPC (300mg) or L-Tyrosine (500mg) 30–60 minutes before key workouts to boost focus and performance.</li>
+                    <li><strong>Cardio:</strong> 3-4x/week of Zone 2 cardio (e.g., jogging, cycling) for 30-60 minutes.</li>
+                    <li><strong>Strength:</strong> 2-3x/week of resistance training (e.g., push-ups, squats) for 45-60 minutes.</li>
+                    <li><strong>Neck Exercises:</strong> Daily neck stretches and strengthening to support posture and brain blood flow.</li>
+                    <li><strong>Sunlight:</strong> Exercise outdoors when possible to regulate circadian rhythm.</li>
                 </ul>
-                <p class="disclaimer"><em>Supplement Disclaimer: Consult a healthcare provider before taking any supplements, including Alpha-GPC or L-Tyrosine, especially if you have medical conditions, are pregnant, or are taking medication. Supplements may interact with medications or cause adverse effects if not used appropriately.</em></p>
                 <button class="close-sub-button" onclick="toggleSubContent('huberman-exercise')">Close</button>
-            </div>
-
-            <div class="sub-impact-content" id="sims-exercise">
-                <h5>Dr. Stacy Sims’ Exercise Protocol</h5>
-                <p>Dr. Stacy Sims, an exercise physiologist and nutrition scientist, focuses on female-specific training and performance:</p>
-                <ul>
-                    <li><strong>HIIT (Weekly):</strong> Perform 2–3 sessions of high-intensity interval training (e.g., 30-sec sprints, 2-min recovery) for 20–30 minutes to boost VO2 max.</li>
-                    <li><strong>Strength (Weekly):</strong> Lift heavy weights 2–3x/week (e.g., 3–5 sets of 3–6 reps) targeting compound lifts (squats, deadlifts) to build lean muscle.</li>
-                    <li><strong>Timing:</strong> Train fasted or post-carb meal depending on menstrual cycle phase—high hormone phases (luteal) favor low-intensity, low hormone (follicular) favor high-intensity.</li>
-                    <li><strong>Hydration:</strong> Drink 500–700ml water with electrolytes (e.g., sodium, potassium) per hour of exercise to maintain performance.</li>
-                    <li><strong>Recovery:</strong> Consume 20–30g protein within 30 minutes post-workout to optimize muscle repair, especially for women.</li>
-                </ul>
-                <button class="close-sub-button" onclick="toggleSubContent('sims-exercise')">Close</button>
-            </div>
-
-            <div class="sub-impact-content" id="cook-exercise">
-                <h5>Gray Cook’s Exercise Protocol</h5>
-                <p>Gray Cook, a leading expert in movement and creator of the Functional Movement Screen (FMS), emphasizes movement quality:</p>
-                <ul>
-                    <li><strong>Movement Screening:</strong> Assess mobility and stability with FMS (e.g., deep squat, hurdle step) to identify weaknesses before training.</li>
-                    <li><strong>Mobility First:</strong> Perform daily corrective exercises (e.g., ankle mobility drills, thoracic spine rotations) for 10–15 minutes to improve movement patterns.</li>
-                    <li><strong>Strength (Weekly):</strong> Use kettlebells or bodyweight for 3–4 sessions (e.g., 3 sets of 10 Turkish get-ups) to build functional strength.</li>
-                    <li><strong>Stability:</strong> Train single-leg stance or plank variations 3x/week (e.g., 3 sets of 30–60 sec) to enhance core stability.</li>
-                    <li><strong>Progression:</strong> Only add load or intensity after achieving symmetry and pain-free movement in FMS tests.</li>
-                </ul>
-                <button class="close-sub-button" onclick="toggleSubContent('cook-exercise')">Close</button>
             </div>
             <button class="close-button" onclick="toggleContent('exercise')">Close</button>
         </div>
 
         <div class="impact-content" id="mindfulness">
-            <h4>Practice Mindfulness with Dr. Julie Smith’s Protocol</h4>
-            <p>Dr. Julie Smith, a clinical psychologist, suggests these mindfulness techniques to improve mental well-being:</p>
+            <h4>Enhance Mindfulness with Dr. Andrew Huberman’s Protocol</h4>
+            <p>Dr. Andrew Huberman offers these neuroscience-based mindfulness practices:</p>
             <ul>
-                <li><strong>Grounding Exercise:</strong> Take 1 minute to notice 5 things you can see, 4 things you can touch, 3 things you can hear, 2 things you can smell, and 1 thing you can taste to anchor yourself in the present.</li>
-                <li><strong>Mindful Breathing:</strong> Spend 2 minutes breathing deeply—inhale for 4 seconds, hold for 4 seconds, exhale for 4 seconds—to calm your mind.</li>
-                <li><strong>Journal Your Emotions:</strong> Write down how you’re feeling for 3 minutes to process emotions without judgment.</li>
-                <li><strong>Body Scan:</strong> Take 2 minutes to mentally scan your body from head to toe, noticing any tension and consciously relaxing those areas.</li>
-                <li><strong>Gratitude Practice:</strong> Name 3 things you’re grateful for each day to shift your focus toward positivity.</li>
+                <li><strong>Morning Sunlight:</strong> Get 5-10 minutes of sunlight within an hour of waking to reset your circadian rhythm.</li>
+                <li><strong>One-Minute Meditation:</strong> Focus on your breath (inhale 4s, exhale 4s) to calm your mind anytime.</li>
+                <li><strong>Visual Reset:</strong> Look at a distant horizon for 30 seconds to relax your eyes and brain.</li>
+                <li><strong>Gratitude Practice:</strong> Write or think of 1-3 things you’re grateful for daily to boost positivity.</li>
             </ul>
             <button class="close-button" onclick="toggleContent('mindfulness')">Close</button>
         </div>
     </div>
 
-    <div class="premium-offer">
-        <p class="disclaimer"><em>Affiliate Disclosure: Mood-to-Task Matcher may earn a commission if you click the link below and make a purchase, at no additional cost to you.</em></p>
-        <p class="ad-label">Sponsored: Support Your Mental Health with Online Therapy</p>
+    <div id="banner" class="premium-offer">
+        <div class="ribbon">
+            <span>SPECIAL OFFER</span>
+        </div>
+        <p class="ad-label">Feel Better Faster with Professional Support</p>
+        <p class="disclaimer"><em>Affiliate Disclosure: Mood-to-Task Matcher may earn a commission from purchases at no extra cost to you.</em></p>
         <a href="https://onlinetherapy.go2cloud.org/aff_c?offer_id=2&aff_id=4837&file_id=5" class="banner-link">
             <img src="https://media.go2speed.org/brand/files/onlinetherapy/2/online-therapy-banner_728x90.jpg" alt="Online Therapy Banner" class="banner-img">
         </a>
         <img src="https://onlinetherapy.go2cloud.org/aff_i?offer_id=2&file_id=5&aff_id=4837" width="0" height="0" style="position:absolute;visibility:hidden;" border="0" />
         <div class="ad-info">
-            <h4>Why Choose Online Therapy?</h4>
-            <ul>
-                <li>Individual and couples therapy</li>
-                <li>Weekly 45-minute live sessions (video, voice, or text)</li>
-                <li>Unlimited messaging with every plan</li>
-                <li>A comprehensive 8-section CBT program with 25 worksheets</li>
-                <li>Daily worksheet replies (Mon-Fri)</li>
-                <li>Exclusive yoga & meditation videos, a journal, activity plan & tests</li>
-                <li>Instant therapist match and the flexibility to seamlessly change therapists</li>
-                <li>20% discount using the code: <strong>THERAPY20</strong></li>
-                <li>Financial aid options available during checkout</li>
-            </ul>
+            <h4>Why 10,000+ People Choose Online Therapy:</h4>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <span class="benefit-icon">🎯</span>
+                    <span>Weekly video sessions</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">💬</span>
+                    <span>Unlimited messaging</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">📱</span>
+                    <span>Access anywhere</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">🛠️</span>
+                    <span>25+ practical worksheets</span>
+                </div>
+            </div>
+            <div class="promo-code">
+                <p>Use code: <strong>THERAPY20</strong> for 20% OFF</p>
+            </div>
+            <button class="cta-button" onclick="window.open('https://onlinetherapy.go2cloud.org/aff_c?offer_id=2&aff_id=4837&file_id=5', '_blank')">Get Started Now</button>
         </div>
     </div>
 
@@ -209,7 +218,7 @@
 
     <div id="donate">
         <h3>Support Us</h3>
-        <p>If you find these tasks helpful, please consider supporting us!</p>
+        <p>If you enjoy these insights, please consider supporting us!</p>
         <a href="https://www.buymeacoffee.com/moodtask" target="_blank" rel="noopener noreferrer">
             <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" style="width: 150px; height: auto;">
         </a>
@@ -239,34 +248,24 @@
     </footer>
 
     <script>
-        // Toggle top-level content visibility (accordion style)
-        function toggleContent(sectionId) {
-            const content = document.getElementById(sectionId);
-            const button = document.querySelector(`button[aria-controls="${sectionId}"]`);
+        function toggleContent(contentId) {
+            const content = document.getElementById(contentId);
+            const button = document.querySelector(`button[aria-controls="${contentId}"]`);
             const allContents = document.querySelectorAll('.impact-content');
             const allButtons = document.querySelectorAll('.impact-button');
-            const allSubContents = document.querySelectorAll('.sub-impact-content');
-            const allSubButtons = document.querySelectorAll('.sub-impact-button');
 
-            // Close all other top-level sections and reset buttons
             allContents.forEach(item => {
                 if (item !== content) {
                     item.classList.remove('show');
                 }
             });
             allButtons.forEach(btn => {
-                btn.classList.remove('active');
-                btn.setAttribute('aria-expanded', 'false');
+                if (btn !== button) {
+                    btn.classList.remove('active');
+                    btn.setAttribute('aria-expanded', 'false');
+                }
             });
 
-            // Close all sub-sections when switching top-level sections
-            allSubContents.forEach(sub => sub.classList.remove('show'));
-            allSubButtons.forEach(subBtn => {
-                subBtn.classList.remove('active');
-                subBtn.setAttribute('aria-expanded', 'false');
-            });
-
-            // Toggle the clicked section
             if (content.classList.contains('show')) {
                 content.classList.remove('show');
                 button.classList.remove('active');
@@ -276,27 +275,36 @@
                 button.classList.add('active');
                 button.setAttribute('aria-expanded', 'true');
             }
+
+            if (contentId === 'diet' || contentId === 'exercise') {
+                const subContents = content.querySelectorAll('.sub-impact-content');
+                subContents.forEach(sub => sub.classList.remove('show'));
+                const subButtons = content.querySelectorAll('.sub-impact-button');
+                subButtons.forEach(subBtn => {
+                    subBtn.classList.remove('active');
+                    subBtn.setAttribute('aria-expanded', 'false');
+                });
+            }
         }
 
-        // Toggle sub-level content visibility (nested accordion)
-        function toggleSubContent(subSectionId) {
-            const subContent = document.getElementById(subSectionId);
-            const subButton = document.querySelector(`button[aria-controls="${subSectionId}"]`);
-            const allSubContents = document.querySelectorAll('.sub-impact-content');
-            const allSubButtons = document.querySelectorAll('.sub-impact-button');
+        function toggleSubContent(subContentId) {
+            const subContent = document.getElementById(subContentId);
+            const subButton = document.querySelector(`button[aria-controls="${subContentId}"]`);
+            const allSubContents = subContent.parentElement.querySelectorAll('.sub-impact-content');
+            const allSubButtons = subContent.parentElement.querySelectorAll('.sub-impact-button');
 
-            // Close all other sub-sections and reset sub-buttons
             allSubContents.forEach(item => {
                 if (item !== subContent) {
                     item.classList.remove('show');
                 }
             });
             allSubButtons.forEach(btn => {
-                btn.classList.remove('active');
-                btn.setAttribute('aria-expanded', 'false');
+                if (btn !== subButton) {
+                    btn.classList.remove('active');
+                    btn.setAttribute('aria-expanded', 'false');
+                }
             });
 
-            // Toggle the clicked sub-section
             if (subContent.classList.contains('show')) {
                 subContent.classList.remove('show');
                 subButton.classList.remove('active');
@@ -308,35 +316,11 @@
             }
         }
 
-        // Add scroll effect for nav
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('nav');
-            if (window.scrollY > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
-
-        // Share on X functionality
         document.getElementById('share').addEventListener('click', () => {
             const url = encodeURIComponent(window.location.href);
-            const text = encodeURIComponent('Discover how small tasks can make a big impact on your mood with Mood-to-Task Matcher! #MoodToTask');
+            const text = encodeURIComponent('Discover how small tasks can impact your life with Mood-to-Task Matcher! #MoodToTask');
             window.open(`https://x.com/intent/tweet?url=${url}&text=${text}`, '_blank');
         });
-
-        // Initialize by hiding all sections
-        window.onload = () => {
-            const impactSections = document.querySelectorAll('.impact-content');
-            impactSections.forEach(section => section.classList.remove('show'));
-            const impactButtons = document.querySelectorAll('.impact-button');
-            impactButtons.forEach(button => button.setAttribute('aria-expanded', 'false'));
-
-            const subImpactSections = document.querySelectorAll('.sub-impact-content');
-            subImpactSections.forEach(subSection => subSection.classList.remove('show'));
-            const subImpactButtons = document.querySelectorAll('.sub-impact-button');
-            subImpactButtons.forEach(subButton => subButton.setAttribute('aria-expanded', 'false'));
-        };
     </script>
 </body>
 </html>
