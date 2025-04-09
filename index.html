@@ -8,7 +8,7 @@
     <meta name="robots" content="index, follow">
     <title>Mood to Task | Boost Your Mood Instantly</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1511837633001567" crossorigin="anonymous"></script>
+    <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1511837633001567" crossorigin="anonymous" data-ad-init-load="300"></script>
     <!-- Google tag (gtag.js) -->
     <script defer src="https://www.googletagmanager.com/gtag/js?id=G-4985X51W1J"></script>
     <script>
@@ -18,6 +18,8 @@
         gtag('config', 'G-4985X51W1J');
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -31,176 +33,139 @@
         </div>
     </nav>
 
-    <main>
-        <div class="hero-section">
-            <h1>Boost Your Mood in Seconds</h1>
-            <h2>Fun, Quick Tasks Tailored to How You Feel</h2>
-            <button class="hero-cta pulse-animation" onclick="document.getElementById('mood-prompt').scrollIntoView({ behavior: 'smooth' })">Get Started</button>
+    <div class="hero-section">
+        <h1>Boost Your Mood in Seconds</h1>
+        <h2>Fun, Quick Tasks Tailored to How You Feel</h2>
+        <button class="hero-cta pulse-animation" onclick="document.getElementById('mood-prompt').scrollIntoView({ behavior: 'smooth' })">Get Started</button>
+    </div>
+
+    <div id="mood-prompt">
+        <div id="instruction">How are you feeling right now?</div>
+        <div id="mood-buttons">
+            <button onclick="selectMood('tired'); gtag('event', 'Mood Selection', { 'event_category': 'Mood', 'event_label': 'Tired' });" data-tooltip="Feeling low-energy or sleepy?"><span class="mood-icon">😴</span>Tired</button>
+            <button onclick="selectMood('stressed'); gtag('event', 'Mood Selection', { 'event_category': 'Mood', 'event_label': 'Stressed' });" data-tooltip="Feeling overwhelmed or tense?"><span class="mood-icon">😓</span>Stressed</button>
+            <button onclick="selectMood('bored'); gtag('event', 'Mood Selection', { 'event_category': 'Mood', 'event_label': 'Bored' });" data-tooltip="Feeling uninspired or restless?"><span class="mood-icon">🥱</span>Bored</button>
+            <button onclick="selectMood('excited'); gtag('event', 'Mood Selection', { 'event_category': 'Mood', 'event_label': 'Excited' });" data-tooltip="Feeling energized or thrilled?"><span class="mood-icon">🤩</span>Excited</button>
+            <button onclick="selectMood('sad'); gtag('event', 'Mood Selection', { 'event_category': 'Mood', 'event_label': 'Sad' });" data-tooltip="Feeling down or blue?"><span class="mood-icon">😢</span>Sad</button>
+            <button onclick="selectMood('angry'); gtag('event', 'Mood Selection', { 'event_category': 'Mood', 'event_label': 'Angry' });" data-tooltip="Feeling frustrated or upset?"><span class="mood-icon">😡</span>Angry</button>
+            <button onclick="selectMood('happy'); gtag('event', 'Mood Selection', { 'event_category': 'Mood', 'event_label': 'Happy' });" data-tooltip="Feeling cheerful or content?"><span class="mood-icon">😊</span>Happy</button>
+            <button onclick="selectMood('confused'); gtag('event', 'Mood Selection', { 'event_category': 'Mood', 'event_label': 'Confused' });" data-tooltip="Feeling uncertain or puzzled?"><span class="mood-icon">🤔</span>Confused</button>
         </div>
-
-        <div id="mood-prompt">
-            <div id="instruction">How are you feeling right now?</div>
-            <div id="mood-buttons">
-                <button class="tired" data-mood="tired" data-tooltip="Feeling low-energy or exhausted?"><span class="mood-icon">😴</span>Tired</button>
-                <button class="stressed" data-mood="stressed" data-tooltip="Feeling tense or overwhelmed?"><span class="mood-icon">😓</span>Stressed</button>
-                <button class="bored" data-mood="bored" data-tooltip="Feeling uninspired or restless?"><span class="mood-icon">🥱</span>Bored</button>
-                <button class="excited" data-mood="excited" data-tooltip="Feeling energized and thrilled?"><span class="mood-icon">🤩</span>Excited</button>
-                <button class="sad" data-mood="sad" data-tooltip="Feeling down or blue?"><span class="mood-icon">😢</span>Sad</button>
-                <button class="angry" data-mood="angry" data-tooltip="Feeling frustrated or mad?"><span class="mood-icon">😡</span>Angry</button>
-                <button class="happy" data-mood="happy" data-tooltip="Feeling cheerful and content?"><span class="mood-icon">😊</span>Happy</button>
-                <button class="confused" data-mood="confused" data-tooltip="Feeling puzzled or unsure?"><span class="mood-icon">🤔</span>Confused</button>
-            </div>
-            <div id="result"></div>
-            <div class="tools-container">
-                <button class="tool-button" onclick="showBreathingTimer()">Start Breathing Exercise</button>
-                <button class="tool-button" onclick="showGratitudeNote()">Write a Gratitude Note</button>
-                <button class="tool-button" onclick="showSoundscape()">Play a Soundscape</button>
-                <button class="tool-button" onclick="showPunchingBag()">Punch Out Frustration</button>
-                <button class="tool-button" onclick="showStretch()">Quick Stretch</button>
-                <button class="tool-button" onclick="showDoodle()">Doodle Dash</button>
-                <button class="tool-button" onclick="showDance()">Happy Dance</button>
-                <button class="tool-button" onclick="showWorryShredder()">Shred a Worry</button>
-                <button class="tool-button" onclick="showColorPicker()">Mood Color</button>
-            </div>
-            <div id="breathing-popup" class="popup">
-                <div class="popup-content">
-                    <h4>Breathing Exercise</h4>
-                    <p id="breathing-step">Inhale</p>
-                    <p id="breathing-timer">4</p>
-                    <button class="close-button" onclick="closePopup('breathing-popup')">Close</button>
-                </div>
-            </div>
-            <div id="gratitude-popup" class="popup">
-                <div class="popup-content">
-                    <h4>Gratitude Note</h4>
-                    <textarea id="gratitude-text" rows="3" placeholder="What are you thankful for?"></textarea>
-                    <button class="tool-button" onclick="saveGratitude()">Save</button>
-                    <p id="gratitude-result" style="display: none;"></p>
-                    <button class="close-button" onclick="closePopup('gratitude-popup')">Close</button>
-                </div>
-            </div>
-            <div id="soundscape-popup" class="popup">
-                <div class="popup-content">
-                    <h4>90-Second Soundscape</h4>
-                    <audio id="soundscape-audio" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
-                    <button class="tool-button" onclick="toggleSoundscape()">Play</button>
-                    <p id="soundscape-timer">90</p>
-                    <button class="close-button" onclick="closePopup('soundscape-popup')">Close</button>
-                </div>
-            </div>
-            <div id="punching-popup" class="popup">
-                <div class="popup-content">
-                    <h4>Punch Out Frustration</h4>
-                    <div id="punching-bag" onclick="punchBag()">Punch Me!</div>
-                    <p id="punch-count">Punches: 0</p>
-                    <p id="punch-timer">30</p>
-                    <button class="close-button" onclick="closePopup('punching-popup')">Close</button>
-                </div>
-            </div>
-            <div id="stretch-popup" class="popup">
-                <div class="popup-content">
-                    <h4>60-Second Stretch</h4>
-                    <p id="stretch-prompt"></p>
-                    <p id="stretch-timer">60</p>
-                    <button class="close-button" onclick="closePopup('stretch-popup')">Close</button>
-                </div>
-            </div>
-            <div id="doodle-popup" class="popup">
-                <div class="popup-content">
-                    <h4>90-Second Doodle</h4>
-                    <canvas id="doodle-canvas" width="200" height="150" style="border: 1px solid #ccc;"></canvas>
-                    <p id="doodle-timer">90</p>
-                    <button class="tool-button" onclick="saveDoodle()">Save</button>
-                    <button class="close-button" onclick="closePopup('doodle-popup')">Close</button>
-                </div>
-            </div>
-            <div id="dance-popup" class="popup">
-                <div class="popup-content">
-                    <h4>30-Second Dance Party</h4>
-                    <p id="dance-prompt"></p>
-                    <p id="dance-timer">30</p>
-                    <button class="close-button" onclick="closePopup('dance-popup')">Close</button>
-                </div>
-            </div>
-            <div id="worry-popup" class="popup">
-                <div class="popup-content">
-                    <h4>Worry Shredder</h4>
-                    <textarea id="worry-text" rows="3" placeholder="Type a worry..."></textarea>
-                    <button class="tool-button" onclick="shredWorry()">Shred It</button>
-                    <p id="worry-result" style="display: none;"></p>
-                    <button class="close-button" onclick="closePopup('worry-popup')">Close</button>
-                </div>
-            </div>
-            <div id="color-popup" class="popup">
-                <div class="popup-content">
-                    <h4>60-Second Color Focus</h4>
-                    <p id="color-prompt"></p>
-                    <div id="color-square" style="width: 100px; height: 100px; margin: 10px auto;"></div>
-                    <p id="color-timer">60</p>
-                    <button class="close-button" onclick="closePopup('color-popup')">Close</button>
-                </div>
-            </div>
+        <div id="result"></div>
+        <div class="tools-container">
+            <button class="tool-button breathing" onclick="openPopup('breathing')">
+                <i class="fas fa-wind tool-icon"></i>
+                Breathing Exercise
+            </button>
+            <button class="tool-button gratitude" onclick="openPopup('gratitude')">
+                <i class="fas fa-heart tool-icon"></i>
+                Gratitude Note
+            </button>
+            <button class="tool-button soundscape" onclick="openPopup('soundscape')">
+                <i class="fas fa-volume-up tool-icon"></i>
+                Soundscape
+            </button>
+            <button class="tool-button punching" onclick="openPopup('punching')">
+                <i class="fas fa-fist-raised tool-icon"></i>
+                Punching Bag
+            </button>
+            <button class="tool-button stretch" onclick="openPopup('stretch')">
+                <i class="fas fa-child tool-icon"></i>
+                Stretch
+            </button>
+            <button class="tool-button doodle" onclick="openPopup('doodle')">
+                <i class="fas fa-pencil-alt tool-icon"></i>
+                Doodle
+            </button>
+            <button class="tool-button dance" onclick="openPopup('dance')">
+                <i class="fas fa-music tool-icon"></i>
+                Dance
+            </button>
+            <button class="tool-button worry" onclick="openPopup('worry')">
+                <i class="fas fa-cut tool-icon"></i>
+                Worry Shredder
+            </button>
+            <button class="tool-button color" onclick="openPopup('color')">
+                <i class="fas fa-palette tool-icon"></i>
+                Color Focus
+            </button>
         </div>
+    </div>
 
-        <div id="intro-content">
-            <h2 class="section-heading">Why Mood to Task?</h2>
-            <div class="feature-cards">
-                <div class="feature-card">
-                    <span class="feature-icon">⚡</span>
-                    <h3>Instant Mood Boost</h3>
-                    <p>Get quick, fun tasks to shift your mood in under a minute.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🧠</span>
-                    <h3>Science-Backed</h3>
-                    <p>Activities rooted in psychology and neuroscience.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🎯</span>
-                    <h3>Tailored to You</h3>
-                    <p>Personalized tasks based on your current mood.</p>
-                </div>
+    <div id="intro-content">
+        <div id="banner" class="premium-offer">
+            <div class="ribbon">
+                <span>SPECIAL OFFER</span>
             </div>
-            <div class="premium-offer">
-                <p class="disclaimer"><em>Affiliate Disclosure: Mood to Task may earn a commission if you click the link below and make a purchase, at no additional cost to you.</em></p>
-                <p class="ad-label">Sponsored: Support Your Mental Health with Online Therapy</p>
-                <a href="https://onlinetherapy.go2cloud.org/aff_c?offer_id=2&aff_id=4837&file_id=5" class="banner-link">
-                    <img src="https://media.go2speed.org/brand/files/onlinetherapy/2/online-therapy-banner_728x90.jpg" alt="Online Therapy Banner" class="banner-img">
-                </a>
-                <img src="https://onlinetherapy.go2cloud.org/aff_i?offer_id=2&file_id=5&aff_id=4837" width="0" height="0" style="position:absolute;visibility:hidden;" border="0" />
-                <div class="ad-info">
-                    <h4>Why Choose Online Therapy?</h4>
-                    <ul>
-                        <li>Individual and couples therapy</li>
-                        <li>Weekly 45-minute live sessions (video, voice, or text)</li>
-                        <li>Unlimited messaging with every plan</li>
-                        <li>A comprehensive 8-section CBT program with 25 worksheets</li>
-                        <li>Daily worksheet replies (Mon-Fri)</li>
-                        <li>Exclusive yoga & meditation videos, a journal, activity plan & tests</li>
-                        <li>Instant therapist match and the flexibility to seamlessly change therapists</li>
-                        <li>20% discount using the code: <strong>THERAPY20</strong></li>
-                        <li>Financial aid options available during checkout</li>
-                    </ul>
-                </div>
-            </div>
-            <p class="disclaimer"><em>General Disclaimer: Mood to Task provides suggestions for informational purposes only. These are not substitutes for professional medical or psychological advice.</em></p>
-        </div>
-
-        <button id="share" class="share-button" aria-label="Share this page on X">
-            <svg class="share-logo" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-            </svg>
-            <span>Share on X</span>
-        </button>
-
-        <div id="donate">
-            <h3>Support Us</h3>
-            <p>If you enjoy Mood to Task, consider buying us a coffee!</p>
-            <a href="https://www.buymeacoffee.com/moodtask" target="_blank" rel="noopener noreferrer">
-                <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" style="width: 150px; height: auto;">
+            <p class="ad-label">Feel Better Faster with Professional Support</p>
+            <p class="disclaimer"><em>Affiliate Disclosure: Mood-to-Task Matcher may earn a commission from purchases at no extra cost to you.</em></p>
+            <a href="https://onlinetherapy.go2cloud.org/aff_c?offer_id=2&aff_id=4837&file_id=5" class="banner-link">
+                <img src="https://media.go2speed.org/brand/files/onlinetherapy/2/online-therapy-banner_728x90.jpg" alt="Online Therapy Banner" class="banner-img">
             </a>
+            <img src="https://onlinetherapy.go2cloud.org/aff_i?offer_id=2&file_id=5&aff_id=4837" width="0" height="0" style="position:absolute;visibility:hidden;" border="0" />
+            <div class="ad-info">
+                <h4>Why 10,000+ People Choose Online Therapy:</h4>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <span class="benefit-icon">🎯</span>
+                        <span>Weekly 45-minute live sessions</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">💬</span>
+                        <span>Unlimited messaging with your therapist</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">📱</span>
+                        <span>Access anywhere via mobile or desktop</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">🛠️</span>
+                        <span>25+ practical worksheets for growth</span>
+                    </div>
+                </div>
+                <div class="promo-code">
+                    <p>Use code: <strong>THERAPY20</strong> for 20% OFF</p>
+                </div>
+                <button class="cta-button" onclick="window.open('https://onlinetherapy.go2cloud.org/aff_c?offer_id=2&aff_id=4837&file_id=5', '_blank')">Get Started Now</button>
+            </div>
         </div>
-    </main>
+        <p class="disclaimer"><em>Disclaimer: The suggestions provided by Mood to Task are not substitutes for professional medical or psychological advice. Always consult a qualified professional for personalized guidance.</em></p>
+    </div>
+
+    <button id="share" class="share-button" aria-label="Share this page on X">
+        <svg class="share-logo" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+        <span>Share on X</span>
+    </button>
+
+    <div id="donate">
+        <h3>Support Us</h3>
+        <p>If you find Mood to Task helpful, please consider supporting us!</p>
+        <a href="https://www.buymeacoffee.com/moodtask" target="_blank" rel="noopener noreferrer">
+            <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" style="width: 150px; height: auto;">
+        </a>
+    </div>
+
+    <div id="intro-content">
+        <h2 class="section-heading">Why Mood to Task?</h2>
+        <div class="feature-cards">
+            <div class="feature-card">
+                <span class="feature-icon">⚡</span>
+                <h3>Instant Mood Boost</h3>
+                <p>Get quick, fun tasks to shift your mood in under a minute.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🧠</span>
+                <h3>Science-Backed</h3>
+                <p>Activities rooted in psychology and neuroscience.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🎯</span>
+                <p>Personal tasks based on your current mood.</p>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <div class="footer-columns">
@@ -225,298 +190,692 @@
         <p class="copyright">© 2025 Mood to Task. All rights reserved.</p>
     </footer>
 
+    <!-- Popups for each tool -->
+    <div id="breathing-popup" class="popup">
+        <div class="popup-content">
+            <h4>Breathing Exercise</h4>
+            <div id="breathing-circle">
+                <span id="breathing-step">Inhale</span>
+            </div>
+            <p id="breathing-instruction">Breathe in deeply...</p>
+            <div class="progress-container">
+                <div id="breathing-progress" class="progress-bar"></div>
+            </div>
+            <p id="breathing-timer">Time remaining: 60s</p>
+            <button class="close-button" onclick="closePopup('breathing')">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="gratitude-popup" class="popup">
+        <div class="popup-content">
+            <h4>Gratitude Note</h4>
+            <p>Write down something you're grateful for:</p>
+            <textarea id="gratitude-text" rows="3" placeholder="Today I'm grateful for..."></textarea>
+            <button class="action-button" onclick="saveGratitude()">
+                <i class="fas fa-save"></i> Save Gratitude
+            </button>
+            <button class="close-button" onclick="closePopup('gratitude')">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="soundscape-popup" class="popup">
+        <div class="popup-content">
+            <h4>Soundscape</h4>
+            <p>Relax with a calming soundscape</p>
+            <select id="soundscape-select" class="sound-select">
+                <option value="nature">Forest Sounds</option>
+                <option value="rain">Gentle Rain</option>
+                <option value="waves">Ocean Waves</option>
+            </select>
+            <div class="audio-controls">
+                <button id="play-btn" class="audio-btn">
+                    <i class="fas fa-play"></i>
+                </button>
+                <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="0.7">
+            </div>
+            <div class="progress-container">
+                <div id="soundscape-progress" class="progress-bar"></div>
+            </div>
+            <p id="soundscape-timer">Time remaining: 90s</p>
+            <button class="close-button" onclick="closePopup('soundscape')">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="punching-popup" class="popup">
+        <div class="popup-content">
+            <h4>Punching Bag</h4>
+            <p>Release your stress! Tap or click the bag to punch.</p>
+            <div id="punching-bag">0</div>
+            <div class="progress-container">
+                <div id="punching-progress" class="progress-bar"></div>
+            </div>
+            <p id="punching-timer">Time remaining: 30s</p>
+            <button class="close-button" onclick="closePopup('punching')">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="stretch-popup" class="popup">
+        <div class="popup-content">
+            <h4>Stretch</h4>
+            <p id="stretch-prompt">Stretch prompt will appear here...</p>
+            <div class="progress-container">
+                <div id="stretch-progress" class="progress-bar"></div>
+            </div>
+            <p id="stretch-timer">Time remaining: 60s</p>
+            <button class="close-button" onclick="closePopup('stretch')">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="doodle-popup" class="popup">
+        <div class="popup-content">
+            <h4>Doodle</h4>
+            <p>Let your creativity flow! Draw for 90 seconds.</p>
+            <div class="drawing-tools">
+                <input type="color" id="color-picker" value="#000000">
+                <input type="range" id="brush-size" min="1" max="20" value="5">
+            </div>
+            <canvas id="doodle-canvas" width="400" height="300"></canvas>
+            <div class="progress-container">
+                <div id="doodle-progress" class="progress-bar"></div>
+            </div>
+            <p id="doodle-timer">Time remaining: 90s</p>
+            <button class="action-button" onclick="saveDoodle()">
+                <i class="fas fa-download"></i> Save Doodle
+            </button>
+            <button class="action-button" onclick="clearCanvas()">
+                <i class="fas fa-trash"></i> Clear
+            </button>
+            <button class="close-button" onclick="closePopup('doodle')">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="dance-popup" class="popup">
+        <div class="popup-content">
+            <h4>Dance</h4>
+            <div id="dance-animation">
+                <i class="fas fa-child fa-4x bounce"></i>
+            </div>
+            <p id="dance-prompt">Dance prompt will appear here...</p>
+            <div class="progress-container">
+                <div id="dance-progress" class="progress-bar"></div>
+            </div>
+            <p id="dance-timer">Time remaining: 30s</p>
+            <button class="close-button" onclick="closePopup('dance')">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="worry-popup" class="popup">
+        <div class="popup-content">
+            <h4>Worry Shredder</h4>
+            <p>Write down a worry, then watch it get shredded away!</p>
+            <textarea id="worry-text" rows="3" placeholder="I'm worried about..."></textarea>
+            <div id="paper-strips-container"></div>
+            <button class="action-button" onclick="shredWorry()">
+                <i class="fas fa-cut"></i> Shred Worry
+            </button>
+            <button class="close-button" onclick="closePopup('worry')">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="color-popup" class="popup">
+        <div class="popup-content">
+            <h4>Color Focus</h4>
+            <p id="color-prompt">Focus on a color...</p>
+            <div id="color-square"></div>
+            <div class="progress-container">
+                <div id="color-progress" class="progress-bar"></div>
+            </div>
+            <p id="color-timer">Time remaining: 60s</p>
+            <button class="close-button" onclick="closePopup('color')">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Audio elements for sound effects and soundscape music -->
+    <audio id="click-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-simple-countdown-922.mp3"></audio>
+    <audio id="success-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-achievement-bell-600.mp3"></audio>
+    <audio id="punch-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-punch-with-a-hard-whistle-2054.mp3"></audio>
+    <audio id="shred-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-paper-ripping-1376.mp3"></audio>
+    <!-- Soundscape music with GitHub raw URLs -->
+    <audio id="nature-sound" src="https://raw.githubusercontent.com/AIFuture180/mood-task-matcher/main/Spring%20Day%20Forest.mp3" loop></audio>
+    <audio id="rain-sound" src="https://raw.githubusercontent.com/AIFuture180/mood-task-matcher/main/Light%20Rain.mp3" loop></audio>
+    <audio id="waves-sound" src="https://raw.githubusercontent.com/AIFuture180/mood-task-matcher/main/Waves%20Crashing%20on%20Rock%20Beach.mp3" loop></audio>
+
     <script>
-        let punchCount = 0;
-        const moodButtons = document.querySelectorAll('#mood-buttons button');
-        const resultDiv = document.getElementById('result');
+        // Add scroll effect for nav
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
         const tasks = {
             tired: [
-                { task: "Take a quick power nap for 10-20 minutes to recharge.", question: "Did that nap give you a little boost?" },
-                { task: "Do a gentle 5-minute stretch to wake up your body.", question: "Feeling a bit more limber now?" }
+                { task: "Take a quick power nap for 10-20 minutes to recharge.", followUp: "Did that nap help you feel more energized?" },
+                { task: "Drink a glass of water to rehydrate and boost your energy.", followUp: "Do you feel more awake now?" },
+                { task: "Listen to an upbeat song to lift your spirits.", followUp: "Did the music help energize you?" }
             ],
             stressed: [
-                { task: "Try a 1-minute deep breathing exercise: inhale for 4, hold for 4, exhale for 4.", question: "Feel a bit calmer now?" },
-                { task: "Write down 3 things stressing you out, then crumple the paper and toss it.", question: "Did that feel satisfying?" }
+                { task: "Try a 1-minute breathing exercise: inhale for 4 seconds, hold for 4, exhale for 4.", followUp: "Do you feel calmer now?" },
+                { task: "Write down 3 things you're grateful for to shift your focus.", followUp: "Did this help you feel more grounded?" },
+                { task: "Take a 5-minute walk to clear your mind.", followUp: "Did the walk help reduce your stress?" }
             ],
             bored: [
-                { task: "Doodle something silly for 2 minutes—let your imagination run wild!", question: "Did that spark some fun?" },
-                { task: "Watch a funny 1-minute video online.", question: "Did you get a chuckle out of that?" }
+                { task: "Doodle or sketch something fun for a minute.", followUp: "Did that spark some creativity?" },
+                { task: "Watch a funny 1-minute video to entertain yourself.", followUp: "Did that make you smile?" },
+                { task: "Try a quick brain teaser or riddle to engage your mind.", followUp: "Did that help you feel more engaged?" }
             ],
             excited: [
-                { task: "Dance to your favorite song for 2 minutes to ride that high!", question: "Still buzzing with energy?" },
-                { task: "Tell someone (or yourself!) about what’s exciting you in 30 seconds.", question: "Did sharing amp it up?" }
+                { task: "Share your excitement with a friend or write it down!", followUp: "Did sharing amplify your excitement?" },
+                { task: "Dance to a favorite song for a minute to celebrate!", followUp: "Did that feel good?" },
+                { task: "Set a small goal to channel your energy into something productive.", followUp: "Did that help you focus your excitement?" }
             ],
             sad: [
-                { task: "Listen to an uplifting song for 3 minutes and let it sink in.", question: "Did that lift your spirits a bit?" },
-                { task: "Write down 1 thing you’re grateful for today.", question: "Did that shift your perspective?" }
+                { task: "Listen to a comforting song that resonates with you.", followUp: "Did the music help lift your spirits?" },
+                { task: "Write down something you’re looking forward to.", followUp: "Did that give you a bit of hope?" },
+                { task: "Give yourself a big hug and take a few deep breaths.", followUp: "Did that make you feel a bit better?" }
             ],
             angry: [
-                { task: "Punch a pillow for 30 seconds to let off some steam.", question: "Feel a bit lighter now?" },
-                { task: "Take 10 slow, deep breaths to cool down.", question: "Did that help you chill out?" }
+                { task: "Take 10 slow, deep breaths to calm your mind.", followUp: "Do you feel less angry now?" },
+                { task: "Write down what’s making you angry, then tear up the paper.", followUp: "Did that help release some anger?" },
+                { task: "Punch a pillow for 30 seconds to let out your frustration.", followUp: "Did that help you feel more relaxed?" }
             ],
             happy: [
-                { task: "Share your happiness—text a friend a quick positive message.", question: "Did spreading joy feel good?" },
-                { task: "Do a quick happy dance for 30 seconds!", question: "Still smiling after that?" }
+                { task: "Share your happiness with someone by sending a kind message.", followUp: "Did that make you feel even happier?" },
+                { task: "Do a quick happy dance to celebrate your mood!", followUp: "Did that keep your energy up?" },
+                { task: "Write down this moment so you can remember it later.", followUp: "Did that help you savor the happiness?" }
             ],
             confused: [
-                { task: "Jot down your thoughts for 1 minute to untangle them.", question: "Any clearer now?" },
-                { task: "Take a 2-minute break and look out a window to reset.", question: "Did that help you refocus?" }
+                { task: "Take a moment to write down what’s confusing you to clarify your thoughts.", followUp: "Did that help clear your mind?" },
+                { task: "Take 5 deep breaths to center yourself and reduce overwhelm.", followUp: "Do you feel more focused now?" },
+                { task: "Break down your problem into smaller steps to tackle one at a time.", followUp: "Did that make things feel more manageable?" }
             ]
         };
 
-        moodButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                moodButtons.forEach(btn => btn.classList.remove('selected'));
-                button.classList.add('selected');
-                const mood = button.getAttribute('data-mood');
-                showTask(mood);
-                gtag('event', 'Mood Selection', { 'event_category': 'Mood', 'event_label': mood });
-            });
-        });
+        let currentMood = null;
 
-        function showTask(mood) {
-            const taskList = tasks[mood];
+        function selectMood(mood) {
+            currentMood = mood;
+            const buttons = document.querySelectorAll('#mood-buttons button');
+            buttons.forEach(button => button.classList.remove('selected'));
+            const selectedButton = Array.from(buttons).find(button => button.textContent.toLowerCase().includes(mood));
+            if (selectedButton) {
+                selectedButton.classList.add('selected');
+            }
+            showTask();
+        }
+
+        function showTask() {
+            if (!currentMood) return;
+            const taskList = tasks[currentMood];
             const randomTask = taskList[Math.floor(Math.random() * taskList.length)];
-            const emoji = document.querySelector(`button[data-mood="${mood}"] .mood-icon`).textContent;
+            const emoji = document.querySelector(`#mood-buttons button.selected .mood-icon`).textContent;
+            const resultDiv = document.getElementById('result');
             resultDiv.innerHTML = `
                 <div class="chat-bubble">
                     <div class="task-header">
                         <span class="mood-emoji">${emoji}</span>
-                        <h3>${mood.charAt(0).toUpperCase() + mood.slice(1)}</h3>
+                        <h3>${currentMood.charAt(0).toUpperCase() + currentMood.slice(1)}</h3>
                     </div>
                     <p class="task-text">${randomTask.task}</p>
-                    <p class="follow-up-question">${randomTask.question}</p>
+                    <p class="follow-up-question">${randomTask.followUp}</p>
                     <div class="task-buttons">
-                        <button class="favorite-button"><span class="heart-icon">❤️</span>Favorite</button>
-                        <button class="new-task-button">New Task</button>
+                        <button class="favorite-button" onclick="favoriteTask(this)">
+                            <span class="heart-icon">❤️</span>Favorite
+                        </button>
+                        <button class="new-task-button" onclick="showTask(); gtag('event', 'New Task Request', { 'event_category': 'Task', 'event_label': '${currentMood}' });">New Task</button>
                     </div>
                 </div>
             `;
-            const favoriteButton = resultDiv.querySelector('.favorite-button');
-            const newTaskButton = resultDiv.querySelector('.new-task-button');
-            favoriteButton.addEventListener('click', () => {
-                favoriteButton.style.backgroundColor = '#ff4f41';
-                gtag('event', 'Favorite Task', { 'event_category': 'Task', 'event_label': `${mood} - ${randomTask.task}` });
-            });
-            newTaskButton.addEventListener('click', () => {
-                showTask(mood);
-                gtag('event', 'New Task Request', { 'event_category': 'Task', 'event_label': mood });
-            });
         }
 
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('nav');
-            if (window.scrollY > 50) nav.classList.add('scrolled');
-            else nav.classList.remove('scrolled');
-        });
-
-        document.getElementById('share').addEventListener('click', () => {
-            const url = encodeURIComponent(window.location.href);
-            const text = encodeURIComponent('Boost your mood instantly with Mood to Task! Fun, quick tasks tailored to how you feel. #MoodToTask');
-            window.open(`https://x.com/intent/tweet?url=${url}&text=${text}`, '_blank');
-            gtag('event', 'Share', { 'event_category': 'Social', 'event_label': 'X' });
-        });
-
-        function showBreathingTimer() {
-            const popup = document.getElementById('breathing-popup');
-            const step = document.getElementById('breathing-step');
-            const timer = document.getElementById('breathing-timer');
-            let totalTime = 60, phaseTime = 4, phase = 0;
-            const steps = ["Inhale", "Hold", "Exhale"];
-            popup.style.display = 'block';
-            step.textContent = steps[phase];
-            timer.textContent = phaseTime;
-            const interval = setInterval(() => {
-                phaseTime--; timer.textContent = phaseTime;
-                if (phaseTime <= 0) { phase = (phase + 1) % 3; step.textContent = steps[phase]; phaseTime = 4; }
-                totalTime--; if (totalTime <= 0) { clearInterval(interval); step.textContent = "Great job! Feel calmer?"; timer.textContent = ""; }
-            }, 1000);
+        function favoriteTask(button) {
+            button.style.backgroundColor = '#ff4f41';
+            button.style.color = '#fff';
+            gtag('event', 'Favorite Task', { 'event_category': 'Task', 'event_label': currentMood });
         }
 
-        function showGratitudeNote() { document.getElementById('gratitude-popup').style.display = 'block'; }
-        function saveGratitude() {
-            const text = document.getElementById('gratitude-text').value;
-            const result = document.getElementById('gratitude-result');
-            if (text) {
-                result.textContent = `You wrote: "${text}" - Nice one!`;
-                result.style.display = 'block';
-                document.getElementById('gratitude-text').style.display = 'none';
-                document.querySelector('#gratitude-popup .tool-button').style.display = 'none';
-                setTimeout(() => closePopup('gratitude-popup'), 3000);
+        // Sound effects
+        const clickSound = document.getElementById('click-sound');
+        const successSound = document.getElementById('success-sound');
+        const punchSound = document.getElementById('punch-sound');
+        const shredSound = document.getElementById('shred-sound');
+        const natureSounds = {
+            nature: document.getElementById('nature-sound'),
+            rain: document.getElementById('rain-sound'),
+            waves: document.getElementById('waves-sound')
+        };
+        let currentSound = null;
+
+        // Play sound function with volume control
+        function playSound(sound, volume = 0.5) {
+            sound.volume = volume;
+            sound.currentTime = 0;
+            sound.play().catch(err => console.error('Sound playback failed:', err));
+        }
+
+        // Open a popup and start the corresponding activity
+        function openPopup(tool) {
+            playSound(clickSound, 0.3);
+            const popup = document.getElementById(`${tool}-popup`);
+            popup.style.display = 'flex';
+            if (tool === 'breathing') startBreathing();
+            if (tool === 'soundscape') startSoundscape();
+            if (tool === 'punching') startPunching();
+            if (tool === 'stretch') startStretch();
+            if (tool === 'doodle') startDoodle();
+            if (tool === 'dance') startDance();
+            if (tool === 'color') startColorFocus();
+        }
+
+        // Close a popup and stop any running activity
+        function closePopup(tool) {
+            const popup = document.getElementById(`${tool}-popup`);
+            popup.style.display = 'none';
+            if (tool === 'breathing') clearInterval(window.breathingInterval);
+            if (tool === 'soundscape') {
+                clearInterval(window.soundscapeInterval);
+                if (currentSound) currentSound.pause();
+            }
+            if (tool === 'punching') clearInterval(window.punchingInterval);
+            if (tool === 'stretch') clearInterval(window.stretchInterval);
+            if (tool === 'doodle') clearInterval(window.doodleInterval);
+            if (tool === 'dance') clearInterval(window.danceInterval);
+            if (tool === 'color') clearInterval(window.colorInterval);
+            if (tool === 'gratitude') document.getElementById('gratitude-text').value = '';
+            if (tool === 'worry') {
+                document.getElementById('worry-text').value = '';
+                document.getElementById('paper-strips-container').innerHTML = '';
             }
         }
 
-        function showSoundscape() { document.getElementById('soundscape-popup').style.display = 'block'; }
-        function toggleSoundscape() {
-            const audio = document.getElementById('soundscape-audio');
-            const timer = document.getElementById('soundscape-timer');
-            let timeLeft = 90;
-            if (audio.paused) {
-                audio.play();
-                const interval = setInterval(() => {
-                    timer.textContent = timeLeft; timeLeft--;
-                    if (timeLeft < 0) { clearInterval(interval); audio.pause(); audio.currentTime = 0; timer.textContent = "Done! Refocused?"; }
-                }, 1000);
-            } else {
-                audio.pause(); audio.currentTime = 0; timer.textContent = "90";
+        // Update progress bar
+        function updateProgress(elementId, total, current) {
+            const progressBar = document.getElementById(elementId);
+            const percentage = ((total - current) / total) * 100;
+            progressBar.style.width = percentage + '%';
+        }
+
+        // Breathing Exercise
+        function startBreathing() {
+            let time = 60;
+            let step = 0;
+            const steps = [
+                { text: "Inhale", instruction: "Breathe in slowly through your nose...", class: "inhale" },
+                { text: "Hold", instruction: "Hold your breath...", class: "hold" },
+                { text: "Exhale", instruction: "Breathe out slowly through your mouth...", class: "exhale" }
+            ];
+            const stepElement = document.getElementById('breathing-step');
+            const instructionElement = document.getElementById('breathing-instruction');
+            const timerElement = document.getElementById('breathing-timer');
+            const circle = document.getElementById('breathing-circle');
+            
+            circle.className = '';
+            updateProgress('breathing-progress', 60, 0);
+            
+            function updateBreathing() {
+                if (time % 4 === 0) {
+                    step = (step % 3);
+                    stepElement.textContent = steps[step].text;
+                    instructionElement.textContent = steps[step].instruction;
+                    circle.className = steps[step].class;
+                    step++;
+                }
+                
+                time--;
+                timerElement.textContent = `Time remaining: ${time}s`;
+                updateProgress('breathing-progress', 60, time);
+                
+                if (time <= 0) {
+                    clearInterval(window.breathingInterval);
+                    playSound(successSound, 0.4);
+                    setTimeout(() => closePopup('breathing'), 1500);
+                }
             }
+            
+            updateBreathing();
+            window.breathingInterval = setInterval(updateBreathing, 1000);
         }
 
-        function showPunchingBag() {
-            const popup = document.getElementById('punching-popup');
-            const count = document.getElementById('punch-count');
-            const timer = document.getElementById('punch-timer');
-            let timeLeft = 30; punchCount = 0;
-            count.textContent = "Punches: 0"; timer.textContent = timeLeft;
-            popup.style.display = 'block';
-            const interval = setInterval(() => {
-                timeLeft--; timer.textContent = timeLeft;
-                if (timeLeft < 0) { clearInterval(interval); count.textContent = `Punches: ${punchCount} - Feel lighter?`; document.getElementById('punching-bag').style.display = 'none'; }
-            }, 1000);
-        }
-        function punchBag() {
-            punchCount++; document.getElementById('punch-count').textContent = `Punches: ${punchCount}`;
-            const bag = document.getElementById('punching-bag');
-            bag.style.transform = 'scale(0.9)';
-            setTimeout(() => bag.style.transform = 'scale(1)', 100);
-        }
-
-        function showStretch() {
-            const popup = document.getElementById('stretch-popup');
-            const prompt = document.getElementById('stretch-prompt');
-            const timer = document.getElementById('stretch-timer');
-            const stretches = ["Reach for the sky", "Touch your toes", "Side stretch left", "Side stretch right"];
-            let timeLeft = 60;
-            prompt.textContent = stretches[Math.floor(Math.random() * stretches.length)];
-            popup.style.display = 'block';
-            timer.textContent = timeLeft;
-            const interval = setInterval(() => {
-                timeLeft--; timer.textContent = timeLeft;
-                if (timeLeft < 0) { clearInterval(interval); prompt.textContent = "Nice stretch! Energized?"; timer.textContent = ""; }
-            }, 1000);
-        }
-
-        function showDoodle() {
-            const popup = document.getElementById('doodle-popup');
-            const canvas = document.getElementById('doodle-canvas');
-            const ctx = canvas.getContext('2d');
-            const timer = document.getElementById('doodle-timer');
-            let timeLeft = 90, drawing = false;
-            ctx.strokeStyle = '#000'; ctx.lineWidth = 2;
-            popup.style.display = 'block';
-            timer.textContent = timeLeft;
-            canvas.onmousedown = () => drawing = true;
-            canvas.onmouseup = () => drawing = false;
-            canvas.onmousemove = (e) => {
-                if (drawing) {
-                    const rect = canvas.getBoundingClientRect();
-                    ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
-                    ctx.stroke();
-                } else {
-                    ctx.beginPath();
-                    ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
+        // Soundscape (Updated to fix sound switching issue)
+        function startSoundscape() {
+            let time = 90;
+            const timerElement = document.getElementById('soundscape-timer');
+            const selectElement = document.getElementById('soundscape-select');
+            const playButton = document.getElementById('play-btn');
+            const volumeSlider = document.getElementById('volume-slider');
+            
+            // Reset progress bar and timer display
+            updateProgress('soundscape-progress', 90, 0);
+            playButton.innerHTML = '<i class="fas fa-play"></i>'; // Ensure play icon is shown initially
+            
+            // Stop any currently playing sound when the dropdown selection changes
+            selectElement.onchange = function() {
+                if (currentSound) {
+                    currentSound.pause();
+                    currentSound.currentTime = 0;
+                    playButton.innerHTML = '<i class="fas fa-play"></i>'; // Reset to play icon
                 }
             };
-            const interval = setInterval(() => {
-                timeLeft--; timer.textContent = timeLeft;
-                if (timeLeft < 0) { clearInterval(interval); timer.textContent = "Cool doodle! Inspired?"; }
+            
+            // Single click handler for play/pause
+            playButton.onclick = function() {
+                const soundType = selectElement.value;
+                
+                // If a different sound is selected, stop the current sound
+                if (currentSound && currentSound !== natureSounds[soundType]) {
+                    currentSound.pause();
+                    currentSound.currentTime = 0;
+                }
+                
+                // Set the current sound to the selected sound
+                currentSound = natureSounds[soundType];
+                
+                // Toggle play/pause
+                if (currentSound.paused) {
+                    const playPromise = currentSound.play();
+                    playPromise.then(() => {
+                        currentSound.volume = volumeSlider.value;
+                        playButton.innerHTML = '<i class="fas fa-pause"></i>';
+                    }).catch(err => {
+                        console.error(`Failed to play ${soundType} audio:`, err);
+                        playButton.innerHTML = '<i class="fas fa-play"></i>';
+                    });
+                } else {
+                    currentSound.pause();
+                    currentSound.currentTime = 0; // Reset to start when pausing
+                    playButton.innerHTML = '<i class="fas fa-play"></i>';
+                }
+            };
+            
+            // Adjust volume when the slider changes
+            volumeSlider.oninput = function() {
+                if (currentSound) currentSound.volume = this.value;
+            };
+            
+            // Timer logic
+            window.soundscapeInterval = setInterval(() => {
+                time--;
+                timerElement.textContent = `Time remaining: ${time}s`;
+                updateProgress('soundscape-progress', 90, time);
+                
+                if (time <= 0) {
+                    clearInterval(window.soundscapeInterval);
+                    if (currentSound) {
+                        const fadeInterval = setInterval(() => {
+                            if (currentSound.volume > 0.1) {
+                                currentSound.volume -= 0.1;
+                            } else {
+                                currentSound.pause();
+                                clearInterval(fadeInterval);
+                                playSound(successSound, 0.4);
+                                setTimeout(() => closePopup('soundscape'), 1500);
+                            }
+                        }, 100);
+                    } else {
+                        playSound(successSound, 0.4);
+                        setTimeout(() => closePopup('soundscape'), 1500);
+                    }
+                }
             }, 1000);
         }
+
+        // Punching Bag
+        function startPunching() {
+            let time = 30;
+            let count = 0;
+            const bag = document.getElementById('punching-bag');
+            const timerElement = document.getElementById('punching-timer');
+            
+            bag.textContent = '0';
+            bag.style.transform = 'scale(1)';
+            updateProgress('punching-progress', 30, 0);
+            
+            bag.onclick = () => {
+                count++;
+                bag.textContent = count;
+                playSound(punchSound, 0.3);
+                
+                bag.style.transform = 'scale(0.9) rotate(-5deg)';
+                setTimeout(() => {
+                    bag.style.transform = 'scale(1) rotate(0)';
+                }, 150);
+            };
+            
+            window.punchingInterval = setInterval(() => {
+                time--;
+                timerElement.textContent = `Time remaining: ${time}s`;
+                updateProgress('punching-progress', 30, time);
+                
+                if (time <= 0) {
+                    clearInterval(window.punchingInterval);
+                    playSound(successSound, 0.4);
+                    bag.textContent = count;
+                    bag.innerHTML = `<span>Great job!</span><br>${count}`;
+                    setTimeout(() => closePopup('punching'), 2000);
+                }
+            }, 1000);
+        }
+
+        // Stretch
+        function startStretch() {
+            let time = 60;
+            const prompts = [
+                { text: "Reach for the sky and hold for a few seconds." },
+                { text: "Touch your toes and feel the stretch in your legs." },
+                { text: "Stretch your arms behind your back and open your chest." },
+                { text: "Gently roll your head from side to side." }
+            ];
+            const promptElement = document.getElementById('stretch-prompt');
+            const timerElement = document.getElementById('stretch-timer');
+            
+            const randomStretch = prompts[Math.floor(Math.random() * prompts.length)];
+            promptElement.textContent = randomStretch.text;
+            
+            updateProgress('stretch-progress', 60, 0);
+            
+            window.stretchInterval = setInterval(() => {
+                time--;
+                timerElement.textContent = `Time remaining: ${time}s`;
+                updateProgress('stretch-progress', 60, time);
+                
+                if (time <= 0) {
+                    clearInterval(window.stretchInterval);
+                    playSound(successSound, 0.4);
+                    setTimeout(() => closePopup('stretch'), 1500);
+                }
+            }, 1000);
+        }
+
+        // Doodle
+        function startDoodle() {
+            let time = 90;
+            const canvas = document.getElementById('doodle-canvas');
+            const ctx = canvas.getContext('2d');
+            let drawing = false;
+            const timerElement = document.getElementById('doodle-timer');
+            const colorPicker = document.getElementById('color-picker');
+            const brushSize = document.getElementById('brush-size');
+            
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            updateProgress('doodle-progress', 90, 0);
+            
+            canvas.addEventListener('mousedown', () => drawing = true);
+            canvas.addEventListener('mouseup', () => drawing = false);
+            canvas.addEventListener('mousemove', (e) => {
+                if (!drawing) return;
+                const rect = canvas.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                ctx.fillStyle = colorPicker.value;
+                ctx.beginPath();
+                ctx.arc(x, y, parseInt(brushSize.value), 0, Math.PI * 2);
+                ctx.fill();
+            });
+            
+            window.doodleInterval = setInterval(() => {
+                time--;
+                timerElement.textContent = `Time remaining: ${time}s`;
+                updateProgress('doodle-progress', 90, time);
+                
+                if (time <= 0) {
+                    clearInterval(window.doodleInterval);
+                    playSound(successSound, 0.4);
+                    setTimeout(() => closePopup('doodle'), 1500);
+                }
+            }, 1000);
+        }
+
         function saveDoodle() {
             const canvas = document.getElementById('doodle-canvas');
             const link = document.createElement('a');
             link.download = 'doodle.png';
             link.href = canvas.toDataURL();
             link.click();
+            playSound(successSound, 0.4);
         }
 
-        function showDance() {
-            const popup = document.getElementById('dance-popup');
-            const prompt = document.getElementById('dance-prompt');
-            const timer = document.getElementById('dance-timer');
-            const dances = ["Spin around", "Wave your arms", "Hop on one foot", "Shimmy side to side"];
-            let timeLeft = 30;
-            prompt.textContent = dances[Math.floor(Math.random() * dances.length)];
-            popup.style.display = 'block';
-            timer.textContent = timeLeft;
-            const interval = setInterval(() => {
-                timeLeft--; timer.textContent = timeLeft;
-                if (timeLeft < 0) { clearInterval(interval); prompt.textContent = "Dance it out! Still happy?"; timer.textContent = ""; }
-            }, 1000);
+        function clearCanvas() {
+            const canvas = document.getElementById('doodle-canvas');
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            playSound(clickSound, 0.3);
         }
 
-        function showWorryShredder() { document.getElementById('worry-popup').style.display = 'block'; }
-        function shredWorry() {
-            const text = document.getElementById('worry-text').value;
-            const result = document.getElementById('worry-result');
-            if (text) {
-                result.textContent = "Shredding..."; result.style.display = 'block';
-                document.getElementById('worry-text').style.display = 'none';
-                document.querySelector('#worry-popup .tool-button').style.display = 'none';
-                setTimeout(() => { result.textContent = "Worry shredded! Lighter now?"; }, 2000);
-            }
-        }
-
-        function showColorPicker() {
-            const popup = document.getElementById('color-popup');
-            const prompt = document.getElementById('color-prompt');
-            const square = document.getElementById('color-square');
-            const timer = document.getElementById('color-timer');
-            const colors = [
-                { name: "Blue to soothe", hex: "#3498db" },
-                { name: "Yellow to uplift", hex: "#f1c40f" },
-                { name: "Green to calm", hex: "#2ecc71" }
+        // Dance
+        function startDance() {
+            let time = 30;
+            const prompts = [
+                "Spin around and let loose!",
+                "Do a little shimmy to the beat!",
+                "Jump up and down with joy!"
             ];
-            let timeLeft = 60;
-            const picked = colors[Math.floor(Math.random() * colors.length)];
-            prompt.textContent = picked.name;
-            square.style.backgroundColor = picked.hex;
-            popup.style.display = 'block';
-            timer.textContent = timeLeft;
-            const interval = setInterval(() => {
-                timeLeft--; timer.textContent = timeLeft;
-                if (timeLeft < 0) { clearInterval(interval); prompt.textContent = "Color worked? Feeling better?"; timer.textContent = ""; }
+            const promptElement = document.getElementById('dance-prompt');
+            const timerElement = document.getElementById('dance-timer');
+            
+            promptElement.textContent = prompts[Math.floor(Math.random() * prompts.length)];
+            
+            updateProgress('dance-progress', 30, 0);
+            
+            window.danceInterval = setInterval(() => {
+                time--;
+                timerElement.textContent = `Time remaining: ${time}s`;
+                updateProgress('dance-progress', 30, time);
+                
+                if (time <= 0) {
+                    clearInterval(window.danceInterval);
+                    playSound(successSound, 0.4);
+                    setTimeout(() => closePopup('dance'), 1500);
+                }
             }, 1000);
         }
 
-        function closePopup(id) {
-            const popup = document.getElementById(id);
-            popup.style.display = 'none';
-            if (id === 'breathing-popup') {
-                clearInterval(window[id + '-interval']); // Clear any running interval
-                document.getElementById('breathing-step').textContent = "Inhale";
-                document.getElementById('breathing-timer').textContent = "4";
-            } else if (id === 'gratitude-popup') {
-                document.getElementById('gratitude-text').style.display = 'block';
-                document.getElementById('gratitude-result').style.display = 'none';
-                document.querySelector('#gratitude-popup .tool-button').style.display = 'block';
-                document.getElementById('gratitude-text').value = '';
-            } else if (id === 'soundscape-popup') {
-                const audio = document.getElementById('soundscape-audio');
-                audio.pause(); audio.currentTime = 0;
-                document.getElementById('soundscape-timer').textContent = "90";
-            } else if (id === 'punching-popup') {
-                document.getElementById('punching-bag').style.display = 'flex';
-                document.getElementById('punch-count').textContent = "Punches: 0";
-                document.getElementById('punch-timer').textContent = "30";
-            } else if (id === 'stretch-popup') {
-                document.getElementById('stretch-timer').textContent = "60";
-            } else if (id === 'doodle-popup') {
-                const canvas = document.getElementById('doodle-canvas');
-                const ctx = canvas.getContext('2d');
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                document.getElementById('doodle-timer').textContent = "90";
-            } else if (id === 'dance-popup') {
-                document.getElementById('dance-timer').textContent = "30";
-            } else if (id === 'worry-popup') {
-                document.getElementById('worry-text').style.display = 'block';
-                document.getElementById('worry-result').style.display = 'none';
-                document.querySelector('#worry-popup .tool-button').style.display = 'block';
-                document.getElementById('worry-text').value = '';
-            } else if (id === 'color-popup') {
-                document.getElementById('color-timer').textContent = "60";
-            }
+        // Color Focus
+        function startColorFocus() {
+            let time = 60;
+            const colors = [
+                { name: "Blue to soothe", hex: "#1E90FF" },
+                { name: "Green to calm", hex: "#32CD32" },
+                { name: "Yellow to uplift", hex: "#FFD700" }
+            ];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            const promptElement = document.getElementById('color-prompt');
+            const squareElement = document.getElementById('color-square');
+            const timerElement = document.getElementById('color-timer');
+            
+            promptElement.textContent = `Focus on ${randomColor.name}`;
+            squareElement.style.backgroundColor = randomColor.hex;
+            
+            updateProgress('color-progress', 60, 0);
+            
+            window.colorInterval = setInterval(() => {
+                time--;
+                timerElement.textContent = `Time remaining: ${time}s`;
+                updateProgress('color-progress', 60, time);
+                
+                if (time <= 0) {
+                    clearInterval(window.colorInterval);
+                    playSound(successSound, 0.4);
+                    setTimeout(() => closePopup('color'), 1500);
+                }
+            }, 1000);
         }
+
+        // Worry Shredder
+        function shredWorry() {
+            const worryText = document.getElementById('worry-text');
+            const container = document.getElementById('paper-strips-container');
+            
+            if (worryText.value.trim() === '') {
+                alert('Please write a worry to shred!');
+                return;
+            }
+            
+            worryText.classList.add('shredding');
+            playSound(shredSound, 0.5);
+            
+            setTimeout(() => {
+                container.innerHTML = '';
+                for (let i = 0; i < 5; i++) {
+                    const strip = document.createElement('div');
+                    strip.style.width = '10px';
+                    strip.style.height = '50px';
+                    strip.style.backgroundColor = '#ddd';
+                    strip.style.position = 'absolute';
+                    strip.style.left = `${20 + i * 15}px`;
+                    strip.style.transform = `rotate(${Math.random() * 20 - 10}deg)`;
+                    strip.style.animation = `shred 0.5s forwards ${i * 0.1}s`;
+                    container.appendChild(strip);
+                }
+                
+                setTimeout(() => {
+                    worryText.value = '';
+                    container.innerHTML = '';
+                    alert('Worry shredded! Feel lighter?');
+                    playSound(successSound, 0.4);
+                    closePopup('worry');
+                }, 1000);
+            }, 1000);
+        }
+
+        // Gratitude Note
+        function saveGratitude() {
+            const gratitudeText = document.getElementById('gratitude-text').value;
+            if (gratitudeText.trim() === '') {
+                alert('Please write something you’re grateful for!');
+                return;
+            }
+            alert('Gratitude saved! Feeling more thankful?');
+            playSound(successSound, 0.4);
+            closePopup('gratitude');
+        }
+
+        document.getElementById('share').addEventListener('click', () => {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent('Boost your mood instantly with Mood to Task! Fun, quick tasks tailored to how you feel. #MoodToTask');
+            window.open(`https://x.com/intent/tweet?url=${url}&text=${text}`, '_blank');
+            gtag('event', 'Share', { 'event_category': 'Social', 'event_label': 'X Share' });
+        });
     </script>
 </body>
 </html>
